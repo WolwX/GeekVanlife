@@ -108,7 +108,14 @@ Le **"X"** fait référence à **Xavier** tout en symbolisant la **polyvalence**
 
 **Avancement :** En cours ⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜
 
+
 ### Prochaines phases
+
+**v0.2 - Isolation & Habillage** (À venir)
+- Démontage meubles cargo existants
+- Isolation Armaflex 10mm toutes surfaces
+- Plancher : Structure tasseaux + contreplaqué
+- Habillage intérieur propre
 
 **v0.3 - Systèmes** (Janvier-Février 2026)
 - 🔥 Chauffage diesel Mudiro 8KW
