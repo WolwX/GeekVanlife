@@ -1,15 +1,207 @@
-# Node
-node_modules/
-dist/
-.env
+# ═══════════════════════════════════════════════════════════════
+#                    .gitignore - GeekVanlife
+#                  Repository GitHub de Xavier Redondo
+# ═══════════════════════════════════════════════════════════════
 
-# Python
-__pycache__/
-*.pyc
+# ┌─────────────────────────────────────────────────────────────┐
+# │                   FICHIERS SYSTÈME                          │
+# └─────────────────────────────────────────────────────────────┘
 
-# Logs
-*.log
-
-# OS
+# macOS
 .DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
 Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.directory
+.Trash-*
+
+# ┌─────────────────────────────────────────────────────────────┐
+# │              FICHIERS MULTIMÉDIAS LOURDS                    │
+# └─────────────────────────────────────────────────────────────┘
+
+# Vidéos (toutes extensions courantes)
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.wmv
+*.flv
+*.webm
+*.m4v
+*.mpg
+*.mpeg
+
+# Photos haute résolution / originales
+*_original.jpg
+*_original.jpeg
+*_original.png
+*_raw.jpg
+*_raw.png
+*_hd.jpg
+*_hd.png
+*_4k.jpg
+*_fullres.jpg
+
+# Fichiers RAW photo
+*.raw
+*.cr2
+*.nef
+*.arw
+*.dng
+*.orf
+
+# Audio (si jamais)
+*.wav
+*.flac
+*.aif
+*.aiff
+
+# ┌─────────────────────────────────────────────────────────────┐
+# │                DOSSIERS TEMPORAIRES                         │
+# └─────────────────────────────────────────────────────────────┘
+
+# Dossiers de travail
+/temp/
+/tmp/
+/raw-photos/
+/videos-raw/
+/photos-originales/
+/backup-local/
+/brouillons/
+
+# Dossiers de build (si app future)
+/dist/
+/build/
+/.next/
+/out/
+
+# ┌─────────────────────────────────────────────────────────────┐
+# │                    ÉDITEURS / IDE                           │
+# └─────────────────────────────────────────────────────────────┘
+
+# Visual Studio Code
+.vscode/
+*.code-workspace
+
+# JetBrains (WebStorm, IntelliJ, etc.)
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*.swn
+.*.swp
+.*.swo
+
+# Emacs
+*~
+\#*\#
+.\#*
+
+# ┌─────────────────────────────────────────────────────────────┐
+# │              ENVIRONNEMENTS DE DEV (Future)                 │
+# └─────────────────────────────────────────────────────────────┘
+
+# Node.js (si tu crées une app)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Variables d'environnement
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Python (si scripts)
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+env/
+.venv/
+
+# ┌─────────────────────────────────────────────────────────────┐
+# │                  FICHIERS DE LOGS                           │
+# └─────────────────────────────────────────────────────────────┘
+
+*.log
+logs/
+*.log.*
+
+# ┌─────────────────────────────────────────────────────────────┐
+# │              FICHIERS COMPRESSÉS TEMPORAIRES                │
+# └─────────────────────────────────────────────────────────────┘
+
+*.tmp
+*.temp
+*.cache
+*.bak
+*.backup
+
+# Archives temporaires (garde les archives importantes)
+*_temp.zip
+*_tmp.zip
+*_backup.tar.gz
+
+# ┌─────────────────────────────────────────────────────────────┐
+# │                  FICHIERS PRIVÉS                            │
+# └─────────────────────────────────────────────────────────────┘
+
+# Informations sensibles (au cas où)
+*_private.*
+*_personnel.*
+/private/
+/perso/
+
+# Documents avec infos personnelles
+*_facture.*
+*_contrat.*
+*_administratif.*
+
+# ┌─────────────────────────────────────────────────────────────┐
+# │              FICHIERS SPÉCIFIQUES VANLIFE                   │
+# └─────────────────────────────────────────────────────────────┘
+
+# Exports de budgets Excel/Calc avec données sensibles
+*_budget_complet.*
+*_depenses_detaillees.*
+
+# ═══════════════════════════════════════════════════════════════
+#                           NOTES
+# ═══════════════════════════════════════════════════════════════
+#
+# Ce .gitignore protège contre :
+# 1. L'envoi de gros fichiers média sur GitHub
+# 2. Les fichiers système inutiles
+# 3. Les informations sensibles
+# 4. Les fichiers temporaires d'IDE
+#
+# Pour forcer l'ajout d'un fichier ignoré :
+#   git add -f fichier.mp4
+#
+# Pour voir ce qui est ignoré :
+#   git status --ignored
+#
+# ═══════════════════════════════════════════════════════════════
