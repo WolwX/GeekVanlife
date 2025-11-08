@@ -1,3 +1,4 @@
+	- [ ] Changement des tapis de sol
 # 🍴✖️ ForkX - Fiat Doblo Cargo 2020
 
 [![Statut](https://img.shields.io/badge/statut-en%20cours-yellow.svg)](.)
@@ -207,17 +208,35 @@ Le **"X"** fait référence à **Xavier** tout en symbolisant la **polyvalence**
 
 ## 🗺️ Roadmap
 
-### ✅ Phase v0.1 - Clean Base (Terminée)
+
+
+### 🚧 Phase v0.1 - Clean Base (En cours)
 **Novembre 2025**
 - [x] Inspection complète véhicule
 - [x] État des lieux détaillé
-- [x] Réparations mineures urgentes
-- [x] Nettoyage intérieur/extérieur
-- [x] Documents administratifs
+- [ ] Réparations de départ essentielles :
+	- [ ] Rétroviseur gauche (glace)
+	- [ ] Rétroviseur droit (clignotant)
+	- [ ] Antenne
+	- [ ] Enjoliveurs
+	- [ ] Autres petits éléments à corriger
+- [ ] Nettoyage intérieur/extérieur :
+	- [ ] Achat des produits de nettoyage
+	- [ ] Nettoyage cabine
+	- [ ] Nettoyage partie cargo
+- [ ] Documents administratifs :
+	- [ ] Récupération de la carte grise
+	- [ ] Changement de la plaque d'immatriculation
+- [ ] Sécurisation des clés (en attente de création d'un double)
+### 🧹 Mise au propre (À venir)
+- [ ] Démontage complet des contreplaqués de stockage (cargo)
+- [ ] Démontage complet de la paroi de séparation
+- [ ] Peinture complète de la partie cargo (antirouille blanche)
 
-### 🚧 Phase v0.2 - Isolation & Habillage (En cours)
-**Novembre-Décembre 2025**
-- [ ] Démontage meubles cargo existants *(en cours)*
+
+### ⏳ Phase v0.2 - Isolation & Habillage (À venir)
+**À planifier après finalisation de la Clean Base**
+- [ ] Démontage meubles cargo existants
 - [ ] Isolation Armaflex 10mm toutes surfaces
 - [ ] Plancher : Structure tasseaux + contreplaqué
 - [ ] Habillage intérieur propre
