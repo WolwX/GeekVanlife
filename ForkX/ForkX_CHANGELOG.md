@@ -3,4 +3,4 @@
 Toutes les modifications notables du projet ForkX seront consignées ici.
 
 ## [Unreleased]
-- Initialisation du projet ForkX.
+- ✅ ~~Initialisation du projet ForkX.~~

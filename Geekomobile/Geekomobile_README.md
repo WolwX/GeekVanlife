@@ -118,11 +118,11 @@ Les "5 saisons" représentent les **grandes étapes de mon parcours de vie** dep
 ### Évolution du Geekomobile
 
 Le véhicule lui-même évolue **en continu** depuis 2020 :
-- **2020 :** Aménagement initial (structure, isolation de base)
-- **2021 :** Systèmes de base (électricité, eau, couchage)
-- **2022 :** Optimisation et ajouts (douche fonctionnelle, chauffage performant)
-- **2023-2024 :** Réglages fins et vie quotidienne stable
-- **2025 :** Rénovations esthétiques et améliorations continues
+- ✅ ~~2020 : Aménagement initial (structure, isolation de base)~~
+- ✅ ~~2021 : Systèmes de base (électricité, eau, couchage)~~
+- ✅ ~~2022 : Optimisation et ajouts (douche fonctionnelle, chauffage performant)~~
+- ✅ ~~2023-2024 : Réglages fins et vie quotidienne stable~~
+- ✅ ~~2025 : Rénovations esthétiques et améliorations continues~~
 
 > **Important :** Le Geekomobile n'a pas eu "5 versions" distinctes. C'est un aménagement **évolutif et continu** qui s'adapte à mes besoins au fil des saisons de ma vie.
 
