@@ -220,8 +220,8 @@ Le **"X"** fait référence à **Xavier** tout en symbolisant la **polyvalence**
 
 ### 🚧 Phase v0.1 - Clean Base (En cours)
 **Novembre 2025**
-- [x] Inspection complète véhicule
-- [x] État des lieux détaillé
+- ✅ ~~Inspection complète véhicule~~
+- ✅ ~~État des lieux détaillé~~
 - [ ] Réparations de départ essentielles :
 	- [ ] Rétroviseur gauche (glace)
 	- [ ] Rétroviseur droit (clignotant)
