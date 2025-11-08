@@ -48,10 +48,14 @@ Consultez le fichier [CHANGELOG.md](./CHANGELOG.md) pour l’historique complet.
 - Préparer une base solide pour une future application.
 
 
+
 ## 🗂️ Structure du projet
 
 - `docs/` : Documentation, guides, tutoriels, schémas, etc.
 - `src/` : (À venir) Code source de l'application.
+- `Geekomobile/` : Projet d’aménagement et de vie à bord du van Geekomobile.
+- `ForkX/` : Projet d’aménagement et de vie à bord du van ForkX.
+- `Geekagne/` : Projet d’aménagement et d’autonomie sur le terrain de loisirs Geekagne (à venir).
 
 
 ## 🤝 Contribution
