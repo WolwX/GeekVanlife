@@ -1,19 +1,23 @@
 
+
 # 🚐 GeekVanlife
 
 Bienvenue sur le dépôt officiel de la documentation GeekVanlife !
-CF site officiel : Geek-Vanlife.fr
+
+Site officiel : [Geek-Vanlife.fr](https://www.geek-vanlife.fr/)
 
 ---
 
+
 ## 📑 Sommaire
 
-- [Présentation et contexte](#présentation-et-contexte)
-- [Dernière version](#dernière-version)
-- [Objectif](#objectif)
-- [Structure du projet](#structure-du-projet)
-- [Contribution](#contribution)
-- [Licence](#licence)
+- [Présentation et contexte](#-présentation-et-contexte)
+- [Dernière version](#-dernière-version)
+- [Objectif](#-objectif)
+- [Structure du projet](#-structure-du-projet)
+- [Contribution](#-contribution)
+- [Références & Ressources](#-références--ressources)
+- [Licence](#-licence)
 
 ---
 
@@ -61,6 +65,8 @@ Les contributions sont les bienvenues !
 - 🌐 [Site officiel Geek-Vanlife.fr](https://www.geek-vanlife.fr/)
 - 📸 [Instagram](http://www.instagram.com/geekvanlifefr)
 - ▶️ [YouTube](http://www.youtube.com/geekvanlife)
+
+> ℹ️ Astuce : pour ouvrir un lien dans un nouvel onglet, fais Ctrl+clic ou clic molette.
 
 ---
 
