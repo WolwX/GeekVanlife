@@ -97,15 +97,16 @@ Le **"X"** fait référence à **Xavier** tout en symbolisant la **polyvalence**
 
 ## 📊 Statut actuel
 
-### Version actuelle : **v0.2 - Isolation & Habillage** 🚧
 
-**Phase en cours (Novembre-Décembre 2025) :**
-- Démontage des meubles cargo existants
-- Isolation complète : Armaflex 10mm
-- Plancher : Structure tasseaux + contreplaqué marine
-- Habillage intérieur propre et fonctionnel
+### Version actuelle : **v0.1 - Clean Base** 🚧
 
-**Avancement :** ~30% ⬜⬜⬜⬛⬛⬛⬛⬛⬛⬛
+**Phase en cours (Novembre 2025) :**
+- Réparations de départ essentielles (rétroviseurs, antenne, enjoliveurs, tapis de sol...)
+- Nettoyage cabine et partie cargo
+- Démarches administratives (carte grise, plaques)
+- Sécurisation des clés (création double)
+
+**Avancement :** En cours ⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜
 
 ### Prochaines phases
 
