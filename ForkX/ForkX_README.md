@@ -216,65 +216,397 @@ Le **"X"** fait référence à **Xavier** tout en symbolisant la **polyvalence**
 
 ## 🗺️ Roadmap
 
+> **Approche Software Development** : Le projet ForkX suit une méthodologie de développement logiciel avec versioning incrémental (v0.1 → v1.0). Chaque version = objectif clair, livrable validable, tests réels terrain, puis passage à la version suivante.
 
+### ✅ v0.1 - CLEAN BASE (Novembre 2025)
+**Statut : EN COURS - Presque terminée**
 
-### 🚧 Phase v0.1 - Clean Base (En cours)
-**Novembre 2025**
-- ✅ ~~Inspection complète véhicule~~
-- ✅ ~~État des lieux détaillé~~
-- [ ] Réparations de départ essentielles :
-	- [ ] Rétroviseur gauche (glace)
-	- [ ] Rétroviseur droit (clignotant)
-	- [ ] Antenne
-	- [ ] Enjoliveurs
-	- [ ] Autres petits éléments à corriger
-- [ ] Nettoyage intérieur/extérieur :
-	- [ ] Achat des produits de nettoyage
-	- [ ] Nettoyage cabine
-	- [ ] Nettoyage partie cargo
-- [ ] Documents administratifs :
-	- [ ] Récupération de la carte grise
-	- [ ] Changement de la plaque d'immatriculation
-- [ ] Sécurisation des clés (en attente de création d'un double)
-### 🧹 Mise au propre (À venir)
-- [ ] Démontage complet des contreplaqués de stockage (cargo)
-- [ ] Démontage complet de la paroi de séparation
-- [ ] Peinture complète de la partie cargo (antirouille blanche)
+**Objectifs :**
+- État des lieux complet véhicule
+- Nettoyage intérieur approfondi
+- Petites réparations essentielles
+- Documentation vidéo et photographique
+- Personnalisations mineures
 
+**Réalisations :**
+- ✅ ~~Acquisition véhicule (6 700 €)~~
+- ✅ ~~Carte grise obtenue (345 €)~~
+- ✅ ~~Assurance L'Olivier active~~
+- ✅ ~~Contrôle technique valide jusqu'au 28/10/2027~~
+- ✅ ~~Vidéo état initial tournée~~
+- ✅ ~~Inspection complète documentée (ETAT_LIEUX_DOBLO_02NOV2025.md)~~
+- ✅ ~~Nettoyage intérieur complet (sièges retirés, plastiques restaurés)~~ (9/11/2025)
+- ✅ ~~Achats petites pièces : capuchons clignotants, verre rétroviseur, couvre-volant, LED tableau de bord, clips pare-soleil~~
+- ✅ ~~Rétroviseurs gauche/droit réparés~~ (9/11/2025)
+- ✅ ~~Antenne Aileron Requin installée~~ (13/11/2025)
 
-### ⏳ Phase v0.2 - Isolation & Habillage (À venir)
-**À planifier après finalisation de la Clean Base**
-- [ ] Démontage meubles cargo existants
-- [ ] Isolation Armaflex 10mm toutes surfaces
-- [ ] Plancher : Structure tasseaux + contreplaqué
-- [ ] Habillage intérieur propre
+**Reste à faire :**
+- ⏳ Gilet jaune + triangle (15-20 €)
+- ⏳ Balai essuie-glace passager (10-15 €)
+- ⏳ Tapis de sol conducteur (30-50 €)
+- ⏳ Enjoliveur avant droit (20-40 €)
+- ⏳ Lumière cargo arrière (10-30 €)
+- ⏳ Révision mécanique complète recommandée (200-400 €)
+- ⏳ Tapis personnalisés Kovvar "ForkX" cactus rouge (150-200 €)
+- ⏳ Retrait logos "DT Energie"
 
-### 📅 Phase v0.3 - Systèmes (À venir)
-**Janvier-Février 2026**
-- [ ] Installation chauffage diesel Mudiro 8KW
-- [ ] Installation plancher chauffant électrique
-- [ ] Système électrique portable
-- [ ] Système d'eau minimaliste
-- [ ] Coffres alu arrière pour équipements
+**Budget v0.1 :** ~8 045 €  
+**Date fin prévue :** Fin novembre 2025
 
-### 📅 Phase v0.4 - Aménagement (À définir)
-**Mars-Avril 2026**
-- [ ] Banquette/lit convertible (forme L)
-- [ ] Kitchenette compacte amovible
-- [ ] Rangements optimisés
-- [ ] Système fixation rapide cargo
+---
 
-### 🎯 Objectifs 6 mois
-- Aménagement v0.2 et v0.3 complétés
-- Système modulaire opérationnel
-- Usage quotidien maîtrisé
-- Premières semaines en autonomie réussies
+### 🔜 v0.2 - OUVRANTS & STRUCTURE (Décembre 2025)
+**Statut : À VENIR**
 
-### 🎯 Objectifs 1 an
-- Configuration optimale trouvée
-- Retours d'expérience documentés
-- Aménagement v0.4 finalisé si nécessaire
-- Documentation complète pour partage communauté
+**Objectifs :**
+- Installation lanterneau ventilation/lumière
+- Aération complémentaire
+- Tests étanchéité complets
+- Préparation structure avant isolation
+
+**Actions principales :**
+- Installation Lanterneau Fiamma Vent 40 (40×40 cm)
+- Installation Champignon aération + Grille aération basse
+- Tests étanchéité (jet d'eau, pluie)
+- Traitement anti-corrosion découpes
+
+**Budget v0.2 :** ~350 €  
+**Durée estimée :** 1 semaine
+
+**Validation :**
+- ✅ Lanterneau ouvre/ferme correctement
+- ✅ Étanchéité validée
+- ✅ Ventilation efficace
+- ✅ Aucune infiltration
+
+---
+
+### 🏗️ v0.3 - ISOLATION & HABILLAGE (Janvier 2026)
+**Statut : À VENIR**
+
+**Objectifs :**
+- Isolation thermique et phonique complète
+- Habillage intérieur propre
+- Conservation éléments existants de qualité
+- Préparation passages réseaux
+
+**Stratégie :**
+- **Matériau principal :** Kaiflex/Armaflex (mousse élastomère)
+  - Épaisseur : 10mm (standard) + 19mm (zones spécifiques)
+  - Avantages : Thermique + phonique, pose facile
+- **Éléments CONSERVÉS :**
+  - ✅ Plancher contreplaqué existant (économie ~200 €)
+  - ✅ Paroi de séparation (économie ~75 €)
+
+**Budget v0.3 :** ~480 €  
+**Durée estimée :** 2-3 semaines
+
+---
+
+### ⚡ v0.4 - RÉSEAUX TECHNIQUES (Février 2026)
+**Statut : À VENIR**
+
+**Objectifs :**
+- Installation réseau électrique 12V
+- Installation réseau eau (propre + grises)
+- Installation réseau gaz (si option retenue)
+- Tests fonctionnels complets
+
+**Composants principaux :**
+- **Électricité :** Batterie auxiliaire 100Ah, coupleur, câblage, prises 12V/USB, éclairage LED
+- **Eau :** Jerrycan 20L, pompe 12V, robinet mitigeur, circuit évacuation
+- **Gaz :** Support cartouche vissable 230g + réchaud compatible
+
+**Budget v0.4 :** ~400-780 € (selon options)  
+**Durée estimée :** 1-2 semaines
+
+**Validation :**
+- ✅ Batterie charge correctement
+- ✅ Eau coule au robinet
+- ✅ Évacuation eaux grises fonctionne
+- ✅ Réchaud opérationnel
+- ✅ Aucune fuite
+
+---
+
+### 🪑 v0.5 - MEUBLES & AMÉNAGEMENT (Mars 2026)
+**Statut : À VENIR**
+
+**Objectifs :**
+- Fabrication et installation tous meubles
+- Intégration meubles avec réseaux
+- Aménagement modulaire fonctionnel
+- ForkX théoriquement utilisable
+
+**Meubles à réaliser :**
+1. **Meuble tête de lit** (bas, 20×30×120 cm)
+2. **Lit-peigne modulable** (2 sections démontables, 2m total)
+3. **Meuble cuisine** (40×70×140 cm, intègre évier, réchaud, rangements)
+4. **Meuble haut au-dessus lit** (rangement léger)
+5. **Meubles portes arrière** (×2, solidaires des portes)
+
+**Budget v0.5 :** ~650-750 €  
+**Durée estimée :** 3-4 semaines
+
+**Validation :**
+- ✅ Tous meubles installés
+- ✅ Lit modulable fonctionne
+- ✅ Cuisine fonctionnelle
+- ✅ ForkX prêt pour premiers tests
+
+---
+
+### 🎨 v0.6 - DÉCORATION & PREMIERS TESTS NATURE (Avril 2026)
+**Statut : À VENIR**
+
+**🌸 PRINTEMPS 2026 - PREMIÈRES SORTIES NATURE**
+
+**Objectifs :**
+- Décoration intérieure personnalisée
+- Personnalisation extérieure discrète
+- **PREMIERS TESTS TERRAIN RÉELS** 🏕️
+- Retours d'expérience usage nature
+- Identification points à améliorer
+
+**Décoration :**
+- Rideaux occultants (fenêtres + pare-brise + portes)
+- Coussins/textiles ambiance chaleureuse
+- Changement blason Fiat avant (logo ForkX ?)
+- Retrait logos "DT Energie"
+- Stickers "ForkX" discrets
+
+**Tests nature (spots Cerdagne/Pyrénées) :**
+- ✅ Weekend complet autonomie (2-3 jours)
+- ✅ Nuit complète (confort, température)
+- ✅ Cuisine conditions réelles
+- ✅ Autonomie électrique/eau
+- ✅ Discrétion bivouac
+
+**Budget v0.6 :** ~225-300 €  
+**Durée estimée :** 2-3 semaines (incluant weekends tests)
+
+---
+
+### 🔧 v0.7 - AJUSTEMENTS POST-TESTS NATURE (Mai 2026)
+**Statut : À VENIR**
+
+**RETOURS DES SORTIES NATURE PRINTEMPS**
+
+**Objectifs :**
+- Corrections problèmes identifiés
+- Ajustements ergonomie et confort
+- Optimisations rangements
+- Nouveaux tests validation
+
+**Budget v0.7 :** ~150 € (variable selon ajustements)  
+**Durée estimée :** 2-3 semaines
+
+---
+
+### 💼 v0.8 - VALIDATION USAGE PROFESSIONNEL (Mai-Juin 2026)
+**Statut : À VENIR**
+
+**PASSAGE TESTS LOISIRS → TESTS USAGE PRO**
+
+**Objectifs :**
+- Valider autonomie semaine complète (5-7 jours)
+- Tester usage professionnel quotidien
+- Confirmer confort sur durée
+- Valider stationnement discrétion
+
+**Scénario test (semaine Cerdagne) :**
+- Lundi → Vendredi : Base vie pro quotidien
+- Nuits dans ForkX (5-7 nuits consécutives)
+- Repas midi préparés dans ForkX
+- Autonomie eau/électricité/gaz
+
+**Budget v0.8 :** ~75 € (ajustements minimes)  
+**Durée estimée :** 2-3 semaines
+
+**Validation :**
+- ✅ Au moins 1 semaine complète testée
+- ✅ Autonomie validée
+- ✅ Confort confirmé sur durée
+- ✅ **ForkX opérationnel pour usage pro régulier** 💼✅
+
+---
+
+### 🚿 v0.9 - INSTALLATION DOUCHE (Juin-Juillet 2026)
+**Statut : À VENIR**
+
+**CONFORT++ AVANT ÉTÉ**
+
+**Objectifs :**
+- Installation système douche fonctionnel
+- Autonomie hygiène complète
+- Confort été optimisé
+
+**Option recommandée : Douche extérieure**
+- Réservoir eau 10-20L (pressurisé ou pompe)
+- Flexible + douchette
+- Rideau occultant (optionnel)
+- Fixation discrète (porte arrière/latérale)
+
+**Budget v0.9 :** ~230-300 €  
+**Durée estimée :** 1-2 semaines
+
+**Validation :**
+- ✅ Douche fonctionnelle
+- ✅ Évacuation OK
+- ✅ **Autonomie hygiène complète** 🚿✅
+
+---
+
+### ☀️ v0.9.5 - PRÉPARATION ÉTÉ (Juillet-Août 2026)
+**Statut : À VENIR**
+
+**OPTIMISATIONS SAISON CHAUDE**
+
+**Équipements été :**
+- Moustiquaires (lanterneau + portes)
+- Ventilateur 12V USB
+- Stores réflecteurs pare-brise/vitres
+- Glacière (électrique 12V OU passive)
+- Auvent/tarp 3×3m
+- Table + chaises pliantes
+
+**Budget v0.9.5 Été :** ~225-380 €  
+**Durée estimée :** 2-3 semaines
+
+---
+
+### ❄️ v0.9.5 - PRÉPARATION HIVER (Septembre-Octobre 2026)
+**Statut : À VENIR**
+
+**OPTIMISATIONS SAISON FROIDE**
+
+**Option A - Sans chauffage (économique) :**
+- Survitrage intérieur fenêtres
+- Rideaux thermiques épais
+- Tapis isolants sol
+- Protection antigel eau
+- **Budget :** ~300 €
+
+**Option B - Avec chauffage diesel (confort 4 saisons) :**
+- Chauffage diesel 8KW (Mudiro/Vevor)
+- Caisson externe étanche (portes arrière)
+- Réservoir carburant dédié 10L
+- + Isolation complémentaire
+- **Budget :** ~850 €
+
+**Durée estimée :** 2-3 semaines
+
+---
+
+### 🎉 v1.0 - FORKX COMPLET & VALIDÉ (Novembre 2026)
+**Statut : À VENIR - RELEASE FINALE**
+
+**🎊 PROJET ACHEVÉ - 1 AN APRÈS ACQUISITION 🎊**
+
+**ForkX v1.0 - Caractéristiques finales :**
+- ✅ Structure complète (ouvrants, isolation, habillage)
+- ✅ Tous réseaux opérationnels (électricité, eau, gaz)
+- ✅ Tous meubles installés et validés
+- ✅ Décoration personnalisée
+- ✅ Douche fonctionnelle
+- ✅ Optimisations 4 saisons (été + hiver)
+- ✅ Usage nature validé (weekends bivouac)
+- ✅ Usage professionnel validé (semaines Cerdagne)
+- ✅ Autonomie 5-7 jours confirmée
+
+**Documentation finale :**
+- ✅ Roadmap complète
+- ✅ Photos/vidéos avant/après
+- ✅ Plans/schémas aménagement
+- ✅ Budget final détaillé
+- ✅ Retour d'expérience global (REX)
+- ✅ Tutoriels communauté
+
+**Budget total projet :** ~11 280-11 830 €  
+**Timeline totale :** 12 mois (Nov 2025 → Nov 2026)
+
+**Célébration v1.0 :**
+- 🎥 Vidéo YouTube finale "ForkX v1.0 - Le Projet Complet"
+- 📝 Article blog geek-vanlife.fr
+- 📸 Shooting photo professionnel
+- 🍴 Weekend nature célébration Pyrénées
+- 🎊 Partage communauté vanlife
+
+**🚐 ForkX v1.0 ready to roll! ✅**
+
+---
+
+## 💰 BUDGET GLOBAL PROJET
+
+### Budget par phase
+```
+v0.1 Clean Base                :  8 045 €
+v0.2 Ouvrants & Structure      :    350 €
+v0.3 Isolation & Habillage     :    460 €
+v0.4 Réseaux Techniques        :    400 €
+v0.5 Meubles & Aménagement     :    750 €
+v0.6 Décoration & Tests        :    225 €
+v0.7 Ajustements               :    150 €
+v0.8 Validation Pro            :     75 €
+v0.9 Douche                    :    300 €
+v0.9.5 Préparation Été         :    225 €
+v0.9.5 Préparation Hiver       :    300 € (sans chauffage)
+──────────────────────────────────────────
+TOTAL (sans chauffage)         : 11 280 €
+
+Chauffage diesel (optionnel)   :  + 550 €
+──────────────────────────────────────────
+TOTAL (avec chauffage)         : 11 830 €
+```
+
+### Répartition par catégorie
+- **Acquisition & Admin** : 7 660 € (68%)
+- **Structure & Isolation** : 1 160 € (10%)
+- **Réseaux & Équipements** : 1 000 € (9%)
+- **Meubles & Aménagement** : 750 € (7%)
+- **Finitions & Optimisations** : 710 € (6%)
+
+### Économies réalisées
+- Plancher conservé : -200 €
+- Paroi séparation conservée : -75 €
+- Réseaux optimisés : -100 €
+- Meubles DIY : -300 €
+- **Total économies : -675 €**
+
+---
+
+## 📅 TIMELINE GLOBALE
+
+### Vue annuelle
+```
+2025
+NOV |████████████| v0.1 Clean Base
+DÉC              |████| v0.2 Ouvrants & Structure
+
+2026
+JAN |████████████████| v0.3 Isolation & Habillage
+FÉV                  |████████| v0.4 Réseaux
+MAR                           |████████████████| v0.5 Meubles
+AVR                                            |████████| v0.6 Déco/Tests
+MAI                                                     |████████| v0.7-0.8
+JUN                                                              |████| v0.9
+JUL                                                                   |████| v0.9.5 Été
+AOU     [TESTS ÉTÉ INTENSIFS]
+SEP |████| v0.9.5 Hiver
+OCT     |████|
+NOV          🎉 v1.0 RELEASE FINALE
+```
+
+### Jalons clés (milestones)
+| Date | Jalon | Statut |
+|------|-------|--------|
+| 01/11/2025 | 🚐 Acquisition ForkX | ✅ |
+| 30/11/2025 | ✅ v0.1 Base propre | ⏳ |
+| 31/03/2026 | 🪑 v0.5 Meubles installés | ⏳ |
+| 30/04/2026 | 🏕️ v0.6 Premiers tests nature | ⏳ |
+| 31/05/2026 | 💼 v0.8 Usage pro validé | ⏳ |
+| 31/07/2026 | ☀️ v0.9.5 Prêt été | ⏳ |
+| **30/11/2026** | **🎉 v1.0 ForkX COMPLET** | **⏳** |
 
 ---
 
