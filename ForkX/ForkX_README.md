@@ -181,6 +181,10 @@ Lors du démontage : 21 vis M5 abîmées à remplacer (14× M5×20mm + 7× M5×3
 
 La galerie toit mesure 121cm de large × 220cm de long (longueur utile 123cm). Charge maximale : 100 kg.
 
+**🎨 Installations confort**
+
+Protège-volant installé (convient totalement) et désodorisant Chat pilote en place. Premiers retours positifs avant mise en pension du véhicule.
+
 ---
 
 ### ⛽ Consommation diesel validée
@@ -328,10 +332,10 @@ Découverte d'une **trappe d'accès aux réservoirs véhicules** (diesel) sous l
 - ✅ ~~Mesures précises cargo (largeur 165cm mi-hauteur)~~ (15/11/2025)
 - ✅ ~~Validation matelas 190×90cm~~ (15/11/2025)
 - ✅ ~~Découverte prise 12V fonctionnelle cargo~~ (15/11/2025)
+- ✅ ~~Protège-volant : **15€**~~ (15/11/2025)
+- ✅ ~~Désodorisant Chat pilote : **11,48€**~~ (15/11/2025)
 
-**En cours de livraison (55,60€) :**
-- 📦 Protège-volant : **15€** (en transit)
-- 📦 Désodorisant Chat pilote : **11,48€** (en transit)
+**En cours de livraison (29,12€) :**
 - 📦 Veilleuse Super Mario Boo : **19,96€** (en transit)
 - 📦 Ressort fantôme Boo : **3,09€** (en transit)
 - 📦 Clips pare-soleil passager : **6,07€** (en transit)
@@ -346,7 +350,7 @@ Découverte d'une **trappe d'accès aux réservoirs véhicules** (diesel) sous l
 - ⏳ Double clés (reporté 2026) : **~150€**
 
 **Budget v0.1 :** ~8 182€  
-**Dépensé :** 7 391,75€ | **Reste :** ~791€  
+**Dépensé :** 7 418,23€ | **Reste :** ~764€  
 **Date fin prévue :** Fin novembre 2025
 
 ---
