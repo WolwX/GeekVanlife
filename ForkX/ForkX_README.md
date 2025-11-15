@@ -136,6 +136,53 @@ Le **"X"** fait référence à **Xavier** tout en symbolisant la **polyvalence**
 
 > **Retours du terrain** : Découvertes, observations et apprentissages au quotidien avec le ForkX
 
+### 🧊 Choix isolation K-FLEX ST 19mm & Mesures précises
+**📅 15 novembre 2025**
+
+**🔍 Démontage complet du cargo & mesures terrain**
+
+Suite au démontage complet des meubles, le cargo est désormais **totalement vide et nettoyé**. Mesures précises réalisées :
+
+**📏 Largeur intérieure (point critique) :**
+- **Sol (passage de roue) :** 123 cm
+- **Mi-hauteur (point le plus large) :** **165 cm** ⭐ MESURE CLÉ
+- **Plafond :** 131 cm
+
+**Surface totale à isoler :** ~16,91 m² (brut) → ~19,5 m² (avec marge 15%)
+
+**💡 Décision isolation : K-FLEX ST 19mm**
+
+Après analyse comparative Armaflex vs K-FLEX :
+- **Choix validé :** K-FLEX ST 19mm (mousse élastomère auto-adhésive)
+- **Économie réalisée :** ~100€ par rapport à Armaflex
+- **Quantité commandée :** 24 m² (4 rouleaux de 6 m²)
+- **Budget isolation seule :** ~470€ TTC (K-FLEX 354€ + accessoires 95€ + marge 22€)
+- **Avec plancher (tasseaux + contreplaqué) :** 560-605€ TTC
+
+**🛏️ Matelas 190×90cm validé**
+
+Test terrain grandeur nature réalisé : un matelas 190×90cm entre **PARFAITEMENT** dans le cargo (largeur 165cm au point le plus large).
+
+**🎨 Direction artistique : Rouge/Acajou**
+
+Confirmation du style visuel en cohérence avec l'identité "ForkX" (rouge) :
+- Tasseaux/bois : Teinte acajou/rouge foncé
+- Habillage : Tons chauds
+
+**🔧 Découverte prise 12V fonctionnelle**
+
+Une prise 12V allume-cigare est **présente ET fonctionnelle** dans le cargo (côté droit, mi-hauteur). Utile pour alimentation équipements.
+
+**🔩 21 vis à remplacer**
+
+Lors du démontage : 21 vis M5 abîmées à remplacer (14× M5×20mm + 7× M5×30mm). Budget ~15-20€.
+
+**📦 Galerie toit : 121×220cm**
+
+La galerie toit mesure 121cm de large × 220cm de long (longueur utile 123cm). Charge maximale : 100 kg.
+
+---
+
 ### ⛽ Consommation diesel validée
 **📅 14 novembre 2025**
 
@@ -257,6 +304,7 @@ Découverte d'une **trappe d'accès aux réservoirs véhicules** (diesel) sous l
 - Petites réparations essentielles
 - Documentation vidéo et photographique
 - Personnalisations (tapis, autoradio, accessoires)
+- **Démontage complet cargo + mesures précises** ✅ (15/11/2025)
 
 **Réalisations (7 391,75€) :**
 - ✅ ~~Acquisition véhicule Renage 38 : **6 700€**~~
@@ -276,7 +324,10 @@ Découverte d'une **trappe d'accès aux réservoirs véhicules** (diesel) sous l
 - ✅ ~~LED plafonnier tableau de bord : **2,76€**~~
 - ✅ ~~Porte-document carte grise : **8,99€**~~ (10/11/2025)
 - ✅ ~~Gilet jaune + triangle : **offert 🎁 (0€)**~~ (15/11/2025)
-- ✅ ~~Gilet jaune + triangle : **offert 🎁 (0€)**~~ (15/11/2025)
+- ✅ ~~Démontage complet meubles cargo~~ (15/11/2025)
+- ✅ ~~Mesures précises cargo (largeur 165cm mi-hauteur)~~ (15/11/2025)
+- ✅ ~~Validation matelas 190×90cm~~ (15/11/2025)
+- ✅ ~~Découverte prise 12V fonctionnelle cargo~~ (15/11/2025)
 
 **En cours de livraison (55,60€) :**
 - 📦 Protège-volant : **15€** (en transit)
@@ -285,16 +336,17 @@ Découverte d'une **trappe d'accès aux réservoirs véhicules** (diesel) sous l
 - 📦 Ressort fantôme Boo : **3,09€** (en transit)
 - 📦 Clips pare-soleil passager : **6,07€** (en transit)
 
-**Reste à faire (751-801€) :**
+**Reste à faire (766-816€) :**
 - ⏳ Tapis de sol personnalisés conducteur + passager (qualité premium Kovvar) : **100-150€**
 - ⏳ 4× Enjoliveurs roues : **240€** (60€/unité)
 - ⏳ 2× Balais essuie-glaces Michelin Stealth conducteur + passager : **36,30€**
 - ⏳ Plaques d'immatriculation : **50-100€**
 - ⏳ Autoradio Android 10 pouces : **~300€**
+- ⏳ 21× Vis M5 remplacement (14× M5×20mm + 7× M5×30mm) : **15-20€**
 - ⏳ Double clés (reporté 2026) : **~150€**
 
-**Budget v0.1 :** ~8 167€  
-**Dépensé :** 7 391,75€ | **Reste :** ~776€  
+**Budget v0.1 :** ~8 182€  
+**Dépensé :** 7 391,75€ | **Reste :** ~791€  
 **Date fin prévue :** Fin novembre 2025
 
 ---
@@ -335,14 +387,27 @@ Découverte d'une **trappe d'accès aux réservoirs véhicules** (diesel) sous l
 - Préparation passages réseaux
 
 **Stratégie :**
-- **Matériau principal :** Kaiflex/Armaflex (mousse élastomère)
-  - Épaisseur : 10mm (standard) + 19mm (zones spécifiques)
-  - Avantages : Thermique + phonique, pose facile
+- **Matériau principal :** K-FLEX ST 19mm (mousse élastomère auto-adhésive)
+  - Épaisseur : 19mm (épaisseur standard choisie)
+  - Avantages : Thermique + phonique, pose facile, économique
+  - Surface commandée : 24 m² (4 rouleaux de 6 m²)
+  - **Économie vs Armaflex :** ~100€
 - **Éléments CONSERVÉS :**
   - ✅ Plancher contreplaqué existant (économie ~200 €)
   - ✅ Paroi de séparation (économie ~75 €)
 
-**Budget v0.3 :** ~480 €  
+**Détail budget isolation :**
+- K-FLEX ST 19mm (24 m²) : 354,40€
+- Accessoires pose (colle, nettoyant, ruban) : ~95€
+- Marge imprévus : ~22€
+- **Total isolation seule :** ~470€
+
+**Option plancher (si refait) :**
+- Tasseaux 2×3 cm : ~45€
+- Contreplaqué 5mm : ~45€
+- **Total avec plancher :** 560-605€
+
+**Budget v0.3 :** ~470-605€ (selon option plancher)  
 **Durée estimée :** 2-3 semaines
 
 ---
@@ -584,9 +649,9 @@ Découverte d'une **trappe d'accès aux réservoirs véhicules** (diesel) sous l
 
 ### Budget par phase
 ```
-v0.1 Clean Base                :  8 167 €
+v0.1 Clean Base                :  8 182 €
 v0.2 Ouvrants & Structure      :    350 €
-v0.3 Isolation & Habillage     :    460 €
+v0.3 Isolation & Habillage     :    470 € (K-FLEX, sans plancher)
 v0.4 Réseaux Techniques        :    400 €
 v0.5 Meubles & Aménagement     :    750 €
 v0.6 Décoration & Tests        :    225 €
@@ -596,26 +661,27 @@ v0.9 Douche                    :    300 €
 v0.9.5 Préparation Été         :    225 €
 v0.9.5 Préparation Hiver       :    300 € (sans chauffage)
 ──────────────────────────────────────────
-TOTAL (sans chauffage)         : 11 402 €
+TOTAL (sans chauffage)         : 11 427 €
 
 Chauffage diesel (optionnel)   :  + 550 €
 ──────────────────────────────────────────
-TOTAL (avec chauffage)         : 11 952 €
+TOTAL (avec chauffage)         : 11 977 €
 ```
 
 ### Répartition par catégorie
-- **Acquisition & Admin** : 7 315 € (64%)
-- **Structure & Isolation** : 1 160 € (10%)
+- **Acquisition & Admin** : 7 315 € (63%)
+- **Structure & Isolation** : 1 170 € (10%)
 - **Réseaux & Équipements** : 1 000 € (9%)
 - **Meubles & Aménagement** : 750 € (7%)
-- **Finitions & Optimisations** : 1 177 € (10%)
+- **Finitions & Optimisations** : 1 192 € (10%)
 
 ### Économies réalisées
+- K-FLEX vs Armaflex : -100 €
 - Plancher conservé : -200 €
 - Paroi séparation conservée : -75 €
 - Réseaux optimisés : -100 €
 - Meubles DIY : -300 €
-- **Total économies : -675 €**
+- **Total économies : -775 €**
 
 ---
 
@@ -734,4 +800,4 @@ Vous êtes libre d'utiliser, modifier et partager ce contenu, tant que vous cite
 
 ---
 
-*Dernière mise à jour : 8 novembre 2025*
+*Dernière mise à jour : 15 novembre 2025*
