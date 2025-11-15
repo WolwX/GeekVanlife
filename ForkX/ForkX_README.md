@@ -163,6 +163,12 @@ Après analyse comparative Armaflex vs K-FLEX :
 
 Test terrain grandeur nature réalisé : un matelas 190×90cm entre **PARFAITEMENT** dans le cargo (largeur 165cm au point le plus large).
 
+**Option identifiée : Ikea ABIGDA** (200×90cm)
+- Prix : **200€**
+- Dimensions : 200×90cm (parfait pour l'espace disponible)
+- ⚠️ Point de vigilance : Capacité à être plié régulièrement à vérifier
+- 💡 À prévoir : Budget alèse de protection supplémentaire
+
 **🎨 Direction artistique : Rouge/Acajou**
 
 Confirmation du style visuel en cohérence avec l'identité "ForkX" (rouge) :
