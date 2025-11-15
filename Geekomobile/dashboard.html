@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚐🚀 Geekomobile Dashboard - Iveco Daily L4H2</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚐</text></svg>">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 30px;
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+        }
+        
+        .header-left {
+            flex: 1;
+        }
+        
+        .header-right {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            min-width: 280px;
+        }
+        
+        .header-right h3 {
+            color: #667eea;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+        
+        .header-stat {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .header-stat:last-child {
+            border-bottom: none;
+        }
+        
+        .header-stat-label {
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        .header-stat-value {
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            color: #666;
+            font-size: 1.1em;
+        }
+        
+        .badges {
+            margin-top: 15px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .badge {
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+        
+        .badge-version {
+            background: #2563eb;
+            color: white;
+        }
+        
+        .badge-status {
+            background: #fef3c7;
+            color: #92400e;
+        }
+        
+        .badge-date {
+            background: #e5e7eb;
+            color: #6b7280;
+        }
+        
+        .badge-keyword {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .stat-card .icon {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .stat-card .value {
+            font-size: 2em;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+        
+        .stat-card .label {
+            color: #666;
+            font-size: 0.95em;
+        }
+        
+        .main-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .card h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.4em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .progress-item {
+            margin-bottom: 20px;
+        }
+        
+        .progress-item .label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .progress-bar {
+            background: #e0e0e0;
+            border-radius: 10px;
+            height: 12px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+            transition: width 0.5s ease;
+        }
+        
+        .timeline-item {
+            padding: 15px;
+            border-left: 3px solid #667eea;
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -7px;
+            top: 20px;
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+            background: #667eea;
+        }
+        
+        .timeline-item .date {
+            color: #667eea;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+        
+        .timeline-item .title {
+            font-weight: 600;
+            margin: 5px 0;
+        }
+        
+        .timeline-item .description {
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        .saisons-section {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        .saisons-section h2 {
+            color: #667eea;
+            margin-bottom: 25px;
+            font-size: 1.8em;
+        }
+        
+        .saison {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border-left: 5px solid #667eea;
+            transition: all 0.3s ease;
+        }
+        
+        .saison:hover {
+            transform: translateX(5px);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .saison-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .saison-title {
+            font-weight: bold;
+            font-size: 1.2em;
+            color: #333;
+        }
+        
+        .saison-period {
+            color: #667eea;
+            font-weight: 600;
+        }
+        
+        .saison-description {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .news-section {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .news-section h2 {
+            color: #667eea;
+            margin-bottom: 25px;
+            font-size: 1.8em;
+        }
+        
+        .news-item {
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .news-item:hover {
+            background: #e9ecef;
+            transform: translateX(5px);
+        }
+        
+        .news-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+        
+        .news-icon {
+            font-size: 1.8em;
+        }
+        
+        .news-date {
+            color: #667eea;
+            font-weight: bold;
+        }
+        
+        .news-content {
+            color: #333;
+            line-height: 1.6;
+            padding-left: 50px;
+        }
+        
+        .budget-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .budget-item:last-child {
+            border-bottom: none;
+        }
+        
+        .budget-label {
+            font-weight: 600;
+        }
+        
+        .budget-value {
+            color: #667eea;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-left">
+                <h1>🚐🚀 Geekomobile Dashboard</h1>
+                <p>Iveco Daily L4H2 2006 - Habitat aménagé depuis août 2021</p>
+                <div class="badges">
+                    <span class="badge badge-version">v2.0</span>
+                    <span class="badge badge-status">OPÉRATIONNEL</span>
+                    <span class="badge badge-date">Mis à jour le 15 nov 2025</span>
+                    <span class="badge badge-keyword">🏔️ Vanlife en Cerdagne</span>
+                    <span class="badge badge-keyword">⚡ 100% Autonome</span>
+                    <span class="badge badge-keyword">📅 4+ ans d'expérience</span>
+                    <span class="badge badge-keyword">🔄 5 Saisons vécues</span>
+                </div>
+            </div>
+            <div class="header-right">
+                <h3>📊 Caractéristiques</h3>
+                <div class="header-stat">
+                    <span class="header-stat-label">🚐 Modèle</span>
+                    <span class="header-stat-value">Iveco Daily L4H2</span>
+                </div>
+                <div class="header-stat">
+                    <span class="header-stat-label">📅 Année</span>
+                    <span class="header-stat-value">2006</span>
+                </div>
+                <div class="header-stat">
+                    <span class="header-stat-label">🔢 Immatriculation</span>
+                    <span class="header-stat-value">CL-370-YL</span>
+                </div>
+                <div class="header-stat">
+                    <span class="header-stat-label">💰 Prix achat</span>
+                    <span class="header-stat-value">6 200€</span>
+                </div>
+                <div class="header-stat">
+                    <span class="header-stat-label">📐 Volume</span>
+                    <span class="header-stat-value">15,6 m³</span>
+                </div>
+                <div class="header-stat">
+                    <span class="header-stat-label">📏 Dimensions ext.</span>
+                    <span class="header-stat-value">7m x 3,10m</span>
+                </div>
+                <div class="header-stat">
+                    <span class="header-stat-label">⚖️ Poids</span>
+                    <span class="header-stat-value">~4000 kg</span>
+                </div>
+                <div class="header-stat">
+                    <span class="header-stat-label">⚠️ PTAC</span>
+                    <span class="header-stat-value">3500 kg</span>
+                </div>
+                <div class="header-stat">
+                    <span class="header-stat-label">⛽ Conso</span>
+                    <span class="header-stat-value">10-12 L/100</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="icon">📅</div>
+                <div class="value" id="yearsActive">4+</div>
+                <div class="label">Années de vanlife</div>
+            </div>
+            <div class="stat-card">
+                <div class="icon">🛣️</div>
+                <div class="value" id="kmWeek">200-300</div>
+                <div class="label">km/semaine (circuit)</div>
+            </div>
+            <div class="stat-card">
+                <div class="icon">🏔️</div>
+                <div class="value" id="altitude">1100m</div>
+                <div class="label">Altitude travail</div>
+            </div>
+            <div class="stat-card">
+                <div class="icon">⚡</div>
+                <div class="value" id="systemsStatus">100%</div>
+                <div class="label">Systèmes opérationnels</div>
+            </div>
+        </div>
+
+        <div class="main-grid">
+            <div class="card">
+                <h2>🔧 Systèmes installés</h2>
+                <div class="progress-item">
+                    <div class="label">
+                        <span>🔥 Chauffage Chinasto 5kW</span>
+                        <span>✅</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 100%"></div>
+                    </div>
+                </div>
+                <div class="progress-item">
+                    <div class="label">
+                        <span>💧 Système eau 60L</span>
+                        <span>✅</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 100%"></div>
+                    </div>
+                </div>
+                <div class="progress-item">
+                    <div class="label">
+                        <span>⚡ Panneaux solaires</span>
+                        <span>✅</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 100%"></div>
+                    </div>
+                </div>
+                <div class="progress-item">
+                    <div class="label">
+                        <span>🚿 Douche intérieure</span>
+                        <span>✅</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 100%"></div>
+                    </div>
+                </div>
+                <div class="progress-item">
+                    <div class="label">
+                        <span>📹 Caméras Blink</span>
+                        <span>✅</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 100%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>💰 Coûts mensuels moyens</h2>
+                <div class="budget-item">
+                    <span class="budget-label">⛽ Carburant diesel</span>
+                    <span class="budget-value">~120-150€</span>
+                </div>
+                <div class="budget-item">
+                    <span class="budget-label">🔥 Chauffage hiver</span>
+                    <span class="budget-value">50-80€/mois</span>
+                </div>
+                <div class="budget-item">
+                    <span class="budget-label">📱 Internet 4G</span>
+                    <span class="budget-value">Variable</span>
+                </div>
+                <div class="budget-item">
+                    <span class="budget-label">🔧 Entretien</span>
+                    <span class="budget-value">~100€/mois</span>
+                </div>
+                <div class="budget-item">
+                    <span class="budget-label">🔋 Caméras Blink</span>
+                    <span class="budget-value">Batteries</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>📍 Circuit hebdomadaire</h2>
+                <div class="timeline-item">
+                    <div class="date">🏔️ Semaine</div>
+                    <div class="title">Cerdagne (1100m)</div>
+                    <div class="description">Travail en altitude - Stationnement terrain privé</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="date">🏞️ Weekend</div>
+                    <div class="title">Plaine - Geekagne</div>
+                    <div class="description">Terrain 4500m² - Chantiers et projets</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="date">👨‍👩‍👧 Visites</div>
+                    <div class="title">Côte (famille)</div>
+                    <div class="description">Déplacements familiaux réguliers</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="saisons-section">
+            <h2>🔄 Les 5 Saisons de ma vie nomade</h2>
+            <div id="saisonsContainer"></div>
+        </div>
+
+        <div class="news-section">
+            <h2>📰 Dernières News & Retours d'expérience</h2>
+            <div id="newsContainer"></div>
+        </div>
+    </div>
+
+    <!-- Dashboard Parser Script -->
+    <script src="../src/dashboard-parser.js"></script>
+    
+    <script>
+        const dashboardData = {
+            vehicleInfo: {
+                model: "Iveco Daily L4H2 2006",
+                habitat: "Août 2021",
+                yearsActive: "4+",
+                kmWeek: "200-300",
+                altitude: "1100m",
+                systemsStatus: "100%"
+            },
+            saisons: [
+                {
+                    number: "1",
+                    title: "🏕️ Saison 1 : Vie nomade solo en montagne",
+                    period: "Août 2020 → Printemps 2021",
+                    description: "Début de l'aventure vanlife - Aménagement progressif du van - Découverte de la vie en altitude - Hivers rigoureux en Cerdagne - Apprentissage autonomie complète"
+                },
+                {
+                    number: "2",
+                    title: "👨‍👩‍👧 Saison 2 : Vie de famille en van",
+                    period: "Printemps 2021 → Été 2022",
+                    description: "Vie à 3 dans le Geekomobile - Adaptation espace familial - Circuit Cerdagne ↔ Côte régulier - Gestion quotidienne famille nomade - Expérience unique et enrichissante"
+                },
+                {
+                    number: "3",
+                    title: "🔄 Saison 3 : Retour solo + acquisition Geekagne",
+                    period: "Été 2022 → Fin 2023",
+                    description: "Retour à la vie solo - Acquisition terrain Geekagne (12 500€) - Nouveau circuit : Cerdagne ↔ Geekagne ↔ Côte - Début projets terrain (cabanons, aménagements) - Geekomobile = base mobile pour chantiers"
+                },
+                {
+                    number: "4",
+                    title: "🏗️ Saison 4 : Intensification projets terrain",
+                    period: "2024",
+                    description: "Multiplication chantiers Geekagne - Construction cabanon sanitaire (opérationnel) - Cabanon stockage en cours - Plantations arbres fruitiers - Circuit hebdomadaire bien rodé - Geekomobile infrastructure mobile essentielle"
+                },
+                {
+                    number: "5",
+                    title: "🌟 Saison 5 : Équilibre vanlife + terrain (actuelle)",
+                    period: "2025 → ...",
+                    description: "Vie quotidienne optimisée - 4+ ans expérience vanlife - Terrain Geekagne en développement - Systèmes van 100% opérationnels - Circuit maîtrisé : 200-300km/semaine - Vision long terme : maison autonome sur Geekagne"
+                }
+            ],
+            news: [
+                {
+                    date: "15 novembre 2025",
+                    icon: "⚖️",
+                    text: "Prise de conscience surcharge 500kg (~4000kg vs 3500kg PTAC). Problématique à résoudre : alléger ou homologation. Impact assurance en cas d'accident."
+                },
+                {
+                    date: "Novembre 2025",
+                    icon: "🔥",
+                    text: "Bilan chauffage hiver 2024-2025 : Consommation 225-330€ pour un hiver complet en altitude (1100m). Chinasto 5kW = excellent rapport qualité/prix/performance."
+                },
+                {
+                    date: "Octobre 2025",
+                    icon: "⚡",
+                    text: "Production solaire automne : Autonomie complète maintenue jusqu'à fin octobre. Besoin branchements externes uniquement en plein hiver (nov-jan)."
+                },
+                {
+                    date: "Été 2025",
+                    icon: "💧",
+                    text: "Gestion eau optimisée : 60L = 2 semaines autonomie confirmée. Douche quotidienne possible avec discipline. Vidange hebdomadaire au terrain Geekagne."
+                }
+            ]
+        };
+
+        // Populate stats
+        document.getElementById('yearsActive').textContent = dashboardData.vehicleInfo.yearsActive;
+        document.getElementById('kmWeek').textContent = dashboardData.vehicleInfo.kmWeek;
+        document.getElementById('altitude').textContent = dashboardData.vehicleInfo.altitude;
+        document.getElementById('systemsStatus').textContent = dashboardData.vehicleInfo.systemsStatus;
+
+        // Populate saisons
+        const saisonsContainer = document.getElementById('saisonsContainer');
+        dashboardData.saisons.forEach(saison => {
+            const saisonDiv = document.createElement('div');
+            saisonDiv.className = 'saison';
+            saisonDiv.innerHTML = `
+                <div class="saison-header">
+                    <div class="saison-title">${saison.title}</div>
+                    <div class="saison-period">${saison.period}</div>
+                </div>
+                <div class="saison-description">${saison.description}</div>
+            `;
+            saisonsContainer.appendChild(saisonDiv);
+        });
+
+        // Populate news
+        const newsContainer = document.getElementById('newsContainer');
+        dashboardData.news.forEach(item => {
+            const newsDiv = document.createElement('div');
+            newsDiv.className = 'news-item';
+            newsDiv.innerHTML = `
+                <div class="news-header">
+                    <span class="news-icon">${item.icon}</span>
+                    <span class="news-date">${item.date}</span>
+                </div>
+                <div class="news-content">${item.text}</div>
+            `;
+            newsContainer.appendChild(newsDiv);
+        });
+    </script>
+</body>
+</html>

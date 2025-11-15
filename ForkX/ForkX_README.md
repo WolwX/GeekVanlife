@@ -18,6 +18,7 @@
 - [Le véhicule](#-le-véhicule)
 - [Concept](#-concept)
 - [Statut actuel](#-statut-actuel)
+- [Dernières News & Retours d'expérience](#-dernières-news--retours-dexpérience)
 - [Usages](#-usages)
 - [Documentation](#-documentation)
 - [Roadmap](#️-roadmap)
@@ -131,6 +132,35 @@ Le **"X"** fait référence à **Xavier** tout en symbolisant la **polyvalence**
 
 ---
 
+## 📰 Dernières News & Retours d'expérience
+
+> **Retours du terrain** : Découvertes, observations et apprentissages au quotidien avec le ForkX
+
+### ⛽ Consommation diesel validée
+**📅 14 novembre 2025**
+
+Après plusieurs tests sur les trajets habituels (Montagne 66 ↔ Plaine 66 ↔ Côte 66), la consommation réelle est confirmée à **6,2-6,5 L/100km** (vs 7,6 L/100km annoncé à l'achat).
+
+**💰 Économie constatée :** ~15-20% par rapport aux données constructeur !
+
+**Coûts trajets habituels (diesel ~1,50€/L) :**
+- 🏔️ **Montagne 66 ↔ Plaine 66** (travail ↔ terrain) : 13-15€ A/R
+- 🌊 **Montagne 66 ↔ Côte 66** (travail ↔ famille) : 20-25€ A/R
+- 🏡 **Côte 66 ↔ Plaine 66** (famille ↔ terrain) : 10-12€ A/R
+
+**Impact :** Excellente nouvelle pour le budget carburant quotidien ! Le ForkX est encore plus économique que prévu.
+
+---
+
+### 🔍 Découverte trappe réservoirs
+**📅 14 novembre 2025**
+
+Découverte d'une **trappe d'accès aux réservoirs véhicules** (diesel) sous l'habillage dans la partie cargo.
+
+**Utilité :** Facilite grandement les opérations de maintenance et vidange si nécessaire. Accès direct sans démontage complet.
+
+---
+
 ## 🎯 Usages
 
 ### Circuit hebdomadaire type
@@ -218,7 +248,7 @@ Le **"X"** fait référence à **Xavier** tout en symbolisant la **polyvalence**
 
 > **Approche Software Development** : Le projet ForkX suit une méthodologie de développement logiciel avec versioning incrémental (v0.1 → v1.0). Chaque version = objectif clair, livrable validable, tests réels terrain, puis passage à la version suivante.
 
-### ✅ v0.1 - CLEAN BASE (Novembre 2025)
+### ✅ v0.1 - CLEAN BASE + PERSONNALISATION (Novembre 2025)
 **Statut : EN COURS - Presque terminée**
 
 **Objectifs :**
@@ -226,31 +256,45 @@ Le **"X"** fait référence à **Xavier** tout en symbolisant la **polyvalence**
 - Nettoyage intérieur approfondi
 - Petites réparations essentielles
 - Documentation vidéo et photographique
-- Personnalisations mineures
+- Personnalisations (tapis, autoradio, accessoires)
 
-**Réalisations :**
-- ✅ ~~Acquisition véhicule (6 700 €)~~
-- ✅ ~~Carte grise obtenue (345 €)~~
+**Réalisations (7 391,75€) :**
+- ✅ ~~Acquisition véhicule Renage 38 : **6 700€**~~
+- ✅ ~~Carte grise Isère 38 : **345€**~~
+- ✅ ~~Service carte grise AS Auto : **40€**~~
+- ✅ ~~Récupération véhicule voyage (autoroute + restauration + essence) : **230€**~~
 - ✅ ~~Assurance L'Olivier active~~
 - ✅ ~~Contrôle technique valide jusqu'au 28/10/2027~~
 - ✅ ~~Vidéo état initial tournée~~
 - ✅ ~~Inspection complète documentée (ETAT_LIEUX_DOBLO_02NOV2025.md)~~
 - ✅ ~~Nettoyage intérieur complet (sièges retirés, plastiques restaurés)~~ (9/11/2025)
-- ✅ ~~Achats petites pièces : capuchons clignotants, verre rétroviseur, couvre-volant, LED tableau de bord, clips pare-soleil~~
-- ✅ ~~Rétroviseurs gauche/droit réparés~~ (9/11/2025)
-- ✅ ~~Antenne Aileron Requin installée~~ (13/11/2025)
+- ✅ ~~Capuchon clignotant rétroviseur droit : **16,99€**~~
+- ✅ ~~Verre rétroviseur gauche : **7,53€**~~
+- ✅ ~~Aileron requin antenne FM/AM : **15,99€**~~ (13/11/2025)
+- ✅ ~~Samsung Smart Tag sécurité : **17,50€**~~
+- ✅ ~~Coque silicone clés : **6,99€**~~
+- ✅ ~~LED plafonnier tableau de bord : **2,76€**~~
+- ✅ ~~Porte-document carte grise : **8,99€**~~ (10/11/2025)
+- ✅ ~~Gilet jaune + triangle : **offert 🎁 (0€)**~~ (15/11/2025)
+- ✅ ~~Gilet jaune + triangle : **offert 🎁 (0€)**~~ (15/11/2025)
 
-**Reste à faire :**
-- ⏳ Gilet jaune + triangle (15-20 €)
-- ⏳ Balai essuie-glace passager (10-15 €)
-- ⏳ Tapis de sol conducteur (30-50 €)
-- ⏳ Enjoliveur avant droit (20-40 €)
-- ⏳ Lumière cargo arrière (10-30 €)
-- ⏳ Révision mécanique complète recommandée (200-400 €)
-- ⏳ Tapis personnalisés Kovvar "ForkX" cactus rouge (150-200 €)
-- ⏳ Retrait logos "DT Energie"
+**En cours de livraison (55,60€) :**
+- 📦 Protège-volant : **15€** (en transit)
+- 📦 Désodorisant Chat pilote : **11,48€** (en transit)
+- 📦 Veilleuse Super Mario Boo : **19,96€** (en transit)
+- 📦 Ressort fantôme Boo : **3,09€** (en transit)
+- 📦 Clips pare-soleil passager : **6,07€** (en transit)
 
-**Budget v0.1 :** ~8 045 €  
+**Reste à faire (751-801€) :**
+- ⏳ Tapis de sol personnalisés conducteur + passager (qualité premium Kovvar) : **100-150€**
+- ⏳ 4× Enjoliveurs roues : **240€** (60€/unité)
+- ⏳ 2× Balais essuie-glaces Michelin Stealth conducteur + passager : **36,30€**
+- ⏳ Plaques d'immatriculation : **50-100€**
+- ⏳ Autoradio Android 10 pouces : **~300€**
+- ⏳ Double clés (reporté 2026) : **~150€**
+
+**Budget v0.1 :** ~8 167€  
+**Dépensé :** 7 391,75€ | **Reste :** ~776€  
 **Date fin prévue :** Fin novembre 2025
 
 ---
@@ -540,7 +584,7 @@ Le **"X"** fait référence à **Xavier** tout en symbolisant la **polyvalence**
 
 ### Budget par phase
 ```
-v0.1 Clean Base                :  8 045 €
+v0.1 Clean Base                :  8 167 €
 v0.2 Ouvrants & Structure      :    350 €
 v0.3 Isolation & Habillage     :    460 €
 v0.4 Réseaux Techniques        :    400 €
@@ -552,19 +596,19 @@ v0.9 Douche                    :    300 €
 v0.9.5 Préparation Été         :    225 €
 v0.9.5 Préparation Hiver       :    300 € (sans chauffage)
 ──────────────────────────────────────────
-TOTAL (sans chauffage)         : 11 280 €
+TOTAL (sans chauffage)         : 11 402 €
 
 Chauffage diesel (optionnel)   :  + 550 €
 ──────────────────────────────────────────
-TOTAL (avec chauffage)         : 11 830 €
+TOTAL (avec chauffage)         : 11 952 €
 ```
 
 ### Répartition par catégorie
-- **Acquisition & Admin** : 7 660 € (68%)
+- **Acquisition & Admin** : 7 315 € (64%)
 - **Structure & Isolation** : 1 160 € (10%)
 - **Réseaux & Équipements** : 1 000 € (9%)
 - **Meubles & Aménagement** : 750 € (7%)
-- **Finitions & Optimisations** : 710 € (6%)
+- **Finitions & Optimisations** : 1 177 € (10%)
 
 ### Économies réalisées
 - Plancher conservé : -200 €

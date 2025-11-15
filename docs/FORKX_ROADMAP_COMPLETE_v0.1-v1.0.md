@@ -56,7 +56,7 @@ Le projet ForkX suit une méthodologie de développement logiciel avec versionin
 
 ## 📅 ROADMAP COMPLÈTE
 
-### ✅ v0.1 - CLEAN BASE (Novembre 2025)
+### ✅ v0.1 - CLEAN BASE + PERSONNALISATION (Novembre 2025)
 **Statut : EN COURS - Presque terminée**
 
 #### Objectifs
@@ -64,38 +64,52 @@ Le projet ForkX suit une méthodologie de développement logiciel avec versionin
 - Nettoyage intérieur approfondi
 - Petites réparations essentielles
 - Documentation vidéo et photographique
-- Personnalisations mineures
+- Personnalisations (tapis, autoradio, accessoires)
 
-#### Réalisations
-- ✅ Acquisition véhicule (6 700 €)
-- ✅ Carte grise obtenue (345 €)
+#### Réalisations (7 382,76€)
+- ✅ Acquisition véhicule Renage 38 - **6 700€**
+- ✅ Carte grise Isère 38 - **345€**
+- ✅ Frais AD + trajet - **270€**
 - ✅ Assurance L'Olivier active
 - ✅ Contrôle technique valide jusqu'au 28/10/2027
 - ✅ Vidéo état initial tournée
 - ✅ Inspection complète documentée (ETAT_LIEUX_DOBLO_02NOV2025.md)
-- ✅ Nettoyage intérieur complet (sièges retirés, plastiques restaurés)
-- ✅ Achats petites pièces : capuchons clignotants, verre rétroviseur, couvre-volant, LED tableau de bord, clips pare-soleil
+- ✅ Nettoyage intérieur complet (9/11/2025)
+- ✅ Capuchon clignotant rétroviseur droit - **16,99€**
+- ✅ Verre rétroviseur gauche - **7,53€**
+- ✅ Aileron requin antenne FM/AM - **15,99€** (13/11/2025)
+- ✅ Samsung Smart Tag sécurité - **17,50€**
+- ✅ Coque silicone clés - **6,99€**
+- ✅ LED plafonnier tableau de bord - **2,76€**
+- ✅ Porte-document carte grise - **8,99€** (10/11/2025)
+- ✅ Gilet jaune - **offert 🎁 (0€)** (15/11/2025)
+- 📦 En transit : Protège-volant (15€), Désodorisant Chat pilote (11,48€), Veilleuse Boo (19,96€), Ressort Boo (3,09€), Clips pare-soleil (6,07€)
 
-#### Reste à faire
-- ⏳ Gilet jaune + triangle (15-20 €)
-- ⏳ Balai essuie-glace passager (10-15 €)
-- ⏳ Tapis de sol conducteur (30-50 €)
-- ⏳ Enjoliveur avant droit (20-40 €)
-- ⏳ Lumière cargo arrière (10-30 €)
-- ⏳ Révision mécanique complète recommandée (200-400 €)
-- ⏳ Tapis personnalisés Kovvar "ForkX" cactus rouge (150-200 €)
-- ⏳ Retrait logos "DT Energie"
+#### Reste à faire (751-801€)
+- ⏳ Tapis de sol personnalisés conducteur + passager (qualité premium Kovvar) - **100-150€**
+- ⏳ 4× Enjoliveurs roues - **240€** (60€/unité)
+- ⏳ 2× Balais essuie-glaces Michelin Stealth conducteur + passager - **36,30€**
+- ⏳ Plaques d'immatriculation - **50-100€**
+- ⏳ Autoradio Android 10 pouces - **~300€**
+- ⏳ Double clés (reporté 2026) - **~150€**
 
-#### Budget v0.1
+#### Budget v0.1 (PRIX RÉELS)
 ```
-Véhicule + admin         : 7 315 €
-Petites pièces           :    75 €
-Tapis Kovvar (estimé)    :   200 €
-Sécurité obligatoire     :    20 €
-Petites réparations      :   135 €
-Révision mécanique       :   300 €
+Acquisition véhicule      : 6 700 €
+Carte grise               :   345 €
+Service carte grise AS Auto:    40 €
+Récupération véhicule voyage:   230 €
+Achats réalisés (pièces)  :    76,75 €
+En transit (pièces)       :    55,60 €
+Reste à acheter           :   751-801 €
 ─────────────────────────────────
-TOTAL v0.1               : ~8 045 €
+TOTAL v0.1                : ~8 167 €
+
+Dépensé à ce jour         : 7 391,75 €
+Reste à dépenser          :  ~776 €
+
+Économies réalisées       :  -515,00 €
+  (gilet offert 15€ + révision non nécessaire 300€ + plancher conservé 200€)
 ```
 
 #### Durée
@@ -1066,33 +1080,33 @@ Un an exactement après l'achat du véhicule (novembre 2025), le projet ForkX at
 
 ```
 PHASES CONSTRUCTION (v0.1 → v0.5) :
-v0.1 Clean Base           : ~8 045 €
-v0.2 Ouvrants & Structure :   ~350 €
-v0.3 Isolation & Habillage:   ~460 €
-v0.4 Réseaux Techniques   :   ~400 €
-v0.5 Meubles & Aménagement:   ~750 €
+v0.1 Clean Base + Personnalisation :  8 167,00 €
+v0.2 Ouvrants & Structure :    350,00 €
+v0.3 Isolation & Habillage:    460,00 €
+v0.4 Réseaux Techniques   :    400,00 €
+v0.5 Meubles & Aménagement:    750,00 €
 ─────────────────────────────────────
-Sous-total Construction   : ~10 005 €
+Sous-total Construction   : 10 127,00 €
 
 PHASES FINITIONS (v0.6 → v0.9.5) :
-v0.6 Décoration & Tests   :   ~225 €
-v0.7 Ajustements          :   ~150 €
-v0.8 Validation Pro       :    ~75 €
-v0.9 Douche               :   ~300 €
-v0.9.5 Préparation Été    :   ~225 €
-v0.9.5 Préparation Hiver  :   ~300 € (sans chauffage)
-                          OU ~850 € (avec chauffage diesel)
+v0.6 Décoration & Tests   :    225,00 €
+v0.7 Ajustements          :    150,00 €
+v0.8 Validation Pro       :     75,00 €
+v0.9 Douche               :    300,00 €
+v0.9.5 Préparation Été    :    225,00 €
+v0.9.5 Préparation Hiver  :    300,00 € (sans chauffage)
+                          OU  850,00 € (avec chauffage diesel)
 ─────────────────────────────────────
-Sous-total Finitions      :  ~1 275 € (sans chauffage)
-                          OU ~1 825 € (avec chauffage)
+Sous-total Finitions      :  1 275,00 € (sans chauffage)
+                          OU 1 825,00 € (avec chauffage)
 
 ════════════════════════════════════════
-TOTAL PROJET ForkX v1.0   : ~11 280 € (sans chauffage)
-                          OU ~11 830 € (avec chauffage)
+TOTAL PROJET ForkX v1.0   : 11 402,00 € (sans chauffage)
+                          OU 11 952,00 € (avec chauffage)
 ════════════════════════════════════════
 
 Budget initial estimé     : ~10 000-12 000 €
-Budget final réalisé      : ~11 280-11 830 €
+Budget final réalisé      :  11 402-11 952 €
 ✅ BUDGET RESPECTÉ
 ```
 
@@ -1100,7 +1114,7 @@ Budget final réalisé      : ~11 280-11 830 €
 
 ```
 2025
-NOV     : v0.1 Clean Base ✅
+NOV     : v0.1 Clean Base + Personnalisation ✅
 DÉC     : v0.2 Ouvrants & Structure ✅
 
 2026
@@ -1134,34 +1148,34 @@ Durée totale projet : 12 mois (Nov 2025 → Nov 2026)
 
 ### Budget par phase (détaillé)
 ```
-v0.1 Clean Base           :  8 045 €
-v0.2 Ouvrants & Structure :    350 €
-v0.3 Isolation & Habillage:    460 €
-v0.4 Réseaux Techniques   :    400 €
-v0.5 Meubles & Aménagement:    750 €
-v0.6 Décoration & Tests   :    225 €
-v0.7 Ajustements          :    150 €
-v0.8 Validation Pro       :     75 €
-v0.9 Douche               :    300 €
-v0.9.5 Préparation Été    :    225 €
-v0.9.5 Préparation Hiver  :    300 € (sans chauffage)
+v0.1 Clean Base + Personnalisation :  8 167,00 €
+v0.2 Ouvrants & Structure :    350,00 €
+v0.3 Isolation & Habillage:    460,00 €
+v0.4 Réseaux Techniques   :    400,00 €
+v0.5 Meubles & Aménagement:    750,00 €
+v0.6 Décoration & Tests   :    225,00 €
+v0.7 Ajustements          :    150,00 €
+v0.8 Validation Pro       :     75,00 €
+v0.9 Douche               :    300,00 €
+v0.9.5 Préparation Été    :    225,00 €
+v0.9.5 Préparation Hiver  :    300,00 € (sans chauffage)
 ────────────────────────────────────────
-TOTAL (sans chauffage)    : 11 280 €
+TOTAL (sans chauffage)    : 11 402,00 €
 
-Chauffage diesel (opt.)   :  + 550 €
+Chauffage diesel (opt.)   :    550,00 €
 ────────────────────────────────────────
-TOTAL (avec chauffage)    : 11 830 €
+TOTAL (avec chauffage)    : 11 952,00 €
 ```
 
 ### Répartition budget par catégorie
 ```
-ACQUISITION & ADMIN       :  7 660 € (68%)
-STRUCTURE & ISOLATION     :  1 160 € (10%)
-RÉSEAUX & ÉQUIPEMENTS     :  1 000 €  (9%)
-MEUBLES & AMÉNAGEMENT     :    750 €  (7%)
-FINITIONS & OPTIMISATIONS :    710 €  (6%)
+ACQUISITION & ADMIN       :  7 315,00 € (64%)
+STRUCTURE & ISOLATION     :  1 160,00 € (10%)
+RÉSEAUX & ÉQUIPEMENTS     :  1 000,00 €  (9%)
+MEUBLES & AMÉNAGEMENT     :    750,00 €  (7%)
+FINITIONS & OPTIMISATIONS   :  1 177,00 € (10%)
 ────────────────────────────────────────
-TOTAL                     : 11 280 € (100%)
+TOTAL                     : 11 402,00 € (100%)
 ```
 
 ### Économies réalisées (vs prévisions initiales)

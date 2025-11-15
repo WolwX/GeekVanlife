@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏡 Geekagne Dashboard - Terrain Multi-Projets</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏡</text></svg>">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: #333;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 30px;
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+        }
+        
+        .header-left {
+            flex: 1;
+        }
+        
+        .header-right {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            min-width: 280px;
+        }
+        
+        .header-right h3 {
+            color: #11998e;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+        
+        .header-stat {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .header-stat:last-child {
+            border-bottom: none;
+        }
+        
+        .header-stat-label {
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        .header-stat-value {
+            font-weight: bold;
+            color: #11998e;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            color: #11998e;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            color: #666;
+            font-size: 1.1em;
+        }
+        
+        .badges {
+            margin-top: 15px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .badge {
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+        
+        .badge-version {
+            background: #2563eb;
+            color: white;
+        }
+        
+        .badge-status {
+            background: #fef3c7;
+            color: #92400e;
+        }
+        
+        .badge-date {
+            background: #e5e7eb;
+            color: #6b7280;
+        }
+        
+        .badge-keyword {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: white;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .stat-card .icon {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .stat-card .value {
+            font-size: 2em;
+            font-weight: bold;
+            color: #11998e;
+            margin-bottom: 5px;
+        }
+        
+        .stat-card .label {
+            color: #666;
+            font-size: 0.95em;
+        }
+        
+        .main-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .card h2 {
+            color: #11998e;
+            margin-bottom: 20px;
+            font-size: 1.4em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .progress-item {
+            margin-bottom: 20px;
+        }
+        
+        .progress-item .label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .progress-bar {
+            background: #e0e0e0;
+            border-radius: 10px;
+            height: 12px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #11998e 0%, #38ef7d 100%);
+            border-radius: 10px;
+            transition: width 0.5s ease;
+        }
+        
+        .progress-fill.complete {
+            background: linear-gradient(90deg, #28a745 0%, #5cb85c 100%);
+        }
+        
+        .progress-fill.in-progress {
+            background: linear-gradient(90deg, #11998e 0%, #38ef7d 100%);
+        }
+        
+        .progress-fill.planned {
+            background: linear-gradient(90deg, #ffc107 0%, #ffeb3b 100%);
+        }
+        
+        .timeline-item {
+            padding: 15px;
+            border-left: 3px solid #11998e;
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -7px;
+            top: 20px;
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+            background: #11998e;
+        }
+        
+        .timeline-item .date {
+            color: #11998e;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+        
+        .timeline-item .title {
+            font-weight: 600;
+            margin: 5px 0;
+        }
+        
+        .timeline-item .description {
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        .projects-section {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        .projects-section h2 {
+            color: #11998e;
+            margin-bottom: 25px;
+            font-size: 1.8em;
+        }
+        
+        .project-category {
+            margin-bottom: 30px;
+        }
+        
+        .project-category h3 {
+            color: #11998e;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        
+        .project-item {
+            background: #f8f9fa;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .project-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .project-name {
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .project-status {
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+        
+        .status-complete {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .status-progress {
+            background: #d1ecf1;
+            color: #0c5460;
+        }
+        
+        .status-planned {
+            background: #fff3cd;
+            color: #856404;
+        }
+        
+        .news-section {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .news-section h2 {
+            color: #11998e;
+            margin-bottom: 25px;
+            font-size: 1.8em;
+        }
+        
+        .news-item {
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .news-item:hover {
+            background: #e9ecef;
+            transform: translateX(5px);
+        }
+        
+        .news-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+        
+        .news-icon {
+            font-size: 1.8em;
+        }
+        
+        .news-date {
+            color: #11998e;
+            font-weight: bold;
+        }
+        
+        .news-content {
+            color: #333;
+            line-height: 1.6;
+            padding-left: 50px;
+        }
+        
+        .budget-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .budget-item:last-child {
+            border-bottom: none;
+        }
+        
+        .budget-label {
+            font-weight: 600;
+        }
+        
+        .budget-value {
+            color: #11998e;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-left">
+                <h1>🏡 Geekagne Dashboard</h1>
+                <p>Terrain multi-projets DIY - Plaine des Pyrénées-Orientales (66)</p>
+                <div class="badges">
+                    <span class="badge badge-version">v1.0</span>
+                    <span class="badge badge-status">EN COURS</span>
+                    <span class="badge badge-date">Mis à jour le 15 nov 2025</span>
+                    <span class="badge badge-keyword">☀️ Exposition plein sud</span>
+                    <span class="badge badge-keyword">💧 Eau sous pression</span>
+                    <span class="badge badge-keyword">♻️ 100% DIY & Recyclage</span>
+                </div>
+            </div>
+            <div class="header-right">
+                <h3>📊 Caractéristiques</h3>
+                <div class="header-stat">
+                    <span class="header-stat-label">📐 Dimensions</span>
+                    <span class="header-stat-value">47-54m × 90-95m - 4700 m²</span>
+                </div>
+                <div class="header-stat">
+                    <span class="header-stat-label">🌡️ Climat</span>
+                    <span class="header-stat-value">Méditerranéen</span>
+                </div>
+                <div class="header-stat">
+                    <span class="header-stat-label">⛰️ Altitude</span>
+                    <span class="header-stat-value">~100m</span>
+                </div>
+                <div class="header-stat">
+                    <span class="header-stat-label">☀️ Exposition</span>
+                    <span class="header-stat-value">Plein sud</span>
+                </div>
+                <div class="header-stat">
+                    <span class="header-stat-label">🚗 Accès</span>
+                    <span class="header-stat-value">70m carrossable</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="icon">📐</div>
+                <div class="value" id="surface">4700</div>
+                <div class="label">m² de terrain</div>
+            </div>
+            <div class="stat-card">
+                <div class="icon">🏗️</div>
+                <div class="value" id="projectsProgress">35%</div>
+                <div class="label">Projets complétés</div>
+            </div>
+            <div class="stat-card">
+                <div class="icon">💰</div>
+                <div class="value" id="budgetSpent">~13 500€</div>
+                <div class="label">Investissement total</div>
+            </div>
+            <div class="stat-card">
+                <div class="icon">📅</div>
+                <div class="value" id="monthsOwned">11</div>
+                <div class="label">Mois de propriété</div>
+            </div>
+        </div>
+
+        <div class="main-grid">
+            <div class="card">
+                <h2>🏗️ Bâtiments en cours</h2>
+                <div class="progress-item">
+                    <div class="label">
+                        <span>Cabanon Sanitaire</span>
+                        <span>✅ 100%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill complete" style="width: 100%"></div>
+                    </div>
+                </div>
+                <div class="progress-item">
+                    <div class="label">
+                        <span>Cabanon Stockage</span>
+                        <span>⏳ 65%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill in-progress" style="width: 65%"></div>
+                    </div>
+                </div>
+                <div class="progress-item">
+                    <div class="label">
+                        <span>Cabane à Chats</span>
+                        <span>✅ 100%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill complete" style="width: 100%"></div>
+                    </div>
+                </div>
+                <div class="progress-item">
+                    <div class="label">
+                        <span>Cabane à Princesse</span>
+                        <span>✅ 100%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill complete" style="width: 100%"></div>
+                    </div>
+                </div>
+                <div class="progress-item">
+                    <div class="label">
+                        <span>Terrasse</span>
+                        <span>⏳ 50%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill in-progress" style="width: 50%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>💰 Budget terrain</h2>
+                <div class="budget-item">
+                    <span class="budget-label">🏞️ Achat terrain</span>
+                    <span class="budget-value">12 500€</span>
+                </div>
+                <div class="budget-item">
+                    <span class="budget-label">🏗️ Cabanon stockage</span>
+                    <span class="budget-value">490-610€</span>
+                </div>
+                <div class="budget-item">
+                    <span class="budget-label">🪵 Palettes récup</span>
+                    <span class="budget-value">Gratuit</span>
+                </div>
+                <div class="budget-item">
+                    <span class="budget-label">🪵 Palettes EUR</span>
+                    <span class="budget-value">2,50€/unité</span>
+                </div>
+                <div class="budget-item">
+                    <span class="budget-label">⚡ Solaire (prévu)</span>
+                    <span class="budget-value">~1700€</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>🌱 Plantations</h2>
+                <div class="progress-item">
+                    <div class="label">
+                        <span>2 Cerisiers</span>
+                        <span>✅</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill complete" style="width: 100%"></div>
+                    </div>
+                </div>
+                <div class="progress-item">
+                    <div class="label">
+                        <span>1 Pommier</span>
+                        <span>✅</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill complete" style="width: 100%"></div>
+                    </div>
+                </div>
+                <div class="progress-item">
+                    <div class="label">
+                        <span>1 Figuier</span>
+                        <span>✅</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill complete" style="width: 100%"></div>
+                    </div>
+                </div>
+                <div class="progress-item">
+                    <div class="label">
+                        <span>3 Magnolia (haie)</span>
+                        <span>✅</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill complete" style="width: 100%"></div>
+                    </div>
+                </div>
+                <div class="progress-item">
+                    <div class="label">
+                        <span>3 Mûriers platanes</span>
+                        <span>📋 Prévu</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill planned" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="projects-section">
+            <h2>🚧 Tous les Projets Geekagne</h2>
+            <div id="projectsContainer"></div>
+        </div>
+
+        <div class="news-section">
+            <h2>📰 Dernières News & Avancées</h2>
+            <div id="newsContainer"></div>
+        </div>
+    </div>
+
+    <!-- Dashboard Parser Script -->
+    <script src="../src/dashboard-parser.js"></script>
+    
+    <script>
+        const dashboardData = {
+            terrainInfo: {
+                surface: "4700",
+                projectsProgress: "35%",
+                budgetSpent: "~13 500€",
+                monthsOwned: "11" // Jan 2025 acquisition
+            },
+            projects: {
+                "🏗️ Bâtiments et structures": [
+                    { name: "Cabanon Sanitaire (8m²)", status: "complete", details: "Opérationnel - Toilettes + Douche + Lit d'appoint" },
+                    { name: "Cabanon Stockage (12m²)", status: "progress", details: "65% - Budget 490-610€ - ~30 palettes" },
+                    { name: "Cabane à Chats (2 étages)", status: "complete", details: "Structure complétée - 5 palettes 120×100cm" },
+                    { name: "Cabane à Princesse", status: "complete", details: "Réalisée pour anniversaire" },
+                    { name: "Placard Technique Eau", status: "progress", details: "En cours - Vanne robotisée domotique prévue" },
+                    { name: "Cabanon Guinguette (bar)", status: "planned", details: "Projet à venir - Coin ludique" }
+                ],
+                "🌳 Espaces aménagés": [
+                    { name: "Terrain de pétanque", status: "complete", details: "Coin ludique opérationnel" },
+                    { name: "Piscine", status: "complete", details: "Zone détente" },
+                    { name: "Coin pique-nique", status: "complete", details: "Zone repas extérieur" },
+                    { name: "Coin détente sous arbres", status: "complete", details: "Espace ombragé naturel" },
+                    { name: "Terrasse", status: "progress", details: "À moitié réalisée - Partiellement ombragée" }
+                ],
+                "🌱 Plantations et jardinage": [
+                    { name: "2 Cerisiers", status: "complete", details: "Plantés" },
+                    { name: "1 Pommier", status: "complete", details: "Planté" },
+                    { name: "1 Figuier", status: "complete", details: "Planté" },
+                    { name: "Haie séparation + 3 Magnolia", status: "complete", details: "Avec portillon piéton" },
+                    { name: "3 Mûriers platanes", status: "planned", details: "Projet coin ombragé central" },
+                    { name: "Potager", status: "planned", details: "En projet" },
+                    { name: "Serre Walipini", status: "planned", details: "Projet long terme - Serre enterrée" }
+                ],
+                "♻️ Projets environnementaux": [
+                    { name: "Phytoépuration", status: "planned", details: "Traitement eaux usées cabanon sanitaire" },
+                    { name: "Compost", status: "planned", details: "À côté phytoépuration" },
+                    { name: "Récupération pluviale", status: "complete", details: "Cuve 1000L opérationnelle" },
+                    { name: "Canal Corbère", status: "complete", details: "Irrigation gravitaire avril-octobre" }
+                ],
+                "⚡ Énergie (projets futurs)": [
+                    { name: "Panneaux solaires 2,7 kWc", status: "planned", details: "6×450Wc - ~3800 kWh/an - Budget ~1700€" }
+                ],
+                "🚶 Aménagements accès": [
+                    { name: "Étang", status: "planned", details: "Le long du chemin + zone ludique - Long terme" }
+                ]
+            },
+            news: [
+                {
+                    date: "Novembre 2025",
+                    icon: "🏗️",
+                    text: "Cabanon stockage à 65% d'avancement. Objectif : opérationnel hiver 2025. Construction ~30 palettes recyclées + OSB. Budget maîtrisé 490-610€."
+                },
+                {
+                    date: "8 novembre 2025",
+                    icon: "📋",
+                    text: "Mise à jour complète documentation Geekagne : contexte résumé détaillé créé avec tous les projets, budgets, et ressources."
+                },
+                {
+                    date: "Automne 2025",
+                    icon: "🌱",
+                    text: "Plantations arbres fruitiers terminées : 2 cerisiers, 1 pommier, 1 figuier. Haie de séparation avec 3 Magnolia grandiflora plantés."
+                },
+                {
+                    date: "Été 2025",
+                    icon: "💧",
+                    text: "Système irrigation Canal de Corbère opérationnel. Cuve 1000L + récupération pluviale installée. Autonomie eau assurée."
+                },
+                {
+                    date: "Printemps 2025",
+                    icon: "🏕️",
+                    text: "Cabanon sanitaire opérationnel : douche + toilettes + lit d'appoint. Geekomobile stationné comme base mobile pour chantiers."
+                },
+                {
+                    date: "Janvier 2025",
+                    icon: "🎉",
+                    text: "Acquisition terrain Geekagne : 4500m² pour 12 500€. Terrain naturellement plat, clôturé, eau sous pression - avantages cruciaux obtenus."
+                }
+            ]
+        };
+
+        // Populate stats
+        document.getElementById('surface').textContent = dashboardData.terrainInfo.surface;
+        document.getElementById('projectsProgress').textContent = dashboardData.terrainInfo.projectsProgress;
+        document.getElementById('budgetSpent').textContent = dashboardData.terrainInfo.budgetSpent;
+        document.getElementById('monthsOwned').textContent = dashboardData.terrainInfo.monthsOwned;
+
+        // Populate projects by category
+        const projectsContainer = document.getElementById('projectsContainer');
+        Object.keys(dashboardData.projects).forEach(category => {
+            const categoryDiv = document.createElement('div');
+            categoryDiv.className = 'project-category';
+            
+            let categoryHTML = `<h3>${category}</h3>`;
+            dashboardData.projects[category].forEach(project => {
+                const statusClass = project.status === 'complete' ? 'status-complete' : 
+                                   project.status === 'progress' ? 'status-progress' : 'status-planned';
+                const statusText = project.status === 'complete' ? '✅ Terminé' : 
+                                  project.status === 'progress' ? '⏳ En cours' : '📋 Prévu';
+                
+                categoryHTML += `
+                    <div class="project-item">
+                        <div>
+                            <div class="project-name">${project.name}</div>
+                            <div style="color: #666; font-size: 0.85em; margin-top: 3px;">${project.details}</div>
+                        </div>
+                        <span class="project-status ${statusClass}">${statusText}</span>
+                    </div>
+                `;
+            });
+            
+            categoryDiv.innerHTML = categoryHTML;
+            projectsContainer.appendChild(categoryDiv);
+        });
+
+        // Populate news
+        const newsContainer = document.getElementById('newsContainer');
+        dashboardData.news.forEach(item => {
+            const newsDiv = document.createElement('div');
+            newsDiv.className = 'news-item';
+            newsDiv.innerHTML = `
+                <div class="news-header">
+                    <span class="news-icon">${item.icon}</span>
+                    <span class="news-date">${item.date}</span>
+                </div>
+                <div class="news-content">${item.text}</div>
+            `;
+            newsContainer.appendChild(newsDiv);
+        });
+    </script>
+</body>
+</html>

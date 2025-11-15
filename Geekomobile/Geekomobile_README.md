@@ -28,8 +28,10 @@
 ### Identité
 - **Modèle :** Iveco Daily IV L4H2 (Long, Haut)
 - **Année :** 2006
+- **Immatriculation :** CL-370-YL
 - **Empattement :** 3 950 mm
 - **Achat :** Mai 2020
+- **Prix achat :** 6 200€
 - **Installation :** Août 2021
 - **Habitat permanent :** Depuis août 2021 (4+ années)
 

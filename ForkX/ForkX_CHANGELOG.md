@@ -278,16 +278,25 @@ et ce projet suit un versioning incrémental inspiré du développement logiciel
 
 ---
 
-## [v0.1] - 2025-11 (EN COURS)
-**✅ CLEAN BASE - Phase quasi terminée**
+## [v0.1] - 2025-11-15 (EN COURS)
+**✅ CLEAN BASE + PERSONNALISATION - Phase quasi terminée**
 
-### Réalisé
+**Date de début** : 01/11/2025 (acquisition)  
+**Budget réel** : ~8 167€  
+**Dépensé** : 7 391,75€ | **Reste** : ~776€  
+**Statut** : 15% complété
 
-#### Acquisition (31 octobre 2025)
-- ✅ ~~Achat véhicule Fiat Doblo Cargo 2020 - 6 700 €~~
-- ✅ ~~Carte grise obtenue - 345 €~~
+### Acquisition (7 315€) ✅
+
+#### Transaction principale (31 octobre 2025)
+- ✅ ~~Achat véhicule Fiat Doblo Cargo 2020 - **6 700€**~~
+- ✅ ~~Carte grise Isère 38 - **345€**~~
+- ✅ ~~Service carte grise AS Auto - **40€**~~
+- ✅ ~~Récupération véhicule voyage (autoroute + restauration + essence) - **230€**~~
 - ✅ ~~Assurance L'Olivier activée~~
 - ✅ ~~Contrôle technique valide jusqu'au 28/10/2027~~
+
+### Achats réalisés (67,76€) ✅
 
 #### Documentation initiale
 - ✅ ~~Vidéo état initial tournée~~
@@ -303,43 +312,61 @@ et ce projet suit un versioning incrémental inspiré du développement logiciel
   - Vitres nettoyées
   - Jantes brossées
 
-#### Réparations (9-13 novembre 2025)
-- ✅ ~~Rétroviseur gauche (glace) réparé~~ (9/11/2025)
-- ✅ ~~Rétroviseur droit (capuchon clignotant) réparé~~ (9/11/2025)
-- ✅ ~~Antenne Aileron Requin installée~~ (13/11/2025)
+#### Réparations & pièces Amazon (64,00€)
+- ✅ ~~Capuchon clignotant rétroviseur droit - **16,99€**~~ (9/11/2025)
+- ✅ ~~Verre rétroviseur gauche - **7,53€**~~ (9/11/2025)
+- ✅ ~~Aileron requin antenne FM/AM - **15,99€**~~ (13/11/2025)
   - Installation : OK
   - Résultats : Mitigés (légère amélioration DAB+, pas de miracle FM)
+- ✅ ~~Samsung Smart Tag sécurité - **17,50€**~~
+- ✅ ~~Coque silicone clés - **6,99€**~~
 
-#### Petites pièces achetées
-- ✅ ~~Capuchons clignotants~~
-- ✅ ~~Verre rétroviseur~~
-- ✅ ~~Couvre-volant~~
-- ✅ ~~LED tableau de bord~~
-- ✅ ~~Clips pare-soleil~~
+#### Pièces AliExpress (2,76€)
+- ✅ ~~LED plafonnier tableau de bord - **2,76€**~~
 
-### Reste à faire (fin novembre 2025)
-- ⏳ Gilet jaune + triangle (15-20 €)
-- ⏳ Balai essuie-glace passager (10-15 €)
-- ⏳ Tapis de sol conducteur (30-50 €)
-- ⏳ Enjoliveur avant droit (20-40 €)
-- ⏳ Lumière cargo arrière (10-30 €)
-- ⏳ Révision mécanique complète recommandée (200-400 €)
-- ⏳ Tapis personnalisés Kovvar "ForkX" cactus rouge (150-200 €)
-- ⏳ Retrait logos "DT Energie"
-- ⏳ Changement plaque d'immatriculation
-- ⏳ Nettoyage partie cargo
-- ⏳ Sécurisation clés (création double)
+#### Pièces Amazon accessoires (8,99€)
+- ✅ ~~Porte-document carte grise - **8,99€**~~ (10/11/2025)
 
-### Budget v0.1
+#### Offert (0€)
+- ✅ ~~Gilet jaune + triangle - **offert 🎁 (0€)**~~ (15/11/2025)
+
+### En transit (55,60€) 📦
+
+#### Amazon (en livraison)
+- 📦 Protège-volant - **15€**
+- 📦 Veilleuse Super Mario Boo - **19,96€**
+
+#### AliExpress (en livraison)
+- 📦 Désodorisant Chat pilote - **11,48€**
+- 📦 Ressort fantôme Boo - **3,09€**
+- 📦 Clips pare-soleil passager - **6,07€**
+
+### Reste à faire (751-801€) ⏳
+
+#### Petites réparations & personnalisation
+- ⏳ Tapis de sol personnalisés conducteur + passager (qualité premium Kovvar) - **100-150€**
+- ⏳ 4× Enjoliveurs roues - **240€** (60€/unité)
+- ⏳ 2× Balais essuie-glaces Michelin Stealth conducteur + passager - **36,30€**
+- ⏳ Plaques d'immatriculation - **50-100€**
+- ⏳ Autoradio Android 10 pouces - **~300€**
+
+#### Reporté 2026
+- ⏳ Double clés (programmation SGW) - **~150€**
+
+### Budget v0.1 récapitulatif
 ```
-Véhicule + admin         : 7 315 €
-Petites pièces           :    75 €
-Tapis Kovvar (estimé)    :   200 €
-Sécurité obligatoire     :    20 €
-Petites réparations      :   135 €
-Révision mécanique       :   300 €
-─────────────────────────────────
-TOTAL v0.1 (estimé)      : ~8 045 €
+Acquisition & admin         : 7 315,00 €
+Achats réalisés             :    76,75 €
+En transit                  :    55,60 €
+Reste à faire               :   751-801 €
+──────────────────────────────────────
+TOTAL v0.1                  : ~8 167,00 €
+
+Dépensé à ce jour           : 7 391,75 €
+Reste à dépenser            :  ~776,00 €
+
+Économies réalisées         :  -515,00 €
+  (gilet offert 15€ + révision non nécessaire 300€ + plancher conservé 200€)
 ```
 
 ---
