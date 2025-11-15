@@ -32,19 +32,34 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             margin-bottom: 30px;
             display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .header-top {
+            display: flex;
             gap: 30px;
             align-items: flex-start;
+            flex-wrap: wrap;
         }
         
         .header-left {
             flex: 1;
+            min-width: 250px;
+        }
+        
+        .header-badges-container {
+            flex: 1;
+            min-width: 250px;
+            display: flex;
+            align-items: flex-start;
         }
         
         .header-right {
             background: #f8f9fa;
             padding: 20px;
             border-radius: 10px;
-            min-width: 280px;
+            width: 100%;
         }
         
         .back-button {
@@ -70,6 +85,11 @@
             background: #29B6F6;
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(79, 195, 247, 0.4);
+        }
+
+        /* Masquer le bouton dans la WebView Flutter */
+        .back-button.hidden-in-app {
+            display: none;
         }
         
         .header-right h3 {
@@ -382,26 +402,89 @@
             color: #667eea;
             font-weight: bold;
         }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header-top {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .header-left {
+                width: 100%;
+                min-width: auto;
+            }
+
+            .header-badges-container {
+                width: 100%;
+                min-width: auto;
+            }
+
+            .badges {
+                justify-content: flex-start;
+            }
+
+            .header-right {
+                width: 100%;
+            }
+
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .back-button {
+                top: 15px;
+                right: 15px;
+                padding: 10px;
+                font-size: 0.85rem;
+                gap: 0;
+                border-radius: 50%;
+                width: 45px;
+                height: 45px;
+                justify-content: center;
+            }
+
+            .back-button-text {
+                display: none;
+            }
+
+            .back-button-icon {
+                margin: 0;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <a href="../index.html" class="back-button">
-            ← Accueil
+        <a href="../index.html" class="back-button" id="backButton">
+            <span class="back-button-icon">🏠</span>
+            <span class="back-button-text">Accueil</span>
         </a>
         
         <div class="header">
-            <div class="header-left">
-                <h1>🚐🚀 Geekomobile Dashboard</h1>
-                <p>Iveco Daily L4H2 2006 - Habitat aménagé depuis août 2021</p>
-                <div class="badges">
-                    <span class="badge badge-version">v2.0</span>
-                    <span class="badge badge-status">OPÉRATIONNEL</span>
-                    <span class="badge badge-date">Mis à jour le 15 nov 2025</span>
-                    <span class="badge badge-keyword">🏔️ Vanlife en Cerdagne</span>
-                    <span class="badge badge-keyword">⚡ 100% Autonome</span>
-                    <span class="badge badge-keyword">📅 4+ ans d'expérience</span>
-                    <span class="badge badge-keyword">🔄 5 Saisons vécues</span>
+            <div class="header-top">
+                <div class="header-left">
+                    <h1>🚐🚀 Geekomobile Dashboard</h1>
+                    <p>Iveco Daily L4H2 2006 - Habitat aménagé depuis août 2021</p>
+                </div>
+                <div class="header-badges-container">
+                    <div class="badges">
+                        <span class="badge badge-version">v2.0</span>
+                        <span class="badge badge-status">OPÉRATIONNEL</span>
+                        <span class="badge badge-date">Mis à jour le 15 nov 2025</span>
+                        <span class="badge badge-keyword">🏔️ Vanlife en Cerdagne</span>
+                        <span class="badge badge-keyword">⚡ 100% Autonome</span>
+                        <span class="badge badge-keyword">📅 4+ ans d'expérience</span>
+                        <span class="badge badge-keyword">🔄 5 Saisons vécues</span>
+                    </div>
                 </div>
             </div>
             <div class="header-right">
@@ -677,6 +760,17 @@
             `;
             newsContainer.appendChild(newsDiv);
         });
+
+        // Détecter si on est dans la WebView Flutter et masquer le bouton
+        const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+        const isFlutterWebView = userAgent.includes('Flutter') || userAgent.includes('wv');
+        
+        if (isFlutterWebView) {
+            const backButton = document.getElementById('backButton');
+            if (backButton) {
+                backButton.classList.add('hidden-in-app');
+            }
+        }
     </script>
 </body>
 </html>
