@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart' show kIsWeb, defaultTargetPlatform, TargetPlatform;
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
-import 'dart:ui' as ui;
-import 'dart:html' as html;
+
+// Import conditionnel selon la plateforme
+import 'web_view_stub.dart'
+    if (dart.library.html) 'web_view_web.dart';
 
 void main() {
   runApp(const GeekVanlifeApp());
@@ -219,10 +221,7 @@ class _WebViewScreenState extends State<WebViewScreen> {
             IconButton(
               icon: const Icon(Icons.refresh),
               onPressed: () {
-                // Recharger l'iframe
-                if (kIsWeb) {
-                  html.window.location.reload();
-                }
+                reloadWebView();
               },
             ),
           ],
@@ -362,49 +361,6 @@ class _WebViewScreenState extends State<WebViewScreen> {
           ],
         ),
       ),
-    );
-  }
-}
-
-// Widget pour afficher un iframe sur Web
-class WebIframeView extends StatefulWidget {
-  const WebIframeView({super.key});
-
-  @override
-  State<WebIframeView> createState() => _WebIframeViewState();
-}
-
-class _WebIframeViewState extends State<WebIframeView> {
-  final String viewID = 'geekvanlife-iframe';
-
-  @override
-  void initState() {
-    super.initState();
-    
-    if (kIsWeb) {
-      // Enregistrer la vue iframe
-      // ignore: undefined_prefixed_name
-      ui.platformViewRegistry.registerViewFactory(
-        viewID,
-        (int viewId) {
-          final iframe = html.IFrameElement()
-            ..src = 'https://wolwx.github.io/GeekVanlife/'
-            ..style.border = 'none'
-            ..style.height = '100%'
-            ..style.width = '100%';
-          return iframe;
-        },
-      );
-    }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    if (kIsWeb) {
-      return HtmlElementView(viewType: viewID);
-    }
-    return const Center(
-      child: Text('WebView non disponible'),
     );
   }
 }
