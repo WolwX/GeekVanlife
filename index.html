@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="GeekVanlife - Documentation complète des projets vanlife et autonomie de Xavier Redondo (WolwX)">
+    <meta name="author" content="Xavier Redondo (WolwX)">
+    <title>🚐 GeekVanlife - Projets Vanlife & Autonomie</title>
+    <link rel="icon" href="img/Logo-Geek-VanLife-avatar-transparent.png" type="image/png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        /* Header */
+        .main-header {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .main-header h1 {
+            font-size: 3em;
+            color: #333;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .main-header h1 img {
+            height: 60px;
+            width: auto;
+            background: #000;
+            border-radius: 50%;
+            padding: 5px;
+        }
+        
+        .main-header .subtitle {
+            font-size: 1.2em;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .badges {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+        
+        .badge:hover {
+            transform: translateY(-2px);
+        }
+        
+        .badge.version {
+            background: #e3f2fd;
+            color: #1976d2;
+        }
+        
+        .badge.status {
+            background: #fff3e0;
+            color: #f57c00;
+        }
+        
+        .badge.social {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            border-radius: 15px;
+            padding: 3px;
+            z-index: -1;
+        }
+        
+        .project-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: white;
+            border-radius: 15px;
+            z-index: -1;
+        }
+        
+        .project-card:nth-child(1)::before {
+            background: linear-gradient(135deg, #c0392b, #e74c3c);
+        }
+        
+        .project-card:nth-child(2)::before {
+            background: linear-gradient(135deg, #667eea, #4FC3F7);
+        }
+        
+        .project-card:nth-child(3)::before {
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+        
+        .project-card,
+        .project-card:visited,
+        .project-card:hover,
+        .project-card:active {
+            color: #333;
+        }
+        
+        .project-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .project-icon {
+            font-size: 3em;
+            line-height: 1;
+        }
+        
+        .project-title {
+            flex: 1;
+        }
+        
+        .project-title h2 {
+            font-size: 1.8em;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        
+        .project-title .model {
+            font-size: 0.9em;
+            color: #666;
+        }
+        
+        .project-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .stat-item {
+            background: #f8f9fa;
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .stat-label {
+            font-size: 0.8em;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        
+        .stat-value {
+            font-size: 1.2em;
+            font-weight: 700;
+            color: #667eea;
+        }
+        
+        .project-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .project-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        
+        .tag {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            font-weight: 600;
+        }
+        
+        .view-dashboard {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s;
+            width: 100%;
+            justify-content: center;
+        }
+        
+        .view-dashboard:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Info Section */
+        .info-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 30px;
+        }
+        
+        .info-section h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+        
+        .info-section p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .info-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        
+        .info-item h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .info-item ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .info-item li {
+            padding: 5px 0;
+            color: #666;
+        }
+        
+        .info-item li:before {
+            content: "✓ ";
+            color: #667eea;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            color: white;
+            padding: 20px;
+            margin-top: 30px;
+        }
+        
+        .footer a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-header h1 {
+                font-size: 2em;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .project-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Main Header -->
+        <header class="main-header">
+            <h1><img src="img/Logo-Geek-VanLife-avatar-transparent.png" alt="GeekVanlife Logo"> GeekVanlife</h1>
+            <p class="subtitle">Documentation complète des projets vanlife et autonomie</p>
+            <p class="subtitle"><strong>Xavier Redondo (WolwX)</strong> • Formateur informatique & Vanlifeur depuis 2021</p>
+            
+            <div class="badges">
+                <span class="badge version">📅 Novembre 2025</span>
+                <span class="badge status">🚀 3 Projets Actifs</span>
+                <a href="https://www.geek-vanlife.fr/" class="badge social" target="_blank">🌐 Site Web</a>
+                <a href="http://www.instagram.com/geekvanlifefr" class="badge social" target="_blank">📸 Instagram</a>
+                <a href="http://www.youtube.com/geekvanlife" class="badge social" target="_blank">▶️ YouTube</a>
+            </div>
+        </header>
+
+        <!-- Projects Grid -->
+        <div class="projects-grid">
+            <!-- ForkX -->
+            <a href="ForkX/dashboard.html" class="project-card">
+                <div class="project-header">
+                    <div class="project-icon">🚗🌵</div>
+                    <div class="project-title">
+                        <h2>ForkX</h2>
+                        <p class="model">Fiat Doblo Cargo Maxi 2020</p>
+                    </div>
+                </div>
+                
+                <div class="project-stats">
+                    <div class="stat-item">
+                        <div class="stat-label">Version</div>
+                        <div class="stat-value">v0.1</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">Budget</div>
+                        <div class="stat-value">8 167€</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">Statut</div>
+                        <div class="stat-value">75%</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">Acquisition</div>
+                        <div class="stat-value">Nov 2025</div>
+                    </div>
+                </div>
+                
+                <p class="project-description">
+                    Van compact de déplacement quotidien léger. Alternative économique au Geekomobile pour trajets courts. 
+                    Projet modulaire évolutif sur 1 an (v0.1 → v1.0).
+                </p>
+                
+                <div class="project-tags">
+                    <span class="tag">🚗 Compact</span>
+                    <span class="tag">💰 Économique</span>
+                    <span class="tag">🔧 DIY</span>
+                    <span class="tag">📈 v0.1 → v1.0</span>
+                </div>
+                
+                <div class="view-dashboard">
+                    📊 Voir le Dashboard
+                </div>
+            </a>
+
+            <!-- Geekomobile -->
+            <a href="Geekomobile/dashboard.html" class="project-card">
+                <div class="project-header">
+                    <div class="project-icon">🚐🚀</div>
+                    <div class="project-title">
+                        <h2>Geekomobile</h2>
+                        <p class="model">Iveco Daily L4H2 2006</p>
+                    </div>
+                </div>
+                
+                <div class="project-stats">
+                    <div class="stat-item">
+                        <div class="stat-label">Expérience</div>
+                        <div class="stat-value">4+ ans</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">Saison</div>
+                        <div class="stat-value">5ème</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">Systèmes</div>
+                        <div class="stat-value">100%</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">km/semaine</div>
+                        <div class="stat-value">200-300</div>
+                    </div>
+                </div>
+                
+                <p class="project-description">
+                    Van aménagé principal depuis août 2021. Vie à l'année en altitude (1100m). 
+                    Base mobile pour tous les projets. Systèmes 100% opérationnels.
+                </p>
+                
+                <div class="project-tags">
+                    <span class="tag">🏔️ Altitude 1100m</span>
+                    <span class="tag">⚡ Autonome</span>
+                    <span class="tag">🔥 Chauffage diesel</span>
+                    <span class="tag">📡 4G+</span>
+                </div>
+                
+                <div class="view-dashboard">
+                    📊 Voir le Dashboard
+                </div>
+            </a>
+
+            <!-- Geekagne -->
+            <a href="Geekagne/dashboard.html" class="project-card">
+                <div class="project-header">
+                    <div class="project-icon">🏡🌲</div>
+                    <div class="project-title">
+                        <h2>Geekagne</h2>
+                        <p class="model">Terrain de loisirs 4700m²</p>
+                    </div>
+                </div>
+                
+                <div class="project-stats">
+                    <div class="stat-item">
+                        <div class="stat-label">Surface</div>
+                        <div class="stat-value">4700m²</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">Progression</div>
+                        <div class="stat-value">35%</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">Budget</div>
+                        <div class="stat-value">~13 500€</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">Acquisition</div>
+                        <div class="stat-value">Jan 2025</div>
+                    </div>
+                </div>
+                
+                <p class="project-description">
+                    Terrain de loisirs en développement. Cabanons, plantations, autonomie. 
+                    Objectif long terme : maison autonome et infrastructure complète.
+                </p>
+                
+                <div class="project-tags">
+                    <span class="tag">🏗️ Construction</span>
+                    <span class="tag">🌳 Permaculture</span>
+                    <span class="tag">💧 Eau</span>
+                    <span class="tag">🔋 Solaire</span>
+                </div>
+                
+                <div class="view-dashboard">
+                    📊 Voir le Dashboard
+                </div>
+            </a>
+        </div>
+
+        <!-- Info Section -->
+        <div class="info-section">
+            <h2>🌟 À propos du projet GeekVanlife</h2>
+            <p>
+                <strong>GeekVanlife</strong>, c'est l'aventure de Xavier Redondo (alias <strong>WolwX</strong>), 
+                formateur informatique et vanlifeur à l'année depuis août 2021. Passionné de technologie, 
+                d'autonomie et de vie nomade, ce projet combine culture geek et vie en van avec une approche 
+                technique et documentée.
+            </p>
+            
+            <div class="info-grid">
+                <div class="info-item">
+                    <h3>📚 Documentation</h3>
+                    <ul>
+                        <li>Guides techniques détaillés</li>
+                        <li>Retours d'expérience terrain</li>
+                        <li>Plans et schémas</li>
+                        <li>Budgets réels et transparents</li>
+                    </ul>
+                </div>
+                
+                <div class="info-item">
+                    <h3>🔧 Approche DIY</h3>
+                    <ul>
+                        <li>Aménagements faits maison</li>
+                        <li>Compétences techniques geek</li>
+                        <li>Suivi méticuleux des données</li>
+                        <li>Optimisation continue</li>
+                    </ul>
+                </div>
+                
+                <div class="info-item">
+                    <h3>🌍 Partage Open Source</h3>
+                    <ul>
+                        <li>Code et documentation publics</li>
+                        <li>Communauté vanlife</li>
+                        <li>Inspiration et entraide</li>
+                        <li>Transparence totale</li>
+                    </ul>
+                </div>
+                
+                <div class="info-item">
+                    <h3>🎯 Philosophie</h3>
+                    <ul>
+                        <li>Autonomie énergétique</li>
+                        <li>Vie nomade en altitude</li>
+                        <li>Approche data-driven</li>
+                        <li>Innovation technique</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>
+                Made with 💜 by <a href="https://www.geek-vanlife.fr/" target="_blank">Xavier Redondo (WolwX)</a>
+                • 
+                <a href="https://github.com/WolwX/GeekVanlife" target="_blank">GitHub Repository</a>
+                • 
+                Licence MIT
+            </p>
+            <p style="margin-top: 10px; font-size: 0.9em;">
+                🚐 Vanlife depuis août 2021 • 📍 Cerdagne (Pyrénées-Orientales) • 🏔️ Altitude 1100m
+            </p>
+        </footer>
+    </div>
+</body>
+</html>

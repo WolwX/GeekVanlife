@@ -47,6 +47,31 @@
             min-width: 280px;
         }
         
+        .back-button {
+            position: fixed;
+            top: 25px;
+            right: 30px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #4FC3F7;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(79, 195, 247, 0.3);
+            z-index: 1000;
+        }
+        
+        .back-button:hover {
+            background: #29B6F6;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(79, 195, 247, 0.4);
+        }
+        
         .header-right h3 {
             color: #11998e;
             font-size: 1.1em;
@@ -391,9 +416,13 @@
 </head>
 <body>
     <div class="container">
+        <a href="../index.html" class="back-button">
+            ← Accueil
+        </a>
+        
         <div class="header">
             <div class="header-left">
-                <h1>🏡 Geekagne Dashboard</h1>
+                <h1>🏡🌲 Geekagne Dashboard</h1>
                 <p>Terrain multi-projets DIY - Plaine des Pyrénées-Orientales (66)</p>
                 <div class="badges">
                     <span class="badge badge-version">v1.0</span>
