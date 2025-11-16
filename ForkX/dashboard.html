@@ -148,7 +148,7 @@
         }
         
         .header-right h3 {
-            color: #667eea;
+            color: #c0392b;
             font-size: 1.1em;
             margin-bottom: 15px;
         }
@@ -165,7 +165,7 @@
         }
         
         .header-stat-label {
-            color: #666;
+            color: #c0392b;
             font-size: 0.9em;
         }
         
@@ -1666,7 +1666,7 @@
         // Calculate derived values
         function updateDashboard() {
             // Update header badges
-            document.getElementById('current-version').textContent = dashboardData.currentVersion;
+            document.getElementById('current-version').textContent = `${dashboardData.currentVersion} • ${dashboardData.progressV01}%`;
             document.getElementById('current-status').textContent = dashboardData.currentStatus;
             document.getElementById('last-update').textContent = `Mis à jour le ${dashboardData.lastUpdate}`;
 
