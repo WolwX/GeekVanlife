@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>📋 Geekomobile To Do List - Tâches à accomplir</title>
+    <title>🚐🚀 Geekomobile To Do List - Tâches à accomplir</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚐</text></svg>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -13,42 +13,222 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --primary-color: #1e40af;
+            --secondary-color: #10b981;
+            --warning-color: #f59e0b;
+            --danger-color: #ef4444;
+            --dark-bg: #1f2937;
+            --card-bg: #ffffff;
+            --text-primary: #111827;
+            --text-secondary: #6b7280;
+            --border-color: #e5e7eb;
+            --success-bg: #d1fae5;
+            --warning-bg: #fef3c7;
+            --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
             min-height: 100vh;
             padding: 20px;
-            color: #111827;
+            color: var(--text-primary);
         }
 
         .container {
-            max-width: 900px;
+            max-width: 1400px;
             margin: 0 auto;
         }
 
+        /* Header */
         .header {
-            background: white;
+            background: var(--card-bg);
             padding: 30px;
             border-radius: 16px;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow-lg);
             margin-bottom: 30px;
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .header-top {
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+        
+        .header-left {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .header-left .badges {
+            margin-top: 15px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .header-badges-container {
+            flex: 1;
+            min-width: 250px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .header-right {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 600px;
+        }
+        
+        .action-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 120px;
+            margin-right: 20px;
+        }
+        
+        .action-btn {
+            display: flex;
+            flex-direction: column;
             align-items: center;
+            justify-content: center;
+            padding: 15px;
+            background: #4FC3F7;
+            border: 2px solid #667eea;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            min-height: 100px;
+        }
+        
+        .action-btn:hover {
+            background: #667eea;
+            border-color: #667eea;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+        
+        .action-btn-icon {
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+        
+        .action-btn-text {
+            text-align: center;
+            font-size: 0.8rem;
+        }
+        
+        .action-btn-small {
+            width: 60px !important;
+            height: 60px !important;
+            min-height: 60px !important;
+            padding: 8px !important;
+        }
+        
+        .action-btn-small .action-btn-icon {
+            font-size: 1.2rem;
+            margin-bottom: 4px;
+        }
+        
+        .action-btn-small .action-btn-text {
+            font-size: 0.65rem;
+        }
+        
+        .header-right h3 {
+            color: #667eea;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+        
+        .header-stat {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .header-stat:last-child {
+            border-bottom: none;
+        }
+        
+        .header-stat-label {
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        .header-stat-value {
+            font-weight: bold;
+            color: #667eea;
         }
 
-        .header-left h1 {
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
             color: #1e40af;
-            font-size: 1.8rem;
-            margin-bottom: 5px;
         }
 
-        .header-left p {
-            color: #6b7280;
-            font-size: 0.95rem;
+        .header .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 20px;
         }
 
-        .back-btn {
+        .badges {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .badge-version {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .badge-status {
+            background: var(--warning-bg);
+            color: #92400e;
+        }
+
+        .badge-date {
+            background: var(--border-color);
+            color: var(--text-secondary);
+        }
+        
+        .badge-keyword {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .badge-break {
+            flex-basis: 100%;
+            height: 0;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 25px;
+            right: 30px;
             display: flex;
             align-items: center;
             gap: 8px;
@@ -58,21 +238,31 @@
             border: 2px solid #667eea;
             border-radius: 10px;
             text-decoration: none;
+            font-size: 0.95rem;
             font-weight: 600;
             transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(79, 195, 247, 0.3);
+            z-index: 1000;
         }
-
-        .back-btn:hover {
+        
+        .back-button:hover {
             background: #667eea;
             border-color: #667eea;
             transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
         }
 
+        /* Masquer le bouton dans la WebView Flutter */
+        .back-button.hidden-in-app {
+            display: none;
+        }
+
+        /* Todo Container */
         .todo-container {
-            background: white;
+            background: var(--card-bg);
             padding: 30px;
             border-radius: 16px;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow-lg);
         }
 
         .todo-input-section {
@@ -84,7 +274,7 @@
         .todo-input {
             flex: 1;
             padding: 12px 15px;
-            border: 2px solid #e5e7eb;
+            border: 2px solid var(--border-color);
             border-radius: 8px;
             font-size: 1rem;
             transition: all 0.3s ease;
@@ -92,12 +282,12 @@
 
         .todo-input:focus {
             outline: none;
-            border-color: #1e40af;
+            border-color: var(--primary-color);
             box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
         }
 
         .add-btn {
-            background: #1e40af;
+            background: var(--primary-color);
             color: white;
             padding: 12px 25px;
             border: none;
@@ -108,7 +298,7 @@
         }
 
         .add-btn:hover {
-            background: #1e3a8a;
+            background: #1d3a8a;
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(30, 64, 175, 0.3);
         }
@@ -126,41 +316,41 @@
             padding: 15px;
             background: #f9fafb;
             border-radius: 8px;
-            border-left: 4px solid #1e40af;
+            border-left: 4px solid var(--primary-color);
             transition: all 0.3s ease;
         }
 
         .todo-item:hover {
             background: #f3f4f6;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow);
         }
 
         .todo-item.completed {
             opacity: 0.6;
-            background: #f0fdf4;
-            border-left-color: #10b981;
+            background: var(--success-bg);
+            border-left-color: var(--secondary-color);
         }
 
         .todo-item.completed .todo-text {
             text-decoration: line-through;
-            color: #9ca3af;
+            color: var(--text-secondary);
         }
 
         .checkbox {
             width: 20px;
             height: 20px;
             cursor: pointer;
-            accent-color: #1e40af;
+            accent-color: var(--primary-color);
         }
 
         .todo-text {
             flex: 1;
             font-size: 1rem;
-            color: #111827;
+            color: var(--text-primary);
         }
 
         .delete-btn {
-            background: #ef4444;
+            background: var(--danger-color);
             color: white;
             border: none;
             padding: 8px 12px;
@@ -178,7 +368,7 @@
         .empty-state {
             text-align: center;
             padding: 40px 20px;
-            color: #9ca3af;
+            color: var(--text-secondary);
         }
 
         .empty-state i {
@@ -192,19 +382,35 @@
         }
 
         @media (max-width: 768px) {
-            .header {
+            .header-top {
                 flex-direction: column;
-                gap: 15px;
-                align-items: flex-start;
             }
 
-            .header-left h1 {
-                font-size: 1.5rem;
-            }
-
-            .back-btn {
+            .header-badges-container {
                 width: 100%;
+            }
+
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .header .subtitle {
+                font-size: 0.95rem;
+            }
+
+            .header > div:last-child {
+                flex-direction: column;
+            }
+
+            .action-buttons {
+                width: 100%;
+                flex-direction: row;
                 justify-content: center;
+            }
+
+            .header-right {
+                width: 100%;
+                max-width: none;
             }
 
             .todo-input-section {
@@ -218,19 +424,87 @@
     </style>
 </head>
 <body>
+    <a href="dashboard.html" class="back-button" id="backButton">
+        <span class="back-button-icon"><i class="fas fa-home"></i></span>
+        <span class="back-button-text">Accueil</span>
+    </a>
+
     <div class="container">
         <div class="header">
-            <div class="header-left">
-                <h1>📋 Geekomobile To Do List</h1>
-                <p>Tâches à accomplir pour le projet</p>
+            <div class="header-top">
+                <div class="header-left">
+                    <h1>🚐🚀 Geekomobile To Do List</h1>
+                    <p class="subtitle">Iveco Daily L4H2 2006 - Habitat aménagé depuis août 2021</p>
+                    <div class="badges">
+                        <span class="badge badge-version">v2.0</span>
+                        <span class="badge badge-status">OPÉRATIONNEL</span>
+                        <span class="badge badge-date">Mis à jour le 15 nov 2025</span>
+                    </div>
+                </div>
+                <div class="header-badges-container">
+                    <div class="badges">
+                        <span class="badge badge-keyword">🏔️ Montagne</span>
+                        <span class="badge badge-keyword">🏡 Plaine</span>
+                        <span class="badge badge-keyword">🌊 Côte mer</span>
+                        <span class="badge badge-keyword">💧 Eau autonome</span>
+                        <span class="badge badge-keyword">⚡ Batteries 2×304 Ah</span>
+                        <span class="badge badge-keyword">🔋 Autonomie 3-4 jours</span>
+                        <span class="badge badge-keyword">💻 Bureau de geek</span>
+                        <span class="badge badge-keyword">🚿 Douche intérieur fixe</span>
+                        <span class="badge badge-keyword">🌍 Van Life Temps plein</span>
+                    </div>
+                </div>
             </div>
-            <a href="dashboard.html" class="back-btn">
-                <i class="fas fa-arrow-left"></i>
-                Retour Dashboard
-            </a>
+            <div style="display: flex; align-items: flex-start; gap: 20px; justify-content: center;">
+                <div class="action-buttons">
+                    <a href="dashboard.html" class="action-btn action-btn-small">
+                        <span class="action-btn-icon"><i class="fas fa-chart-line"></i></span>
+                        <span class="action-btn-text">Dashboard</span>
+                    </a>
+                </div>
+                <div class="header-right">
+                <h3>📊 Caractéristiques</h3>
+                <div class="header-stat">
+                    <span class="header-stat-label">🚐 Modèle</span>
+                    <span class="header-stat-value">Iveco Daily L4H2</span>
+                </div>
+                <div class="header-stat">
+                    <span class="header-stat-label">📅 Année</span>
+                    <span class="header-stat-value">2006</span>
+                </div>
+                <div class="header-stat">
+                    <span class="header-stat-label">🔢 Immatriculation</span>
+                    <span class="header-stat-value">CL-370-YL</span>
+                </div>
+                <div class="header-stat">
+                    <span class="header-stat-label">💰 Prix achat</span>
+                    <span class="header-stat-value">6 200€</span>
+                </div>
+                <div class="header-stat">
+                    <span class="header-stat-label">📐 Volume</span>
+                    <span class="header-stat-value">15,6 m³</span>
+                </div>
+                <div class="header-stat">
+                    <span class="header-stat-label">📏 Dimensions ext.</span>
+                    <span class="header-stat-value">7m x 3,10m</span>
+                </div>
+                <div class="header-stat">
+                    <span class="header-stat-label">⚖️ Poids</span>
+                    <span class="header-stat-value">~4000 kg</span>
+                </div>
+                <div class="header-stat">
+                    <span class="header-stat-label">⚠️ PTAC</span>
+                    <span class="header-stat-value">3500 kg</span>
+                </div>
+                <div class="header-stat">
+                    <span class="header-stat-label">⛽ Conso</span>
+                    <span class="header-stat-value">10-12 L/100</span>
+                </div>
+            </div>
         </div>
 
         <div class="todo-container">
+            <h2 style="margin-bottom: 20px; color: #1e40af;">📋 Tâches à accomplir</h2>
             <div class="todo-input-section">
                 <input type="text" id="todoInput" class="todo-input" placeholder="Ajouter une nouvelle tâche..." />
                 <button id="addBtn" class="add-btn">
@@ -247,6 +521,14 @@
     </div>
 
     <script>
+        // Détecter si on est dans la WebView Flutter
+        const userAgent = navigator.userAgent;
+        const isFlutterWebView = /Flutter|wv/i.test(userAgent);
+        
+        if (isFlutterWebView) {
+            document.getElementById('backButton').classList.add('hidden-in-app');
+        }
+
         const todoInput = document.getElementById('todoInput');
         const addBtn = document.getElementById('addBtn');
         const todoList = document.getElementById('todoList');
@@ -254,60 +536,37 @@
 
         const STORAGE_KEY = 'geekomobile-todos';
 
-        // Charger les tâches du localStorage
-        function loadTodos() {
-            const todos = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
-            return todos;
-        }
+        function loadTodos() { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; }
+        function saveTodos(todos) { localStorage.setItem(STORAGE_KEY, JSON.stringify(todos)); }
 
-        // Sauvegarder les tâches dans localStorage
-        function saveTodos(todos) {
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(todos));
-        }
-
-        // Afficher les tâches
         function displayTodos() {
             const todos = loadTodos();
             todoList.innerHTML = '';
-
-            if (todos.length === 0) {
-                emptyState.style.display = 'block';
-                return;
-            }
-
+            if (todos.length === 0) { emptyState.style.display = 'block'; return; }
             emptyState.style.display = 'none';
-
             todos.forEach((todo, index) => {
                 const todoItem = document.createElement('div');
                 todoItem.className = `todo-item ${todo.completed ? 'completed' : ''}`;
-                
                 todoItem.innerHTML = `
                     <input type="checkbox" class="checkbox" ${todo.completed ? 'checked' : ''} onchange="toggleTodo(${index})">
                     <span class="todo-text">${escapeHtml(todo.text)}</span>
-                    <button class="delete-btn" onclick="deleteTodo(${index})">
-                        <i class="fas fa-trash"></i> Supprimer
-                    </button>
+                    <button class="delete-btn" onclick="deleteTodo(${index})"><i class="fas fa-trash"></i> Supprimer</button>
                 `;
-                
                 todoList.appendChild(todoItem);
             });
         }
 
-        // Ajouter une tâche
         function addTodo() {
             const text = todoInput.value.trim();
-            if (text === '') return;
-
+            if (!text) return;
             const todos = loadTodos();
             todos.push({ text, completed: false });
             saveTodos(todos);
-
             todoInput.value = '';
             todoInput.focus();
             displayTodos();
         }
 
-        // Marquer une tâche comme complétée
         function toggleTodo(index) {
             const todos = loadTodos();
             todos[index].completed = !todos[index].completed;
@@ -315,7 +574,6 @@
             displayTodos();
         }
 
-        // Supprimer une tâche
         function deleteTodo(index) {
             const todos = loadTodos();
             todos.splice(index, 1);
@@ -323,25 +581,13 @@
             displayTodos();
         }
 
-        // Échapper les caractères HTML
         function escapeHtml(text) {
-            const map = {
-                '&': '&amp;',
-                '<': '&lt;',
-                '>': '&gt;',
-                '"': '&quot;',
-                "'": '&#039;'
-            };
+            const map = {'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;'};
             return text.replace(/[&<>"']/g, m => map[m]);
         }
 
-        // Event listeners
         addBtn.addEventListener('click', addTodo);
-        todoInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') addTodo();
-        });
-
-        // Afficher les tâches au chargement
+        todoInput.addEventListener('keypress', (e) => e.key === 'Enter' && addTodo());
         displayTodos();
     </script>
 </body>
