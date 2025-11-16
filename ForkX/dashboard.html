@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🚗🌵 ForkX Dashboard - Projet van aménagé</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌵</text></svg>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -128,6 +129,22 @@
         .action-btn-text {
             text-align: center;
             font-size: 0.8rem;
+        }
+        
+        .action-btn-small {
+            width: 60px !important;
+            height: 60px !important;
+            min-height: 60px !important;
+            padding: 8px !important;
+        }
+        
+        .action-btn-small .action-btn-icon {
+            font-size: 1.2rem;
+            margin-bottom: 4px;
+        }
+        
+        .action-btn-small .action-btn-text {
+            font-size: 0.65rem;
         }
         
         .header-right h3 {
@@ -686,7 +703,7 @@
 </head>
 <body>
     <a href="../index.html" class="back-button" id="backButton">
-        <span class="back-button-icon">🏠</span>
+        <span class="back-button-icon"><i class="fas fa-home"></i></span>
         <span class="back-button-text">Accueil</span>
     </a>
     
@@ -715,9 +732,9 @@
             </div>
             <div style="display: flex; align-items: flex-start; gap: 20px; justify-content: center;">
                 <div class="action-buttons">
-                    <a href="#" class="action-btn">
-                        <span class="action-btn-icon">✓</span>
-                        <span class="action-btn-text">To Do List</span>
+                    <a href="#" class="action-btn action-btn-small">
+                        <span class="action-btn-icon"><i class="fas fa-list-check"></i></span>
+                        <span class="action-btn-text">To Do</span>
                     </a>
                 </div>
                 <div class="header-right">
