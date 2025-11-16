@@ -66,8 +66,51 @@
             background: #f8f9fa;
             padding: 20px;
             border-radius: 10px;
-            max-width: 600px;
+            max-width: 800px;
             margin: 0 auto;
+        }
+        
+        .action-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 120px;
+            margin-right: 20px;
+        }
+        
+        .action-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            background: white;
+            border: 2px solid #667eea;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #667eea;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            min-height: 100px;
+        }
+        
+        .action-btn:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+        
+        .action-btn-icon {
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+        
+        .action-btn-text {
+            text-align: center;
+            font-size: 0.8rem;
         }
         
         .back-button {
@@ -449,6 +492,17 @@
                 width: 100%;
                 max-width: none;
             }
+            
+            .action-buttons {
+                flex-direction: row;
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+            
+            .action-btn {
+                flex: 1;
+            }
 
             .header h1 {
                 font-size: 1.8rem;
@@ -508,7 +562,14 @@
                     </div>
                 </div>
             </div>
-            <div class="header-right">
+            <div style="display: flex; align-items: flex-start; gap: 20px; justify-content: center;">
+                <div class="action-buttons">
+                    <a href="#" class="action-btn">
+                        <span class="action-btn-icon">✓</span>
+                        <span class="action-btn-text">To Do List</span>
+                    </a>
+                </div>
+                <div class="header-right">
                 <h3>📊 Caractéristiques</h3>
                 <div class="header-stat">
                     <span class="header-stat-label">🚐 Modèle</span>
