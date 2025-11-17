@@ -1,0 +1,29 @@
+{
+  "news": [
+    {
+      "date": "15 novembre 2025",
+      "icon": "🏗️",
+      "text": "Choix isolation K-FLEX ST 19mm validé : économie 100€ vs Armaflex. Mesures cargo précises : largeur 165cm mi-hauteur, 123cm sol, 131cm plafond. Cargo entièrement démonté et nettoyé."
+    },
+    {
+      "date": "15 novembre 2025",
+      "icon": "🛏️",
+      "text": "Matelas 190×90cm validé par test terrain - Dimensions parfaites pour aménagement cargo"
+    },
+    {
+      "date": "15 novembre 2025",
+      "icon": "⚡",
+      "text": "Prise 12V fonctionnelle découverte dans le véhicule - Source d'alimentation auxiliaire utilisable"
+    },
+    {
+      "date": "15 novembre 2025",
+      "icon": "🔧",
+      "text": "21 vis à remplacer sur protections plastiques portes latérales (pas de portes arrières)"
+    },
+    {
+      "date": "14 novembre 2025",
+      "icon": "⛽",
+      "text": "Consommation diesel validée après plusieurs tests : 6,2-6,5 L/100km (vs 7,6 L annoncé à l'achat). Coûts trajets habituels : Montagne 66 ↔ Plaine 66 (13-15€ A/R), Montagne 66 ↔ Côte 66 (20-25€ A/R), Côte 66 ↔ Plaine 66 (10-12€ A/R)"
+    }
+  ]
+}

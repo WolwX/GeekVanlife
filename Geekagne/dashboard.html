@@ -906,6 +906,9 @@
     
     <!-- Project Data Loader Script -->
     <script src="../src/project-data-loader.js"></script>
+
+    <!-- News Loader Script -->
+    <script src="../src/news-loader.js"></script>
     
     <script>
         // Calcule le nombre de mois pleins depuis l'acquisition (janvier 2025)
@@ -1068,6 +1071,10 @@
             `;
             newsContainer.appendChild(newsDiv);
         });
+
+        // Load latest news from JSON file
+        const newsLoader = new NewsLoader('Geekagne');
+        newsLoader.displayLatestNews('newsContainer', 3);
 
         // Load from centralized JSON data
         loadFromCentralizedData();

@@ -871,6 +871,9 @@
     
     <!-- Project Data Loader Script -->
     <script src="../src/project-data-loader.js"></script>
+
+    <!-- News Loader Script -->
+    <script src="../src/news-loader.js"></script>
     
     <script>
         const dashboardData = {
@@ -973,6 +976,10 @@
             `;
             newsContainer.appendChild(newsDiv);
         });
+
+        // Load latest news from JSON file
+        const newsLoader = new NewsLoader('Geekomobile');
+        newsLoader.displayLatestNews('newsContainer', 3);
 
         // Load from centralized JSON data
         loadFromCentralizedData();

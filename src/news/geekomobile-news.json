@@ -1,0 +1,24 @@
+{
+  "news": [
+    {
+      "date": "15 novembre 2025",
+      "icon": "⚖️",
+      "text": "Prise de conscience surcharge 500kg (~4000kg vs 3500kg PTAC). Problématique à résoudre : alléger ou homologation. Impact assurance en cas d'accident."
+    },
+    {
+      "date": "Novembre 2025",
+      "icon": "🔥",
+      "text": "Bilan chauffage hiver 2024-2025 : Consommation 225-330€ pour un hiver complet en altitude (1100m). Chinasto 5kW = excellent rapport qualité/prix/performance."
+    },
+    {
+      "date": "Octobre 2025",
+      "icon": "⚡",
+      "text": "Production solaire automne : Autonomie complète maintenue jusqu'à fin octobre. Besoin branchements externes uniquement en plein hiver (nov-jan)."
+    },
+    {
+      "date": "Été 2025",
+      "icon": "💧",
+      "text": "Gestion eau optimisée : 60L = 2 semaines autonomie confirmée. Douche quotidienne possible avec discipline. Vidange hebdomadaire au terrain Geekagne."
+    }
+  ]
+}

@@ -966,50 +966,7 @@
                     <span class="card-icon">📰</span>
                     Dernières News
                 </h2>
-                <div id="latest-news">
-                    <div class="news-item">
-                        <span class="news-icon">🏗️</span>
-                        <div class="news-content">
-                            <div class="news-date">15 novembre 2025</div>
-                            <div class="news-text">Choix isolation K-FLEX ST 19mm validé : économie 100€ vs Armaflex. Mesures cargo précises : largeur 165cm mi-hauteur, 123cm sol, 131cm plafond. Cargo entièrement démonté et nettoyé.</div>
-                        </div>
-                    </div>
-                    <div class="news-item">
-                        <span class="news-icon">🛏️</span>
-                        <div class="news-content">
-                            <div class="news-date">15 novembre 2025</div>
-                            <div class="news-text">Matelas 190×90cm validé par test terrain - Dimensions parfaites pour aménagement cargo</div>
-                        </div>
-                    </div>
-                    <div class="news-item">
-                        <span class="news-icon">⚡</span>
-                        <div class="news-content">
-                            <div class="news-date">15 novembre 2025</div>
-                            <div class="news-text">Prise 12V fonctionnelle découverte dans le véhicule - Source d'alimentation auxiliaire utilisable</div>
-                        </div>
-                    </div>
-                    <div class="news-item">
-                        <span class="news-icon">🔧</span>
-                        <div class="news-content">
-                            <div class="news-date">15 novembre 2025</div>
-                            <div class="news-text">21 vis à remplacer sur protections plastiques portes latérales (pas de portes arrières)</div>
-                        </div>
-                    </div>
-                    <div class="news-item">
-                        <span class="news-icon">⛽</span>
-                        <div class="news-content">
-                            <div class="news-date">14 novembre 2025</div>
-                            <div class="news-text">Consommation diesel validée après plusieurs tests : 6,2-6,5 L/100km (vs 7,6 L annoncé à l'achat). Coûts trajets habituels : Montagne 66 ↔ Plaine 66 (13-15€ A/R), Montagne 66 ↔ Côte 66 (20-25€ A/R), Côte 66 ↔ Plaine 66 (10-12€ A/R)</div>
-                        </div>
-                    </div>
-                    <div class="news-item">
-                        <span class="news-icon">🔍</span>
-                        <div class="news-content">
-                            <div class="news-date">14 novembre 2025</div>
-                            <div class="news-text">Découverte d'une trappe d'accès aux réservoirs véhicules (diesel) sous l'habillage dans la partie cargo</div>
-                        </div>
-                    </div>
-                </div>
+                <div id="latest-news"></div>
             </div>
 
             <!-- Roadmap Accordion Card -->
@@ -1694,6 +1651,9 @@
     
     <!-- Project Data Loader Script -->
     <script src="../src/project-data-loader.js"></script>
+
+    <!-- News Loader Script -->
+    <script src="../src/news-loader.js"></script>
     
     <script>
         // Dashboard data management (fallback values)
@@ -1870,6 +1830,10 @@
                 // Fallback to README parser
                 loadDataFromReadme();
             }
+
+            // Load latest news from JSON file
+            const newsLoader = new NewsLoader('ForkX');
+            newsLoader.displayLatestNews('latest-news', 3);
         }
 
         // Auto-refresh every 5 minutes (optional)
