@@ -15,7 +15,7 @@
 - **Climat :** Méditerranéen
 
 ### Le terrain
-- **Surface :** ~4500 m² (rectangle irrégulier)
+- **Surface :** ~4700 m² (rectangle irrégulier)
 - **Dimensions :** 47-54m (largeur) × 90-95m (longueur)
 - **Accès :** Chemin de terre 70m, carrossable toute l'année
 - **Exposition :** Plein sud, excellent ensoleillement

@@ -124,7 +124,7 @@ Le Geekomobile est un Iveco Daily L4H2 entièrement aménagé, mon "chez moi" mo
 
 **Terrain autonome multi-projets dans les Pyrénées-Orientales**
 
-Geekagne est un terrain de 4500 m² en plaine (66) avec aménagements DIY pour loisirs et autonomie. Base fixe pour le Geekomobile et support logistique des projets.
+Geekagne est un terrain de 4700 m² en plaine (66) avec aménagements DIY pour loisirs et autonomie. Base fixe pour le Geekomobile et support logistique des projets.
 
 **Réalisations :**
 - 🏗️ **Cabanon sanitaire** : Opérationnel (toilettes + douche + lit)
