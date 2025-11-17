@@ -374,6 +374,19 @@
             align-items: center;
             gap: 10px;
         }
+
+        .card-title {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.4em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-icon {
+            font-size: 1.4em;
+        }
         
         .progress-item {
             margin-bottom: 20px;
@@ -500,38 +513,45 @@
         }
         
         .news-item {
-            padding: 20px;
-            background: #f8f9fa;
-            border-radius: 10px;
-            margin-bottom: 15px;
-            transition: all 0.3s ease;
-        }
-        
-        .news-item:hover {
-            background: #e9ecef;
-            transform: translateX(5px);
-        }
-        
-        .news-header {
             display: flex;
-            align-items: center;
-            gap: 15px;
+            gap: 12px;
+            padding: 12px;
+            background: #e5e7eb;
+            border-radius: 8px;
             margin-bottom: 10px;
+            border-left: 3px solid #667eea;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
-        
+
+        .news-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+        }
+
+        .news-item:last-child {
+            margin-bottom: 0;
+        }
+
         .news-icon {
-            font-size: 1.8em;
+            font-size: 1.5rem;
+            flex-shrink: 0;
         }
-        
-        .news-date {
-            color: #667eea;
-            font-weight: bold;
-        }
-        
+
         .news-content {
-            color: #333;
-            line-height: 1.6;
-            padding-left: 50px;
+            flex: 1;
+        }
+
+        .news-date {
+            font-size: 0.75rem;
+            color: #6b7280;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .news-text {
+            font-size: 0.9rem;
+            color: #111827;
+            line-height: 1.4;
         }
         
         .budget-item {
@@ -837,7 +857,10 @@
 
             <!-- Latest News Card -->
             <div class="card">
-                <h2>📰 Dernières News & Retours d'expérience</h2>
+                <h2 class="card-title">
+                    <span class="card-icon">📰</span>
+                    Dernières News
+                </h2>
                 <div id="newsContainer"></div>
             </div>
         </div>
@@ -942,11 +965,11 @@
             const newsDiv = document.createElement('div');
             newsDiv.className = 'news-item';
             newsDiv.innerHTML = `
-                <div class="news-header">
-                    <span class="news-icon">${item.icon}</span>
-                    <span class="news-date">${item.date}</span>
+                <span class="news-icon">${item.icon}</span>
+                <div class="news-content">
+                    <div class="news-date">${item.date}</div>
+                    <div class="news-text">${item.text}</div>
                 </div>
-                <div class="news-content">${item.text}</div>
             `;
             newsContainer.appendChild(newsDiv);
         });
@@ -991,11 +1014,11 @@
                             const newsDiv = document.createElement('div');
                             newsDiv.className = 'news-item';
                             newsDiv.innerHTML = `
-                                <div class="news-header">
-                                    <span class="news-icon">${item.icon}</span>
-                                    <span class="news-date">${item.date}</span>
+                                <span class="news-icon">${item.icon}</span>
+                                <div class="news-content">
+                                    <div class="news-date">${item.date}</div>
+                                    <div class="news-text">${item.text}</div>
                                 </div>
-                                <div class="news-content">${item.text}</div>
                             `;
                             newsContainer.appendChild(newsDiv);
                         });
