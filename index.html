@@ -63,10 +63,15 @@
         
         .badges {
             display: flex;
-            gap: 15px;
+            gap: 8px;
             justify-content: center;
             flex-wrap: wrap;
             margin-top: 20px;
+        }
+        
+        .main-header .badges {
+            gap: 6px;
+            flex-wrap: nowrap;
         }
         
         .badge {
@@ -98,6 +103,8 @@
         .badge.social {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
+            padding: 6px 12px;
+            font-size: 0.85em;
         }
         
         /* Projects Grid */
