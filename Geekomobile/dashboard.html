@@ -314,6 +314,36 @@
             color: #666;
             font-size: 0.75em;
         }
+
+        /* Characteristics Grid */
+        .characteristics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        .char-item {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 3px solid #1e3a8a;
+        }
+
+        .char-label {
+            font-size: 0.9rem;
+            color: #666;
+            font-weight: 600;
+        }
+
+        .char-value {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #333;
+        }
         
         .main-grid {
             display: flex;
@@ -633,72 +663,78 @@
                     </div>
                 </div>
             </div>
-            <div style="display: flex; align-items: flex-start; gap: 20px; justify-content: center;">
-                <div class="header-right">
-                <h3>📊 Caractéristiques</h3>
-                <div class="header-stat">
-                    <span class="header-stat-label">🚐 Modèle</span>
-                    <span class="header-stat-value">Iveco Daily L4H2</span>
-                </div>
-                <div class="header-stat">
-                    <span class="header-stat-label">📅 Année</span>
-                    <span class="header-stat-value">2006</span>
-                </div>
-                <div class="header-stat">
-                    <span class="header-stat-label">🔢 Immatriculation</span>
-                    <span class="header-stat-value">CL-370-YL</span>
-                </div>
-                <div class="header-stat">
-                    <span class="header-stat-label">💰 Prix achat</span>
-                    <span class="header-stat-value">6 200€</span>
-                </div>
-                <div class="header-stat">
-                    <span class="header-stat-label">📐 Volume</span>
-                    <span class="header-stat-value">15,6 m³</span>
-                </div>
-                <div class="header-stat">
-                    <span class="header-stat-label">📏 Dimensions ext.</span>
-                    <span class="header-stat-value">7m x 3,10m</span>
-                </div>
-                <div class="header-stat">
-                    <span class="header-stat-label">⚖️ Poids</span>
-                    <span class="header-stat-value">~4000 kg</span>
-                </div>
-                <div class="header-stat">
-                    <span class="header-stat-label">⚠️ PTAC</span>
-                    <span class="header-stat-value">3500 kg</span>
-                </div>
-                <div class="header-stat">
-                    <span class="header-stat-label">⛽ Conso</span>
-                    <span class="header-stat-value">10-12 L/100</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="stats-grid">
-            <div class="stat-card">
-                <div class="icon">📅</div>
-                <div class="value" id="yearsActive">4+</div>
-                <div class="label">Années de vanlife</div>
-            </div>
-            <div class="stat-card">
-                <div class="icon">🛣️</div>
-                <div class="value" id="kmWeek">200-300</div>
-                <div class="label">km/semaine (circuit)</div>
-            </div>
-            <div class="stat-card">
-                <div class="icon">🏔️</div>
-                <div class="value" id="altitude">1100m</div>
-                <div class="label">Altitude travail</div>
-            </div>
-            <div class="stat-card">
-                <div class="icon">⚡</div>
-                <div class="value" id="systemsStatus">100%</div>
-                <div class="label">Systèmes opérationnels</div>
-            </div>
         </div>
 
         <div class="main-grid">
+            <!-- Characteristics Card -->
+            <div class="card">
+                <h2>📊 Caractéristiques</h2>
+                <div class="characteristics-grid">
+                    <div class="char-item">
+                        <span class="char-label">🚐 Modèle</span>
+                        <span class="char-value">Iveco Daily L4H2</span>
+                    </div>
+                    <div class="char-item">
+                        <span class="char-label">📅 Année</span>
+                        <span class="char-value">2006</span>
+                    </div>
+                    <div class="char-item">
+                        <span class="char-label">🔢 Immatriculation</span>
+                        <span class="char-value">CL-370-YL</span>
+                    </div>
+                    <div class="char-item">
+                        <span class="char-label">💰 Prix achat</span>
+                        <span class="char-value">6 200€</span>
+                    </div>
+                    <div class="char-item">
+                        <span class="char-label">📐 Volume</span>
+                        <span class="char-value">15,6 m³</span>
+                    </div>
+                    <div class="char-item">
+                        <span class="char-label">📏 Dimensions ext.</span>
+                        <span class="char-value">7m x 3,10m</span>
+                    </div>
+                    <div class="char-item">
+                        <span class="char-label">⚖️ Poids</span>
+                        <span class="char-value">~4000 kg</span>
+                    </div>
+                    <div class="char-item">
+                        <span class="char-label">⚠️ PTAC</span>
+                        <span class="char-value">3500 kg</span>
+                    </div>
+                    <div class="char-item">
+                        <span class="char-label">⛽ Conso</span>
+                        <span class="char-value">10-12 L/100</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Statistics Card -->
+            <div class="card">
+                <h2>📈 Statistiques</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="icon">📅</div>
+                        <div class="value" id="yearsActive">4+</div>
+                        <div class="label">Années de vanlife</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="icon">🛣️</div>
+                        <div class="value" id="kmWeek">200-300</div>
+                        <div class="label">km/semaine (circuit)</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="icon">🏔️</div>
+                        <div class="value" id="altitude">1100m</div>
+                        <div class="label">Altitude travail</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="icon">⚡</div>
+                        <div class="value" id="systemsStatus">100%</div>
+                        <div class="label">Systèmes opérationnels</div>
+                    </div>
+                </div>
+            </div>
             <div class="card">
                 <h2>🔧 Systèmes installés</h2>
                 <div class="progress-item">
@@ -792,14 +828,18 @@
             </div>
         </div>
 
-        <div class="saisons-section">
-            <h2>🔄 Les 5 Saisons de ma vie nomade</h2>
-            <div id="saisonsContainer"></div>
-        </div>
+        <div class="main-grid">
+            <!-- Saisons Card -->
+            <div class="card">
+                <h2>🔄 Les 5 Saisons de ma vie nomade</h2>
+                <div id="saisonsContainer"></div>
+            </div>
 
-        <div class="news-section">
-            <h2>📰 Dernières News & Retours d'expérience</h2>
-            <div id="newsContainer"></div>
+            <!-- Latest News Card -->
+            <div class="card">
+                <h2>📰 Dernières News & Retours d'expérience</h2>
+                <div id="newsContainer"></div>
+            </div>
         </div>
     </div>
 

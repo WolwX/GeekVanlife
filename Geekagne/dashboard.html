@@ -314,6 +314,36 @@
             color: #666;
             font-size: 0.75em;
         }
+
+        /* Characteristics Grid */
+        .characteristics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        .char-item {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 3px solid #11998e;
+        }
+
+        .char-label {
+            font-size: 0.9rem;
+            color: #666;
+            font-weight: 600;
+        }
+
+        .char-value {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #333;
+        }
         
         .main-grid {
             display: flex;
@@ -666,56 +696,62 @@
                     </div>
                 </div>
             </div>
-            <div style="display: flex; align-items: flex-start; gap: 20px; justify-content: center;">
-                <div class="header-right">
-                <h3>📊 Caractéristiques</h3>
-                <div class="header-stat">
-                    <span class="header-stat-label">📐 Dimensions</span>
-                    <span class="header-stat-value">47-54m × 90-95m - 4700 m²</span>
-                </div>
-                <div class="header-stat">
-                    <span class="header-stat-label">🌡️ Climat</span>
-                    <span class="header-stat-value">Méditerranéen</span>
-                </div>
-                <div class="header-stat">
-                    <span class="header-stat-label">⛰️ Altitude</span>
-                    <span class="header-stat-value">~100m</span>
-                </div>
-                <div class="header-stat">
-                    <span class="header-stat-label">☀️ Exposition</span>
-                    <span class="header-stat-value">Plein sud</span>
-                </div>
-                <div class="header-stat">
-                    <span class="header-stat-label">🚗 Accès</span>
-                    <span class="header-stat-value">70m carrossable</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="stats-grid">
-            <div class="stat-card">
-                <div class="icon">📐</div>
-                <div class="value" id="surface">4700</div>
-                <div class="label">m² de terrain</div>
-            </div>
-            <div class="stat-card">
-                <div class="icon">🏗️</div>
-                <div class="value" id="projectsProgress">35%</div>
-                <div class="label">Projets complétés</div>
-            </div>
-            <div class="stat-card">
-                <div class="icon">💰</div>
-                <div class="value" id="budgetSpent">~13 500€</div>
-                <div class="label">Investissement total</div>
-            </div>
-            <div class="stat-card">
-                <div class="icon">📅</div>
-                <div class="value" id="monthsOwned">11</div>
-                <div class="label">Mois de propriété</div>
-            </div>
         </div>
 
         <div class="main-grid">
+            <!-- Characteristics Card -->
+            <div class="card">
+                <h2>📊 Caractéristiques</h2>
+                <div class="characteristics-grid">
+                    <div class="char-item">
+                        <span class="char-label">📐 Dimensions</span>
+                        <span class="char-value">47-54m × 90-95m - 4700 m²</span>
+                    </div>
+                    <div class="char-item">
+                        <span class="char-label">🌡️ Climat</span>
+                        <span class="char-value">Méditerranéen</span>
+                    </div>
+                    <div class="char-item">
+                        <span class="char-label">⛰️ Altitude</span>
+                        <span class="char-value">~100m</span>
+                    </div>
+                    <div class="char-item">
+                        <span class="char-label">☀️ Exposition</span>
+                        <span class="char-value">Plein sud</span>
+                    </div>
+                    <div class="char-item">
+                        <span class="char-label">🚗 Accès</span>
+                        <span class="char-value">70m carrossable</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Statistics Card -->
+            <div class="card">
+                <h2>📈 Statistiques</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="icon">📐</div>
+                        <div class="value" id="surface">4700</div>
+                        <div class="label">m² de terrain</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="icon">🏗️</div>
+                        <div class="value" id="projectsProgress">35%</div>
+                        <div class="label">Projets complétés</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="icon">💰</div>
+                        <div class="value" id="budgetSpent">~13 500€</div>
+                        <div class="label">Investissement total</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="icon">📅</div>
+                        <div class="value" id="monthsOwned">11</div>
+                        <div class="label">Mois de propriété</div>
+                    </div>
+                </div>
+            </div>
             <div class="card">
                 <h2>🏗️ Bâtiments en cours</h2>
                 <div class="progress-item">
@@ -840,14 +876,18 @@
 
         </div>
 
-        <div class="projects-section">
-            <h2>🚧 Tous les Projets Geekagne</h2>
-            <div id="projectsContainer"></div>
-        </div>
+        <div class="main-grid">
+            <!-- All Projects Card -->
+            <div class="card">
+                <h2>🚧 Tous les Projets Geekagne</h2>
+                <div id="projectsContainer"></div>
+            </div>
 
-        <div class="news-section">
-            <h2>📰 Dernières News & Avancées</h2>
-            <div id="newsContainer"></div>
+            <!-- Latest News Card -->
+            <div class="card">
+                <h2>📰 Dernières News & Avancées</h2>
+                <div id="newsContainer"></div>
+            </div>
         </div>
     </div>
 
