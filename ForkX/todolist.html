@@ -429,6 +429,8 @@
         </div>
     </div>
 
+    <script src="../src/project-data-loader.js"></script>
+    
     <script>
         // Détecter si on est dans la WebView Flutter
         const userAgent = navigator.userAgent;
@@ -444,6 +446,22 @@
         const emptyState = document.getElementById('emptyState');
 
         const STORAGE_KEY = 'forkx-todos';
+
+        // Load version badge from centralized data
+        async function loadVersionBadge() {
+            try {
+                const projectData = await ProjectDataLoader.load('ForkX');
+                if (projectData) {
+                    const versionBadge = document.querySelector('.version-badge');
+                    if (versionBadge) {
+                        versionBadge.textContent = `${projectData.version} • ${projectData.progress?.v01 || 81}%`;
+                        console.log('✅ Badge version synchronisé avec projects-data.json');
+                    }
+                }
+            } catch (error) {
+                console.error('❌ Erreur lors du chargement de la version:', error);
+            }
+        }
 
         // Charger les tâches du localStorage
         function loadTodos() {
@@ -534,6 +552,9 @@
 
         // Afficher les tâches au chargement
         displayTodos();
+        
+        // Load version from centralized data
+        loadVersionBadge();
     </script>
 </body>
 </html>

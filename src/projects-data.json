@@ -1,0 +1,127 @@
+{
+  "projects": {
+    "ForkX": {
+      "id": "ForkX",
+      "name": "🚗🌵 ForkX",
+      "type": "Van aménagé",
+      "description": "Fiat Doblo Cargo 2020 - Projet van aménagé modulaire",
+      "colors": {
+        "primary": "#c0392b",
+        "secondary": "#e74c3c",
+        "gradient": "linear-gradient(135deg, #c0392b 0%, #e74c3c 100%)"
+      },
+      "version": "v0.1",
+      "lastUpdate": "17 novembre 2025",
+      "status": "EN COURS",
+      "progress": {
+        "v01": 81,
+        "total": 9
+      },
+      "budget": {
+        "spent": 7418,
+        "v01Total": 8182,
+        "projectTotal": 11427
+      },
+      "characteristics": {
+        "model": "Fiat Doblo Cargo",
+        "year": "2020 • 130 401 km",
+        "registration": "FL-821-QN",
+        "dimensions": "5m x 2m",
+        "price": "6 700€",
+        "ptac": "2000 kg",
+        "consumption": "6,2-6,5 L/100"
+      },
+      "daysToV10": 351,
+      "stats": {
+        "globalProgress": "15%",
+        "budgetSpent": "7 418€",
+        "budgetRemaining": "4 009€"
+      },
+      "news": [
+        {
+          "date": "17 novembre 2025",
+          "icon": "🏗️",
+          "text": "Mise à jour dashboard - couleurs caractéristiques inversées (labels gris, valeurs signature)"
+        },
+        {
+          "date": "15 novembre 2025",
+          "icon": "🏗️",
+          "text": "Choix isolation K-FLEX ST 19mm validé : économie 100€ vs Armaflex. Mesures cargo précises : largeur 165cm mi-hauteur, 123cm sol, 131cm plafond. Cargo entièrement démonté et nettoyé."
+        },
+        {
+          "date": "15 novembre 2025",
+          "icon": "🛏️",
+          "text": "Matelas 190×90cm validé par test terrain - Dimensions parfaites pour aménagement cargo"
+        },
+        {
+          "date": "15 novembre 2025",
+          "icon": "⚡",
+          "text": "Prise 12V fonctionnelle découverte dans le véhicule - Source d'alimentation auxiliaire utilisable"
+        },
+        {
+          "date": "15 novembre 2025",
+          "icon": "🔧",
+          "text": "21 vis à remplacer sur protections plastiques portes latérales (pas de portes arrières)"
+        },
+        {
+          "date": "14 novembre 2025",
+          "icon": "⛽",
+          "text": "Consommation diesel validée après plusieurs tests : 6,2-6,5 L/100km (vs 7,6 L annoncé à l'achat). Coûts trajets habituels : Montagne 66 ↔ Plaine 66 (13-15€ A/R), Montagne 66 ↔ Côte 66 (20-25€ A/R), Côte 66 ↔ Plaine 66 (10-12€ A/R)"
+        },
+        {
+          "date": "14 novembre 2025",
+          "icon": "🔍",
+          "text": "Découverte d'une trappe d'accès aux réservoirs véhicules (diesel) sous l'habillage dans la partie cargo"
+        }
+      ]
+    },
+    "Geekomobile": {
+      "id": "Geekomobile",
+      "name": "🚐🚀 Geekomobile",
+      "type": "Van aménagé",
+      "description": "Iveco Daily L4H2 2006 - Habitat aménagé depuis août 2021",
+      "colors": {
+        "primary": "#1e3a8a",
+        "secondary": "#3b82f6",
+        "gradient": "linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%)"
+      },
+      "version": "v2.0",
+      "lastUpdate": "15 novembre 2025",
+      "status": "OPÉRATIONNEL",
+      "characteristics": {
+        "model": "Iveco Daily L4H2",
+        "year": "2006",
+        "registration": "CL-370-YL",
+        "volume": "15,6 m³",
+        "dimensions": "7m x 3,10m",
+        "weight": "~4000 kg",
+        "ptac": "3500 kg",
+        "consumption": "10-12 L/100"
+      }
+    },
+    "Geekagne": {
+      "id": "Geekagne",
+      "name": "🏡🌲 Geekagne",
+      "type": "Terrain de loisirs",
+      "description": "Terrain de loisirs 4700m² - Plaine des Pyrénées-Orientales (66)",
+      "colors": {
+        "primary": "#11998e",
+        "secondary": "#38ef7d",
+        "gradient": "linear-gradient(135deg, #11998e 0%, #38ef7d 100%)"
+      },
+      "version": "v1.0",
+      "lastUpdate": "16 novembre 2025",
+      "status": "EN COURS",
+      "progress": "35%",
+      "budget": "~15 000€",
+      "surface": "4700 m²",
+      "characteristics": {
+        "dimensions": "47-54m × 90-95m - 4700 m²",
+        "climate": "Méditerranéen",
+        "altitude": "~100m",
+        "exposure": "Plein sud",
+        "access": "70m carrossable"
+      }
+    }
+  }
+}

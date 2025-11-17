@@ -798,6 +798,9 @@
     <!-- Dashboard Parser Script -->
     <script src="../src/dashboard-parser.js"></script>
     
+    <!-- Project Data Loader Script -->
+    <script src="../src/project-data-loader.js"></script>
+    
     <script>
         const dashboardData = {
             vehicleInfo: {
@@ -900,6 +903,9 @@
             newsContainer.appendChild(newsDiv);
         });
 
+        // Load from centralized JSON data
+        loadFromCentralizedData();
+
         // Détecter si on est dans la WebView Flutter et masquer le bouton
         const userAgent = navigator.userAgent || navigator.vendor || window.opera;
         const isFlutterWebView = userAgent.includes('Flutter') || userAgent.includes('wv');
@@ -908,6 +914,49 @@
             const backButton = document.getElementById('backButton');
             if (backButton) {
                 backButton.classList.add('hidden-in-app');
+            }
+        }
+
+        // Load data from centralized JSON file
+        async function loadFromCentralizedData() {
+            try {
+                const projectData = await ProjectDataLoader.load('Geekomobile');
+                
+                if (projectData) {
+                    // Update dashboard with centralized data
+                    console.log('✅ Geekomobile synchronisé avec projects-data.json');
+                    
+                    // Update stats from centralized data if available
+                    if (projectData.characteristics) {
+                        document.getElementById('yearsActive').textContent = projectData.characteristics.yearsActive || dashboardData.vehicleInfo.yearsActive;
+                        document.getElementById('kmWeek').textContent = projectData.characteristics.kmWeek || dashboardData.vehicleInfo.kmWeek;
+                        document.getElementById('altitude').textContent = projectData.characteristics.altitude || dashboardData.vehicleInfo.altitude;
+                        document.getElementById('systemsStatus').textContent = projectData.characteristics.systemsStatus || dashboardData.vehicleInfo.systemsStatus;
+                    }
+                    
+                    // Update news from centralized data
+                    if (projectData.news && projectData.news.length > 0) {
+                        const newsContainer = document.getElementById('newsContainer');
+                        newsContainer.innerHTML = ''; // Clear existing news
+                        
+                        projectData.news.forEach(item => {
+                            const newsDiv = document.createElement('div');
+                            newsDiv.className = 'news-item';
+                            newsDiv.innerHTML = `
+                                <div class="news-header">
+                                    <span class="news-icon">${item.icon}</span>
+                                    <span class="news-date">${item.date}</span>
+                                </div>
+                                <div class="news-content">${item.text}</div>
+                            `;
+                            newsContainer.appendChild(newsDiv);
+                        });
+                    }
+                } else {
+                    console.warn('⚠️ Impossible de charger les données centralisées pour Geekomobile');
+                }
+            } catch (error) {
+                console.error('❌ Erreur lors du chargement des données centralisées:', error);
             }
         }
     </script>

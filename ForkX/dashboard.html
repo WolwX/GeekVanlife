@@ -763,7 +763,7 @@
                     <div class="badges">
                         <span class="badge badge-version" id="current-version">v0.1</span>
                         <span class="badge badge-status" id="current-status">EN COURS</span>
-                        <span class="badge badge-date" id="last-update">Mis à jour le 15 nov. 2025</span>
+                        <span class="badge badge-date" id="last-update">Mis à jour le 17 nov. 2025</span>
                     </div>
                 </div>
                 <div class="header-badges-container">
@@ -1628,12 +1628,15 @@
     <!-- Dashboard Parser Script -->
     <script src="../src/dashboard-parser.js"></script>
     
+    <!-- Project Data Loader Script -->
+    <script src="../src/project-data-loader.js"></script>
+    
     <script>
         // Dashboard data management (fallback values)
         let dashboardData = {
             currentVersion: 'v0.1',
             currentStatus: 'EN COURS',
-            lastUpdate: '15 novembre 2025',
+            lastUpdate: '17 novembre 2025',
             progressV01: 81,
             progressTotal: 9,
             budgetSpent: 7418,
@@ -1765,9 +1768,45 @@
                 }
             }
             
-            loadDataFromReadme();
+            // Load from centralized JSON data
+            loadFromCentralizedData();
             initializeAccordion();
         });
+
+        // Load data from centralized JSON file
+        async function loadFromCentralizedData() {
+            try {
+                const projectData = await ProjectDataLoader.load('ForkX');
+                
+                if (projectData) {
+                    // Merge centralized data with fallback values
+                    dashboardData = {
+                        ...dashboardData,
+                        currentVersion: projectData.version,
+                        currentStatus: projectData.status,
+                        lastUpdate: projectData.lastUpdate,
+                        progressV01: projectData.progress?.v01 || dashboardData.progressV01,
+                        progressTotal: projectData.progress?.total || dashboardData.progressTotal,
+                        budgetSpent: projectData.budget?.spent || dashboardData.budgetSpent,
+                        budgetV01Total: projectData.budget?.v01Total || dashboardData.budgetV01Total,
+                        budgetTotalProject: projectData.budget?.projectTotal || dashboardData.budgetTotalProject,
+                        daysToV10: projectData.daysToV10 || dashboardData.daysToV10,
+                        news: projectData.news || dashboardData.news
+                    };
+                    
+                    console.log('✅ Dashboard synchronisé avec projects-data.json');
+                } else {
+                    console.warn('⚠️ Impossible de charger les données centralisées, utilisation du fallback + README');
+                    await loadDataFromReadme();
+                }
+                
+                updateDashboard();
+            } catch (error) {
+                console.error('❌ Erreur lors du chargement des données centralisées:', error);
+                // Fallback to README parser
+                loadDataFromReadme();
+            }
+        }
 
         // Auto-refresh every 5 minutes (optional)
         // setInterval(loadDataFromReadme, 5 * 60 * 1000);
