@@ -343,6 +343,10 @@
                 width: 100%;
             }
 
+            .badges {
+                justify-content: center;
+            }
+
             .header h1 {
                 font-size: 1.8rem;
             }
@@ -395,9 +399,9 @@
                     <h1>🚗🌵 ForkX To Do List</h1>
                     <p class="subtitle">Fiat Doblo Cargo 2020 - Projet van aménagé modulaire</p>
                     <div class="badges">
-                        <span class="badge badge-version">v0.1 • 81%</span>
-                        <span class="badge badge-status">EN COURS</span>
-                        <span class="badge badge-date">Mis à jour le 15 nov. 2025</span>
+                        <span class="badge badge-version" id="current-version">v0.1 • 81%</span>
+                        <span class="badge badge-status" id="current-status">EN COURS</span>
+                        <span class="badge badge-date" id="last-update">Mis à jour le 17 nov. 2025</span>
                     </div>
                 </div>
                 <div class="header-badges-container">
@@ -452,10 +456,23 @@
             try {
                 const projectData = await ProjectDataLoader.load('ForkX');
                 if (projectData) {
-                    const versionBadge = document.querySelector('.version-badge');
+                    // Update version badge
+                    const versionBadge = document.getElementById('current-version');
                     if (versionBadge) {
                         versionBadge.textContent = `${projectData.version} • ${projectData.progress?.v01 || 81}%`;
                         console.log('✅ Badge version synchronisé avec projects-data.json');
+                    }
+                    
+                    // Update status badge
+                    const statusBadge = document.getElementById('current-status');
+                    if (statusBadge) {
+                        statusBadge.textContent = projectData.status || 'EN COURS';
+                    }
+                    
+                    // Update date badge
+                    const dateBadge = document.getElementById('last-update');
+                    if (dateBadge) {
+                        dateBadge.textContent = `Mis à jour le ${projectData.lastUpdate}`;
                     }
                 }
             } catch (error) {
