@@ -343,6 +343,10 @@
                 width: 100%;
             }
 
+            .badges {
+                justify-content: center;
+            }
+
             .header h1 {
                 font-size: 1.8rem;
             }
@@ -395,9 +399,9 @@
                     <h1>🏡🌲 Geekagne To Do List</h1>
                     <p class="subtitle">Terrain multi-projets DIY - Plaine des Pyrénées-Orientales (66)</p>
                     <div class="badges">
-                        <span class="badge badge-version">v1.0 • 35%</span>
-                        <span class="badge badge-status">EN COURS</span>
-                        <span class="badge badge-date">Mis à jour le 15 nov 2025</span>
+                        <span class="badge badge-version" id="current-version">v1.0 • 35%</span>
+                        <span class="badge badge-status" id="current-status">EN COURS</span>
+                        <span class="badge badge-date" id="last-update">Mis à jour le 16 novembre 2025</span>
                     </div>
                 </div>
                 <div class="header-badges-container">
@@ -436,6 +440,8 @@
         </div>
     </div>
 
+    <script src="../src/project-data-loader.js"></script>
+    
     <script>
         // Détecter si on est dans la WebView Flutter
         const userAgent = navigator.userAgent;
@@ -443,6 +449,35 @@
         
         if (isFlutterWebView) {
             document.getElementById('backButton').classList.add('hidden-in-app');
+        }
+
+        // Load version badge from centralized data
+        async function loadVersionBadge() {
+            try {
+                const projectData = await ProjectDataLoader.load('Geekagne');
+                if (projectData) {
+                    // Update version badge
+                    const versionBadge = document.getElementById('current-version');
+                    if (versionBadge) {
+                        versionBadge.textContent = `${projectData.version} • 35%`;
+                        console.log('✅ Badge version Geekagne synchronisé');
+                    }
+                    
+                    // Update status badge
+                    const statusBadge = document.getElementById('current-status');
+                    if (statusBadge) {
+                        statusBadge.textContent = projectData.status || 'EN COURS';
+                    }
+                    
+                    // Update date badge
+                    const dateBadge = document.getElementById('last-update');
+                    if (dateBadge) {
+                        dateBadge.textContent = `Mis à jour le ${projectData.lastUpdate}`;
+                    }
+                }
+            } catch (error) {
+                console.error('❌ Erreur lors du chargement de la version Geekagne:', error);
+            }
         }
 
         const todoInput = document.getElementById('todoInput');
@@ -505,6 +540,9 @@
         addBtn.addEventListener('click', addTodo);
         todoInput.addEventListener('keypress', (e) => e.key === 'Enter' && addTodo());
         displayTodos();
+        
+        // Load version from centralized data
+        loadVersionBadge();
     </script>
 </body>
 </html>
