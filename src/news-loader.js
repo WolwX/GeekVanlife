@@ -5,7 +5,12 @@
 class NewsLoader {
     constructor(projectName) {
         this.projectName = projectName;
-        this.newsFile = `./src/news/${projectName.toLowerCase()}-news.json`;
+        // Détecte si on est dans un sous-dossier (Geekagne/, Geekomobile/, ForkX/)
+        const isInSubfolder = window.location.pathname.includes('/Geekagne/') || 
+                             window.location.pathname.includes('/Geekomobile/') ||
+                             window.location.pathname.includes('/ForkX/');
+        const pathPrefix = isInSubfolder ? '../' : './';
+        this.newsFile = `${pathPrefix}src/news/${projectName.toLowerCase()}-news.json`;
     }
 
     /**
@@ -67,21 +72,29 @@ class NewsLoader {
 
         // Ajouter le bouton "Voir plus" s'il y a d'autres news
         if (allNews.length > count) {
+            const isInSubfolder = window.location.pathname.includes('/Geekagne/') || 
+                                 window.location.pathname.includes('/Geekomobile/') ||
+                                 window.location.pathname.includes('/ForkX/');
+            const newsPageUrl = isInSubfolder ? '../news.html' : './news.html';
+            
             const moreButton = document.createElement('div');
             moreButton.style.marginTop = '15px';
             moreButton.style.textAlign = 'center';
             moreButton.innerHTML = `
-                <a href="news.html" class="see-more-button" style="
+                <a href="${newsPageUrl}" class="see-more-button" style="
                     display: inline-block;
-                    padding: 8px 16px;
-                    background: #667eea;
+                    padding: 10px 20px;
+                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
                     color: white;
-                    border-radius: 6px;
+                    border-radius: 8px;
                     text-decoration: none;
-                    font-size: 0.85rem;
+                    font-size: 0.9rem;
                     font-weight: 600;
                     transition: all 0.3s ease;
-                " onmouseover="this.style.background='#5568d3'" onmouseout="this.style.background='#667eea'">
+                    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+                    border: none;
+                    cursor: pointer;
+                " onmouseover="this.style.boxShadow='0 6px 20px rgba(102, 126, 234, 0.4)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.boxShadow='0 4px 12px rgba(102, 126, 234, 0.3)'; this.style.transform='translateY(0)'">
                     Voir plus de news ➜
                 </a>
             `;
