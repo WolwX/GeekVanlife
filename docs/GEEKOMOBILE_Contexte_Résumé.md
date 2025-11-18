@@ -1,10 +1,34 @@
 # 🚐 GEEKOMOBILE - RÉSUMÉ DU PROJET
 
-**Dernière mise à jour :** 8 novembre 2025
+**Dernière mise à jour :** 18 novembre 2025
 
 ---
 
-## 🎯 VUE D'ENSEMBLE
+## 🌐 WEB APP INTERACTIVE
+
+### Dashboard Geekomobile
+Un **dashboard interactif** (`Geekomobile/dashboard.html`) permet le suivi en temps réel du projet :
+
+- 📊 **Statistiques** : Savoir-faire, années d'expérience, détails systèmes
+- 📰 **Actualités** : News et mises à jour du projet
+- 🗺️ **Circuit de vie** : Montagne, plaine, côte
+- ⚡ **Systèmes** : Chauffage, eau, électricité, surveillance
+- 🔗 **Navigation** : Lien automatique vers page news complète
+
+### Système de News
+- **Page centralisée** : `news.html` avec tous les projets
+- **Onglets** : Basculez entre ForkX, Geekomobile, Geekagne
+- **Navigation intelligente** : Cliquez "Voir plus" sur dashboard → arrive directement sur onglet Geekomobile
+- **Couleur projet** : Les actualités Geekomobile apparaissent en bleu (couleur brand du projet)
+
+### Architecture
+```
+Geekomobile/dashboard.html  → Affiche stats du projet
+            ↓ (clic "Voir plus")
+news.html#geekomobile       → Page news, onglet Geekomobile sélectionné automatiquement
+```
+
+---
 
 ### Identité
 - **Nom :** Geekomobile

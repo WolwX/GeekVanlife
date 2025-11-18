@@ -1,10 +1,36 @@
 # 🏗️ GEEKAGNE - RÉSUMÉ DU PROJET
 
-**Dernière mise à jour :** 8 novembre 2025
+**Dernière mise à jour :** 18 novembre 2025
 
 ---
 
-## 🎯 VUE D'ENSEMBLE
+## 🌐 WEB APP INTERACTIVE
+
+### Dashboard Geekagne
+Un **dashboard interactif** (`Geekagne/dashboard.html`) permet le suivi en temps réel du projet :
+
+- 📊 **Statistiques** : Progression, bâtiments, plantations
+- 📈 **Avancement** : Réalisations vs projets futurs
+- 📰 **Actualités** : News et mises à jour du projet
+- 🏗️ **Bâtiments** : État des constructions
+- 🌱 **Plantations** : Arbres, haies, potager
+- 💧 **Eau** : Gestion et récupération pluviale
+- 🔗 **Navigation** : Lien automatique vers page news complète
+
+### Système de News
+- **Page centralisée** : `news.html` avec tous les projets
+- **Onglets** : Basculez entre ForkX, Geekomobile, Geekagne
+- **Navigation intelligente** : Cliquez "Voir plus" sur dashboard → arrive directement sur onglet Geekagne
+- **Couleur projet** : Les actualités Geekagne apparaissent en vert (couleur brand du projet)
+
+### Architecture
+```
+Geekagne/dashboard.html  → Affiche stats du projet
+         ↓ (clic "Voir plus")
+news.html#geekagne       → Page news, onglet Geekagne sélectionné automatiquement
+```
+
+---
 
 ### Identité
 - **Nom :** GEEKAGNE

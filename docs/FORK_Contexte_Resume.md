@@ -1,10 +1,34 @@
 # 🍴 FORKX - RÉSUMÉ DU PROJET
 
-**Dernière mise à jour :** 14 novembre 2025
+**Dernière mise à jour :** 18 novembre 2025
 
 ---
 
-## 🎯 VUE D'ENSEMBLE
+## 🌐 WEB APP INTERACTIVE
+
+### Dashboard ForkX
+Un **dashboard interactif** (`ForkX/dashboard.html`) permet le suivi en temps réel du projet :
+
+- 📊 **Statistiques** : Progression, version actuelle, budget
+- 📈 **Budget détaillé** : Réalisations, en cours, reste à faire
+- 🎯 **Roadmap** : Phases v0.1 → v1.0
+- 📰 **Actualités** : News et mises à jour du projet
+- 🔗 **Navigation** : Lien automatique vers page news complète
+
+### Système de News
+- **Page centralisée** : `news.html` avec tous les projets
+- **Onglets** : Basculez entre ForkX, Geekomobile, Geekagne
+- **Navigation intelligente** : Cliquez "Voir plus" sur dashboard → arrive directement sur onglet ForkX
+- **Couleur projet** : Les actualités ForkX apparaissent en rouge (couleur brand du projet)
+
+### Architecture
+```
+ForkX/dashboard.html  → Affiche stats du projet
+      ↓ (clic "Voir plus")
+news.html#forkx       → Page news, onglet ForkX sélectionné automatiquement
+```
+
+---
 
 ### Identité
 - **Nom :** ForkX
