@@ -7,6 +7,35 @@ et ce projet suit un versioning incrémental inspiré du développement logiciel
 
 ---
 
+## [Web App Integration] - 18 novembre 2025
+**🌐 SYSTÈME DE SUIVI INTERACTIF DÉPLOYÉ**
+
+### ✨ Nouvel système de suivi
+- ✅ **Dashboard ForkX** (`dashboard.html`) - Suivi en temps réel du projet
+  - Statistiques de progression
+  - Actualités et mises à jour
+  - Roadmap et planification
+  - Suivi du budget
+  - Détails des systèmes et composants
+  - Design responsif avec couleurs ForkX (rouge)
+
+- ✅ **Système de News centralisé** (`news.html`)
+  - Actualités par projet avec onglets
+  - Onglet ForkX sélectionné automatiquement depuis le dashboard
+  - Historique complet des updates avec navigation par ancre
+
+- ✅ **Hub d'accueil** (`index.html`)
+  - Vue d'ensemble des 3 projets
+  - Statistiques rapides (version, budget, statut)
+  - Navigation centralisée vers tous les dashboards
+
+### 📊 Intégration documentation
+- Dashboard lié à la documentation technique
+- News synchronisées avec changelog
+- Architecture cohérente avec les autres projets (Geekomobile, Geekagne)
+
+---
+
 ## [v1.0] - 2026-11-30 (Prévu)
 **🎉 RELEASE FINALE - ForkX COMPLET & VALIDÉ 🎉**
 
