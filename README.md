@@ -44,8 +44,112 @@ Centralise toute la documentation de mes projets :
 - 🏕️ Terrain de loisirs autonome (**Geekagne**)
 - 📚 Guides techniques et retours d'expérience
 - 🔧 Plans, schémas et ressources
+- 📊 **Web App Interactive** : Dashboards, news et suivi en temps réel
 
 **Objectif :** Documenter, transmettre et partager pour aider d'autres passionnés à se lancer dans une aventure similaire.
+
+---
+
+## 🌐 Web App Interactive - GeekVanlife Hub
+
+### Vue d'ensemble
+
+Un système de **web app ludique et intuitif** a été mis en place pour suivre l'avancée des projets en temps réel. Accessible directement depuis le navigateur, sans installation requise.
+
+**Accès :** Ouvrez `index.html` dans votre navigateur ou visitez le site officiel.
+
+### Fonctionnalités principales
+
+#### 1. **🏠 Hub d'accueil**
+- Vue d'ensemble des 3 projets (ForkX, Geekomobile, Geekagne)
+- Statistiques rapides (version, budget, statut, date)
+- Navigation centralisée vers tous les dashboards
+
+#### 2. **📊 Dashboards interactifs** (pour chaque projet)
+- **ForkX Dashboard** (`ForkX/dashboard.html`)
+  - Suivi avancement Doblo 2020
+  - Budget, phases, composants
+  - Roadmap et planification
+  
+- **Geekomobile Dashboard** (`Geekomobile/dashboard.html`)
+  - Habitat à l'année - Systèmes en détail
+  - Saisons et savoir-faire
+  - Circuit hebdomadaire et optimisations
+  
+- **Geekagne Dashboard** (`Geekagne/dashboard.html`)
+  - Terrain autonome multi-projets
+  - Plantations et bâtiments
+  - Gestion de l'eau et avancées
+
+**Caractéristiques communes :**
+- 🎨 Design coloré et responsive (mobile-friendly)
+- 📱 Gradient brands par projet (vert Geekagne, bleu Geekomobile, rouge ForkX)
+- ⚡ Performance optimisée (chargement instantané)
+- 🎯 Sections organisées : Stats → News+Mises à jour → Progress/Budget → Détails spécifiques
+
+#### 3. **📰 Système de News**
+- **Page centralisée** (`news.html`) avec toutes les actualités
+- **Onglets par projet** : Basculez entre Geekagne, Geekomobile, ForkX
+- **Coloration par brand** : Chaque projet a sa propre couleur
+- **Lien intégré** : Boutons "Voir plus de news" sur dashboards → Navigation automatique vers l'onglet correct
+- **Format ludique** : Icônes, dates, textes concis et agréables à lire
+
+#### 4. **🎨 Design cohérent**
+- Palette de couleurs unifiée
+- Typographie moderne et lisible
+- Spacing et layouts responsifs
+- Animations fluides et discrètes
+
+### Architecture technique
+
+```
+GeekVanlife/
+├── index.html                    (🏠 Hub d'accueil)
+├── news.html                     (📰 Toutes les news)
+│
+├── ForkX/
+│   └── dashboard.html            (🍴✖️ Dashboard ForkX)
+│
+├── Geekomobile/
+│   └── dashboard.html            (🚐 Dashboard Geekomobile)
+│
+├── Geekagne/
+│   └── dashboard.html            (🏡 Dashboard Geekagne)
+│
+└── src/
+    ├── news-loader.js            (Gère le chargement des news)
+    └── news/                      (Données news en JSON)
+        ├── forkx-news.json
+        ├── geekomobile-news.json
+        └── geekagne-news.json
+```
+
+### Flux utilisateur
+
+```
+                      ┌─────────────────────┐
+                      │   index.html        │
+                      │  🏠 HUB d'accueil   │
+                      └──────────┬──────────┘
+                                 │
+                    ┌────────────┼────────────┐
+                    │            │            │
+                    ↓            ↓            ↓
+          ┌──────────────┐ ┌────────────┐ ┌──────────────┐
+          │ ForkX        │ │ Geekomobile│ │ Geekagne     │
+          │ dashboard.   │ │ dashboard. │ │ dashboard.   │
+          │ html         │ │ html       │ │ html         │
+          └──────┬───────┘ └─────┬──────┘ └──────┬───────┘
+                 │                │               │
+                 │     "Voir plus de news"        │
+                 │                │               │
+                 └────────────────┼───────────────┘
+                                  │
+                      ┌───────────↓────────────┐
+                      │  news.html#[projet]    │
+                      │  📰 Onglet auto-sélec. │
+                      └────────────────────────┘
+```
 
 ---
 
