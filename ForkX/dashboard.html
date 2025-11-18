@@ -317,6 +317,13 @@
             box-shadow: var(--shadow-lg);
         }
 
+        .two-column-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
         .card-title {
             font-size: 1.25rem;
             font-weight: 700;
@@ -690,6 +697,10 @@
                 padding: 20px;
             }
 
+            .two-column-grid {
+                grid-template-columns: 1fr;
+            }
+
             .header-top {
                 flex-direction: column;
                 gap: 15px;
@@ -925,48 +936,51 @@
                 </div>
             </div>
 
-            <!-- Latest Updates Card -->
-            <div class="card">
-                <h2 class="card-title">
-                    <span class="card-icon">🔔</span>
-                    Dernières avancées
-                </h2>
-                <div class="timeline" id="recent-updates">
-                    <div class="timeline-item">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-date">15 novembre 2025</div>
-                        <div class="timeline-content">Installation protège-volant + désodorisant Chat pilote</div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-date">15 novembre 2025</div>
-                        <div class="timeline-content">Démontage complet cargo + mesures précises (largeur 165cm)</div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-date">15 novembre 2025</div>
-                        <div class="timeline-content">Choix isolation K-FLEX ST 19mm (économie 100€ vs Armaflex)</div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-date">15 novembre 2025</div>
-                        <div class="timeline-content">Validation matelas 190×90cm par test terrain</div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-marker pending"></div>
-                        <div class="timeline-date">À venir</div>
-                        <div class="timeline-content">Finalisation v0.1 - Fin novembre 2025</div>
+            <!-- Latest Updates & News Grid (2 columns) -->
+            <div class="two-column-grid">
+                <!-- Latest News Card -->
+                <div class="card">
+                    <h2 class="card-title">
+                        <span class="card-icon">📰</span>
+                        Dernières News
+                    </h2>
+                    <div id="latest-news"></div>
+                </div>
+
+                <!-- Latest Updates Card -->
+                <div class="card">
+                    <h2 class="card-title">
+                        <span class="card-icon">🔔</span>
+                        Dernières avancées
+                    </h2>
+                    <div class="timeline" id="recent-updates">
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-date">15 novembre 2025</div>
+                            <div class="timeline-content">Installation protège-volant + désodorisant Chat pilote</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-date">15 novembre 2025</div>
+                            <div class="timeline-content">Démontage complet cargo + mesures précises (largeur 165cm)</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-date">15 novembre 2025</div>
+                            <div class="timeline-content">Choix isolation K-FLEX ST 19mm (économie 100€ vs Armaflex)</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-date">15 novembre 2025</div>
+                            <div class="timeline-content">Validation matelas 190×90cm par test terrain</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker pending"></div>
+                            <div class="timeline-date">À venir</div>
+                            <div class="timeline-content">Finalisation v0.1 - Fin novembre 2025</div>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <!-- Latest News Card -->
-            <div class="card">
-                <h2 class="card-title">
-                    <span class="card-icon">📰</span>
-                    Dernières News
-                </h2>
-                <div id="latest-news"></div>
             </div>
 
             <!-- Roadmap Accordion Card -->

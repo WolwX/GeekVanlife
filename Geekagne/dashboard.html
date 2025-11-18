@@ -351,6 +351,13 @@
             gap: 30px;
             margin-bottom: 30px;
         }
+
+        .two-column-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
         
         .dashboard-grid {
             display: flex;
@@ -599,6 +606,10 @@
 
             .header {
                 padding: 20px;
+            }
+
+            .two-column-grid {
+                grid-template-columns: 1fr;
             }
 
             .header-top {
@@ -883,13 +894,7 @@
 
         </div>
 
-        <div class="main-grid">
-            <!-- All Projects Card -->
-            <div class="card">
-                <h2>🚧 Tous les Projets Geekagne</h2>
-                <div id="projectsContainer"></div>
-            </div>
-
+        <div class="two-column-grid">
             <!-- Latest News Card -->
             <div class="card">
                 <h2 class="card-title">
@@ -897,6 +902,12 @@
                     Dernières News
                 </h2>
                 <div id="newsContainer"></div>
+            </div>
+
+            <!-- All Projects Card -->
+            <div class="card">
+                <h2>🚧 Dernières Avancées</h2>
+                <div id="projectsContainer"></div>
             </div>
         </div>
     </div>
