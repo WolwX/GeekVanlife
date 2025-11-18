@@ -77,11 +77,15 @@ class NewsLoader {
                                  window.location.pathname.includes('/ForkX/');
             const newsPageUrl = isInSubfolder ? '../news.html' : './news.html';
             
+            // Créer l'ancre basée sur le projet
+            const projectLower = this.projectName.toLowerCase();
+            const anchor = `#${projectLower}`;
+            
             const moreButton = document.createElement('div');
             moreButton.style.marginTop = '15px';
             moreButton.style.textAlign = 'center';
             moreButton.innerHTML = `
-                <a href="${newsPageUrl}" class="see-more-button" style="
+                <a href="${newsPageUrl}${anchor}" class="see-more-button" style="
                     display: inline-block;
                     padding: 10px 20px;
                     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);

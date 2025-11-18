@@ -317,6 +317,9 @@
 
             // Activer le bouton correspondant
             event.target.classList.add('active');
+
+            // Mettre à jour l'URL avec l'ancre
+            window.history.pushState(null, null, `#${tabName}`);
         }
 
         // Charger les news au démarrage
@@ -335,6 +338,34 @@
             const forkxLoader = new NewsLoader('ForkX');
             const forkxNews = await forkxLoader.loadAllNews();
             displayNews('forkx-news', forkxNews);
+
+            // Gérer la navigation vers l'ancre si présente dans l'URL
+            handleAnchorNavigation();
+        }
+
+        // Fonction pour gérer la navigation vers l'ancre
+        function handleAnchorNavigation() {
+            const hash = window.location.hash.substring(1); // Supprimer le '#'
+            if (hash && ['geekagne', 'geekomobile', 'forkx'].includes(hash)) {
+                // Masquer tous les conteneurs
+                document.querySelectorAll('.news-container').forEach(container => {
+                    container.classList.remove('active');
+                });
+
+                // Désactiver tous les boutons
+                document.querySelectorAll('.tab-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+
+                // Afficher le conteneur de l'ancre
+                document.getElementById(hash).classList.add('active');
+
+                // Activer le bouton correspondant
+                document.querySelector(`.tab-btn.${hash}`).classList.add('active');
+
+                // Scroller vers le conteneur
+                document.getElementById(hash).scrollIntoView({ behavior: 'smooth' });
+            }
         }
 
         // Fonction pour afficher les news
