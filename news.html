@@ -22,7 +22,7 @@
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
         }
 
@@ -55,59 +55,82 @@
 
         .header {
             background: white;
-            padding: 40px;
+            padding: 30px;
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             margin-bottom: 30px;
-            text-align: center;
         }
 
         .header h1 {
-            font-size: 2.5em;
-            color: #667eea;
+            font-size: 2.2em;
+            color: #333;
             margin-bottom: 10px;
         }
 
         .header p {
             color: #666;
-            font-size: 1.1em;
+            font-size: 1em;
         }
 
         .tabs {
             display: flex;
             gap: 10px;
             margin-bottom: 30px;
-            justify-content: center;
             flex-wrap: wrap;
         }
 
         .tab-btn {
             padding: 12px 24px;
             background: white;
-            border: 2px solid #667eea;
+            border: 2px solid;
             border-radius: 8px;
             cursor: pointer;
             font-size: 0.95rem;
             font-weight: 600;
-            color: #667eea;
             transition: all 0.3s ease;
         }
 
-        .tab-btn:hover {
-            background: #667eea;
-            color: white;
+        .tab-btn.geekagne {
+            border-color: #11998e;
+            color: #11998e;
         }
 
-        .tab-btn.active {
-            background: #667eea;
+        .tab-btn.geekagne:hover,
+        .tab-btn.geekagne.active {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
             color: white;
+            border-color: #11998e;
+        }
+
+        .tab-btn.geekomobile {
+            border-color: #667eea;
+            color: #667eea;
+        }
+
+        .tab-btn.geekomobile:hover,
+        .tab-btn.geekomobile.active {
+            background: linear-gradient(135deg, #667eea 0%, #4FC3F7 100%);
+            color: white;
+            border-color: #667eea;
+        }
+
+        .tab-btn.forkx {
+            border-color: #c0392b;
+            color: #c0392b;
+        }
+
+        .tab-btn.forkx:hover,
+        .tab-btn.forkx.active {
+            background: linear-gradient(135deg, #c0392b 0%, #e74c3c 100%);
+            color: white;
+            border-color: #c0392b;
         }
 
         .news-container {
             background: white;
             padding: 30px;
             border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             display: none;
         }
 
@@ -116,10 +139,20 @@
         }
 
         .news-container h2 {
-            color: #667eea;
             margin-bottom: 25px;
-            font-size: 1.8em;
-            text-align: center;
+            font-size: 1.6em;
+        }
+
+        .news-container.geekagne h2 {
+            color: #11998e;
+        }
+
+        .news-container.geekomobile h2 {
+            color: #667eea;
+        }
+
+        .news-container.forkx h2 {
+            color: #c0392b;
         }
 
         .news-list {
@@ -134,8 +167,20 @@
             padding: 15px;
             background: #f8f9fa;
             border-radius: 8px;
-            border-left: 3px solid #667eea;
+            border-left: 3px solid #ccc;
             transition: all 0.3s ease;
+        }
+
+        .news-container.geekagne .news-item {
+            border-left-color: #11998e;
+        }
+
+        .news-container.geekomobile .news-item {
+            border-left-color: #667eea;
+        }
+
+        .news-container.forkx .news-item {
+            border-left-color: #c0392b;
         }
 
         .news-item:hover {
@@ -182,7 +227,7 @@
             }
 
             .header h1 {
-                font-size: 1.8rem;
+                font-size: 1.5rem;
             }
 
             .back-button {
@@ -228,26 +273,26 @@
         </div>
 
         <div class="tabs">
-            <button class="tab-btn active" onclick="switchTab('geekagne')">🏡 Geekagne</button>
-            <button class="tab-btn" onclick="switchTab('geekomobile')">🚐 Geekomobile</button>
-            <button class="tab-btn" onclick="switchTab('forkx')">🚗 ForkX</button>
+            <button class="tab-btn geekagne active" onclick="switchTab('geekagne')">🏡🌲 Geekagne</button>
+            <button class="tab-btn geekomobile" onclick="switchTab('geekomobile')">🚐🚀 Geekomobile</button>
+            <button class="tab-btn forkx" onclick="switchTab('forkx')">🚗🌵 ForkX</button>
         </div>
 
         <!-- Geekagne News -->
-        <div id="geekagne" class="news-container active">
-            <h2>🏡 Geekagne - Toutes les News</h2>
+        <div id="geekagne" class="news-container geekagne active">
+            <h2>🏡🌲 Geekagne - Toutes les News</h2>
             <div id="geekagne-news" class="news-list"></div>
         </div>
 
         <!-- Geekomobile News -->
-        <div id="geekomobile" class="news-container">
-            <h2>🚐 Geekomobile - Toutes les News</h2>
+        <div id="geekomobile" class="news-container geekomobile">
+            <h2>🚐🚀 Geekomobile - Toutes les News</h2>
             <div id="geekomobile-news" class="news-list"></div>
         </div>
 
         <!-- ForkX News -->
-        <div id="forkx" class="news-container">
-            <h2>🚗 ForkX - Toutes les News</h2>
+        <div id="forkx" class="news-container forkx">
+            <h2>🚗🌵 ForkX - Toutes les News</h2>
             <div id="forkx-news" class="news-list"></div>
         </div>
     </div>
