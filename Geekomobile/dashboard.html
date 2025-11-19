@@ -653,6 +653,111 @@
                 margin: 0;
             }
         }
+
+        /* Roadmap Styles */
+        .roadmap-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .roadmap-card h2 {
+            color: #667eea;
+            margin-bottom: 25px;
+            font-size: 1.8em;
+        }
+
+        .roadmap-item {
+            background: #f8f9fa;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .roadmap-item.active {
+            background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+            border-left-color: #28a745;
+        }
+
+        .roadmap-item.upcoming {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+            border-left-color: #ffc107;
+        }
+
+        .roadmap-header {
+            display: flex;
+            align-items: center;
+            padding: 15px 20px;
+            cursor: pointer;
+            user-select: none;
+            transition: background 0.2s ease;
+        }
+
+        .roadmap-header:hover {
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        .roadmap-version {
+            font-weight: 700;
+            min-width: 80px;
+            color: #667eea;
+            font-size: 1.1em;
+        }
+
+        .roadmap-name {
+            flex: 1;
+            font-size: 0.95em;
+            font-weight: 600;
+            color: #333;
+            margin-left: 15px;
+        }
+
+        .roadmap-date {
+            font-size: 0.85em;
+            color: #999;
+            margin-right: 15px;
+        }
+
+        .roadmap-arrow {
+            font-size: 1.2em;
+            transition: transform 0.3s ease;
+            color: #667eea;
+        }
+
+        .roadmap-item.expanded .roadmap-arrow {
+            transform: rotate(180deg);
+        }
+
+        .roadmap-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 20px;
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .roadmap-item.expanded .roadmap-content {
+            max-height: 500px;
+            padding: 15px 20px;
+        }
+
+        .roadmap-details {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .roadmap-budget {
+            font-size: 0.9em;
+            color: #666;
+            line-height: 1.6;
+        }
     </style>
 </head>
 <body>
@@ -882,6 +987,43 @@
                 </div>
             </div>
         </div>
+
+        <!-- Roadmap Card -->
+        <div class="roadmap-card">
+            <h2>
+                <span>🗺️</span>
+                Roadmap complète (v2.0)
+            </h2>
+            <div id="roadmap-list">
+                <!-- v2.0 - Optimisation Complète -->
+                <div class="roadmap-item active expanded">
+                    <div class="roadmap-header">
+                        <span class="roadmap-version">v2.0</span>
+                        <span class="roadmap-name">Optimisation complète et automation</span>
+                        <span class="roadmap-date">2025 - EN COURS</span>
+                        <span class="roadmap-arrow">▼</span>
+                    </div>
+                    <div class="roadmap-content">
+                        <div class="roadmap-details">
+                            <div class="roadmap-budget">
+                                <strong>Budget :</strong> ~25 000 € | <strong>Dépensé :</strong> ~25 000 € | <strong>Reste :</strong> Optimisations mineures | <strong>Durée :</strong> Continu | <strong>Fin prévue :</strong> Décembre 2025
+                            </div>
+                            <div style="margin-top: 15px;">
+                                <div style="font-weight: 600; margin-bottom: 10px; color: #333;">Améliorations en cours :</div>
+                                <ul style="margin-left: 20px; color: #666; line-height: 1.8;">
+                                    <li>Chauffage Chinasto 5kW (✅ Complété)</li>
+                                    <li>Système eau 60L et gestion autonome (✅ Complété)</li>
+                                    <li>Panneaux solaires et autonomie électrique (✅ Complété)</li>
+                                    <li>Isolation thermique optimale (✅ Complété)</li>
+                                    <li>Automation et monitoring à distance</li>
+                                    <li>Aménagement et confort intérieur</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Dashboard Parser Script -->
@@ -964,6 +1106,15 @@
         document.getElementById('kmWeek').textContent = dashboardData.vehicleInfo.kmWeek;
         document.getElementById('altitude').textContent = dashboardData.vehicleInfo.altitude;
         document.getElementById('systemsStatus').textContent = dashboardData.vehicleInfo.systemsStatus;
+
+        // Initialize roadmap accordion handlers
+        const roadmapHeaders = document.querySelectorAll('.roadmap-header');
+        roadmapHeaders.forEach(header => {
+            header.addEventListener('click', () => {
+                const roadmapItem = header.parentElement;
+                roadmapItem.classList.toggle('expanded');
+            });
+        });
 
         // Populate saisons
         const saisonsContainer = document.getElementById('saisonsContainer');

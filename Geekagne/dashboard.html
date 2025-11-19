@@ -729,6 +729,165 @@
                 margin: 0;
             }
         }
+
+        /* Accordion Styles for Categories */
+        .accordion-category {
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            overflow: hidden;
+            border: 1px solid #e0e0e0;
+            transition: all 0.3s ease;
+        }
+
+        .accordion-header {
+            display: flex;
+            align-items: center;
+            padding: 15px 20px;
+            cursor: pointer;
+            user-select: none;
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: white;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .accordion-header:hover {
+            background: linear-gradient(135deg, #0d7a6d 0%, #2dd06e 100%);
+            padding-left: 25px;
+        }
+
+        .accordion-arrow {
+            margin-left: auto;
+            font-size: 1.2em;
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-category.expanded .accordion-arrow {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 20px;
+        }
+
+        .accordion-category.expanded .accordion-content {
+            max-height: 1000px;
+            padding: 15px 20px;
+        }
+
+        .accordion-content .project-item {
+            margin-bottom: 10px;
+        }
+
+        /* Roadmap Styles */
+        .roadmap-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .roadmap-card h2 {
+            color: #11998e;
+            margin-bottom: 25px;
+            font-size: 1.8em;
+        }
+
+        .roadmap-item {
+            background: #f8f9fa;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            border-left: 4px solid #11998e;
+            transition: all 0.3s ease;
+        }
+
+        .roadmap-item.active {
+            background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+            border-left-color: #28a745;
+        }
+
+        .roadmap-item.upcoming {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+            border-left-color: #ffc107;
+        }
+
+        .roadmap-header {
+            display: flex;
+            align-items: center;
+            padding: 15px 20px;
+            cursor: pointer;
+            user-select: none;
+            transition: background 0.2s ease;
+        }
+
+        .roadmap-header:hover {
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        .roadmap-version {
+            font-weight: 700;
+            min-width: 80px;
+            color: #11998e;
+            font-size: 1.1em;
+        }
+
+        .roadmap-name {
+            flex: 1;
+            font-size: 0.95em;
+            font-weight: 600;
+            color: #333;
+            margin-left: 15px;
+        }
+
+        .roadmap-date {
+            font-size: 0.85em;
+            color: #999;
+            margin-right: 15px;
+        }
+
+        .roadmap-arrow {
+            font-size: 1.2em;
+            transition: transform 0.3s ease;
+            color: #11998e;
+        }
+
+        .roadmap-item.expanded .roadmap-arrow {
+            transform: rotate(180deg);
+        }
+
+        .roadmap-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 20px;
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .roadmap-item.expanded .roadmap-content {
+            max-height: 500px;
+            padding: 15px 20px;
+        }
+
+        .roadmap-details {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .roadmap-budget {
+            font-size: 0.9em;
+            color: #666;
+            line-height: 1.6;
+        }
+
     </style>
 </head>
 <body>
@@ -859,6 +1018,43 @@
             <div class="card">
                 <h2>🚧 Dernières Avancées</h2>
                 <div id="projectsContainer"></div>
+            </div>
+        </div>
+
+        <!-- Roadmap Card -->
+        <div class="roadmap-card">
+            <h2>
+                <span>🗺️</span>
+                Roadmap complète (v1.0)
+            </h2>
+            <div id="roadmap-list">
+                <!-- v1.0 - Infrastructure Complète -->
+                <div class="roadmap-item active expanded">
+                    <div class="roadmap-header">
+                        <span class="roadmap-version">v1.0</span>
+                        <span class="roadmap-name">Infrastructure complète et autonomie</span>
+                        <span class="roadmap-date">2025 - EN COURS</span>
+                        <span class="roadmap-arrow">▼</span>
+                    </div>
+                    <div class="roadmap-content">
+                        <div class="roadmap-details">
+                            <div class="roadmap-budget">
+                                <strong>Budget :</strong> 33 000 € | <strong>Dépensé :</strong> 25 000 € | <strong>Reste :</strong> ~8 000 € | <strong>Durée :</strong> 12 mois | <strong>Fin prévue :</strong> Fin 2025
+                            </div>
+                            <div style="margin-top: 15px;">
+                                <div style="font-weight: 600; margin-bottom: 10px; color: #333;">Objectifs majeurs :</div>
+                                <ul style="margin-left: 20px; color: #666; line-height: 1.8;">
+                                    <li>Acquisition du terrain (✅ Complété)</li>
+                                    <li>Bâtiments de base (cabanons sanitaire et stockage)</li>
+                                    <li>Autonomie énergétique (solaire)</li>
+                                    <li>Autonomie hydrique (réserves, filtration)</li>
+                                    <li>Potager et zones cultivées</li>
+                                    <li>Espace de vie et loisirs</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -1121,32 +1317,50 @@
         // document.getElementById('budgetSpent').textContent = dashboardData.terrainInfo.budgetSpent;
         document.getElementById('monthsOwned').textContent = dashboardData.terrainInfo.monthsOwned;
 
-        // Populate projects by category
+        // Populate projects by category with accordion
         const projectsContainer = document.getElementById('projectsContainer');
-        Object.keys(dashboardData.projects).forEach(category => {
+        Object.keys(dashboardData.projects).forEach((category, index) => {
             const categoryDiv = document.createElement('div');
-            categoryDiv.className = 'project-category';
+            categoryDiv.className = 'accordion-category' + (index === 0 ? ' expanded' : '');
             
-            let categoryHTML = `<h3>${category}</h3>`;
+            // Header
+            const headerDiv = document.createElement('div');
+            headerDiv.className = 'accordion-header';
+            headerDiv.innerHTML = `
+                <span>${category}</span>
+                <span class="accordion-arrow">▼</span>
+            `;
+            categoryDiv.appendChild(headerDiv);
+            
+            // Content
+            const contentDiv = document.createElement('div');
+            contentDiv.className = 'accordion-content';
+            
             dashboardData.projects[category].forEach(project => {
                 const statusClass = project.status === 'complete' ? 'status-complete' : 
                                    project.status === 'progress' ? 'status-progress' : 'status-planned';
                 const statusText = project.status === 'complete' ? '✅ Terminé' : 
                                   project.status === 'progress' ? '⏳ En cours' : '📋 Prévu';
                 
-                categoryHTML += `
-                    <div class="project-item">
-                        <div>
-                            <div class="project-name">${project.name}</div>
-                            <div style="color: #666; font-size: 0.85em; margin-top: 3px;">${project.details}</div>
-                        </div>
-                        <span class="project-status ${statusClass}">${statusText}</span>
+                const projectItem = document.createElement('div');
+                projectItem.className = 'project-item';
+                projectItem.innerHTML = `
+                    <div>
+                        <div class="project-name">${project.name}</div>
+                        <div style="color: #666; font-size: 0.85em; margin-top: 3px;">${project.details}</div>
                     </div>
+                    <span class="project-status ${statusClass}">${statusText}</span>
                 `;
+                contentDiv.appendChild(projectItem);
             });
             
-            categoryDiv.innerHTML = categoryHTML;
+            categoryDiv.appendChild(contentDiv);
             projectsContainer.appendChild(categoryDiv);
+            
+            // Add click handler for accordion
+            headerDiv.addEventListener('click', () => {
+                categoryDiv.classList.toggle('expanded');
+            });
         });
 
         // Populate news
@@ -1162,6 +1376,15 @@
                 </div>
             `;
             newsContainer.appendChild(newsDiv);
+        });
+
+        // Initialize roadmap accordion handlers
+        const roadmapHeaders = document.querySelectorAll('.roadmap-header');
+        roadmapHeaders.forEach(header => {
+            header.addEventListener('click', () => {
+                const roadmapItem = header.parentElement;
+                roadmapItem.classList.toggle('expanded');
+            });
         });
 
         // Load latest news from JSON file
