@@ -1321,7 +1321,7 @@
         const projectsContainer = document.getElementById('projectsContainer');
         Object.keys(dashboardData.projects).forEach((category, index) => {
             const categoryDiv = document.createElement('div');
-            categoryDiv.className = 'accordion-category' + (index === 0 ? ' expanded' : '');
+            categoryDiv.className = 'accordion-category'; // Don't expand by default
             
             // Header
             const headerDiv = document.createElement('div');

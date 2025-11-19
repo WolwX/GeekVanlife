@@ -623,6 +623,15 @@
             box-shadow: none;
             border: 1px solid var(--border-color);
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .stat-icon {
+            font-size: 2em;
+            margin-bottom: 10px;
         }
 
         .stat-value {
@@ -869,18 +878,22 @@
                 </h2>
                 <div class="stats-grid">
                     <div class="stat-card">
+                        <div class="stat-icon">📊</div>
                         <div class="stat-value" id="stat-progress">15%</div>
                         <div class="stat-label">Progression globale</div>
                     </div>
                     <div class="stat-card">
+                        <div class="stat-icon">💸</div>
                         <div class="stat-value" id="stat-budget-spent">7 418€</div>
                         <div class="stat-label">Budget dépensé</div>
                     </div>
                     <div class="stat-card">
+                        <div class="stat-icon">💰</div>
                         <div class="stat-value" id="stat-budget-remaining">4 009€</div>
                         <div class="stat-label">Budget restant</div>
                     </div>
                     <div class="stat-card">
+                        <div class="stat-icon">⏱️</div>
                         <div class="stat-value" id="stat-days-remaining">351</div>
                         <div class="stat-label">Jours avant v1.0</div>
                     </div>
