@@ -4,6 +4,24 @@ Toutes les modifications notables du projet Geekagne seront consignées ici.
 
 ---
 
+## [Terrain Data Update] - 19 novembre 2025
+**📋 MISE À JOUR DONNÉES CADASTRALES ET PROPRIÉTAIRE**
+
+### ✨ Informations terrain mises à jour
+- ✅ **Surface exacte** : 4720 m² (47a 20ca) - Parcelle 535, Section A, Préfixe 0000
+- ✅ **Prix d'acquisition** : 12 000€ net (prix annoncé : 15 500€)
+- ✅ **Propriétaire précédent** : Jacomy
+- ✅ **Lieu-dit** : Garrigues Altes
+- ✅ **Historique** : Ancien verger d'exploitation (pêchers, abricotiers - rangs visibles)
+- ✅ **Sécurité** : Validé hors zones inondables et risques majeurs (plans État)
+
+### 📊 Fichiers mis à jour
+- Dashboard Geekagne avec informations cadastrales complètes
+- Documentation contexte résumé avec détails propriétaire et acquisition
+- Données projets JSON synchronisées
+
+---
+
 ## [Web App Integration] - 18 novembre 2025
 **🌐 SYSTÈME DE SUIVI INTERACTIF DÉPLOYÉ**
 
