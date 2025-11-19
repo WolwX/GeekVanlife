@@ -253,6 +253,55 @@
             color: #667eea;
         }
         
+        .budget-split {
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            font-size: 0.9em !important;
+        }
+        
+        .budget-part {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+        }
+        
+        .budget-sublabel {
+            font-size: 0.7em;
+            color: #999;
+            font-weight: 600;
+        }
+        
+        .budget-amount {
+            font-size: 1.1em;
+            font-weight: 700;
+            color: #667eea;
+        }
+        
+        .budget-separator,
+        .budget-equals {
+            font-weight: 700;
+            color: #999;
+            margin: 0 4px;
+        }
+        
+        .budget-total {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            padding-left: 8px;
+            border-left: 2px solid #ddd;
+        }
+        
+        .budget-totalamount {
+            font-size: 1.15em;
+            font-weight: 700;
+            color: #764ba2;
+        }
+        
         .project-description {
             color: #666;
             line-height: 1.6;
@@ -540,7 +589,21 @@
                     </div>
                     <div class="stat-item">
                         <div class="stat-label">Budget</div>
-                        <div class="stat-value">~21 000€</div>
+                        <div class="stat-value budget-split">
+                            <div class="budget-part">
+                                <span class="budget-sublabel">Utilisé</span>
+                                <span class="budget-amount">~21k€</span>
+                            </div>
+                            <div class="budget-separator">+</div>
+                            <div class="budget-part">
+                                <span class="budget-sublabel">Projeté</span>
+                                <span class="budget-amount">~8k€</span>
+                            </div>
+                            <div class="budget-total">
+                                <span class="budget-equals">=</span>
+                                <span class="budget-totalamount">~29k€</span>
+                            </div>
+                        </div>
                     </div>
                     <div class="stat-item">
                         <div class="stat-label">Statut</div>
