@@ -1,10 +1,11 @@
 # 🚐 Geekomobile - Iveco Daily L4H2 (2006)
+**Projet du Kernel GeekVanlife**
 
 [![Statut](https://img.shields.io/badge/statut-opérationnel-success.svg)](.)
 [![Vanlife](https://img.shields.io/badge/vanlife-depuis%202021-purple.svg)](.)
 [![Habitat](https://img.shields.io/badge/habitat-à%20l'année-orange.svg)](.)
 [![Expérience](https://img.shields.io/badge/expérience-4+%20années-blue.svg)](.)
-
+[![Kernel](https://img.shields.io/badge/kernel-GeekVanlife-purple.svg)](../)
 > **Mon habitat principal - Vie nomade depuis août 2021**  
 > Autonomie complète • 200-300 km/semaine • Circuit montagne/plaine/mer
 

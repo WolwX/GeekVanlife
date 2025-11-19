@@ -1,8 +1,16 @@
-# 🚐 GEEKOMOBILE - RÉSUMÉ DU PROJET
+# 🚐 GEEKOMOBILE - RÉSUMÉ DU PROJET (KERNEL : GeekVanlife)
 
-**Dernière mise à jour :** 18 novembre 2025
+**Dernière mise à jour :** 19 novembre 2025  
+**Classification :** Projet du Kernel GeekVanlife
 
 ---
+
+## 📋 Classification Hiérarchique
+
+- **Kernel :** 🌐 GeekVanlife
+- **Projet :** 🚐 Geekomobile
+- **Type :** Van permanent - Habitat à l'année
+- **Chantiers :** Tous complétés ✅ (V1.0 Stable)
 
 ## 🌐 WEB APP INTERACTIVE
 

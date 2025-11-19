@@ -1,12 +1,26 @@
 # 📚 GeekVanlife - Contexte Complet du Projet
 
-**Dernière mise à jour:** 18 novembre 2025
+**Dernière mise à jour:** 19 novembre 2025
 
 ---
 
 ## 🎯 Mission et Philosophie
 
-**GeekVanlife** est un projet documentaire et technique qui combine deux passions : la **génie informatique** et la **vie en autonomie nomade**.
+**GeekVanlife** est le **Kernel** (noyau) - un projet documentaire et technique qui combine deux passions : la **génie informatique** et la **vie en autonomie nomade**.
+
+### Architecture hiérarchique
+
+Le **Kernel GeekVanlife** comprend :
+
+- **3 Projets interconnectés** documentant une vision complète de la vie nomade autonome :
+  1. **🚐 Geekomobile** - Van aménagé pour habitat permanent (Iveco Daily 2006)
+  2. **🍴✖️ ForkX** - Fourgon de loisir & aventure (Fiat Doblo Cargo 2020)
+  3. **🏡 Geekagne** - Terrain autonome multi-projets (4720m² en Lorraine)
+
+- **Chantiers** (sous-projets majeurs) dans chaque Projet :
+  - Exemples Geekagne : Chantier Cabanon Sanitaire, Chantier Chauffage, Chantier Solaire
+  - Exemples ForkX : Chantier Isolation, Chantier Électricité, Chantier Chauffage
+  - Exemples Geekomobile : Tous les chantiers complétés (V1.0)
 
 ### Qui ?
 
@@ -15,10 +29,11 @@
 - Vanlifeur à l'année depuis août 2021
 - Passionné par la technologie et l'autonomie
 - Documenteur compulsif des systèmes et projets
+- Créateur et mainteneur du Kernel GeekVanlife
 
 ### Quoi ?
 
-Trois projets interconnectés documentant une vision complète de la vie nomade autonome :
+Trois **Projets** interconnectés documentant une vision complète de la vie nomade autonome :
 
 1. **🚐 Geekomobile** - Van aménagé pour habitat permanent (Iveco Daily 2006)
 2. **🍴✖️ ForkX** - Fourgon de loisir & aventure (Fiat Doblo Cargo 2020)

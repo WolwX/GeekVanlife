@@ -1,6 +1,32 @@
 # Changelog Geekagne
+**Projet du Kernel GeekVanlife**
 
-Toutes les modifications notables du projet Geekagne seront consignées ici.
+Toutes les modifications notables du Chantier Geekagne seront consignées ici.
+
+---
+
+## [Terminology Standardization] - 19 novembre 2025
+**📚 IMPLÉMENTATION HIÉRARCHIE KERNEL/PROJETS/CHANTIERS**
+
+### ✨ Standardisation terminologique
+- ✅ **Kernel** : 🌐 GeekVanlife (Projet global)
+- ✅ **Projet** : 🏡 Geekagne (Chantier terrain autonome)
+- ✅ **Classification** : Chantiers majeurs du Kernel
+- ✅ **Documentation** : Mise à jour cohérente de la terminologie dans tous les fichiers
+
+### 📋 Chantiers Geekagne
+Tous les travaux majeurs sont classés comme Chantiers du Kernel :
+- 🚿 **Chantier Cabanon Sanitaire** - ✅ Complété
+- 📦 **Chantier Stockage** - 🔄 En cours
+- 🔥 **Chantier Chauffage** - 🔄 En cours (Installation chauffe-eau gaz)
+- 💧 **Chantier Eau** - 🔄 En cours (Circuits hydrauliques)
+- 🌱 **Chantier Plantations** - À venir
+
+### 📝 Fichiers mis à jour
+- README avec badges Kernel
+- Documentation contexte avec classification
+- CHANGELOG avec terminologie standardisée
+- Dashboards et articles de news
 
 ---
 

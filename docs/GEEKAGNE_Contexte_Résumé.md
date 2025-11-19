@@ -1,8 +1,16 @@
-# 🏗️ GEEKAGNE - RÉSUMÉ DU PROJET
+# 🏗️ GEEKAGNE - RÉSUMÉ DU PROJET (KERNEL : GeekVanlife)
 
-**Dernière mise à jour :** 18 novembre 2025
+**Dernière mise à jour :** 19 novembre 2025  
+**Classification :** Projet du Kernel GeekVanlife
 
 ---
+
+## 📋 Classification Hiérarchique
+
+- **Kernel :** 🌐 GeekVanlife
+- **Projet :** 🏡 Geekagne
+- **Type :** Terrain autonome multi-projets
+- **Chantiers actifs :** Cabanon Sanitaire ✅, Cabanon Stockage 🔄, Chauffage & Eau 🔄, Solaire 🔮
 
 ## 🌐 WEB APP INTERACTIVE
 

@@ -1,10 +1,11 @@
 # 🏡🌲 Geekagne - Terrain de Loisirs Autonome
+**Projet du Kernel GeekVanlife**
 
 [![Statut](https://img.shields.io/badge/statut-en%20développement-yellow.svg)](#)
 [![Acquisition](https://img.shields.io/badge/achat-janvier%202025-lightgrey.svg)](#)
 [![Avancement](https://img.shields.io/badge/avancement-35%25-orange.svg)](#)
 [![Dashboard](https://img.shields.io/badge/dashboard-interactif-green.svg)](./dashboard.html)
-
+[![Kernel](https://img.shields.io/badge/kernel-GeekVanlife-purple.svg)](../)
 **Terrain autonome multi-projets dans les Pyrénées-Orientales**
 
 ---

@@ -1,8 +1,16 @@
-# 🍴 FORKX - RÉSUMÉ DU PROJET
+# 🍴✖️ FORKX - RÉSUMÉ DU PROJET (KERNEL : GeekVanlife)
 
-**Dernière mise à jour :** 18 novembre 2025
+**Dernière mise à jour :** 19 novembre 2025  
+**Classification :** Projet du Kernel GeekVanlife
 
 ---
+
+## 📋 Classification Hiérarchique
+
+- **Kernel :** 🌐 GeekVanlife
+- **Projet :** 🍴✖️ ForkX
+- **Type :** Fourgon de loisir & aventure
+- **Chantiers actifs :** Isolation 🔄, Électricité 🔄, Chauffage 🔮
 
 ## 🌐 WEB APP INTERACTIVE
 

@@ -1,11 +1,12 @@
 	- [ ] Changement des tapis de sol
 # 🍴✖️ ForkX - Fiat Doblo Cargo 2020
+**Projet du Kernel GeekVanlife**
 
 [![Statut](https://img.shields.io/badge/statut-en%20cours-yellow.svg)](.)
 [![Version](https://img.shields.io/badge/version-v0.2-blue.svg)](./docs/)
 [![Achat](https://img.shields.io/badge/achat-31%20oct%202025-lightgrey.svg)](.)
 [![Kilométrage](https://img.shields.io/badge/km-130%20401-orange.svg)](.)
-
+[![Kernel](https://img.shields.io/badge/kernel-GeekVanlife-purple.svg)](../)
 > **"Fork" minimaliste du Geekomobile pour usage quotidien et professionnel**  
 > Version dérivée compacte et modulaire - Daily driver + Utilitaire + Habitat léger
 

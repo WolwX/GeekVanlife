@@ -1,11 +1,62 @@
 # 📖 GeekVanlife - Référence Complète
 
-**Dernière mise à jour:** 18 novembre 2025  
+**Dernière mise à jour:** 19 novembre 2025  
 **Glossaire • Technologie • Ressources • Conventions**
 
 ---
 
 ## 📚 Glossaire et Terminologie
+
+### Hiérarchie GeekVanlife - Terminologie Standardisée
+
+**🌐 KERNEL (Noyau - L'ensemble)**
+- GeekVanlife = Kernel complet
+- Ensemble global documentant tous les projets vanlife et autonomie de Xavier Redondo (WolwX)
+- Regroupe 3 projets interconnectés + infrastructure web
+
+**📁 PROJETS (3 projets principaux)**
+Sous-divisions majeures du Kernel :
+
+1. **🍴✖️ ForkX**
+   - Fourgon de loisir et aventure (Fiat Doblo Cargo 2020)
+   - Utilisé pour week-ends et vacances
+   - Statut : V0.1 (en développement)
+   - Couleur brand : Rouge 🔴
+   - Documentation : `ForkX/`
+
+2. **🚐 Geekomobile**
+   - Fourgon/van permanent de Xavier Redondo (Iveco Daily 2006)
+   - Habitat à l'année depuis août 2021
+   - Statut : V1.0 (complètement opérationnel)
+   - Couleur brand : Bleu 🔵
+   - Documentation : `Geekomobile/`
+
+3. **🏡 Geekagne**
+   - Terrain autonome de 4720m² en Lorraine
+   - Multi-usage : accueil, expérimentation, autonomie
+   - Statut : V0.1 (construction et aménagement en cours)
+   - Couleur brand : Vert 🟢
+   - Documentation : `Geekagne/`
+
+**🏗️ CHANTIERS (Sous-projets/Tâches majeures)**
+Travaux spécifiques à l'intérieur de chaque Projet :
+
+*Exemples de Chantiers Geekagne :*
+- Chantier Cabanon Sanitaire (100% - Complété)
+- Chantier Cabanon Stockage (65% - En cours)
+- Chantier Chauffage & Eau (40% - En cours)
+- Chantier Solaire (0% - Futur)
+- Chantier Guinguette (0% - Futur)
+
+*Exemples de Chantiers ForkX :*
+- Chantier Isolation (Phase v0.1)
+- Chantier Électricité (Phase v0.1)
+- Chantier Chauffage (Phase v1.0 - Futur)
+
+*Exemples de Chantiers Geekomobile :*
+- Chantier Chauffage (V1.0 - Complété)
+- Chantier Eau (V1.0 - Complété)
+- Chantier Électricité (V1.0 - Complété)
 
 ### Concepts Vanlife
 
