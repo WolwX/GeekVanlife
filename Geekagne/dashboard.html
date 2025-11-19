@@ -290,6 +290,11 @@
             border-radius: 15px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
         }
         
         .stat-card:hover {
@@ -300,6 +305,7 @@
         .stat-card .icon {
             font-size: 2.5em;
             margin-bottom: 10px;
+            display: block;
         }
         
         .stat-card .value {
@@ -307,6 +313,10 @@
             font-weight: bold;
             color: #11998e;
             margin-bottom: 5px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         
         .stat-card .label {
@@ -319,59 +329,60 @@
             display: flex !important;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            gap: 6px;
             flex-wrap: wrap;
-            font-size: 0.95em !important;
+            font-size: 0.9em !important;
             color: #11998e !important;
+            width: 100%;
+            margin: 0 !important;
         }
-
+        
         .budget-part {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 3px;
+            gap: 2px;
         }
-
+        
         .budget-sublabel {
-            font-size: 0.7em;
+            font-size: 0.65em;
             color: #999;
             font-weight: 500;
             letter-spacing: 0.5px;
         }
-
+        
         .budget-amount {
             font-weight: bold;
-            font-size: 1em;
+            font-size: 0.95em;
         }
-
+        
         .budget-separator {
             color: #11998e;
             font-weight: bold;
-            margin: 0 4px;
+            margin: 0 2px;
+            font-size: 1em;
         }
-
+        
         .budget-equals {
             font-weight: bold;
-            color: #11998e;
+            color: white;
             margin: 0 2px;
         }
-
+        
         .budget-total {
             display: flex;
             align-items: center;
-            gap: 4px;
-            padding: 8px 12px;
+            gap: 3px;
+            padding: 6px 10px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             border-radius: 8px;
             font-weight: bold;
         }
-
+        
         .budget-totalamount {
-            font-size: 1em;
-        }
-
-        /* Characteristics Grid */
+            font-size: 0.95em;
+        }        /* Characteristics Grid */
         .characteristics-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
