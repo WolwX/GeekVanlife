@@ -22,8 +22,36 @@
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
+        }
+
+        /* Back Button (Accueil) */
+        .back-button {
+            position: fixed;
+            top: 25px;
+            right: 30px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #4FC3F7;
+            color: white;
+            padding: 12px 20px;
+            border: 2px solid #667eea;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(79, 195, 247, 0.3);
+            z-index: 1000;
+        }
+
+        .back-button:hover {
+            background: #667eea;
+            border-color: #667eea;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
         }
 
         /* Header */
@@ -39,41 +67,12 @@
         .header h1 {
             font-size: 2.5rem;
             margin-bottom: 10px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: #333;
         }
 
         .header .subtitle {
             color: #666;
             font-size: 1.1rem;
-        }
-
-        /* Back Button */
-        .back-button {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            background: white;
-            border: 2px solid #667eea;
-            color: #667eea;
-            padding: 10px 20px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            z-index: 100;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            text-decoration: none;
-        }
-
-        .back-button:hover {
-            background: #667eea;
-            color: white;
-            transform: translateX(-5px);
         }
 
         /* Tabs */
@@ -273,6 +272,10 @@
 
         /* Responsive */
         @media (max-width: 768px) {
+            .header {
+                padding: 20px;
+            }
+
             .header h1 {
                 font-size: 1.8rem;
             }
@@ -287,23 +290,37 @@
                 font-size: 0.9rem;
             }
 
-            .project-info {
+            .back-button {
+                top: 15px;
+                right: 15px;
+                padding: 10px;
+                font-size: 0.85rem;
+                gap: 0;
+                border-radius: 50%;
+                width: 45px;
+                height: 45px;
+                justify-content: center;
+                display: none;
+            }
+
+            .back-button-text {
+                display: none;
+            }
+
+            .todo-input-container {
                 flex-direction: column;
             }
 
-            .back-button {
-                top: 10px;
-                left: 10px;
-                padding: 8px 12px;
-                font-size: 0.85rem;
+            .todo-input-container button {
+                width: 100%;
             }
         }
     </style>
 </head>
 <body>
-    <a href="index.html" class="back-button">
-        <span>←</span>
-        <span class="back-button-text">Retour</span>
+    <a href="./index.html" class="back-button" title="Accueil">
+        <i class="fas fa-home"></i>
+        <span class="back-button-text">Accueil</span>
     </a>
 
     <div class="container">
@@ -324,20 +341,6 @@
 
             <!-- ForkX Tab -->
             <div id="forkx-tab" class="tab-content active">
-                <div class="project-info">
-                    <div class="info-badge forkx">
-                        <div class="info-badge-label">Version</div>
-                        <div class="info-badge-value" id="forkx-version">v0.1</div>
-                    </div>
-                    <div class="info-badge forkx">
-                        <div class="info-badge-label">Statut</div>
-                        <div class="info-badge-value" id="forkx-status">EN COURS</div>
-                    </div>
-                    <div class="info-badge forkx">
-                        <div class="info-badge-label">Mise à jour</div>
-                        <div class="info-badge-value" id="forkx-date">Nov 2025</div>
-                    </div>
-                </div>
                 <div class="todo-input-container">
                     <input type="text" id="forkx-input" placeholder="Ajouter une nouvelle tâche...">
                     <button onclick="addTodo('forkx')">+ Ajouter</button>
@@ -351,20 +354,6 @@
 
             <!-- Geekomobile Tab -->
             <div id="geekomobile-tab" class="tab-content">
-                <div class="project-info">
-                    <div class="info-badge geekomobile">
-                        <div class="info-badge-label">Version</div>
-                        <div class="info-badge-value" id="geekomobile-version">v2.0</div>
-                    </div>
-                    <div class="info-badge geekomobile">
-                        <div class="info-badge-label">Statut</div>
-                        <div class="info-badge-value" id="geekomobile-status">STABLE</div>
-                    </div>
-                    <div class="info-badge geekomobile">
-                        <div class="info-badge-label">Mise à jour</div>
-                        <div class="info-badge-value" id="geekomobile-date">Nov 2025</div>
-                    </div>
-                </div>
                 <div class="todo-input-container">
                     <input type="text" id="geekomobile-input" placeholder="Ajouter une nouvelle tâche...">
                     <button onclick="addTodo('geekomobile')">+ Ajouter</button>
@@ -378,20 +367,6 @@
 
             <!-- Geekagne Tab -->
             <div id="geekagne-tab" class="tab-content">
-                <div class="project-info">
-                    <div class="info-badge geekagne">
-                        <div class="info-badge-label">Version</div>
-                        <div class="info-badge-value" id="geekagne-version">v1.0</div>
-                    </div>
-                    <div class="info-badge geekagne">
-                        <div class="info-badge-label">Statut</div>
-                        <div class="info-badge-value" id="geekagne-status">EN COURS</div>
-                    </div>
-                    <div class="info-badge geekagne">
-                        <div class="info-badge-label">Mise à jour</div>
-                        <div class="info-badge-value" id="geekagne-date">Nov 2025</div>
-                    </div>
-                </div>
                 <div class="todo-input-container">
                     <input type="text" id="geekagne-input" placeholder="Ajouter une nouvelle tâche...">
                     <button onclick="addTodo('geekagne')">+ Ajouter</button>
@@ -405,7 +380,6 @@
         </div>
     </div>
 
-    <script src="shared/ProjectDataLoader.js"></script>
     <script>
         // Project configurations
         const projects = {
@@ -537,33 +511,8 @@
             return div.innerHTML;
         }
 
-        // Load project info from centralized data
-        async function loadProjectInfo() {
-            try {
-                const projectIds = ['ForkX', 'Geekomobile', 'Geekagne'];
-                
-                for (const projectId of projectIds) {
-                    const projectData = await ProjectDataLoader.load(projectId);
-                    const shortId = projectId.toLowerCase();
-                    
-                    if (projectData) {
-                        const versionEl = document.getElementById(shortId + '-version');
-                        const statusEl = document.getElementById(shortId + '-status');
-                        const dateEl = document.getElementById(shortId + '-date');
-
-                        if (versionEl) versionEl.textContent = projectData.version || 'v1.0';
-                        if (statusEl) statusEl.textContent = projectData.status || 'EN COURS';
-                        if (dateEl) dateEl.textContent = projectData.lastUpdate || 'Nov 2025';
-                    }
-                }
-            } catch (error) {
-                console.error('Erreur lors du chargement des infos projet:', error);
-            }
-        }
-
         // Initialize
         document.addEventListener('DOMContentLoaded', () => {
-            loadProjectInfo();
             renderTodos('forkx');
 
             // Add enter key support for inputs
