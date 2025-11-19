@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📋 GeekVanlife To Do Lists - Centre de gestion des tâches</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📋</text></svg>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 10px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header .subtitle {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        /* Back Button */
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: white;
+            border: 2px solid #667eea;
+            color: #667eea;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+
+        .back-button:hover {
+            background: #667eea;
+            color: white;
+            transform: translateX(-5px);
+        }
+
+        /* Tabs */
+        .tabs-container {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+
+        .tabs-header {
+            display: flex;
+            border-bottom: 2px solid #e0e0e0;
+            overflow-x: auto;
+        }
+
+        .tab-button {
+            flex: 1;
+            padding: 15px 20px;
+            background: #f8f9fa;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+            min-width: 150px;
+        }
+
+        .tab-button:hover {
+            background: #e9ecef;
+        }
+
+        .tab-button.active {
+            background: white;
+            border-bottom-color: #667eea;
+            color: #667eea;
+        }
+
+        .tab-button.forkx { color: #c0392b; }
+        .tab-button.forkx.active { border-bottom-color: #c0392b; color: #c0392b; }
+
+        .tab-button.geekomobile { color: #667eea; }
+        .tab-button.geekomobile.active { border-bottom-color: #667eea; color: #667eea; }
+
+        .tab-button.geekagne { color: #11998e; }
+        .tab-button.geekagne.active { border-bottom-color: #11998e; color: #11998e; }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            padding: 30px;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Project Header Info */
+        .project-info {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .info-badge {
+            background: #f8f9fa;
+            padding: 12px 16px;
+            border-radius: 8px;
+            border-left: 4px solid;
+        }
+
+        .info-badge.forkx { border-left-color: #c0392b; }
+        .info-badge.geekomobile { border-left-color: #667eea; }
+        .info-badge.geekagne { border-left-color: #11998e; }
+
+        .info-badge-label {
+            font-size: 0.75rem;
+            color: #999;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .info-badge-value {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        /* Todo Input */
+        .todo-input-container {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .todo-input-container input {
+            flex: 1;
+            padding: 12px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .todo-input-container input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .todo-input-container button {
+            padding: 12px 24px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .todo-input-container button:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+        }
+
+        /* Todo List */
+        .todo-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .todo-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid;
+            transition: all 0.3s ease;
+        }
+
+        .todo-item.forkx { border-left-color: #c0392b; }
+        .todo-item.geekomobile { border-left-color: #667eea; }
+        .todo-item.geekagne { border-left-color: #11998e; }
+
+        .todo-item:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transform: translateX(4px);
+        }
+
+        .todo-item input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .todo-item.completed .todo-text {
+            text-decoration: line-through;
+            color: #999;
+        }
+
+        .todo-text {
+            flex: 1;
+            font-size: 1rem;
+            color: #333;
+        }
+
+        .todo-delete {
+            background: #ff4444;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+        }
+
+        .todo-delete:hover {
+            background: #cc0000;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 40px 20px;
+            color: #999;
+        }
+
+        .empty-state-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .tabs-header {
+                overflow-x: auto;
+            }
+
+            .tab-button {
+                min-width: 120px;
+                padding: 12px 15px;
+                font-size: 0.9rem;
+            }
+
+            .project-info {
+                flex-direction: column;
+            }
+
+            .back-button {
+                top: 10px;
+                left: 10px;
+                padding: 8px 12px;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-button">
+        <span>←</span>
+        <span class="back-button-text">Retour</span>
+    </a>
+
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>📋 To Do Lists</h1>
+            <p class="subtitle">Centre de gestion des tâches pour tous les projets GeekVanlife</p>
+        </div>
+
+        <!-- Tabs Container -->
+        <div class="tabs-container">
+            <!-- Tabs Header -->
+            <div class="tabs-header">
+                <button class="tab-button forkx active" onclick="switchTab('forkx')">🚗 ForkX</button>
+                <button class="tab-button geekomobile" onclick="switchTab('geekomobile')">🚐 Geekomobile</button>
+                <button class="tab-button geekagne" onclick="switchTab('geekagne')">🏡 Geekagne</button>
+            </div>
+
+            <!-- ForkX Tab -->
+            <div id="forkx-tab" class="tab-content active">
+                <div class="project-info">
+                    <div class="info-badge forkx">
+                        <div class="info-badge-label">Version</div>
+                        <div class="info-badge-value" id="forkx-version">v0.1</div>
+                    </div>
+                    <div class="info-badge forkx">
+                        <div class="info-badge-label">Statut</div>
+                        <div class="info-badge-value" id="forkx-status">EN COURS</div>
+                    </div>
+                    <div class="info-badge forkx">
+                        <div class="info-badge-label">Mise à jour</div>
+                        <div class="info-badge-value" id="forkx-date">Nov 2025</div>
+                    </div>
+                </div>
+                <div class="todo-input-container">
+                    <input type="text" id="forkx-input" placeholder="Ajouter une nouvelle tâche...">
+                    <button onclick="addTodo('forkx')">+ Ajouter</button>
+                </div>
+                <div class="todo-list forkx" id="forkx-list"></div>
+                <div id="forkx-empty" class="empty-state">
+                    <div class="empty-state-icon">✅</div>
+                    <p>Aucune tâche pour le moment !</p>
+                </div>
+            </div>
+
+            <!-- Geekomobile Tab -->
+            <div id="geekomobile-tab" class="tab-content">
+                <div class="project-info">
+                    <div class="info-badge geekomobile">
+                        <div class="info-badge-label">Version</div>
+                        <div class="info-badge-value" id="geekomobile-version">v2.0</div>
+                    </div>
+                    <div class="info-badge geekomobile">
+                        <div class="info-badge-label">Statut</div>
+                        <div class="info-badge-value" id="geekomobile-status">STABLE</div>
+                    </div>
+                    <div class="info-badge geekomobile">
+                        <div class="info-badge-label">Mise à jour</div>
+                        <div class="info-badge-value" id="geekomobile-date">Nov 2025</div>
+                    </div>
+                </div>
+                <div class="todo-input-container">
+                    <input type="text" id="geekomobile-input" placeholder="Ajouter une nouvelle tâche...">
+                    <button onclick="addTodo('geekomobile')">+ Ajouter</button>
+                </div>
+                <div class="todo-list geekomobile" id="geekomobile-list"></div>
+                <div id="geekomobile-empty" class="empty-state">
+                    <div class="empty-state-icon">✅</div>
+                    <p>Aucune tâche pour le moment !</p>
+                </div>
+            </div>
+
+            <!-- Geekagne Tab -->
+            <div id="geekagne-tab" class="tab-content">
+                <div class="project-info">
+                    <div class="info-badge geekagne">
+                        <div class="info-badge-label">Version</div>
+                        <div class="info-badge-value" id="geekagne-version">v1.0</div>
+                    </div>
+                    <div class="info-badge geekagne">
+                        <div class="info-badge-label">Statut</div>
+                        <div class="info-badge-value" id="geekagne-status">EN COURS</div>
+                    </div>
+                    <div class="info-badge geekagne">
+                        <div class="info-badge-label">Mise à jour</div>
+                        <div class="info-badge-value" id="geekagne-date">Nov 2025</div>
+                    </div>
+                </div>
+                <div class="todo-input-container">
+                    <input type="text" id="geekagne-input" placeholder="Ajouter une nouvelle tâche...">
+                    <button onclick="addTodo('geekagne')">+ Ajouter</button>
+                </div>
+                <div class="todo-list geekagne" id="geekagne-list"></div>
+                <div id="geekagne-empty" class="empty-state">
+                    <div class="empty-state-icon">✅</div>
+                    <p>Aucune tâche pour le moment !</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="shared/ProjectDataLoader.js"></script>
+    <script>
+        // Project configurations
+        const projects = {
+            forkx: {
+                name: 'ForkX',
+                icon: '🚗',
+                storageKey: 'forkx-todos',
+                color: '#c0392b',
+                displayColor: 'forkx'
+            },
+            geekomobile: {
+                name: 'Geekomobile',
+                icon: '🚐',
+                storageKey: 'geekomobile-todos',
+                color: '#667eea',
+                displayColor: 'geekomobile'
+            },
+            geekagne: {
+                name: 'Geekagne',
+                icon: '🏡',
+                storageKey: 'geekagne-todos',
+                color: '#11998e',
+                displayColor: 'geekagne'
+            }
+        };
+
+        // Switch tabs
+        function switchTab(projectId) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelectorAll('.tab-button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            // Show selected tab
+            document.getElementById(projectId + '-tab').classList.add('active');
+            event.target.classList.add('active');
+
+            // Render todos for this project
+            renderTodos(projectId);
+        }
+
+        // Load todos from localStorage
+        function loadTodos(projectId) {
+            const project = projects[projectId];
+            const todos = JSON.parse(localStorage.getItem(project.storageKey)) || [];
+            return todos;
+        }
+
+        // Save todos to localStorage
+        function saveTodos(projectId, todos) {
+            const project = projects[projectId];
+            localStorage.setItem(project.storageKey, JSON.stringify(todos));
+        }
+
+        // Add a new todo
+        function addTodo(projectId) {
+            const input = document.getElementById(projectId + '-input');
+            const text = input.value.trim();
+
+            if (!text) return;
+
+            const todos = loadTodos(projectId);
+            todos.push({
+                id: Date.now(),
+                text: text,
+                completed: false
+            });
+
+            saveTodos(projectId, todos);
+            input.value = '';
+            renderTodos(projectId);
+        }
+
+        // Toggle todo completion
+        function toggleTodo(projectId, todoId) {
+            const todos = loadTodos(projectId);
+            const todo = todos.find(t => t.id === todoId);
+            if (todo) {
+                todo.completed = !todo.completed;
+                saveTodos(projectId, todos);
+                renderTodos(projectId);
+            }
+        }
+
+        // Delete a todo
+        function deleteTodo(projectId, todoId) {
+            const todos = loadTodos(projectId);
+            const filtered = todos.filter(t => t.id !== todoId);
+            saveTodos(projectId, filtered);
+            renderTodos(projectId);
+        }
+
+        // Render todos list
+        function renderTodos(projectId) {
+            const project = projects[projectId];
+            const todos = loadTodos(projectId);
+            const listContainer = document.getElementById(projectId + '-list');
+            const emptyState = document.getElementById(projectId + '-empty');
+
+            if (todos.length === 0) {
+                listContainer.innerHTML = '';
+                emptyState.style.display = 'block';
+                return;
+            }
+
+            emptyState.style.display = 'none';
+            listContainer.innerHTML = todos.map(todo => `
+                <div class="todo-item ${project.displayColor} ${todo.completed ? 'completed' : ''}">
+                    <input 
+                        type="checkbox" 
+                        ${todo.completed ? 'checked' : ''}
+                        onchange="toggleTodo('${projectId}', ${todo.id})"
+                    >
+                    <span class="todo-text">${escapeHtml(todo.text)}</span>
+                    <button class="todo-delete" onclick="deleteTodo('${projectId}', ${todo.id})">
+                        Supprimer
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        // Utility function to escape HTML
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        // Load project info from centralized data
+        async function loadProjectInfo() {
+            try {
+                const projectIds = ['ForkX', 'Geekomobile', 'Geekagne'];
+                
+                for (const projectId of projectIds) {
+                    const projectData = await ProjectDataLoader.load(projectId);
+                    const shortId = projectId.toLowerCase();
+                    
+                    if (projectData) {
+                        const versionEl = document.getElementById(shortId + '-version');
+                        const statusEl = document.getElementById(shortId + '-status');
+                        const dateEl = document.getElementById(shortId + '-date');
+
+                        if (versionEl) versionEl.textContent = projectData.version || 'v1.0';
+                        if (statusEl) statusEl.textContent = projectData.status || 'EN COURS';
+                        if (dateEl) dateEl.textContent = projectData.lastUpdate || 'Nov 2025';
+                    }
+                }
+            } catch (error) {
+                console.error('Erreur lors du chargement des infos projet:', error);
+            }
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            loadProjectInfo();
+            renderTodos('forkx');
+
+            // Add enter key support for inputs
+            document.getElementById('forkx-input').addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') addTodo('forkx');
+            });
+            document.getElementById('geekomobile-input').addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') addTodo('geekomobile');
+            });
+            document.getElementById('geekagne-input').addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') addTodo('geekagne');
+            });
+        });
+    </script>
+</body>
+</html>
