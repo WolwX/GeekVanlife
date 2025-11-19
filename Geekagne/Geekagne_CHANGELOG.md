@@ -5,6 +5,34 @@ Toutes les modifications notables du Chantier Geekagne seront consignées ici.
 
 ---
 
+## [Budget Complet Documenté] - 19 novembre 2025
+**💰 DOCUMENTATION FINANCIÈRE COMPLÈTE ET DÉTAILLÉE**
+
+### ✨ Budget 2025 - Récapitulatif
+- ✅ **Achat terrain** : 12 000€ (+ 2 300€ frais notaire)
+- ✅ **Crédit emprunté** : 25 000€ (60 mois, taux 4,841%)
+- ✅ **Statut** : Crédit entièrement utilisé (nov 2025)
+- ✅ **Aménagements** : ~10 450€ investis en 2025
+- 📊 **Plantations 2025** : 530€ (7 arbres fruitiers/ornement)
+
+### 📈 Répartition du crédit
+- Acquisition (terrain + notaire) : 14 551,72€
+- Travaux & aménagements 2025 : 10 448,28€
+- **Total utilisé** : 25 000,00€ ✅
+
+### 🔮 Budget futur (2026+)
+- Court/Moyen terme : 6 685-11 855€
+- Long terme : 4 000-10 000€
+- Financement : Épargne personnelle (crédit épuisé)
+
+### 📝 Fichiers mis à jour
+- `GEEKAGNE_Contexte_Résumé.md` - Documentation financière complète
+- `README.md` - Budgets et phases
+- `dashboard.html` - Stats actualisées
+- `index.html` - Budget global mis à jour
+
+---
+
 ## [Terminology Standardization] - 19 novembre 2025
 **📚 IMPLÉMENTATION HIÉRARCHIE KERNEL/PROJETS/CHANTIERS**
 
