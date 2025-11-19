@@ -35,7 +35,7 @@ news.html#geekagne       → Page news, onglet Geekagne sélectionné automatiqu
 ### Identité
 - **Nom :** GEEKAGNE
 - **Propriétaire actuel :** Xavier (alias WolwX) - depuis janvier 2025
-- **Propriétaire précédent :** Jacoby
+- **Propriétaire précédent :** Jacomy
 - **Type :** Terrain de loisirs multi-projets (ancien verger)
 - **Localisation :** Plaine des Pyrénées-Orientales (66) - Lieu-dit Garrigues Altes
 - **Altitude :** ~100 mètres
@@ -49,7 +49,7 @@ news.html#geekagne       → Page news, onglet Geekagne sélectionné automatiqu
 - **Exposition :** Plein sud, excellent ensoleillement
 - **Historique** : Ancien terrain d'exploitation fruitière (pêchers, abricotiers visibles)
 - **Particularités :** Naturellement plat, clôturé, eau sous pression
-- **Propriétaire précédent :** Jacoby
+- **Propriétaire précédent :** Jacomy
 - **Acquisition :** 12 000€ net (annoncé à 15 500€) - Janvier 2025
 - **Sécurité :** Hors zones inondables et risques majeurs (validé par plans État)
 

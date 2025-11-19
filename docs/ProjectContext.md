@@ -178,7 +178,7 @@ Le projet utilise un **système web moderne et ludique** pour présenter les tro
 - **Terrain :** 4720m² aménageables (47a 20ca cadastralement, Parcelle 535, Section A, Préfixe 0000)
 - **Historique :** Ancien verger exploité (pêchers, abricotiers - rangs visibles)
 - **Sécurité :** Hors zones inondables et risques majeurs (validé État)
-- **Propriétaire précédent :** Jacoby
+- **Propriétaire précédent :** Jacomy
 - **Électricité :** Panneaux solaires (indépendant du réseau envisagé)
 - **Eau :** Récupération pluviale + Canal de Corbère + puits
 - **Bâtiments :** Petit gîte, atelier, hangar (planifiés/en construction)

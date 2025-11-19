@@ -35,7 +35,7 @@ Geekagne est un terrain de 4720 m² en plaine (66) avec aménagements DIY pour l
 | **Acquisition** | Janvier 2025 - 12 000€ net (prix annoncé : 15 500€) |
 | **Surface cadastrale** | 4720 m² (47a 20ca) - Parcelle 535 - Section A - Préfixe 0000 |
 | **Historique** | Ancien verger/terrain d'exploitation (pêchers, abricotiers) |
-| **Propriétaire précédent** | Jacoby |
+| **Propriétaire précédent** | Jacomy |
 | **Risques naturels** | Hors zones inondables et risques principaux (validé État) |
 | **Accès** | Route privée, 2 entrées |
 | **Électricité** | À installer |
