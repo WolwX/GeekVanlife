@@ -1117,7 +1117,8 @@
         // Populate stats
         document.getElementById('surface').textContent = dashboardData.terrainInfo.surface;
         document.getElementById('projectsProgress').textContent = dashboardData.terrainInfo.projectsProgress;
-        document.getElementById('budgetSpent').textContent = dashboardData.terrainInfo.budgetSpent;
+        // Budget is handled by HTML budget-split structure, not modified by JS
+        // document.getElementById('budgetSpent').textContent = dashboardData.terrainInfo.budgetSpent;
         document.getElementById('monthsOwned').textContent = dashboardData.terrainInfo.monthsOwned;
 
         // Populate projects by category
@@ -1194,7 +1195,8 @@
                     if (projectData.characteristics) {
                         document.getElementById('surface').textContent = projectData.characteristics.surface || dashboardData.terrainInfo.surface;
                         document.getElementById('projectsProgress').textContent = projectData.characteristics.progress || dashboardData.terrainInfo.projectsProgress;
-                        document.getElementById('budgetSpent').textContent = projectData.characteristics.budgetSpent || dashboardData.terrainInfo.budgetSpent;
+                        // Budget is handled by HTML budget-split structure, not modified by JS
+                        // document.getElementById('budgetSpent').textContent = projectData.characteristics.budgetSpent || dashboardData.terrainInfo.budgetSpent;
                         document.getElementById('monthsOwned').textContent = projectData.characteristics.monthsOwned || dashboardData.terrainInfo.monthsOwned;
                     }
                     
