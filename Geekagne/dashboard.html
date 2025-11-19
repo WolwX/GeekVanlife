@@ -314,6 +314,63 @@
             font-size: 0.75em;
         }
 
+        /* Budget Split Display */
+        .budget-split {
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            font-size: 0.95em !important;
+            color: #11998e !important;
+        }
+
+        .budget-part {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3px;
+        }
+
+        .budget-sublabel {
+            font-size: 0.7em;
+            color: #999;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .budget-amount {
+            font-weight: bold;
+            font-size: 1em;
+        }
+
+        .budget-separator {
+            color: #11998e;
+            font-weight: bold;
+            margin: 0 4px;
+        }
+
+        .budget-equals {
+            font-weight: bold;
+            color: #11998e;
+            margin: 0 2px;
+        }
+
+        .budget-total {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            padding: 8px 12px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .budget-totalamount {
+            font-size: 1em;
+        }
+
         /* Characteristics Grid */
         .characteristics-grid {
             display: grid;
@@ -759,8 +816,22 @@
                     </div>
                     <div class="stat-card">
                         <div class="icon">💰</div>
-                        <div class="value" id="budgetSpent">25 000€</div>
-                        <div class="label">Crédit utilisé 2025</div>
+                        <div class="value budget-split" id="budgetSpent">
+                            <div class="budget-part">
+                                <span class="budget-sublabel">Utilisé</span>
+                                <span class="budget-amount">25k€</span>
+                            </div>
+                            <div class="budget-separator">+</div>
+                            <div class="budget-part">
+                                <span class="budget-sublabel">Projeté</span>
+                                <span class="budget-amount">~8k€</span>
+                            </div>
+                            <div class="budget-total">
+                                <span class="budget-equals">=</span>
+                                <span class="budget-totalamount">33 000€</span>
+                            </div>
+                        </div>
+                        <div class="label">Budget Geekagne</div>
                     </div>
                     <div class="stat-card">
                         <div class="icon">📅</div>
