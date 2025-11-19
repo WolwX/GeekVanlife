@@ -814,10 +814,10 @@
                 <div class="progress-item">
                     <div class="label">
                         <span>Cabane à Chats</span>
-                        <span>✅ 100%</span>
+                        <span>📋 À faire</span>
                     </div>
                     <div class="progress-bar">
-                        <div class="progress-fill complete" style="width: 100%"></div>
+                        <div class="progress-fill planned" style="width: 0%"></div>
                     </div>
                 </div>
                 <div class="progress-item">
@@ -908,10 +908,10 @@
                 <div class="progress-item">
                     <div class="label">
                         <span>3 Mûriers platanes</span>
-                        <span>📋 Prévu</span>
+                        <span>33%</span>
                     </div>
                     <div class="progress-bar">
-                        <div class="progress-fill planned" style="width: 0%"></div>
+                        <div class="progress-fill progress" style="width: 33%"></div>
                     </div>
                 </div>
             </div>
@@ -951,39 +951,39 @@
             terrainInfo: {
                 surface: "4720",
                 projectsProgress: "35%",
-                budgetSpent: "~13 500€",
+                budgetSpent: "25 000€",
                 monthsOwned: calculateMonthsOwned() // Calcul dynamique basé sur la date actuelle
             },
             projects: {
                 "🏗️ Bâtiments et structures": [
                     { name: "Cabanon Sanitaire (8m²)", status: "complete", details: "Opérationnel - Toilettes + Douche + Lit d'appoint" },
                     { name: "Cabanon Stockage (12m²)", status: "progress", details: "65% - Budget 490-610€ - ~30 palettes" },
-                    { name: "Cabane à Chats (2 étages)", status: "complete", details: "Structure complétée - 5 palettes 120×100cm" },
-                    { name: "Cabane à Princesse", status: "complete", details: "Réalisée pour anniversaire" },
-                    { name: "Placard Technique Eau", status: "progress", details: "En cours - Installation chauffe-eau gaz, circuit eau froide avancé, domotique prévue" },
-                    { name: "Cabanon Guinguette (bar)", status: "planned", details: "Projet à venir - Coin ludique" }
+                    { name: "Cabane à Chats (2 étages)", status: "planned", details: "À démarrer - 5 palettes 120×100cm - Budget ~100€" },
+                    { name: "Cabane à Princesse", status: "complete", details: "Réalisée pour anniversaire - Août 2025" },
+                    { name: "Placard Technique Eau", status: "progress", details: "30% en cours - Installation chauffe-eau gaz, circuit eau froide avancé, domotique prévue" },
+                    { name: "Cabanon Guinguette (bar)", status: "planned", details: "Projet futur - Budget 500-1000€ - Coin ludique" }
                 ],
                 "🌳 Espaces aménagés": [
-                    { name: "Terrain de pétanque", status: "complete", details: "Coin ludique opérationnel" },
-                    { name: "Piscine", status: "complete", details: "Zone détente" },
-                    { name: "Coin pique-nique", status: "complete", details: "Zone repas extérieur" },
-                    { name: "Coin détente sous arbres", status: "complete", details: "Espace ombragé naturel" },
-                    { name: "Terrasse", status: "progress", details: "À moitié réalisée - Partiellement ombragée" }
+                    { name: "Terrain de pétanque", status: "planned", details: "À créer - Budget ~500€" },
+                    { name: "Piscine", status: "planned", details: "Installation - Budget 500-1000€" },
+                    { name: "Coin pique-nique", status: "complete", details: "Zone repas extérieur - Opérationnel" },
+                    { name: "Coin détente sous arbres", status: "progress", details: "40% - Espace ombragé naturel" },
+                    { name: "Terrasse", status: "progress", details: "50% - Partiellement ombragée sous arbres" }
                 ],
                 "🌱 Plantations et jardinage": [
-                    { name: "2 Cerisiers", status: "complete", details: "Plantés" },
-                    { name: "1 Pommier", status: "complete", details: "Planté" },
-                    { name: "1 Figuier", status: "complete", details: "Planté" },
-                    { name: "Haie séparation + 3 Magnolia", status: "complete", details: "Avec portillon piéton" },
-                    { name: "3 Mûriers platanes", status: "planned", details: "Projet coin ombragé central" },
-                    { name: "Potager", status: "planned", details: "En projet" },
+                    { name: "2 Cerisiers", status: "complete", details: "Plantés février 2025" },
+                    { name: "1 Pommier", status: "complete", details: "Planté février 2025" },
+                    { name: "1 Figuier", status: "complete", details: "Planté (offert)" },
+                    { name: "Haie séparation + 3 Magnolia", status: "complete", details: "Avec portillon piéton - Avril 2025" },
+                    { name: "3 Mûriers platanes", status: "progress", details: "33% - 1/3 plantés (170€), 2 autres prévus 2026" },
+                    { name: "Potager", status: "complete", details: "Complété mai 2025 - ✅ Terminé" },
                     { name: "Serre Walipini", status: "planned", details: "Projet long terme - Serre enterrée" }
                 ],
                 "♻️ Projets environnementaux": [
-                    { name: "Phytoépuration", status: "planned", details: "Traitement eaux usées cabanon sanitaire" },
-                    { name: "Compost", status: "planned", details: "À côté phytoépuration" },
+                    { name: "Phytoépuration", status: "planned", details: "Budget 200-500€ - Traitement eaux usées cabanon sanitaire" },
+                    { name: "Compost", status: "progress", details: "50% - À côté phytoépuration (prévue)" },
                     { name: "Récupération pluviale", status: "complete", details: "Cuve 1000L opérationnelle" },
-                    { name: "Canal Corbère", status: "complete", details: "Irrigation gravitaire avril-octobre" }
+                    { name: "Canal Corbère", status: "complete", details: "Irrigation gravitaire opérationnelle avril-octobre" }
                 ],
                 "⚡ Énergie (projets futurs)": [
                     { name: "Panneaux solaires 2,7 kWc", status: "planned", details: "6×450Wc - ~3800 kWh/an - Budget ~1700€" }
