@@ -34,19 +34,24 @@ news.html#geekagne       → Page news, onglet Geekagne sélectionné automatiqu
 
 ### Identité
 - **Nom :** GEEKAGNE
-- **Propriétaire :** Xavier (alias WolwX)
-- **Type :** Terrain de loisirs multi-projets
-- **Localisation :** Plaine des Pyrénées-Orientales (66)
+- **Propriétaire actuel :** Xavier (alias WolwX) - depuis janvier 2025
+- **Propriétaire précédent :** Jacoby
+- **Type :** Terrain de loisirs multi-projets (ancien verger)
+- **Localisation :** Plaine des Pyrénées-Orientales (66) - Lieu-dit Garrigues Altes
 - **Altitude :** ~100 mètres
 - **Climat :** Méditerranéen
 
 ### Le terrain
-- **Surface :** ~4700 m² (rectangle irrégulier)
-- **Dimensions :** 47-54m (largeur) × 90-95m (longueur)
+- **Surface cadastrale :** 4720 m² (47a 20ca) - Parcelle 535, Section A, Préfixe 0000
+- **Dimensions :** ~47-54m (largeur) × ~90-95m (longueur)
+- **Lieu-dit :** Garrigues Altes
 - **Accès :** Chemin de terre 70m, carrossable toute l'année
 - **Exposition :** Plein sud, excellent ensoleillement
+- **Historique** : Ancien terrain d'exploitation fruitière (pêchers, abricotiers visibles)
 - **Particularités :** Naturellement plat, clôturé, eau sous pression
-- **Acquisition :** 12 500€ (terrain vendu initialement 15 500€, payé au-dessus du prix marché agricole 1-2€/m² pour obtenir ces avantages)
+- **Propriétaire précédent :** Jacoby
+- **Acquisition :** 12 000€ net (annoncé à 15 500€) - Janvier 2025
+- **Sécurité :** Hors zones inondables et risques majeurs (validé par plans État)
 
 ### Philosophie
 Projet d'aménagement DIY avec approche technique, économique et écologique. Construction principalement en palettes recyclées, gestion autonome des ressources (eau, énergie), documentation systématique des projets.

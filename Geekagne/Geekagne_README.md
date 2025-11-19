@@ -25,15 +25,18 @@ Accédez au **[dashboard interactif](./dashboard.html)** pour suivre :
 
 ## 🏕️ Présentation
 
-Geekagne est un terrain de 4700 m² en plaine (66) avec aménagements DIY pour loisirs et autonomie. Base fixe pour le Geekomobile et support logistique des projets vanlife.
+Geekagne est un terrain de 4720 m² en plaine (66) avec aménagements DIY pour loisirs et autonomie. Base fixe pour le Geekomobile et support logistique des projets vanlife. Ancien terrain d'exploitation fruitière (pêchers et abricotiers visibles sur place).
 
 ### Caractéristiques clés
 
 | Aspect | Détail |
 |--------|--------|
-| **Localisation** | Plaine des Pyrénées-Orientales (66) |
-| **Acquisition** | Janvier 2025 |
-| **Surface** | 4700 m² |
+| **Localisation** | Plaine des Pyrénées-Orientales (66) - Lieu-dit Garrigues Altes |
+| **Acquisition** | Janvier 2025 - 12 000€ net (prix annoncé : 15 500€) |
+| **Surface cadastrale** | 4720 m² (47a 20ca) - Parcelle 535 - Section A - Préfixe 0000 |
+| **Historique** | Ancien verger/terrain d'exploitation (pêchers, abricotiers) |
+| **Propriétaire précédent** | Jacoby |
+| **Risques naturels** | Hors zones inondables et risques principaux (validé État) |
 | **Accès** | Route privée, 2 entrées |
 | **Électricité** | À installer |
 | **Eau** | Canal de Corbère + récupération pluviale |
@@ -104,7 +107,7 @@ Geekagne est un terrain de 4700 m² en plaine (66) avec aménagements DIY pour l
 
 | Phase | Budget | Statut |
 |-------|--------|--------|
-| **Acquisition terrain** | ~55 000€ | ✅ Complétée |
+| **Acquisition terrain** | 12 000€ net (15 500€ prix annoncé) | ✅ Complétée |
 | **Cabanon sanitaire** | ~8 000€ | ✅ Complétée |
 | **Cabane chats** | ~2 000€ | ✅ Complétée |
 | **Stockage** | ~6 000€ | 🚧 En cours |

@@ -103,7 +103,7 @@
       "id": "Geekagne",
       "name": "🏡🌲 Geekagne",
       "type": "Terrain de loisirs",
-      "description": "Terrain de loisirs 4700m² - Plaine des Pyrénées-Orientales (66)",
+      "description": "Terrain de loisirs 4720m² - Ancien verger - Pyrénées-Orientales (66)",
       "colors": {
         "primary": "#11998e",
         "secondary": "#38ef7d",
@@ -114,9 +114,9 @@
       "status": "EN COURS",
       "progress": "35%",
       "budget": "~15 000€",
-      "surface": "4700 m²",
+      "surface": "4720 m²",
       "characteristics": {
-        "dimensions": "47-54m × 90-95m - 4700 m²",
+        "dimensions": "47-54m × 90-95m - 4720 m² (47a 20ca)",
         "climate": "Méditerranéen",
         "altitude": "~100m",
         "exposure": "Plein sud",

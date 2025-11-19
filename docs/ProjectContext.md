@@ -22,7 +22,7 @@ Trois projets interconnectés documentant une vision complète de la vie nomade 
 
 1. **🚐 Geekomobile** - Van aménagé pour habitat permanent (Iveco Daily 2006)
 2. **🍴✖️ ForkX** - Fourgon de loisir & aventure (Fiat Doblo Cargo 2020)
-3. **🏕️ Geekagne** - Terrain autonome multi-projets (4700m² en Lorraine)
+3. **🏕️ Geekagne** - Terrain autonome multi-projets (4720m² en Lorraine)
 
 ### Pourquoi ?
 
@@ -169,16 +169,20 @@ Le projet utilise un **système web moderne et ludique** pour présenter les tro
 
 ### 3. 🏕️ Geekagne - Le Terrain Autonome
 
-**Lieu :** Terrain de 4700m² en Lorraine (Est-France)  
-**Concept :** Espace autonome et multi-usage pour accueil de vanlifers  
+**Lieu :** Terrain de 4720m² en Lorraine (Est-France) - Lieu-dit Garrigues Altes  
+**Acquisition :** 12 000€ net en janvier 2025 (prix annoncé : 15 500€)  
+**Concept :** Espace autonome et multi-usage pour accueil de vanlifers, continuation tradition fruitière  
 **Statut :** V0.1 en cours - Bâtiments et plantations en évolution
 
 #### Caractéristiques principales
-- **Terrain :** 4700m² aménageables
+- **Terrain :** 4720m² aménageables (47a 20ca cadastralement, Parcelle 535, Section A, Préfixe 0000)
+- **Historique :** Ancien verger exploité (pêchers, abricotiers - rangs visibles)
+- **Sécurité :** Hors zones inondables et risques majeurs (validé État)
+- **Propriétaire précédent :** Jacoby
 - **Électricité :** Panneaux solaires (indépendant du réseau envisagé)
-- **Eau :** Récupération pluviale + puits
+- **Eau :** Récupération pluviale + Canal de Corbère + puits
 - **Bâtiments :** Petit gîte, atelier, hangar (planifiés/en construction)
-- **Plantations :** Haies, verger, potager (long terme)
+- **Plantations :** Haies, verger, potager (long terme) - continuation fruitière
 - **Accueil :** Emplacement pour vans visiteurs
 
 #### Tableaux de bord suivis
