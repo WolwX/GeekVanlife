@@ -1457,15 +1457,14 @@
         <div class="image-import-content">
             <div class="image-import-header">📸 Importer une liste depuis une image</div>
             
-            <!-- Input file invisible mais fonctionnel -->
-            <input type="file" id="image-input" accept="image/*" onchange="handleImageSelect(event)" style="position:fixed;top:-9999px;left:-9999px;">
-            
-            <!-- Zone unique : clickable ET droppable -->
-            <div class="image-upload-zone" id="upload-zone" style="cursor: pointer;">
+            <!-- Label wrapper pour meilleure accessibilité mobile -->
+            <label for="image-input" class="image-upload-zone" id="upload-zone" style="cursor: pointer; display: block;">
                 <div class="upload-icon"><i class="fas fa-image"></i></div>
                 <div class="upload-text">Glissez-déposez une image ici</div>
                 <div class="upload-subtext">ou cliquez pour sélectionner une image</div>
-            </div>
+                <!-- Input file caché mais dans le label pour meilleure accessibilité -->
+                <input type="file" id="image-input" accept="image/*" onchange="handleImageSelect(event)" style="display:none;">
+            </label>
             
             <div id="processing-container" style="display:none;">
                 <div class="processing-indicator">
@@ -1795,17 +1794,11 @@
             document.getElementById('processing-container').style.display = 'none';
             document.getElementById('no-import-actions').style.display = 'flex';
 
-            // Setup la zone click & drop
+            // Setup drag & drop sur la zone (pas de click handler car c'est un label)
             const uploadZone = document.getElementById('upload-zone');
             const imageInput = document.getElementById('image-input');
             
             if (uploadZone && imageInput) {
-                // Click handler
-                uploadZone.onclick = (e) => {
-                    e.preventDefault();
-                    imageInput.click();
-                };
-                
                 // Drag & drop handlers
                 uploadZone.ondragover = (e) => {
                     e.preventDefault();
