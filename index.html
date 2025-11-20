@@ -8,6 +8,8 @@
     <title>🚐 GeekVanlife - Projets Vanlife & Autonomie</title>
     <link rel="icon" href="img/Logo-Geek-VanLife-avatar-transparent.png" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-database.js"></script>
     <style>
         * {
             margin: 0;
@@ -1012,6 +1014,28 @@
     </style>
 
     <script>
+        // ============================================
+        // FIREBASE CONFIGURATION
+        // ============================================
+        const firebaseConfig = {
+            apiKey: "AIzaSyD7PUqS5GGpEuQiZhlaiwhBpiJps5K8Jec",
+            authDomain: "geekvanlife.firebaseapp.com",
+            projectId: "geekvanlife",
+            storageBucket: "geekvanlife.firebasestorage.app",
+            messagingSenderId: "808193116530",
+            appId: "1:808193116530:web:26d0f44d6258e7933c75eb",
+            databaseURL: "https://geekvanlife-default-rtdb.europe-west1.firebasedatabase.app"
+        };
+
+        // Initialize Firebase
+        try {
+            const firebaseApp = firebase.initializeApp(firebaseConfig);
+            const firebaseDB = firebase.database();
+            console.log('✅ Firebase initialized successfully');
+        } catch (error) {
+            console.error('Firebase initialization error:', error);
+        }
+
         // Settings Modal Functions
         function openSettingsModal() {
             document.getElementById('settings-modal').style.display = 'block';
