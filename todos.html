@@ -1479,18 +1479,20 @@
         <div class="image-import-content">
             <div class="image-import-header">📸 Importer une liste depuis une image</div>
             
-            <div class="image-upload-zone" id="upload-zone" onclick="document.getElementById('image-input').click()">
-                <div class="upload-icon"><i class="fas fa-image"></i></div>
-                <div class="upload-text">Cliquez pour sélectionner une image</div>
-                <div class="upload-subtext">ou glissez-déposez une image ici</div>
+            <!-- Input file caché mais accessible -->
+            <input type="file" id="image-input" accept="image/*" capture="environment" onchange="handleImageSelect(event)" style="display:none;">
+            
+            <!-- Boutons pour mobile et desktop -->
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+                <button class="mobile-upload-btn" onclick="document.getElementById('image-input').click()">
+                    <i class="fas fa-image"></i> Sélectionner une image
+                </button>
+                <div class="upload-subtext" style="text-align: center; margin: 8px 0;">ou</div>
+                <div class="image-upload-zone" id="upload-zone">
+                    <div class="upload-icon"><i class="fas fa-images"></i></div>
+                    <div class="upload-text">Glissez-déposez une image ici</div>
+                </div>
             </div>
-            
-            <input type="file" id="image-input" accept="image/*" capture="environment" onchange="handleImageSelect(event)">
-            
-            <!-- Bouton mobile alternatif -->
-            <button id="mobile-upload-btn" class="mobile-upload-btn" onclick="triggerFileInput()" style="display:none;">
-                <i class="fas fa-camera"></i> Sélectionner depuis la galerie
-            </button>
             
             <div id="processing-container" style="display:none;">
                 <div class="processing-indicator">
@@ -1820,33 +1822,26 @@
             document.getElementById('processing-container').style.display = 'none';
             document.getElementById('no-import-actions').style.display = 'flex';
 
-            // Détecter si c'est un mobile pour afficher le bouton alternatif
-            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-            const mobileBtn = document.getElementById('mobile-upload-btn');
-            if (isMobile) {
-                mobileBtn.style.display = 'flex';
-            } else {
-                mobileBtn.style.display = 'none';
-            }
-
             // Setup drag & drop
             const uploadZone = document.getElementById('upload-zone');
-            uploadZone.addEventListener('dragover', (e) => {
-                e.preventDefault();
-                uploadZone.classList.add('dragover');
-            });
-            uploadZone.addEventListener('dragleave', () => {
-                uploadZone.classList.remove('dragover');
-            });
-            uploadZone.addEventListener('drop', (e) => {
-                e.preventDefault();
-                uploadZone.classList.remove('dragover');
-                const file = e.dataTransfer.files[0];
-                if (file && file.type.startsWith('image/')) {
-                    document.getElementById('image-input').files = e.dataTransfer.files;
-                    handleImageSelect({ target: { files: e.dataTransfer.files } });
-                }
-            });
+            if (uploadZone) {
+                uploadZone.addEventListener('dragover', (e) => {
+                    e.preventDefault();
+                    uploadZone.classList.add('dragover');
+                });
+                uploadZone.addEventListener('dragleave', () => {
+                    uploadZone.classList.remove('dragover');
+                });
+                uploadZone.addEventListener('drop', (e) => {
+                    e.preventDefault();
+                    uploadZone.classList.remove('dragover');
+                    const file = e.dataTransfer.files[0];
+                    if (file && file.type.startsWith('image/')) {
+                        document.getElementById('image-input').files = e.dataTransfer.files;
+                        handleImageSelect({ target: { files: e.dataTransfer.files } });
+                    }
+                });
+            }
         }
 
         function triggerFileInput() {
