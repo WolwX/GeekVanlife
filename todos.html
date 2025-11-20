@@ -1541,7 +1541,7 @@
                 <div style="background: #f0f4ff; padding: 15px; border-radius: 8px;">
                     <label style="display: block; text-align: left; margin-bottom: 8px; font-weight: 600;">🔗 Restaurer à partir d'un code :</label>
                     <div style="display: flex; gap: 8px;">
-                        <input type="text" id="sync-code-input" placeholder="SHARE-XXXXX-XXXXX" style="flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 6px; font-family: monospace;">
+                        <input type="text" id="sync-code-input" placeholder="0001XXXXX" style="flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 6px; font-family: monospace;">
                         <button onclick="syncWithCode()" style="padding: 10px 15px; background: #11998e; color: white; border: none; border-radius: 6px; cursor: pointer; white-space: nowrap;">✓ Restaurer</button>
                     </div>
                     <p style="margin: 8px 0 0 0; font-size: 0.8rem; color: #999;">Entrez le code reçu d'un autre appareil</p>
@@ -1573,74 +1573,38 @@
         function generateShareCode() {
             const timestamp = Math.floor(Date.now() / 1000);
             const random = Math.floor(Math.random() * 100000).toString().padStart(5, '0');
-            return `SHARE-${timestamp.toString().slice(-5)}-${random}`;
+            return `${timestamp.toString().slice(-5)}${random}`;
         }
 
-        /**
-         * Exporte TOUTES les données de l'application
-         * Inclut: todos, paramètres, et tout ce qui est dans localStorage
-         */
         function getAllApplicationData() {
-            const appData = {
-                version: '1.0',
-                exportDate: new Date().toISOString(),
-                exportTimestamp: Date.now(),
-                data: {}
-            };
-
-            // Récupérer TOUTES les données du localStorage
+            const data = {};
             for (let i = 0; i < localStorage.length; i++) {
                 const key = localStorage.key(i);
-                const value = localStorage.getItem(key);
-                
-                // Inclure tout sauf les données de sync temporaires
-                if (!key.startsWith('sync-')) {
-                    try {
-                        appData.data[key] = JSON.parse(value);
-                    } catch {
-                        // Si ce n'est pas du JSON, sauvegarder en tant que string
-                        appData.data[key] = value;
-                    }
+                if (!key.startsWith('sync_')) {
+                    data[key] = localStorage.getItem(key);
                 }
             }
-
-            return appData;
+            return data;
         }
 
-        /**
-         * Sauvegarde les données d'export avec un code de partage
-         * Stocke les données de manière centralisée avec timestamp
-         */
         function saveShareCode(code, appData) {
-            const shareKey = `share-${code}`;
-            localStorage.setItem(shareKey, JSON.stringify(appData));
-            localStorage.setItem(`${shareKey}-timestamp`, Date.now());
-            
-            // Garder les codes actifs pendant 7 jours
-            const expirationKey = `${shareKey}-expiration`;
-            localStorage.setItem(expirationKey, (Date.now() + 7 * 24 * 60 * 60 * 1000).toString());
-            
-            return code;
+            const shareEntry = {
+                data: appData,
+                timestamp: Date.now(),
+                expiry: Date.now() + (7 * 24 * 60 * 60 * 1000)
+            };
+            localStorage.setItem(`sync_${code}`, JSON.stringify(shareEntry));
         }
 
-        /**
-         * Charge les données à partir d'un code de partage
-         */
         function loadShareCode(code) {
-            const shareKey = `share-${code}`;
-            const data = localStorage.getItem(shareKey);
-            const expiration = localStorage.getItem(`${shareKey}-expiration`);
-            
-            if (!data) return null;
-            if (expiration && Date.now() > parseInt(expiration)) {
-                // Code expiré, nettoyer
-                localStorage.removeItem(shareKey);
-                localStorage.removeItem(`${shareKey}-timestamp`);
-                localStorage.removeItem(`${shareKey}-expiration`);
+            const shareEntry = localStorage.getItem(`sync_${code}`);
+            if (!shareEntry) return null;
+            const entry = JSON.parse(shareEntry);
+            if (Date.now() > entry.expiry) {
+                localStorage.removeItem(`sync_${code}`);
                 return null;
             }
-            
-            return JSON.parse(data);
+            return entry.data;
         }
 
         /**
@@ -1683,7 +1647,7 @@
          * Restaure TOUTES les données exportées
          */
         function syncWithCode() {
-            const code = document.getElementById('sync-code-input').value.trim().toUpperCase();
+            const code = document.getElementById('sync-code-input').value.trim();
             if (!code) {
                 alert('Veuillez entrer un code');
                 return;
@@ -1691,28 +1655,21 @@
 
             const shareData = loadShareCode(code);
             if (!shareData) {
-                alert('❌ Code invalide, expiré, ou non trouvé');
+                alert('❌ Code invalide ou expiré');
                 return;
             }
 
-            // Demander confirmation avant d'écraser les données
             if (!confirm('⚠️ Ceci remplacera toutes vos données actuelles.\n\nContinuer ?')) {
                 return;
             }
 
-            // Restaurer TOUTES les données
-            if (shareData.data) {
-                Object.keys(shareData.data).forEach(key => {
-                    const value = shareData.data[key];
-                    if (typeof value === 'string') {
-                        localStorage.setItem(key, value);
-                    } else {
-                        localStorage.setItem(key, JSON.stringify(value));
-                    }
-                });
-            }
+            Object.keys(shareData).forEach(key => {
+                localStorage.setItem(key, shareData[key]);
+            });
 
-            alert('✓ Synchronisation réussie !\n\nVos données sont à jour.\nRafraîchissez la page pour voir les changements.');
+            alert('✓ Synchronisation réussie !\n\nRafraîchissez la page pour voir les changements.');
+            closeSyncModal();
+            location.reload();
             closeSyncModal();
             
             // Rafraîchir tous les projets

@@ -747,7 +747,7 @@
                         <h3><i class="fas fa-upload"></i> Restaurer à partir d'un code</h3>
                         <p class="help-text">Collez le code reçu d'un autre appareil pour synchroniser vos données.</p>
                         
-                        <input type="text" id="sync-code-input" placeholder="SHARE-XXXXX-XXXXX" class="code-input">
+                        <input type="text" id="sync-code-input" placeholder="0001XXXXX" class="code-input">
                         <button onclick="syncWithCode()" class="btn-primary" style="width: 100%; margin-top: 10px;">
                             <i class="fas fa-check"></i> Restaurer les données
                         </button>
@@ -1060,9 +1060,9 @@
         }
 
         function syncWithCode() {
-            const code = document.getElementById('sync-code-input').value.trim().toUpperCase();
+            const code = document.getElementById('sync-code-input').value.trim();
             if (!code) {
-                showNotification('Veuillez entrer un code de partage', 'error');
+                showNotification('Veuillez entrer un code', 'error');
                 return;
             }
             const shareData = loadShareCode(code);
@@ -1070,26 +1070,28 @@
                 showNotification('Code invalide ou expiré', 'error');
                 return;
             }
-            if (confirm('Cette action va restaurer TOUTES vos données. Les données actuelles seront remplacées. Continuer ?')) {
+            if (confirm('⚠️ Ceci remplacera toutes vos données.\n\nContinuer ?')) {
                 Object.keys(shareData).forEach(key => {
                     localStorage.setItem(key, shareData[key]);
                 });
-                showNotification('Données restaurées avec succès ! La page va se recharger.', 'success');
-                setTimeout(() => location.reload(), 2000);
+                showNotification('✓ Synchronisation réussie ! Rechargement...', 'success');
+                setTimeout(() => location.reload(), 1500);
             }
         }
 
         function generateShareCode() {
-            const timestamp = Date.now();
-            const random = Math.random().toString(36).substring(2, 7).toUpperCase();
-            return `SHARE-${Math.floor(timestamp / 100000).toString().slice(-5)}-${random}`;
+            const timestamp = Math.floor(Date.now() / 1000);
+            const random = Math.floor(Math.random() * 100000).toString().padStart(5, '0');
+            return `${timestamp.toString().slice(-5)}${random}`;
         }
 
         function getAllApplicationData() {
             const data = {};
             for (let i = 0; i < localStorage.length; i++) {
                 const key = localStorage.key(i);
-                data[key] = localStorage.getItem(key);
+                if (!key.startsWith('sync_')) {
+                    data[key] = localStorage.getItem(key);
+                }
             }
             return data;
         }
@@ -1100,15 +1102,15 @@
                 timestamp: Date.now(),
                 expiry: Date.now() + (7 * 24 * 60 * 60 * 1000)
             };
-            localStorage.setItem(`share_${code}`, JSON.stringify(shareEntry));
+            localStorage.setItem(`sync_${code}`, JSON.stringify(shareEntry));
         }
 
         function loadShareCode(code) {
-            const shareEntry = localStorage.getItem(`share_${code}`);
+            const shareEntry = localStorage.getItem(`sync_${code}`);
             if (!shareEntry) return null;
             const entry = JSON.parse(shareEntry);
             if (Date.now() > entry.expiry) {
-                localStorage.removeItem(`share_${code}`);
+                localStorage.removeItem(`sync_${code}`);
                 return null;
             }
             return entry.data;
