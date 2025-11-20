@@ -1032,28 +1032,6 @@
             }
         }
 
-        .mobile-upload-btn {
-            width: 100%;
-            padding: 12px;
-            margin-top: 12px;
-            background: #667eea;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            font-size: 14px;
-            font-weight: 500;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            transition: background 0.2s ease;
-        }
-
-        .mobile-upload-btn:active {
-            background: #5568d3;
-        }
-
         .image-preview {
             margin-bottom: 20px;
         }
@@ -1479,19 +1457,14 @@
         <div class="image-import-content">
             <div class="image-import-header">📸 Importer une liste depuis une image</div>
             
-            <!-- Input file caché mais accessible -->
-            <input type="file" id="image-input" accept="image/*" capture="environment" onchange="handleImageSelect(event)" style="display:none;">
+            <!-- Input file invisible mais fonctionnel -->
+            <input type="file" id="image-input" accept="image/*" onchange="handleImageSelect(event)" style="position:fixed;top:-9999px;left:-9999px;">
             
-            <!-- Boutons pour mobile et desktop -->
-            <div style="display: flex; flex-direction: column; gap: 12px;">
-                <button class="mobile-upload-btn" onclick="document.getElementById('image-input').click()">
-                    <i class="fas fa-image"></i> Sélectionner une image
-                </button>
-                <div class="upload-subtext" style="text-align: center; margin: 8px 0;">ou</div>
-                <div class="image-upload-zone" id="upload-zone">
-                    <div class="upload-icon"><i class="fas fa-images"></i></div>
-                    <div class="upload-text">Glissez-déposez une image ici</div>
-                </div>
+            <!-- Zone unique : clickable ET droppable -->
+            <div class="image-upload-zone" id="upload-zone" style="cursor: pointer;">
+                <div class="upload-icon"><i class="fas fa-image"></i></div>
+                <div class="upload-text">Glissez-déposez une image ici</div>
+                <div class="upload-subtext">ou cliquez pour sélectionner une image</div>
             </div>
             
             <div id="processing-container" style="display:none;">
@@ -1822,31 +1795,43 @@
             document.getElementById('processing-container').style.display = 'none';
             document.getElementById('no-import-actions').style.display = 'flex';
 
-            // Setup drag & drop
+            // Setup la zone click & drop
             const uploadZone = document.getElementById('upload-zone');
-            if (uploadZone) {
-                uploadZone.addEventListener('dragover', (e) => {
+            const imageInput = document.getElementById('image-input');
+            
+            if (uploadZone && imageInput) {
+                // Click handler
+                uploadZone.onclick = (e) => {
                     e.preventDefault();
+                    imageInput.click();
+                };
+                
+                // Drag & drop handlers
+                uploadZone.ondragover = (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
                     uploadZone.classList.add('dragover');
-                });
-                uploadZone.addEventListener('dragleave', () => {
-                    uploadZone.classList.remove('dragover');
-                });
-                uploadZone.addEventListener('drop', (e) => {
+                };
+                
+                uploadZone.ondragleave = (e) => {
                     e.preventDefault();
+                    e.stopPropagation();
+                    uploadZone.classList.remove('dragover');
+                };
+                
+                uploadZone.ondrop = (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
                     uploadZone.classList.remove('dragover');
                     const file = e.dataTransfer.files[0];
                     if (file && file.type.startsWith('image/')) {
-                        document.getElementById('image-input').files = e.dataTransfer.files;
+                        imageInput.files = e.dataTransfer.files;
                         handleImageSelect({ target: { files: e.dataTransfer.files } });
                     }
-                });
+                };
             }
         }
 
-        function triggerFileInput() {
-            document.getElementById('image-input').click();
-        }
 
         function closeImageImportModal() {
             document.getElementById('image-import-modal').classList.remove('active');
