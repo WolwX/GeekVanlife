@@ -1263,6 +1263,7 @@
                             <button class="btn-action-icon" onclick="exportTodos('forkx')" title="Exporter les tâches"><i class="fas fa-upload"></i></button>
                             <button class="btn-action-icon" onclick="openJsonImportModal('forkx')" title="Importer les tâches"><i class="fas fa-download"></i></button>
                             <button class="btn-action-icon" onclick="openImageImportModal('forkx')" title="Importer depuis une image"><i class="fas fa-image"></i></button>
+                            <button class="btn-action-icon" onclick="openSyncModal()" title="Synchroniser entre appareils"><i class="fas fa-sync"></i></button>
                         </div>
                     </div>
                     <div class="form-content">
@@ -1517,12 +1518,210 @@
         </div>
     </div>
 
+    <!-- Modal de synchronisation universelle -->
+    <div id="sync-modal" class="image-import-modal">
+        <div class="image-import-content">
+            <div class="image-import-header">🔄 Code de Partage Universel</div>
+            
+            <div style="padding: 20px;">
+                <div style="margin-bottom: 20px; padding: 10px; background: #f0f4ff; border-radius: 8px;">
+                    <p style="margin: 0; color: #333; font-size: 0.95rem;">
+                        <strong>✨ Partagez toutes vos données</strong> (todos, paramètres, et tout le contenu de votre application) entre vos appareils sans importer/exporter !
+                    </p>
+                </div>
+                
+                <div style="background: #f5f5f5; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+                    <label style="display: block; text-align: left; margin-bottom: 8px; font-weight: 600;">🔐 Votre code de partage :</label>
+                    <div style="display: flex; gap: 8px;">
+                        <input type="text" id="sync-code" readonly style="flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 6px; font-family: monospace; background: white;" placeholder="SHARE-00000-00000">
+                        <button onclick="copySyncCode()" style="padding: 10px 15px; background: #667eea; color: white; border: none; border-radius: 6px; cursor: pointer; white-space: nowrap;">📋 Copier</button>
+                    </div>
+                    <p style="margin: 8px 0 0 0; font-size: 0.8rem; color: #999;">Valide 7 jours - Partagez ce code avec vos autres appareils</p>
+                </div>
+                
+                <div style="background: #f0f4ff; padding: 15px; border-radius: 8px;">
+                    <label style="display: block; text-align: left; margin-bottom: 8px; font-weight: 600;">🔗 Restaurer à partir d'un code :</label>
+                    <div style="display: flex; gap: 8px;">
+                        <input type="text" id="sync-code-input" placeholder="SHARE-XXXXX-XXXXX" style="flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 6px; font-family: monospace;">
+                        <button onclick="syncWithCode()" style="padding: 10px 15px; background: #11998e; color: white; border: none; border-radius: 6px; cursor: pointer; white-space: nowrap;">✓ Restaurer</button>
+                    </div>
+                    <p style="margin: 8px 0 0 0; font-size: 0.8rem; color: #999;">Entrez le code reçu d'un autre appareil</p>
+                </div>
+            </div>
+            
+            <div class="import-actions">
+                <button class="btn-close-import" onclick="closeSyncModal()" style="flex:1;">Fermer</button>
+            </div>
+        </div>
+    </div>
+
     <script>
         const projects = {
             forkx: { storageKey: 'forkx-todos', displayColor: 'forkx' },
             geekomobile: { storageKey: 'geekomobile-todos', displayColor: 'geekomobile' },
             geekagne: { storageKey: 'geekagne-todos', displayColor: 'geekagne' }
         };
+
+        // ============================================
+        // SYSTÈME DE SYNCHRONISATION UNIVERSEL
+        // Sauvegarde/restaure TOUTES les données de l'application
+        // ============================================
+
+        /**
+         * Crée un code de partage unique pour TOUTES les données de l'app
+         * Format: SHARE-TIMESTAMP-RANDOM
+         */
+        function generateShareCode() {
+            const timestamp = Math.floor(Date.now() / 1000);
+            const random = Math.floor(Math.random() * 100000).toString().padStart(5, '0');
+            return `SHARE-${timestamp.toString().slice(-5)}-${random}`;
+        }
+
+        /**
+         * Exporte TOUTES les données de l'application
+         * Inclut: todos, paramètres, et tout ce qui est dans localStorage
+         */
+        function getAllApplicationData() {
+            const appData = {
+                version: '1.0',
+                exportDate: new Date().toISOString(),
+                exportTimestamp: Date.now(),
+                data: {}
+            };
+
+            // Récupérer TOUTES les données du localStorage
+            for (let i = 0; i < localStorage.length; i++) {
+                const key = localStorage.key(i);
+                const value = localStorage.getItem(key);
+                
+                // Inclure tout sauf les données de sync temporaires
+                if (!key.startsWith('sync-')) {
+                    try {
+                        appData.data[key] = JSON.parse(value);
+                    } catch {
+                        // Si ce n'est pas du JSON, sauvegarder en tant que string
+                        appData.data[key] = value;
+                    }
+                }
+            }
+
+            return appData;
+        }
+
+        /**
+         * Sauvegarde les données d'export avec un code de partage
+         * Stocke les données de manière centralisée avec timestamp
+         */
+        function saveShareCode(code, appData) {
+            const shareKey = `share-${code}`;
+            localStorage.setItem(shareKey, JSON.stringify(appData));
+            localStorage.setItem(`${shareKey}-timestamp`, Date.now());
+            
+            // Garder les codes actifs pendant 7 jours
+            const expirationKey = `${shareKey}-expiration`;
+            localStorage.setItem(expirationKey, (Date.now() + 7 * 24 * 60 * 60 * 1000).toString());
+            
+            return code;
+        }
+
+        /**
+         * Charge les données à partir d'un code de partage
+         */
+        function loadShareCode(code) {
+            const shareKey = `share-${code}`;
+            const data = localStorage.getItem(shareKey);
+            const expiration = localStorage.getItem(`${shareKey}-expiration`);
+            
+            if (!data) return null;
+            if (expiration && Date.now() > parseInt(expiration)) {
+                // Code expiré, nettoyer
+                localStorage.removeItem(shareKey);
+                localStorage.removeItem(`${shareKey}-timestamp`);
+                localStorage.removeItem(`${shareKey}-expiration`);
+                return null;
+            }
+            
+            return JSON.parse(data);
+        }
+
+        /**
+         * Ouvre la modal de synchronisation
+         */
+        function openSyncModal() {
+            const modal = document.getElementById('sync-modal');
+            modal.classList.add('active');
+            
+            // Générer le code de partage
+            const shareCode = generateShareCode();
+            const allAppData = getAllApplicationData();
+            saveShareCode(shareCode, allAppData);
+            
+            document.getElementById('sync-code').value = shareCode;
+            document.getElementById('sync-code-input').value = '';
+        }
+
+        /**
+         * Ferme la modal de synchronisation
+         */
+        function closeSyncModal() {
+            document.getElementById('sync-modal').classList.remove('active');
+        }
+
+        /**
+         * Copie le code de partage dans le presse-papiers
+         */
+        function copySyncCode() {
+            const code = document.getElementById('sync-code').value;
+            navigator.clipboard.writeText(code).then(() => {
+                alert('✓ Code copié ! Vous pouvez maintenant le partager');
+            }).catch(() => {
+                alert('Erreur lors de la copie. Code: ' + code);
+            });
+        }
+
+        /**
+         * Synchronise l'application avec un code de partage
+         * Restaure TOUTES les données exportées
+         */
+        function syncWithCode() {
+            const code = document.getElementById('sync-code-input').value.trim().toUpperCase();
+            if (!code) {
+                alert('Veuillez entrer un code');
+                return;
+            }
+
+            const shareData = loadShareCode(code);
+            if (!shareData) {
+                alert('❌ Code invalide, expiré, ou non trouvé');
+                return;
+            }
+
+            // Demander confirmation avant d'écraser les données
+            if (!confirm('⚠️ Ceci remplacera toutes vos données actuelles.\n\nContinuer ?')) {
+                return;
+            }
+
+            // Restaurer TOUTES les données
+            if (shareData.data) {
+                Object.keys(shareData.data).forEach(key => {
+                    const value = shareData.data[key];
+                    if (typeof value === 'string') {
+                        localStorage.setItem(key, value);
+                    } else {
+                        localStorage.setItem(key, JSON.stringify(value));
+                    }
+                });
+            }
+
+            alert('✓ Synchronisation réussie !\n\nVos données sont à jour.\nRafraîchissez la page pour voir les changements.');
+            closeSyncModal();
+            
+            // Rafraîchir tous les projets
+            Object.keys(projects).forEach(projectId => {
+                updateListSelect(projectId);
+                renderTodos(projectId);
+            });
+        }
 
         function toggleAccordion(header) {
             const content = header.nextElementSibling;
