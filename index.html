@@ -7,6 +7,7 @@
     <meta name="author" content="Xavier Redondo (WolwX)">
     <title>🚐 GeekVanlife - Projets Vanlife & Autonomie</title>
     <link rel="icon" href="img/Logo-Geek-VanLife-avatar-transparent.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -707,6 +708,446 @@
                 🚐 Vanlife depuis août 2021 • 📍 Pyrénées-Orientales • 🌊 Entre mer et montagne ⛰️
             </p>
         </footer>
+        
+        <!-- Settings Floating Button -->
+        <button id="settings-button" class="floating-settings-btn" onclick="openSettingsModal()" title="Paramètres">⚙️</button>
+
+        <!-- Settings Modal -->
+        <div id="settings-modal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Paramètres & Synchronisation</h2>
+                    <button class="close-btn" onclick="closeSettingsModal()">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <!-- Sync Code Section -->
+                    <div class="settings-section">
+                        <h3><i class="fas fa-share"></i> Code de Partage</h3>
+                        <p class="help-text">Générez un code pour synchroniser vos données sur d'autres appareils. Le code est valide 7 jours.</p>
+                        
+                        <button onclick="generateSyncCode()" class="btn-primary">
+                            <i class="fas fa-refresh"></i> Générer un code
+                        </button>
+                        
+                        <div class="sync-code-display" id="sync-code-display" style="display: none; margin-top: 15px;">
+                            <label>Votre code de partage :</label>
+                            <div class="code-input-group">
+                                <input type="text" id="sync-code" readonly class="code-input">
+                                <button onclick="copySyncCode()" class="btn-copy" title="Copier">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <!-- Restore Code Section -->
+                    <div class="settings-section">
+                        <h3><i class="fas fa-upload"></i> Restaurer à partir d'un code</h3>
+                        <p class="help-text">Collez le code reçu d'un autre appareil pour synchroniser vos données.</p>
+                        
+                        <input type="text" id="sync-code-input" placeholder="SHARE-XXXXX-XXXXX" class="code-input">
+                        <button onclick="syncWithCode()" class="btn-primary" style="width: 100%; margin-top: 10px;">
+                            <i class="fas fa-check"></i> Restaurer les données
+                        </button>
+                    </div>
+
+                    <hr>
+
+                    <!-- App Info Section -->
+                    <div class="settings-section">
+                        <h3><i class="fas fa-info-circle"></i> Informations</h3>
+                        <div class="info-grid-settings">
+                            <div class="info-item">
+                                <span class="info-label">Version:</span>
+                                <span class="info-value">2.1.0</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Stockage:</span>
+                                <span class="info-value" id="storage-info">-</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <style>
+        /* Floating Settings Button */
+        .floating-settings-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #667eea;
+            color: white;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+        
+        .floating-settings-btn:hover {
+            background-color: #5568d3;
+            box-shadow: 0 6px 16px rgba(102, 126, 234, 0.6);
+            transform: scale(1.1);
+        }
+
+        .floating-settings-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* Settings Modal */
+        .modal {
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 0;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            animation: slideDown 0.3s ease;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid #e0e0e0;
+            background-color: #f8f9fa;
+        }
+
+        .modal-header h2 {
+            margin: 0;
+            font-size: 20px;
+            color: #333;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: #999;
+            transition: color 0.2s;
+        }
+
+        .close-btn:hover {
+            color: #333;
+        }
+
+        .modal-body {
+            padding: 20px;
+        }
+
+        .settings-section {
+            margin-bottom: 20px;
+        }
+
+        .settings-section h3 {
+            margin: 0 0 10px 0;
+            font-size: 16px;
+            color: #667eea;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .help-text {
+            margin: 5px 0 15px 0;
+            font-size: 13px;
+            color: #999;
+            line-height: 1.4;
+        }
+
+        .code-input-group {
+            display: flex;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .code-input {
+            flex: 1;
+            padding: 10px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 13px;
+            letter-spacing: 2px;
+        }
+
+        .code-input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .btn-primary {
+            padding: 10px 16px;
+            background-color: #667eea;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-primary:hover {
+            background-color: #5568d3;
+            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-copy {
+            padding: 10px 12px;
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: #667eea;
+        }
+
+        .btn-copy:hover {
+            background-color: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+
+        .info-grid-settings {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .info-item {
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+        }
+
+        .info-label {
+            font-size: 12px;
+            color: #999;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .info-value {
+            font-size: 14px;
+            color: #333;
+            font-weight: 600;
+            margin-top: 5px;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #e0e0e0;
+            margin: 15px 0;
+        }
+
+        @media (max-width: 600px) {
+            .floating-settings-btn {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+                font-size: 20px;
+            }
+
+            .modal-content {
+                width: 95%;
+                margin: 20% auto;
+            }
+
+            .info-grid-settings {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+    <script>
+        // Settings Modal Functions
+        function openSettingsModal() {
+            document.getElementById('settings-modal').style.display = 'block';
+            updateStorageInfo();
+        }
+
+        function closeSettingsModal() {
+            document.getElementById('settings-modal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('settings-modal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        function updateStorageInfo() {
+            const storageSize = JSON.stringify(localStorage).length;
+            const kb = (storageSize / 1024).toFixed(1);
+            document.getElementById('storage-info').textContent = kb + ' KB';
+        }
+
+        // Share Code Functions (from todos.html)
+        function generateSyncCode() {
+            const code = generateShareCode();
+            const allAppData = getAllApplicationData();
+            saveShareCode(code, allAppData);
+            document.getElementById('sync-code').value = code;
+            document.getElementById('sync-code-display').style.display = 'block';
+            showNotification('Code généré ! Vous pouvez le copier et le partager.', 'success');
+        }
+
+        function copySyncCode() {
+            const codeInput = document.getElementById('sync-code');
+            codeInput.select();
+            document.execCommand('copy');
+            const btn = event.target.closest('button');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-check"></i>';
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+            }, 2000);
+            showNotification('Code copié dans le presse-papiers !', 'success');
+        }
+
+        function syncWithCode() {
+            const code = document.getElementById('sync-code-input').value.trim().toUpperCase();
+            if (!code) {
+                showNotification('Veuillez entrer un code de partage', 'error');
+                return;
+            }
+            const shareData = loadShareCode(code);
+            if (!shareData) {
+                showNotification('Code invalide ou expiré', 'error');
+                return;
+            }
+            if (confirm('Cette action va restaurer TOUTES vos données. Les données actuelles seront remplacées. Continuer ?')) {
+                Object.keys(shareData).forEach(key => {
+                    localStorage.setItem(key, shareData[key]);
+                });
+                showNotification('Données restaurées avec succès ! La page va se recharger.', 'success');
+                setTimeout(() => location.reload(), 2000);
+            }
+        }
+
+        function generateShareCode() {
+            const timestamp = Date.now();
+            const random = Math.random().toString(36).substring(2, 7).toUpperCase();
+            return `SHARE-${Math.floor(timestamp / 100000).toString().slice(-5)}-${random}`;
+        }
+
+        function getAllApplicationData() {
+            const data = {};
+            for (let i = 0; i < localStorage.length; i++) {
+                const key = localStorage.key(i);
+                data[key] = localStorage.getItem(key);
+            }
+            return data;
+        }
+
+        function saveShareCode(code, appData) {
+            const shareEntry = {
+                data: appData,
+                timestamp: Date.now(),
+                expiry: Date.now() + (7 * 24 * 60 * 60 * 1000)
+            };
+            localStorage.setItem(`share_${code}`, JSON.stringify(shareEntry));
+        }
+
+        function loadShareCode(code) {
+            const shareEntry = localStorage.getItem(`share_${code}`);
+            if (!shareEntry) return null;
+            const entry = JSON.parse(shareEntry);
+            if (Date.now() > entry.expiry) {
+                localStorage.removeItem(`share_${code}`);
+                return null;
+            }
+            return entry.data;
+        }
+
+        function showNotification(message, type = 'info') {
+            const div = document.createElement('div');
+            div.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                padding: 15px 20px;
+                background-color: ${type === 'success' ? '#4caf50' : type === 'error' ? '#f44336' : '#2196f3'};
+                color: white;
+                border-radius: 4px;
+                z-index: 10000;
+                animation: slideInRight 0.3s ease;
+                max-width: 300px;
+            `;
+            div.textContent = message;
+            document.body.appendChild(div);
+            setTimeout(() => div.remove(), 4000);
+        }
+
+        // Add animation for notification
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideInRight {
+                from {
+                    transform: translateX(400px);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
 </body>
 </html>

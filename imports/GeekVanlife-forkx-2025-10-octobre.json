@@ -1,0 +1,97 @@
+{
+  "project": "forkx",
+  "exportDate": "2025-11-20T19:55:00Z",
+  "todosCount": 9,
+  "todos": [
+    {
+      "id": 1697222400001,
+      "list": "Octobre 2025",
+      "name": "Remplacement prise USB fourgon par modèle lumière bleue",
+      "priority": "medium",
+      "amount": null,
+      "link": "",
+      "note": "",
+      "completed": false
+    },
+    {
+      "id": 1697222400002,
+      "list": "Octobre 2025",
+      "name": "Refaire le câble négatif en sertissage côté multiprise câble électrique fourgon",
+      "priority": "medium",
+      "amount": null,
+      "link": "",
+      "note": "",
+      "completed": false
+    },
+    {
+      "id": 1697222400003,
+      "list": "Octobre 2025",
+      "name": "Remplacer le parafoudre solaire par un 50 ou 60 ampères fourgon",
+      "priority": "medium",
+      "amount": null,
+      "link": "",
+      "note": "",
+      "completed": false
+    },
+    {
+      "id": 1697222400004,
+      "list": "Octobre 2025",
+      "name": "Trouver une solution pour renvoyer l'eau coulant sur la jonction cabanon avec chaîne ou autre",
+      "priority": "medium",
+      "amount": null,
+      "link": "",
+      "note": "",
+      "completed": false
+    },
+    {
+      "id": 1697222400005,
+      "list": "Octobre 2025",
+      "name": "Switcher le petit convertisseur 300w du fourgon dans le cabanon et reprendre le 1500w dans le compartiment moteur fourgon",
+      "priority": "medium",
+      "amount": null,
+      "link": "",
+      "note": "",
+      "completed": false
+    },
+    {
+      "id": 1697222400006,
+      "list": "Octobre 2025",
+      "name": "Refaire la gaine thermo sur le câble électrique chauffage - faux contact",
+      "priority": "medium",
+      "amount": null,
+      "link": "",
+      "note": "",
+      "completed": false
+    },
+    {
+      "id": 1697222400007,
+      "list": "Octobre 2025",
+      "name": "Nettoyage pinceau et souffleur coin électricité fourgon",
+      "priority": "low",
+      "amount": null,
+      "link": "",
+      "note": "",
+      "completed": true
+    },
+    {
+      "id": 1697222400008,
+      "list": "Octobre 2025",
+      "name": "Vérifier le module Sonoff Mini R4 voir si je peux placer un second câble électrique dans la sdb",
+      "priority": "low",
+      "amount": null,
+      "link": "",
+      "note": "",
+      "completed": true
+    },
+    {
+      "id": 1697222400009,
+      "list": "Octobre 2025",
+      "name": "Faire un câble électrique avec embout femelle électrique 230v pour la sdb",
+      "priority": "low",
+      "amount": null,
+      "link": "",
+      "note": "",
+      "completed": true
+    }
+  ]
+}

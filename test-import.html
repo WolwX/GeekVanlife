@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Import - GeekVanlife Todo List</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+</head>
+<body>
+    <h1>Test - Import données d'octobre</h1>
+    <p>Ce fichier teste le chargement des données d'octobre et l'affichage des montants estimés par liste.</p>
+    
+    <h2>Instructions de test :</h2>
+    <ol>
+        <li>Ouvrez <code>todos.html</code> dans votre navigateur</li>
+        <li>Cliquez sur le bouton "📤 Import JSON" du projet ForkX</li>
+        <li>Sélectionnez le fichier <code>GeekVanlife-forkx-2025-10-octobre.json</code></li>
+        <li>Les 9 tâches d'octobre doivent s'importer dans la liste "Octobre 2025"</li>
+        <li>Vérifiez que l'estimation "≈ 0€" s'affiche (aucune tâche avec montant)</li>
+    </ol>
+
+    <h2>Test OCR :</h2>
+    <ol>
+        <li>Cliquez sur le bouton "📸 Import Image" du projet ForkX</li>
+        <li>Uploadez une image contenant une liste de tâches</li>
+        <li>L'OCR extraira le texte et créera automatiquement les tâches</li>
+        <li>L'estimation montant se mettra à jour automatiquement</li>
+    </ol>
+
+    <h2>Exemple d'image pour tester l'OCR :</h2>
+    <p>Créez une image avec ce contenu (ou prenez une capture d'écran):</p>
+    <pre>
+Liste de courses
+- Tomates 5.50€
+- Pain 2.30€ 🟢
+- Lait 1.80€
+✓ Beurre 4.20€
+    </pre>
+
+    <script>
+        // Script pour pré-charger les données d'octobre dans localStorage
+        function loadOctoberData() {
+            const json = '{"todos":[{"id":1697222400001,"list":"Octobre 2025","name":"Remplacement prise USB fourgon par modèle lumière bleue","priority":"medium","amount":null,"link":"","note":"","completed":false},{"id":1697222400002,"list":"Octobre 2025","name":"Refaire le câble négatif en sertissage côté multiprise câble électrique fourgon","priority":"medium","amount":null,"link":"","note":"","completed":false},{"id":1697222400003,"list":"Octobre 2025","name":"Remplacer le parafoudre solaire par un 50 ou 60 ampères fourgon","priority":"medium","amount":null,"link":"","note":"","completed":false},{"id":1697222400004,"list":"Octobre 2025","name":"Trouver une solution pour renvoyer l\'eau coulant sur la jonction cabanon avec chaîne ou autre","priority":"medium","amount":null,"link":"","note":"","completed":false},{"id":1697222400005,"list":"Octobre 2025","name":"Switcher le petit convertisseur 300w du fourgon dans le cabanon et reprendre le 1500w dans le compartiment moteur fourgon","priority":"medium","amount":null,"link":"","note":"","completed":false},{"id":1697222400006,"list":"Octobre 2025","name":"Refaire la gaine thermo sur le câble électrique chauffage - faux contact","priority":"medium","amount":null,"link":"","note":"","completed":false},{"id":1697222400007,"list":"Octobre 2025","name":"Nettoyage pinceau et souffleur coin électricité fourgon","priority":"low","amount":null,"link":"","note":"","completed":true},{"id":1697222400008,"list":"Octobre 2025","name":"Vérifier le module Sonoff Mini R4 voir si je peux placer un second câble électrique dans la sdb","priority":"low","amount":null,"link":"","note":"","completed":true},{"id":1697222400009,"list":"Octobre 2025","name":"Faire un câble électrique avec embout femelle électrique 230v pour la sdb","priority":"low","amount":null,"link":"","note":"","completed":true}]}';
+            const data = JSON.parse(json);
+            localStorage.setItem('forkx-todos', JSON.stringify(data.todos));
+            alert('✅ Données d\'octobre chargées dans localStorage!\n\nOuvrez todos.html et allez sur ForkX pour voir les tâches.');
+        }
+
+        // Auto-load au chargement
+        window.addEventListener('load', () => {
+            console.log('Pour charger les données d\'octobre automatiquement, exécutez: loadOctoberData()');
+            document.body.innerHTML += `
+                <div style="margin: 20px; padding: 20px; background: #e8f5e9; border-radius: 8px;">
+                    <strong>Données de test prêtes!</strong>
+                    <br><br>
+                    <button onclick="loadOctoberData()" style="padding: 12px 20px; background: #4CAF50; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 16px;">
+                        📥 Charger données d'octobre
+                    </button>
+                </div>
+            `;
+        });
+    </script>
+
+    <hr>
+    <p><small>Fichier de support pour tester les features de todos.html</small></p>
+</body>
+</html>
