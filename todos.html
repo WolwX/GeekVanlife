@@ -6,6 +6,7 @@
     <title>📋 GeekVanlife To Do Lists</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📋</text></svg>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -130,15 +131,61 @@
 
         .todo-form-section {
             background: #f8f9fa;
-            padding: 20px;
+            padding: 0;
             border-radius: 12px;
-            margin-bottom: 30px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
 
         .form-title {
             font-weight: 600;
-            margin-bottom: 15px;
+            padding: 16px;
+            background: #f8f9fa;
             color: #333;
+            border-bottom: 2px solid #e0e0e0;
+            margin-bottom: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .form-title-actions {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .btn-action-icon {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f0f0f0;
+            color: #333;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border: 2px solid #ddd;
+            padding: 0;
+        }
+
+        .btn-action-icon:hover {
+            background: #e0e0e0;
+            border-color: #bbb;
+        }
+
+        .btn-action-icon:active {
+            transform: scale(0.95);
+        }
+
+        #import-file-input {
+            display: none;
+        }
+
+        .form-content {
+            padding: 20px;
         }
 
         .form-row {
@@ -146,6 +193,164 @@
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 12px;
             margin-bottom: 12px;
+        }
+
+        .form-row-full {
+            margin-bottom: 12px;
+        }
+
+        .task-list-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 12px;
+            align-items: flex-end;
+            margin-bottom: 12px;
+        }
+
+        .task-input-wrapper {
+            display: flex;
+            gap: 8px;
+            align-items: flex-end;
+        }
+
+        .task-input-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #667eea;
+            color: white;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            flex-shrink: 0;
+            padding: 0;
+        }
+
+        .task-input-icon:hover {
+            background: #5568d3;
+            transform: scale(1.1);
+        }
+
+        .task-input-icon:active {
+            transform: scale(0.95);
+        }
+
+        .task-input-field {
+            flex: 1;
+        }
+
+        .list-input-group {
+            display: flex;
+            gap: 8px;
+            align-items: flex-end;
+        }
+
+        .list-input-group .form-group {
+            flex: 1;
+            margin-bottom: 0;
+        }
+
+        .list-add-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f0f0f0;
+            color: #333;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: 2px solid #ddd;
+            flex-shrink: 0;
+            padding: 0;
+        }
+
+        .list-add-icon:hover {
+            background: #e0e0e0;
+            border-color: #bbb;
+        }
+
+        .form-divider {
+            height: 2px;
+            background: #e0e0e0;
+            margin: 20px 0;
+        }
+
+        .btn-secondary {
+            padding: 10px 16px;
+            background: #f0f0f0;
+            color: #333;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            height: fit-content;
+        }
+
+        .btn-secondary:hover {
+            background: #e0e0e0;
+            border-color: #bbb;
+        }
+
+        .accordion-section {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            margin-top: 12px;
+            overflow: hidden;
+        }
+
+        .accordion-header {
+            padding: 12px 16px;
+            background: #f8f9fa;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            color: #667eea;
+            user-select: none;
+            transition: background 0.2s ease;
+        }
+
+        .accordion-header:hover {
+            background: #e9ecef;
+        }
+
+        .accordion-toggle {
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-toggle.open {
+            transform: rotate(45deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .accordion-content.open {
+            max-height: 500px;
+        }
+
+        .accordion-body {
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
         }
 
         .form-group {
@@ -279,6 +484,17 @@
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            margin-bottom: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .list-section.dragging {
+            opacity: 0.5;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+        }
+
+        .list-section.drag-over {
+            border: 2px solid #667eea;
         }
 
         .list-header {
@@ -290,6 +506,36 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            cursor: grab;
+            user-select: none;
+            transition: all 0.3s ease;
+        }
+
+        .list-header:hover {
+            background: #e9ecef;
+        }
+
+        .list-header:active {
+            cursor: grabbing;
+        }
+
+        .list-header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex: 1;
+        }
+
+        .list-toggle-icon {
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .list-section.collapsed .list-toggle-icon {
+            transform: rotate(-90deg);
         }
 
         .list-count {
@@ -298,11 +544,39 @@
             font-weight: 400;
         }
 
+        .list-stats {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .list-estimate {
+            font-size: 0.9rem;
+            color: #666;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .list-estimate i {
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+
         .list-items {
             display: flex;
             flex-direction: column;
             gap: 8px;
             padding: 12px;
+            max-height: 2000px;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .list-section.collapsed .list-items {
+            max-height: 0;
+            padding: 0 12px;
         }
 
         .todo-item {
@@ -315,15 +589,65 @@
             border-left: 4px solid;
             transition: all 0.3s ease;
             position: relative;
+            cursor: grab;
+        }
+
+        .todo-item:active {
+            cursor: grabbing;
+        }
+
+        .todo-item.dragging {
+            opacity: 0.5;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        .todo-item.drag-over {
+            border-top: 3px solid #667eea;
+            padding-top: 11px;
         }
 
         .todo-item.forkx { border-left-color: #c0392b; }
         .todo-item.geekomobile { border-left-color: #667eea; }
         .todo-item.geekagne { border-left-color: #11998e; }
 
+        /* Indentation pour hiérarchie parent/enfant */
+        .todo-item.todo-depth-0 {
+            margin-left: 0;
+        }
+
+        .todo-item.todo-depth-1 {
+            margin-left: 24px;
+            background: #fafbfc;
+            opacity: 0.95;
+        }
+
+        .todo-item.todo-depth-2 {
+            margin-left: 48px;
+            background: #fcfcfd;
+            opacity: 0.90;
+        }
+
+        .todo-item.todo-depth-3 {
+            margin-left: 72px;
+            background: #fefefe;
+            opacity: 0.85;
+        }
+
+        .todo-children-count {
+            font-size: 0.8rem;
+            color: #999;
+            font-weight: 400;
+            margin-left: 4px;
+        }
+
         .todo-item:hover {
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             background: #fff;
+        }
+
+        .todo-item.completed {
+            background: #e8f5e9;
+            opacity: 0.88;
         }
 
         .todo-checkbox {
@@ -376,6 +700,58 @@
             color: #667eea;
         }
 
+        .todo-link-icon {
+            font-size: 0.75rem;
+            color: #667eea;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            opacity: 0.7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 16px;
+            height: 16px;
+        }
+
+        .todo-link-icon:hover {
+            opacity: 1;
+            color: #4c51bf;
+        }
+
+        .todo-note-preview {
+            font-size: 0.85rem;
+            color: #999;
+            font-style: italic;
+            margin-top: 6px;
+            max-height: 3em;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            line-height: 1.4;
+        }
+
+        .todo-separator-inline {
+            display: inline-block;
+            width: 1px;
+            height: 16px;
+            background: #ddd;
+            margin: 0 8px;
+            vertical-align: middle;
+        }
+
+        .todo-children-amount {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 0.8rem;
+            color: #667eea;
+            font-weight: 500;
+        }
+
+        .todo-children-amount i {
+            font-size: 0.75rem;
+            opacity: 0.7;
+        }
+
         .todo-actions {
             display: flex;
             gap: 6px;
@@ -406,8 +782,351 @@
             color: #667eea;
         }
 
+        .action-icon-edit {
+            color: #4caf50;
+        }
+
         .action-icon-delete {
             color: #f44336;
+        }
+
+        .todo-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: #f0f7ff;
+            border-top: 1px solid #e0e0e0;
+            margin: 0 -14px -14px -14px;
+            padding: 0 14px 14px 14px;
+        }
+
+        .todo-item.expanded .todo-details {
+            max-height: 300px;
+            padding-top: 12px;
+        }
+
+        .detail-row {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 8px;
+            padding: 8px;
+            background: white;
+            border-radius: 6px;
+            font-size: 0.9rem;
+        }
+
+        .detail-label {
+            font-weight: 600;
+            color: #667eea;
+            min-width: 80px;
+        }
+
+        .detail-value {
+            flex: 1;
+            word-break: break-word;
+            color: #333;
+        }
+
+        .detail-link {
+            color: #667eea;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .detail-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Modal d'édition */
+        .edit-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .edit-modal.active {
+            display: flex;
+        }
+
+        .edit-modal-content {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            max-width: 600px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+
+        .edit-modal-header {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .edit-modal-form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .edit-modal-form .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .edit-modal-form label {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        .edit-modal-form input,
+        .edit-modal-form textarea,
+        .edit-modal-form select {
+            padding: 10px 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            font-family: inherit;
+        }
+
+        .edit-modal-form textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+
+        .edit-modal-actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .edit-modal-actions button {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-save {
+            background: #4caf50;
+            color: white;
+        }
+
+        .btn-save:hover {
+            background: #45a049;
+        }
+
+        .btn-cancel {
+            background: #f0f0f0;
+            color: #333;
+            border: 2px solid #ddd;
+        }
+
+        .btn-cancel:hover {
+            background: #e0e0e0;
+        }
+
+        /* Modal d'import d'image */
+        .image-import-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .image-import-modal.active {
+            display: flex;
+        }
+
+        .image-import-content {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            max-width: 800px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+
+        .image-import-header {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .image-upload-zone {
+            border: 2px dashed #667eea;
+            border-radius: 8px;
+            padding: 40px;
+            text-align: center;
+            background: #f8f9fa;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        .image-upload-zone:hover {
+            border-color: #5568d3;
+            background: #e9ecef;
+        }
+
+        .image-upload-zone.dragover {
+            border-color: #4caf50;
+            background: #e8f5e9;
+        }
+
+        .upload-icon {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #667eea;
+        }
+
+        .upload-text {
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .upload-subtext {
+            font-size: 0.85rem;
+            color: #999;
+        }
+
+        #image-input {
+            display: none;
+        }
+
+        .image-preview {
+            margin-bottom: 20px;
+        }
+
+        .image-preview img {
+            max-width: 100%;
+            border-radius: 8px;
+            max-height: 300px;
+        }
+
+        .ocr-result {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            max-height: 200px;
+            overflow-y: auto;
+            font-family: monospace;
+            font-size: 0.9rem;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+
+        .processing-indicator {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 10px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .todo-preview-list {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .todo-preview-item {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+            font-size: 0.9rem;
+        }
+
+        .todo-preview-item:last-child {
+            border-bottom: none;
+        }
+
+        .todo-preview-item.completed {
+            opacity: 0.6;
+            text-decoration: line-through;
+        }
+
+        .import-actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn-import {
+            flex: 1;
+            padding: 12px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-import:hover {
+            background: #5568d3;
+        }
+
+        .btn-import:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .btn-close-import {
+            flex: 1;
+            padding: 12px;
+            background: #f0f0f0;
+            color: #333;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-close-import:hover {
+            background: #e0e0e0;
         }
 
         .todo-note {
@@ -485,6 +1204,14 @@
                 grid-template-columns: 1fr;
             }
 
+            .task-list-row {
+                grid-template-columns: 1fr;
+            }
+
+            .task-input-wrapper {
+                width: 100%;
+            }
+
             .todo-item {
                 flex-wrap: wrap;
             }
@@ -517,47 +1244,63 @@
 
             <div id="forkx-tab" class="tab-content active">
                 <div class="todo-form-section">
-                    <div class="form-title">➕ Ajouter une nouvelle tâche</div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Liste</label>
-                            <input type="text" id="forkx-list-input" placeholder="Nom de la liste..." autocomplete="off">
-                            <div class="autocomplete-list" id="forkx-list-autocomplete"></div>
+                    <div class="form-title">
+                        <span>Ajouter une nouvelle tâche</span>
+                        <div class="form-title-actions">
+                            <button class="btn-action-icon" onclick="exportTodos('forkx')" title="Exporter les tâches"><i class="fas fa-download"></i></button>
+                            <button class="btn-action-icon" onclick="document.getElementById('forkx-import-file').click()" title="Importer les tâches"><i class="fas fa-upload"></i></button>
+                            <button class="btn-action-icon" onclick="openImageImportModal('forkx')" title="Importer depuis une image"><i class="fas fa-image"></i></button>
+                            <input type="file" id="forkx-import-file" accept=".json" onchange="importTodos('forkx', event)">
                         </div>
-                        <div class="form-group">
-                            <label>Nom de la tâche</label>
-                            <input type="text" id="forkx-task-name" placeholder="Nom de la tâche...">
+                    </div>
+                    <div class="form-content">
+                        <div class="task-list-row">
+                            <div class="task-input-wrapper">
+                                <button class="task-input-icon" onclick="addTodo('forkx')" title="Ajouter la tâche"><i class="fas fa-clipboard-check"></i></button>
+                                <input type="text" id="forkx-task-name" placeholder="Nom de la tâche..." onkeypress="if(event.key==='Enter') addTodo('forkx')" style="flex: 1; padding: 10px 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 0.95rem;">
+                            </div>
+                            <div class="list-input-group">
+                                <select id="forkx-list-select" style="flex: 1; padding: 10px 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 0.95rem;">
+                                    <option value="">-- Sélectionner --</option>
+                                </select>
+                                <button class="list-add-icon" onclick="openListModal('forkx')" title="Ajouter une liste"><i class="fas fa-tasks"></i></button>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label>Priorité</label>
-                            <div class="priority-selector">
-                                <button class="priority-btn" data-priority="low" onclick="selectPriority(this, 'forkx')">🟢</button>
-                                <button class="priority-btn" data-priority="medium" onclick="selectPriority(this, 'forkx')">🟡</button>
-                                <button class="priority-btn" data-priority="high" onclick="selectPriority(this, 'forkx')">🔴</button>
-                                <input type="hidden" id="forkx-priority" value="medium">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="number" id="forkx-amount" placeholder="Montant (€)" step="0.01">
+                            </div>
+                            <div class="form-group" style="display: flex; justify-content: center; align-items: center;">
+                                <div class="priority-selector">
+                                    <button class="priority-btn" data-priority="low" onclick="selectPriority(this, 'forkx')">🟢</button>
+                                    <button class="priority-btn" data-priority="medium" onclick="selectPriority(this, 'forkx')">🟡</button>
+                                    <button class="priority-btn" data-priority="high" onclick="selectPriority(this, 'forkx')">🔴</button>
+                                    <input type="hidden" id="forkx-priority" value="medium">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-section">
+                            <div class="accordion-header" onclick="toggleAccordion(this)">
+                                <span class="accordion-toggle">+</span>
+                                <span>Options supplémentaires</span>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-body">
+                                    <div class="form-group">
+                                        <label>Lien (optionnel)</label>
+                                        <input type="url" id="forkx-link" placeholder="https://...">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Note (optionnel)</label>
+                                        <textarea id="forkx-note" placeholder="Détails supplémentaires..."></textarea>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Montant (optionnel)</label>
-                            <input type="number" id="forkx-amount" placeholder="0,00 €" step="0.01">
-                        </div>
-                        <div class="form-group">
-                            <label>Lien (optionnel)</label>
-                            <input type="url" id="forkx-link" placeholder="https://...">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Note (optionnel)</label>
-                            <textarea id="forkx-note" placeholder="Détails supplémentaires..."></textarea>
-                        </div>
-                    </div>
-                    <div class="form-actions">
-                        <button class="btn-primary" onclick="addTodo('forkx')">Ajouter la tâche</button>
-                    </div>
                 </div>
+                <div class="form-divider"></div>
                 <div class="lists-container" id="forkx-lists"></div>
                 <div id="forkx-empty" class="empty-state">
                     <div class="empty-state-icon">✅</div>
@@ -567,47 +1310,63 @@
 
             <div id="geekomobile-tab" class="tab-content">
                 <div class="todo-form-section">
-                    <div class="form-title">➕ Ajouter une nouvelle tâche</div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Liste</label>
-                            <input type="text" id="geekomobile-list-input" placeholder="Nom de la liste..." autocomplete="off">
-                            <div class="autocomplete-list" id="geekomobile-list-autocomplete"></div>
+                    <div class="form-title">
+                        <span>Ajouter une nouvelle tâche</span>
+                        <div class="form-title-actions">
+                            <button class="btn-action-icon" onclick="exportTodos('geekomobile')" title="Exporter les tâches"><i class="fas fa-download"></i></button>
+                            <button class="btn-action-icon" onclick="document.getElementById('geekomobile-import-file').click()" title="Importer les tâches"><i class="fas fa-upload"></i></button>
+                            <button class="btn-action-icon" onclick="openImageImportModal('geekomobile')" title="Importer depuis une image"><i class="fas fa-image"></i></button>
+                            <input type="file" id="geekomobile-import-file" accept=".json" onchange="importTodos('geekomobile', event)">
                         </div>
-                        <div class="form-group">
-                            <label>Nom de la tâche</label>
-                            <input type="text" id="geekomobile-task-name" placeholder="Nom de la tâche...">
+                    </div>
+                    <div class="form-content">
+                        <div class="task-list-row">
+                            <div class="task-input-wrapper">
+                                <button class="task-input-icon" onclick="addTodo('geekomobile')" title="Ajouter la tâche"><i class="fas fa-clipboard-check"></i></button>
+                                <input type="text" id="geekomobile-task-name" placeholder="Nom de la tâche..." onkeypress="if(event.key==='Enter') addTodo('geekomobile')" style="flex: 1; padding: 10px 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 0.95rem;">
+                            </div>
+                            <div class="list-input-group">
+                                <select id="geekomobile-list-select" style="flex: 1; padding: 10px 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 0.95rem;">
+                                    <option value="">-- Sélectionner --</option>
+                                </select>
+                                <button class="list-add-icon" onclick="openListModal('geekomobile')" title="Ajouter une liste"><i class="fas fa-tasks"></i></button>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label>Priorité</label>
-                            <div class="priority-selector">
-                                <button class="priority-btn" data-priority="low" onclick="selectPriority(this, 'geekomobile')">🟢</button>
-                                <button class="priority-btn" data-priority="medium" onclick="selectPriority(this, 'geekomobile')">🟡</button>
-                                <button class="priority-btn" data-priority="high" onclick="selectPriority(this, 'geekomobile')">🔴</button>
-                                <input type="hidden" id="geekomobile-priority" value="medium">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="number" id="geekomobile-amount" placeholder="Montant (€)" step="0.01">
+                            </div>
+                            <div class="form-group" style="display: flex; justify-content: center; align-items: center;">
+                                <div class="priority-selector">
+                                    <button class="priority-btn" data-priority="low" onclick="selectPriority(this, 'geekomobile')">🟢</button>
+                                    <button class="priority-btn" data-priority="medium" onclick="selectPriority(this, 'geekomobile')">🟡</button>
+                                    <button class="priority-btn" data-priority="high" onclick="selectPriority(this, 'geekomobile')">🔴</button>
+                                    <input type="hidden" id="geekomobile-priority" value="medium">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-section">
+                            <div class="accordion-header" onclick="toggleAccordion(this)">
+                                <span class="accordion-toggle">+</span>
+                                <span>Options supplémentaires</span>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-body">
+                                    <div class="form-group">
+                                        <label>Lien (optionnel)</label>
+                                        <input type="url" id="geekomobile-link" placeholder="https://...">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Note (optionnel)</label>
+                                        <textarea id="geekomobile-note" placeholder="Détails supplémentaires..."></textarea>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Montant (optionnel)</label>
-                            <input type="number" id="geekomobile-amount" placeholder="0,00 €" step="0.01">
-                        </div>
-                        <div class="form-group">
-                            <label>Lien (optionnel)</label>
-                            <input type="url" id="geekomobile-link" placeholder="https://...">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Note (optionnel)</label>
-                            <textarea id="geekomobile-note" placeholder="Détails supplémentaires..."></textarea>
-                        </div>
-                    </div>
-                    <div class="form-actions">
-                        <button class="btn-primary" onclick="addTodo('geekomobile')">Ajouter la tâche</button>
-                    </div>
                 </div>
+                <div class="form-divider"></div>
                 <div class="lists-container" id="geekomobile-lists"></div>
                 <div id="geekomobile-empty" class="empty-state">
                     <div class="empty-state-icon">✅</div>
@@ -617,52 +1376,113 @@
 
             <div id="geekagne-tab" class="tab-content">
                 <div class="todo-form-section">
-                    <div class="form-title">➕ Ajouter une nouvelle tâche</div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Liste</label>
-                            <input type="text" id="geekagne-list-input" placeholder="Nom de la liste..." autocomplete="off">
-                            <div class="autocomplete-list" id="geekagne-list-autocomplete"></div>
+                    <div class="form-title">
+                        <span>Ajouter une nouvelle tâche</span>
+                        <div class="form-title-actions">
+                            <button class="btn-action-icon" onclick="exportTodos('geekagne')" title="Exporter les tâches"><i class="fas fa-download"></i></button>
+                            <button class="btn-action-icon" onclick="document.getElementById('geekagne-import-file').click()" title="Importer les tâches"><i class="fas fa-upload"></i></button>
+                            <button class="btn-action-icon" onclick="openImageImportModal('geekagne')" title="Importer depuis une image"><i class="fas fa-image"></i></button>
+                            <input type="file" id="geekagne-import-file" accept=".json" onchange="importTodos('geekagne', event)">
                         </div>
-                        <div class="form-group">
-                            <label>Nom de la tâche</label>
-                            <input type="text" id="geekagne-task-name" placeholder="Nom de la tâche...">
+                    </div>
+                    <div class="form-content">
+                        <div class="task-list-row">
+                            <div class="task-input-wrapper">
+                                <button class="task-input-icon" onclick="addTodo('geekagne')" title="Ajouter la tâche"><i class="fas fa-clipboard-check"></i></button>
+                                <input type="text" id="geekagne-task-name" placeholder="Nom de la tâche..." onkeypress="if(event.key==='Enter') addTodo('geekagne')" style="flex: 1; padding: 10px 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 0.95rem;">
+                            </div>
+                            <div class="list-input-group">
+                                <select id="geekagne-list-select" style="flex: 1; padding: 10px 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 0.95rem;">
+                                    <option value="">-- Sélectionner --</option>
+                                </select>
+                                <button class="list-add-icon" onclick="openListModal('geekagne')" title="Ajouter une liste"><i class="fas fa-tasks"></i></button>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label>Priorité</label>
-                            <div class="priority-selector">
-                                <button class="priority-btn" data-priority="low" onclick="selectPriority(this, 'geekagne')">🟢</button>
-                                <button class="priority-btn" data-priority="medium" onclick="selectPriority(this, 'geekagne')">🟡</button>
-                                <button class="priority-btn" data-priority="high" onclick="selectPriority(this, 'geekagne')">🔴</button>
-                                <input type="hidden" id="geekagne-priority" value="medium">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="number" id="geekagne-amount" placeholder="Montant (€)" step="0.01">
+                            </div>
+                            <div class="form-group" style="display: flex; justify-content: center; align-items: center;">
+                                <div class="priority-selector">
+                                    <button class="priority-btn" data-priority="low" onclick="selectPriority(this, 'geekagne')">🟢</button>
+                                    <button class="priority-btn" data-priority="medium" onclick="selectPriority(this, 'geekagne')">🟡</button>
+                                    <button class="priority-btn" data-priority="high" onclick="selectPriority(this, 'geekagne')">🔴</button>
+                                    <input type="hidden" id="geekagne-priority" value="medium">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-section">
+                            <div class="accordion-header" onclick="toggleAccordion(this)">
+                                <span class="accordion-toggle">+</span>
+                                <span>Options supplémentaires</span>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-body">
+                                    <div class="form-group">
+                                        <label>Lien (optionnel)</label>
+                                        <input type="url" id="geekagne-link" placeholder="https://...">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Note (optionnel)</label>
+                                        <textarea id="geekagne-note" placeholder="Détails supplémentaires..."></textarea>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Montant (optionnel)</label>
-                            <input type="number" id="geekagne-amount" placeholder="0,00 €" step="0.01">
-                        </div>
-                        <div class="form-group">
-                            <label>Lien (optionnel)</label>
-                            <input type="url" id="geekagne-link" placeholder="https://...">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Note (optionnel)</label>
-                            <textarea id="geekagne-note" placeholder="Détails supplémentaires..."></textarea>
-                        </div>
-                    </div>
-                    <div class="form-actions">
-                        <button class="btn-primary" onclick="addTodo('geekagne')">Ajouter la tâche</button>
-                    </div>
                 </div>
+                <div class="form-divider"></div>
                 <div class="lists-container" id="geekagne-lists"></div>
                 <div id="geekagne-empty" class="empty-state">
                     <div class="empty-state-icon">✅</div>
                     <p>Aucune tâche pour le moment !</p>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal d'import d'image -->
+    <div id="image-import-modal" class="image-import-modal">
+        <div class="image-import-content">
+            <div class="image-import-header">📸 Importer une liste depuis une image</div>
+            
+            <div class="image-upload-zone" id="upload-zone" onclick="document.getElementById('image-input').click()">
+                <div class="upload-icon"><i class="fas fa-image"></i></div>
+                <div class="upload-text">Cliquez pour sélectionner une image</div>
+                <div class="upload-subtext">ou glissez-déposez une image ici</div>
+            </div>
+            
+            <input type="file" id="image-input" accept="image/*" onchange="handleImageSelect(event)">
+            
+            <div id="processing-container" style="display:none;">
+                <div class="processing-indicator">
+                    <div class="spinner"></div>
+                    <p>Analyse de l'image en cours...</p>
+                </div>
+            </div>
+
+            <div id="image-preview" class="image-preview" style="display:none;">
+                <img id="preview-img" src="" alt="Aperçu">
+            </div>
+
+            <div id="ocr-container" style="display:none;">
+                <label>Texte détecté :</label>
+                <div class="ocr-result" id="ocr-result"></div>
+            </div>
+
+            <div id="todo-preview-container" style="display:none;">
+                <label>Tâches extraites :</label>
+                <div class="todo-preview-list" id="todo-preview-list"></div>
+            </div>
+
+            <div id="import-actions-container" style="display:none;" class="import-actions">
+                <button id="btn-import-image" class="btn-import" onclick="importFromImage()">Importer ces tâches</button>
+                <button class="btn-close-import" onclick="closeImageImportModal()">Annuler</button>
+            </div>
+
+            <div id="no-import-actions" class="import-actions">
+                <button class="btn-close-import" onclick="closeImageImportModal()" style="flex:1;">Fermer</button>
             </div>
         </div>
     </div>
@@ -673,6 +1493,13 @@
             geekomobile: { storageKey: 'geekomobile-todos', displayColor: 'geekomobile' },
             geekagne: { storageKey: 'geekagne-todos', displayColor: 'geekagne' }
         };
+
+        function toggleAccordion(header) {
+            const content = header.nextElementSibling;
+            const toggle = header.querySelector('.accordion-toggle');
+            content.classList.toggle('open');
+            toggle.classList.toggle('open');
+        }
 
         function selectPriority(btn, projectId) {
             const selector = btn.parentElement;
@@ -686,7 +1513,33 @@
             document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
             document.getElementById(projectId + '-tab').classList.add('active');
             event.target.classList.add('active');
+            updateListSelect(projectId);
             renderTodos(projectId);
+        }
+
+        function openListModal(projectId) {
+            const listName = prompt('Entrez le nom de la nouvelle liste:');
+            if (listName && listName.trim()) {
+                // La liste sera ajoutée automatiquement quand on ajoute une tâche
+                alert('La liste sera créée quand vous ajouterez la première tâche');
+            }
+        }
+
+        function updateListSelect(projectId) {
+            const todos = loadTodos(projectId);
+            const lists = new Set();
+            todos.forEach(todo => { if (todo.list) lists.add(todo.list); });
+            
+            const select = document.getElementById(projectId + '-list-select');
+            const currentValue = select.value;
+            const listOptions = Array.from(lists).sort();
+            
+            select.innerHTML = '<option value="">-- Sélectionner une liste --</option>' +
+                listOptions.map(list => `<option value="${escapeHtml(list)}">${escapeHtml(list)}</option>`).join('');
+            
+            if (listOptions.includes(currentValue)) {
+                select.value = currentValue;
+            }
         }
 
         function loadTodos(projectId) {
@@ -697,50 +1550,32 @@
             localStorage.setItem(projects[projectId].storageKey, JSON.stringify(todos));
         }
 
-        function getListNames(projectId) {
-            const todos = loadTodos(projectId);
-            const lists = new Set();
-            todos.forEach(todo => { if (todo.list) lists.add(todo.list); });
-            return Array.from(lists).sort();
-        }
-
-        function setupAutocomplete(projectId) {
-            const input = document.getElementById(projectId + '-list-input');
-            const autocompleteList = document.getElementById(projectId + '-list-autocomplete');
-
-            input.addEventListener('input', () => {
-                const value = input.value.toLowerCase();
-                const lists = getListNames(projectId);
-                const filtered = lists.filter(list => list.toLowerCase().includes(value) && list.toLowerCase() !== value);
-
-                if (filtered.length > 0 && value) {
-                    autocompleteList.innerHTML = filtered.map(list => 
-                        `<div class="autocomplete-item" onclick="document.getElementById('${projectId}-list-input').value = '${list}'; document.getElementById('${projectId}-list-autocomplete').classList.remove('show');">${escapeHtml(list)}</div>`
-                    ).join('');
-                    autocompleteList.classList.add('show');
-                } else {
-                    autocompleteList.classList.remove('show');
-                }
-            });
-
-            document.addEventListener('click', (e) => {
-                if (e.target !== input && !autocompleteList.contains(e.target)) {
-                    autocompleteList.classList.remove('show');
-                }
-            });
-        }
-
         function addTodo(projectId) {
-            const listName = document.getElementById(projectId + '-list-input').value.trim();
             const taskName = document.getElementById(projectId + '-task-name').value.trim();
+            const listSelect = document.getElementById(projectId + '-list-select');
+            let listName = listSelect.value.trim();
             const priority = document.getElementById(projectId + '-priority').value;
             const amount = document.getElementById(projectId + '-amount').value;
-            const link = document.getElementById(projectId + '-link').value.trim();
+            let link = document.getElementById(projectId + '-link').value.trim();
             const note = document.getElementById(projectId + '-note').value.trim();
 
-            if (!listName || !taskName) {
-                alert('Veuillez remplir au moins la liste et le nom de la tâche');
+            if (!taskName) {
+                alert('Veuillez remplir le nom de la tâche');
                 return;
+            }
+
+            if (!listName) {
+                const newList = prompt('Créer une nouvelle liste:');
+                if (!newList || !newList.trim()) {
+                    alert('Veuillez sélectionner ou créer une liste');
+                    return;
+                }
+                listName = newList.trim();
+            }
+
+            // Ajouter le préfixe https:// si absent
+            if (link && !link.match(/^https?:\/\//i)) {
+                link = 'https://' + link;
             }
 
             const todos = loadTodos(projectId);
@@ -752,13 +1587,15 @@
                 amount: amount ? parseFloat(amount) : null,
                 link: link,
                 note: note,
-                completed: false
+                completed: false,
+                parentId: null
             });
 
             saveTodos(projectId, todos);
 
-            document.getElementById(projectId + '-list-input').value = '';
+            // Clear form
             document.getElementById(projectId + '-task-name').value = '';
+            listSelect.value = '';
             document.getElementById(projectId + '-amount').value = '';
             document.getElementById(projectId + '-link').value = '';
             document.getElementById(projectId + '-note').value = '';
@@ -766,24 +1603,134 @@
             document.querySelectorAll(`#${projectId}-tab .priority-btn`).forEach(b => b.classList.remove('selected'));
             document.querySelectorAll(`#${projectId}-tab .priority-btn[data-priority="medium"]`).forEach(b => b.classList.add('selected'));
 
+            updateListSelect(projectId);
+            renderTodos(projectId);
+        }
+
+        function openEditModal(projectId, todoId) {
+            const todos = loadTodos(projectId);
+            const todo = todos.find(t => t.id === todoId);
+            if (!todo) return;
+
+            // Créer la modal
+            let modal = document.getElementById('edit-modal');
+            if (!modal) {
+                modal = document.createElement('div');
+                modal.id = 'edit-modal';
+                modal.className = 'edit-modal';
+                modal.onclick = function(e) {
+                    if (e.target === modal) closeEditModal();
+                };
+                document.body.appendChild(modal);
+            }
+
+            modal.innerHTML = `
+                <div class="edit-modal-content">
+                    <div class="edit-modal-header">Éditer la tâche</div>
+                    <form class="edit-modal-form" onsubmit="saveEditModal('${projectId}', ${todoId}); return false;">
+                        <div class="form-group">
+                            <label>Nom de la tâche</label>
+                            <input type="text" id="edit-name" value="${escapeHtml(todo.name)}" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Liste</label>
+                            <input type="text" id="edit-list" value="${escapeHtml(todo.list)}" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Priorité</label>
+                            <select id="edit-priority">
+                                <option value="low" ${todo.priority === 'low' ? 'selected' : ''}>Basse (🟢)</option>
+                                <option value="medium" ${todo.priority === 'medium' ? 'selected' : ''}>Moyenne (🟡)</option>
+                                <option value="high" ${todo.priority === 'high' ? 'selected' : ''}>Haute (🔴)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Montant (€)</label>
+                            <input type="number" id="edit-amount" value="${todo.amount || ''}" step="0.01">
+                        </div>
+                        <div class="form-group">
+                            <label>Lien</label>
+                            <input type="text" id="edit-link" value="${escapeHtml(todo.link || '')}" placeholder="exemple.com">
+                        </div>
+                        <div class="form-group">
+                            <label>Note</label>
+                            <textarea id="edit-note">${escapeHtml(todo.note || '')}</textarea>
+                        </div>
+                        <div class="edit-modal-actions">
+                            <button type="submit" class="btn-save">Enregistrer</button>
+                            <button type="button" class="btn-cancel" onclick="closeEditModal()">Annuler</button>
+                        </div>
+                    </form>
+                </div>
+            `;
+            modal.classList.add('active');
+        }
+
+        function closeEditModal() {
+            const modal = document.getElementById('edit-modal');
+            if (modal) modal.classList.remove('active');
+        }
+
+        function saveEditModal(projectId, todoId) {
+            const todos = loadTodos(projectId);
+            const todo = todos.find(t => t.id === todoId);
+            if (!todo) return;
+
+            todo.name = document.getElementById('edit-name').value.trim();
+            todo.list = document.getElementById('edit-list').value.trim();
+            todo.priority = document.getElementById('edit-priority').value;
+            const amount = parseFloat(document.getElementById('edit-amount').value);
+            todo.amount = isNaN(amount) ? null : amount;
+            
+            // Ajouter le préfixe https:// si absent
+            let link = document.getElementById('edit-link').value.trim();
+            if (link && !link.match(/^https?:\/\//i)) {
+                link = 'https://' + link;
+            }
+            todo.link = link;
+            todo.note = document.getElementById('edit-note').value.trim();
+
+            saveTodos(projectId, todos);
+            closeEditModal();
+            updateListSelect(projectId);
             renderTodos(projectId);
         }
 
         function toggleTodo(projectId, todoId) {
             const todos = loadTodos(projectId);
             const todo = todos.find(t => t.id === todoId);
-            if (todo) {
-                todo.completed = !todo.completed;
-                saveTodos(projectId, todos);
-                renderTodos(projectId);
+            if (!todo) return;
+
+            // Si on essaie de cocher, vérifier les enfants
+            if (!todo.completed) {
+                if (!canToggleTodo(todos, todoId, false)) {
+                    return;
+                }
             }
+
+            todo.completed = !todo.completed;
+            saveTodos(projectId, todos);
+            renderTodos(projectId);
         }
 
         function deleteTodo(projectId, todoId) {
-            if (confirm('Êtes-vous sûr de vouloir supprimer cette tâche ?')) {
-                const todos = loadTodos(projectId);
-                const filtered = todos.filter(t => t.id !== todoId);
+            const todos = loadTodos(projectId);
+            const descendants = getAllDescendants(todos, todoId);
+            const descendantCount = descendants.length;
+            
+            let message = 'Êtes-vous sûr de vouloir supprimer cette tâche ?';
+            if (descendantCount > 0) {
+                message += `\n\nAttention : Cette tâche a ${descendantCount} sous-tâche${descendantCount > 1 ? 's' : ''}. Celles-ci seront aussi supprimées.`;
+            }
+            
+            if (confirm(message)) {
+                // Supprimer la tâche et tous ses descendants
+                const idsToDelete = new Set([todoId]);
+                descendants.forEach(d => idsToDelete.add(d.id));
+                
+                const filtered = todos.filter(t => !idsToDelete.has(t.id));
                 saveTodos(projectId, filtered);
+                updateListSelect(projectId);
                 renderTodos(projectId);
             }
         }
@@ -797,6 +1744,348 @@
             const div = document.createElement('div');
             div.textContent = text;
             return div.innerHTML;
+        }
+
+        // Variables globales pour l'import d'image
+        let currentImageProjectId = null;
+        let extractedTodos = [];
+
+        function openImageImportModal(projectId) {
+            currentImageProjectId = projectId;
+            extractedTodos = [];
+            document.getElementById('image-import-modal').classList.add('active');
+            
+            // Réinitialiser le formulaire
+            document.getElementById('image-input').value = '';
+            document.getElementById('image-preview').style.display = 'none';
+            document.getElementById('ocr-container').style.display = 'none';
+            document.getElementById('todo-preview-container').style.display = 'none';
+            document.getElementById('import-actions-container').style.display = 'none';
+            document.getElementById('processing-container').style.display = 'none';
+            document.getElementById('no-import-actions').style.display = 'flex';
+
+            // Setup drag & drop
+            const uploadZone = document.getElementById('upload-zone');
+            uploadZone.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                uploadZone.classList.add('dragover');
+            });
+            uploadZone.addEventListener('dragleave', () => {
+                uploadZone.classList.remove('dragover');
+            });
+            uploadZone.addEventListener('drop', (e) => {
+                e.preventDefault();
+                uploadZone.classList.remove('dragover');
+                const file = e.dataTransfer.files[0];
+                if (file && file.type.startsWith('image/')) {
+                    document.getElementById('image-input').files = e.dataTransfer.files;
+                    handleImageSelect({ target: { files: e.dataTransfer.files } });
+                }
+            });
+        }
+
+        function closeImageImportModal() {
+            document.getElementById('image-import-modal').classList.remove('active');
+            currentImageProjectId = null;
+            extractedTodos = [];
+        }
+
+        function handleImageSelect(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = async (e) => {
+                const imageSrc = e.target.result;
+                
+                // Afficher l'aperçu
+                document.getElementById('preview-img').src = imageSrc;
+                document.getElementById('image-preview').style.display = 'block';
+                document.getElementById('no-import-actions').style.display = 'none';
+                
+                // Afficher le spinner
+                document.getElementById('processing-container').style.display = 'block';
+                document.getElementById('ocr-container').style.display = 'none';
+                document.getElementById('todo-preview-container').style.display = 'none';
+                document.getElementById('import-actions-container').style.display = 'none';
+
+                // OCR avec Tesseract
+                try {
+                    const { data: { text } } = await Tesseract.recognize(imageSrc, 'fra+eng');
+                    
+                    // Afficher le texte détecté
+                    document.getElementById('ocr-result').textContent = text;
+                    document.getElementById('ocr-container').style.display = 'block';
+                    
+                    // Extraire les tâches
+                    extractedTodos = parseTodoListFromText(text);
+                    
+                    // Afficher l'aperçu des tâches
+                    if (extractedTodos.length > 0) {
+                        displayTodoPreview();
+                        document.getElementById('import-actions-container').style.display = 'flex';
+                    } else {
+                        alert('Aucune tâche détectée. Vérifiez que l\'image contient une liste de tâches.');
+                    }
+                } catch (error) {
+                    console.error('Erreur OCR:', error);
+                    alert('Erreur lors de l\'analyse de l\'image : ' + error.message);
+                } finally {
+                    document.getElementById('processing-container').style.display = 'none';
+                }
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function parseTodoListFromText(text) {
+            const todos = [];
+            const lines = text.split('\\n').filter(line => line.trim());
+            
+            // Patterns pour détecter les tâches complétées
+            const completedPatterns = [
+                /^\\s*✓|^\\s*✔|^\\s*☑|strikethrough/i,
+                /^\\s*\\[x\\]|^\\s*\\(x\\)|^\\s*•\\s*(strikethrough)?/i
+            ];
+
+            lines.forEach((line, index) => {
+                const trimmed = line.trim();
+                if (!trimmed || trimmed.length < 3) return;
+
+                // Détecter si la tâche est complétée
+                const completed = /^\\s*✓|^\\s*✔|^\\s*☑|^\\s*\\[x\\]|^\\s*\\(x\\)/.test(line);
+                
+                // Nettoyer la ligne
+                let taskName = trimmed
+                    .replace(/^[✓✔☑\\[x\\]\\(x\\)•~-]+\\s*/, '') // Supprimer les marqueurs
+                    .replace(/^\\s*[-•*]\\s*/, '') // Supprimer les puces
+                    .trim();
+
+                // Détecter la priorité (emoji ou mots-clés)
+                let priority = 'medium';
+                if (/🟢|basse|low/i.test(taskName)) {
+                    priority = 'low';
+                    taskName = taskName.replace(/🟢|basse|low/i, '').trim();
+                } else if (/🔴|haute|high|urgent/i.test(taskName)) {
+                    priority = 'high';
+                    taskName = taskName.replace(/🔴|haute|high|urgent/i, '').trim();
+                }
+
+                // Détecter les montants (€, $, EUR)
+                const amountMatch = taskName.match(/(\\d+[.,]\\d{0,2})\\s*[€$EUR]/);
+                let amount = null;
+                if (amountMatch) {
+                    amount = parseFloat(amountMatch[1].replace(',', '.'));
+                    taskName = taskName.replace(amountMatch[0], '').trim();
+                }
+
+                if (taskName && taskName.length > 2) {
+                    todos.push({
+                        id: Date.now() + Math.random() * 1000000,
+                        list: 'Importée', // Liste par défaut
+                        name: taskName,
+                        priority: priority,
+                        amount: amount,
+                        link: '',
+                        note: '',
+                        completed: completed,
+                        parentId: null
+                    });
+                }
+            });
+
+            return todos;
+        }
+
+        function displayTodoPreview() {
+            const previewHtml = extractedTodos.map((todo, index) => `
+                <div class="todo-preview-item ${todo.completed ? 'completed' : ''}">
+                    <strong>${escapeHtml(todo.name)}</strong>
+                    ${todo.amount ? `<span> • ${todo.amount}€</span>` : ''}
+                    <span> • ${todo.priority === 'low' ? '🟢' : todo.priority === 'high' ? '🔴' : '🟡'}</span>
+                    ${todo.completed ? ' <span style="opacity: 0.5;">(complétée)</span>' : ''}
+                </div>
+            `).join('');
+            
+            document.getElementById('todo-preview-list').innerHTML = previewHtml;
+            document.getElementById('todo-preview-container').style.display = 'block';
+        }
+
+        function importFromImage() {
+            if (!currentImageProjectId || extractedTodos.length === 0) {
+                alert('Aucune tâche à importer');
+                return;
+            }
+
+            const todos = loadTodos(currentImageProjectId);
+            const existingCount = todos.length;
+
+            extractedTodos.forEach(todo => {
+                todos.push(todo);
+            });
+
+            saveTodos(currentImageProjectId, todos);
+            updateListSelect(currentImageProjectId);
+            renderTodos(currentImageProjectId);
+
+            alert(`${extractedTodos.length} tâche(s) importée(s) avec succès !`);
+            closeImageImportModal();
+        }
+
+        function exportTodos(projectId) {
+            const todos = loadTodos(projectId);
+            const now = new Date();
+            const dateStr = now.toISOString().split('T')[0];
+            
+            const exportData = {
+                project: projectId,
+                exportDate: now.toISOString(),
+                todosCount: todos.length,
+                todos: todos
+            };
+
+            const dataStr = JSON.stringify(exportData, null, 2);
+            const dataBlob = new Blob([dataStr], { type: 'application/json' });
+            const url = URL.createObjectURL(dataBlob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `GeekVanlife-${projectId}-${dateStr}.json`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            URL.revokeObjectURL(url);
+        }
+
+        function importTodos(projectId, event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const importedData = JSON.parse(e.target.result);
+                    
+                    // Validation basique
+                    if (!importedData.todos || !Array.isArray(importedData.todos)) {
+                        alert('Fichier invalide : structure incorrecte');
+                        return;
+                    }
+
+                    // Vérifier que le projet correspond
+                    if (importedData.project !== projectId) {
+                        const confirm_import = confirm(
+                            `Le fichier est pour le projet "${importedData.project}" mais vous êtes sur "${projectId}".\n\nVoulez-vous continuer l'import ? Les données existantes seront fusionnées.`
+                        );
+                        if (!confirm_import) {
+                            event.target.value = '';
+                            return;
+                        }
+                    }
+
+                    // Fusionner avec les données existantes
+                    const existingTodos = loadTodos(projectId);
+                    const mergedTodos = [...existingTodos];
+                    let importedCount = 0;
+                    let skippedCount = 0;
+                    
+                    // Ajouter les tâches importées avec validation et valeurs par défaut
+                    importedData.todos.forEach(importedTodo => {
+                        const exists = mergedTodos.some(t => t.id === importedTodo.id);
+                        if (exists) {
+                            skippedCount++;
+                            return;
+                        }
+
+                        // Normaliser les données avec valeurs par défaut
+                        const normalizedTodo = {
+                            id: importedTodo.id || Date.now() + Math.random(),
+                            list: (importedTodo.list || '').trim() || 'Sans liste',
+                            name: (importedTodo.name || '').trim() || '(Sans nom)',
+                            priority: ['low', 'medium', 'high'].includes(importedTodo.priority) ? importedTodo.priority : 'medium',
+                            amount: importedTodo.amount ? parseFloat(importedTodo.amount) : null,
+                            link: (importedTodo.link || '').trim() || '',
+                            note: (importedTodo.note || '').trim() || '',
+                            completed: importedTodo.completed === true ? true : false,
+                            parentId: importedTodo.parentId || null
+                        };
+
+                        // Valider que c'est un nombre valide pour amount
+                        if (normalizedTodo.amount !== null && isNaN(normalizedTodo.amount)) {
+                            normalizedTodo.amount = null;
+                        }
+
+                        mergedTodos.push(normalizedTodo);
+                        importedCount++;
+                    });
+
+                    saveTodos(projectId, mergedTodos);
+                    updateListSelect(projectId);
+                    renderTodos(projectId);
+                    
+                    let message = `Import réussi ! ${importedCount} tâche(s) importée(s).`;
+                    if (skippedCount > 0) {
+                        message += `\n${skippedCount} tâche(s) existante(s) ignorée(s).`;
+                    }
+                    alert(message);
+                    
+                    // Réinitialiser l'input file
+                    event.target.value = '';
+                } catch (error) {
+                    alert('Erreur lors de l\'import : fichier invalide ou corrompu');
+                    console.error(error);
+                    event.target.value = '';
+                }
+            };
+            reader.readAsText(file);
+        }
+
+        function calculateListEstimate(listTodos) {
+            const total = listTodos.reduce((sum, todo) => sum + (todo.amount || 0), 0);
+            return total;
+        }
+
+        // Helpers pour hiérarchie parent/enfant
+        function getTodoChildren(todos, parentId) {
+            return todos.filter(todo => todo.parentId === parentId);
+        }
+
+        function calculateChildrenAmount(todos, parentId) {
+            const children = getTodoChildren(todos, parentId);
+            return children.reduce((sum, child) => {
+                const childAmount = child.amount || 0;
+                const descendantAmount = calculateChildrenAmount(todos, child.id);
+                return sum + childAmount + descendantAmount;
+            }, 0);
+        }
+
+        function getAllDescendants(todos, parentId) {
+            const children = getTodoChildren(todos, parentId);
+            let descendants = [...children];
+            children.forEach(child => {
+                descendants = descendants.concat(getAllDescendants(todos, child.id));
+            });
+            return descendants;
+        }
+
+        function canToggleTodo(todos, todoId, completed) {
+            if (completed) {
+                // Si on veut décoche une tâche, toujours possible
+                return true;
+            }
+            
+            // Si on veut cocher une tâche parent, vérifier que tous les enfants sont cochés
+            const children = getTodoChildren(todos, todoId);
+            if (children.length === 0) {
+                // Pas d'enfants, toujours possible
+                return true;
+            }
+            
+            // Vérifier que tous les enfants sont cochés
+            const allChildrenCompleted = children.every(child => child.completed);
+            if (!allChildrenCompleted) {
+                alert('Impossible de cocher cette tâche : veuillez d\'abord cocher toutes les sous-tâches');
+                return false;
+            }
+            return true;
         }
 
         function renderTodos(projectId) {
@@ -819,38 +2108,230 @@
                 todosByList[todo.list].push(todo);
             });
 
-            listsContainer.innerHTML = Object.entries(todosByList).map(([listName, listTodos]) => `
-                <div class="list-section">
-                    <div class="list-header">
-                        <span>${escapeHtml(listName)}</span>
-                        <span class="list-count">${listTodos.length} tâche${listTodos.length > 1 ? 's' : ''}</span>
+            // Fonction helper pour rendre une tâche et ses enfants
+            const renderTodoHierarchy = (todo, allTodos, depth = 0) => {
+                const children = getTodoChildren(allTodos, todo.id);
+                const hasChildren = children.length > 0;
+                
+                return `
+                    <div class="todo-item ${project.displayColor} ${todo.completed ? 'completed' : ''} todo-depth-${depth}"
+                         draggable="true"
+                         ondragstart="startTodoDrag(event, '${projectId}', '${escapeHtml(todo.list)}', ${todo.id})"
+                         ondragover="overTodoDrag(event)"
+                         ondrop="dropTodo(event, '${projectId}', '${escapeHtml(todo.list)}', ${todo.id})"
+                         ondragleave="leaveTodoDrag(event)"
+                         ondragend="endTodoDrag(event)"
+                         onclick="toggleTodoExpand(event, '${projectId}', ${todo.id})" 
+                         data-todo-id="${todo.id}" data-list-name="${escapeHtml(todo.list)}">
+                        <input type="checkbox" class="todo-checkbox" ${todo.completed ? 'checked' : ''} onchange="toggleTodo('${projectId}', ${todo.id}); event.stopPropagation();">
+                        <div class="todo-content">
+                            <div class="todo-name">${escapeHtml(todo.name)} ${hasChildren ? `<span class="todo-children-count">(${children.length})</span>` : ''}</div>
+                            <div class="todo-meta">
+                                <span class="priority-badge ${getPriorityClass(todo.priority)}" title="Priorité: ${todo.priority}"></span>
+                                ${todo.amount ? `<span class="todo-amount">${todo.amount.toFixed(2)}€</span>` : ''}
+                                ${hasChildren ? `
+                                    <span class="todo-separator-inline"></span>
+                                    <span class="todo-children-amount">
+                                        <i class="fas fa-sitemap"></i> ${calculateChildrenAmount(allTodos, todo.id).toFixed(2)}€
+                                    </span>
+                                ` : ''}
+                                ${todo.link ? `<a href="${escapeHtml(todo.link)}" target="_blank" class="todo-link-icon" title="${escapeHtml(todo.link)}"><i class="fas fa-link"></i></a>` : ''}
+                            </div>
+                            ${todo.note ? `<div class="todo-note-preview">${escapeHtml(todo.note)}</div>` : ''}
+                        </div>
+                        <div class="todo-actions" onclick="event.stopPropagation();">
+                            <button class="action-icon action-icon-edit" onclick="openEditModal('${projectId}', ${todo.id})" title="Éditer"><i class="fas fa-edit"></i></button>
+                            <button class="action-icon action-icon-delete" onclick="deleteTodo('${projectId}', ${todo.id})" title="Supprimer"><i class="fas fa-trash-alt"></i></button>
+                        </div>
+                    </div>
+                    ${children.map(child => renderTodoHierarchy(child, allTodos, depth + 1)).join('')}
+                `;
+            };
+
+            listsContainer.innerHTML = Object.entries(todosByList).map(([listName, listTodos], index) => {
+                const estimate = calculateListEstimate(listTodos);
+                // Afficher seulement les tâches racines (sans parent)
+                const rootTodos = listTodos.filter(todo => !todo.parentId);
+                
+                return `
+                <div class="list-section" draggable="true" data-list-name="${escapeHtml(listName)}" ondragstart="startListDrag(event, '${projectId}', '${escapeHtml(listName)}')"
+                     ondragover="overListDrag(event)" ondrop="dropList(event, '${projectId}')" ondragleave="leaveListDrag(event)" ondragend="endListDrag(event)">
+                    <div class="list-header" onclick="toggleListCollapse(event, this)">
+                        <div class="list-header-left">
+                            <span class="list-toggle-icon"><i class="fas fa-chevron-down"></i></span>
+                            <span>${escapeHtml(listName)}</span>
+                        </div>
+                        <div class="list-stats">
+                            <span class="list-count">${listTodos.length} tâche${listTodos.length > 1 ? 's' : ''}</span>
+                            <span class="list-estimate"><i class="fas fa-calculator"></i> ≈ ${estimate > 0 ? estimate.toFixed(2) + '€' : '0€'}</span>
+                        </div>
                     </div>
                     <div class="list-items">
-                        ${listTodos.map(todo => `
-                            <div class="todo-item ${project.displayColor} ${todo.completed ? 'completed' : ''}">
-                                <input type="checkbox" class="todo-checkbox" ${todo.completed ? 'checked' : ''} onchange="toggleTodo('${projectId}', ${todo.id})">
-                                <div class="todo-content">
-                                    <div class="todo-name">${escapeHtml(todo.name)}</div>
-                                    <div class="todo-meta">
-                                        <span class="priority-badge ${getPriorityClass(todo.priority)}" title="Priorité: ${todo.priority}"></span>
-                                        ${todo.amount ? `<span class="todo-amount">${todo.amount.toFixed(2)}€</span>` : ''}
-                                    </div>
-                                </div>
-                                ${todo.note ? `<div class="todo-note">${escapeHtml(todo.note)}</div>` : ''}
-                                <div class="todo-actions">
-                                    ${todo.link ? `<a href="${escapeHtml(todo.link)}" target="_blank" class="action-icon action-icon-link" title="Ouvrir le lien">🔗</a>` : ''}
-                                    <button class="action-icon action-icon-delete" onclick="deleteTodo('${projectId}', ${todo.id})" title="Supprimer">🗑️</button>
-                                </div>
-                            </div>
-                        `).join('')}
+                        ${rootTodos.map(todo => renderTodoHierarchy(todo, listTodos, 0)).join('')}
                     </div>
                 </div>
-            `).join('');
+                `;
+            }).join('');
+        }
+
+        function getHasDetails(todo) {
+            return false;
+        }
+
+        function toggleTodoExpand(event, projectId, todoId) {
+            // Ne pas expand si on clique sur une action
+            if (event.target.closest('.todo-actions')) return;
+            
+            const todoElement = event.currentTarget;
+            if (getHasDetails(loadTodos(projectId).find(t => t.id === todoId))) {
+                todoElement.classList.toggle('expanded');
+            }
+        }
+
+        // Drag & Drop pour listes
+        let draggedListName = null;
+
+        function startListDrag(event, projectId, listName) {
+            draggedListName = listName;
+            event.currentTarget.classList.add('dragging');
+            event.dataTransfer.effectAllowed = 'move';
+        }
+
+        function overListDrag(event) {
+            event.preventDefault();
+            event.currentTarget.classList.add('drag-over');
+            event.dataTransfer.dropEffect = 'move';
+        }
+
+        function leaveListDrag(event) {
+            event.currentTarget.classList.remove('drag-over');
+        }
+
+        function dropList(event, projectId) {
+            event.preventDefault();
+            event.currentTarget.classList.remove('drag-over');
+            
+            if (!draggedListName) return;
+
+            const todos = loadTodos(projectId);
+            const targetListName = event.currentTarget.dataset.listName;
+            
+            if (draggedListName === targetListName) return;
+
+            // Réorganiser les listes (ici on pourrait implémenter une logique d'ordre)
+            // Pour maintenant, on se contente de laisser le système en place
+            draggedListName = null;
+        }
+
+        function endListDrag(event) {
+            event.currentTarget.classList.remove('dragging');
+            draggedListName = null;
+        }
+
+        function toggleListCollapse(event, header) {
+            if (event.target.closest('.list-toggle-icon') || event.currentTarget === header) {
+                const section = header.closest('.list-section');
+                section.classList.toggle('collapsed');
+            }
+        }
+
+        // Drag & Drop pour tâches
+        let draggedTodoId = null;
+        let draggedTodoList = null;
+        let draggedProjectId = null;
+
+        function startTodoDrag(event, projectId, listName, todoId) {
+            draggedTodoId = todoId;
+            draggedTodoList = listName;
+            draggedProjectId = projectId;
+            event.currentTarget.classList.add('dragging');
+            event.dataTransfer.effectAllowed = 'move';
+        }
+
+        function overTodoDrag(event) {
+            event.preventDefault();
+            if (event.currentTarget.classList.contains('todo-item')) {
+                event.currentTarget.classList.add('drag-over');
+            }
+            event.dataTransfer.dropEffect = 'move';
+        }
+
+        function leaveTodoDrag(event) {
+            if (event.currentTarget.classList.contains('todo-item')) {
+                event.currentTarget.classList.remove('drag-over');
+            }
+        }
+
+        function dropTodo(event, projectId, targetListName, targetTodoId) {
+            event.preventDefault();
+            event.currentTarget.classList.remove('drag-over');
+
+            if (draggedTodoId === null || draggedProjectId !== projectId) return;
+
+            // Impossible de déplacer une tâche sur elle-même
+            if (draggedTodoId === targetTodoId) return;
+
+            const todos = loadTodos(projectId);
+            const draggedTodo = todos.find(t => t.id === draggedTodoId);
+            const targetTodo = todos.find(t => t.id === targetTodoId);
+
+            if (!draggedTodo || !targetTodo) return;
+
+            // Vérifier si on essaie de faire d'une tâche enfant le parent de sa propre tâche parent
+            const descendants = getAllDescendants(todos, draggedTodoId);
+            if (descendants.some(d => d.id === targetTodoId)) {
+                alert('Impossible : une tâche ne peut pas être le parent d\'une de ses tâches parentes.');
+                draggedTodoId = null;
+                draggedTodoList = null;
+                draggedProjectId = null;
+                return;
+            }
+
+            // Si on drop sur une autre tâche dans la même liste, demander confirmation pour créer relation parent/enfant
+            if (draggedTodoList === targetListName && draggedTodoId !== targetTodoId) {
+                const confirmation = confirm(`Faire de "${escapeHtml(targetTodo.name)}" la tâche parente de "${escapeHtml(draggedTodo.name)}" ?`);
+                
+                if (confirmation) {
+                    // Créer la relation parent/enfant
+                    draggedTodo.parentId = targetTodoId;
+                    saveTodos(projectId, todos);
+                    renderTodos(projectId);
+                } else {
+                    // Sinon, faire un simple réarrangement de positions
+                    const draggedIndex = todos.findIndex(t => t.id === draggedTodoId);
+                    const targetIndex = todos.findIndex(t => t.id === targetTodoId);
+
+                    if (draggedIndex !== -1 && targetIndex !== -1 && draggedIndex !== targetIndex) {
+                        const [movedTodo] = todos.splice(draggedIndex, 1);
+                        const newIndex = draggedIndex < targetIndex ? targetIndex - 1 : targetIndex;
+                        todos.splice(newIndex, 0, movedTodo);
+                        saveTodos(projectId, todos);
+                        renderTodos(projectId);
+                    }
+                }
+            } else if (draggedTodoList !== targetListName) {
+                // Déplacement vers une liste différente
+                draggedTodo.list = targetListName;
+                draggedTodo.parentId = null; // Réinitialiser le parent si changement de liste
+                saveTodos(projectId, todos);
+                renderTodos(projectId);
+            }
+            
+            draggedTodoId = null;
+            draggedTodoList = null;
+            draggedProjectId = null;
+        }
+
+        function endTodoDrag(event) {
+            event.currentTarget.classList.remove('dragging');
+            draggedTodoId = null;
+            draggedTodoList = null;
+            draggedProjectId = null;
         }
 
         document.addEventListener('DOMContentLoaded', () => {
             ['forkx', 'geekomobile', 'geekagne'].forEach(projectId => {
-                setupAutocomplete(projectId);
+                updateListSelect(projectId);
                 renderTodos(projectId);
                 document.querySelectorAll(`#${projectId}-tab .priority-btn[data-priority="medium"]`).forEach(b => b.classList.add('selected'));
             });
