@@ -1038,12 +1038,20 @@
 
         // Share Code Functions (from todos.html)
         function generateSyncCode() {
-            const code = generateShareCode();
-            const allAppData = getAllApplicationData();
-            saveShareCode(code, allAppData);
+            // Vérifier s'il existe déjà un code valide
+            let code = localStorage.getItem('current_share_code');
+            
+            // Générer un nouveau code seulement s'il n'existe pas ou est expiré
+            if (!code || !loadShareCode(code)) {
+                code = generateShareCode();
+                const allAppData = getAllApplicationData();
+                saveShareCode(code, allAppData);
+                localStorage.setItem('current_share_code', code);
+            }
+            
             document.getElementById('sync-code').value = code;
             document.getElementById('sync-code-display').style.display = 'block';
-            showNotification('Code généré ! Vous pouvez le copier et le partager.', 'success');
+            showNotification('Code prêt ! Vous pouvez le copier et le partager.', 'success');
         }
 
         function copySyncCode() {

@@ -1614,10 +1614,16 @@
             const modal = document.getElementById('sync-modal');
             modal.classList.add('active');
             
-            // Générer le code de partage
-            const shareCode = generateShareCode();
-            const allAppData = getAllApplicationData();
-            saveShareCode(shareCode, allAppData);
+            // Vérifier s'il existe déjà un code valide
+            let shareCode = localStorage.getItem('current_share_code');
+            
+            // Générer un nouveau code seulement s'il n'existe pas ou est expiré
+            if (!shareCode || !loadShareCode(shareCode)) {
+                shareCode = generateShareCode();
+                const allAppData = getAllApplicationData();
+                saveShareCode(shareCode, allAppData);
+                localStorage.setItem('current_share_code', shareCode);
+            }
             
             document.getElementById('sync-code').value = shareCode;
             document.getElementById('sync-code-input').value = '';
