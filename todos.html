@@ -1017,6 +1017,41 @@
 
         #image-input {
             display: none;
+            position: fixed;
+            top: -9999px;
+            left: -9999px;
+        }
+        
+        /* Rendre l'input accessible sur mobile via un bouton visible */
+        @media (max-width: 768px) {
+            .image-upload-zone {
+                cursor: pointer;
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                user-select: none;
+            }
+        }
+
+        .mobile-upload-btn {
+            width: 100%;
+            padding: 12px;
+            margin-top: 12px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: background 0.2s ease;
+        }
+
+        .mobile-upload-btn:active {
+            background: #5568d3;
         }
 
         .image-preview {
@@ -1248,9 +1283,8 @@
                         <span>Ajouter une nouvelle tâche</span>
                         <div class="form-title-actions">
                             <button class="btn-action-icon" onclick="exportTodos('forkx')" title="Exporter les tâches"><i class="fas fa-download"></i></button>
-                            <button class="btn-action-icon" onclick="document.getElementById('forkx-import-file').click()" title="Importer les tâches"><i class="fas fa-upload"></i></button>
+                            <button class="btn-action-icon" onclick="openJsonImportModal('forkx')" title="Importer les tâches"><i class="fas fa-upload"></i></button>
                             <button class="btn-action-icon" onclick="openImageImportModal('forkx')" title="Importer depuis une image"><i class="fas fa-image"></i></button>
-                            <input type="file" id="forkx-import-file" accept=".json" onchange="importTodos('forkx', event)">
                         </div>
                     </div>
                     <div class="form-content">
@@ -1314,9 +1348,8 @@
                         <span>Ajouter une nouvelle tâche</span>
                         <div class="form-title-actions">
                             <button class="btn-action-icon" onclick="exportTodos('geekomobile')" title="Exporter les tâches"><i class="fas fa-download"></i></button>
-                            <button class="btn-action-icon" onclick="document.getElementById('geekomobile-import-file').click()" title="Importer les tâches"><i class="fas fa-upload"></i></button>
+                            <button class="btn-action-icon" onclick="openJsonImportModal('geekomobile')" title="Importer les tâches"><i class="fas fa-upload"></i></button>
                             <button class="btn-action-icon" onclick="openImageImportModal('geekomobile')" title="Importer depuis une image"><i class="fas fa-image"></i></button>
-                            <input type="file" id="geekomobile-import-file" accept=".json" onchange="importTodos('geekomobile', event)">
                         </div>
                     </div>
                     <div class="form-content">
@@ -1380,9 +1413,8 @@
                         <span>Ajouter une nouvelle tâche</span>
                         <div class="form-title-actions">
                             <button class="btn-action-icon" onclick="exportTodos('geekagne')" title="Exporter les tâches"><i class="fas fa-download"></i></button>
-                            <button class="btn-action-icon" onclick="document.getElementById('geekagne-import-file').click()" title="Importer les tâches"><i class="fas fa-upload"></i></button>
+                            <button class="btn-action-icon" onclick="openJsonImportModal('geekagne')" title="Importer les tâches"><i class="fas fa-upload"></i></button>
                             <button class="btn-action-icon" onclick="openImageImportModal('geekagne')" title="Importer depuis une image"><i class="fas fa-image"></i></button>
-                            <input type="file" id="geekagne-import-file" accept=".json" onchange="importTodos('geekagne', event)">
                         </div>
                     </div>
                     <div class="form-content">
@@ -1453,7 +1485,12 @@
                 <div class="upload-subtext">ou glissez-déposez une image ici</div>
             </div>
             
-            <input type="file" id="image-input" accept="image/*" onchange="handleImageSelect(event)">
+            <input type="file" id="image-input" accept="image/*" capture="environment" onchange="handleImageSelect(event)">
+            
+            <!-- Bouton mobile alternatif -->
+            <button id="mobile-upload-btn" class="mobile-upload-btn" onclick="triggerFileInput()" style="display:none;">
+                <i class="fas fa-camera"></i> Sélectionner depuis la galerie
+            </button>
             
             <div id="processing-container" style="display:none;">
                 <div class="processing-indicator">
@@ -1483,6 +1520,25 @@
 
             <div id="no-import-actions" class="import-actions">
                 <button class="btn-close-import" onclick="closeImageImportModal()" style="flex:1;">Fermer</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal d'import JSON -->
+    <div id="json-import-modal" class="image-import-modal">
+        <div class="image-import-content">
+            <div class="image-import-header">📥 Importer un fichier JSON</div>
+            
+            <div class="image-upload-zone" id="json-upload-zone" onclick="document.getElementById('json-import-input').click()">
+                <div class="upload-icon"><i class="fas fa-file-import"></i></div>
+                <div class="upload-text">Cliquez pour sélectionner un fichier</div>
+                <div class="upload-subtext">ou glissez-déposez un fichier JSON ici</div>
+            </div>
+            
+            <input type="file" id="json-import-input" accept=".json" onchange="handleJsonImportSelect(event)">
+            
+            <div id="json-import-actions" class="import-actions">
+                <button class="btn-close-import" onclick="closeJsonImportModal()" style="flex:1;">Fermer</button>
             </div>
         </div>
     </div>
@@ -1764,6 +1820,15 @@
             document.getElementById('processing-container').style.display = 'none';
             document.getElementById('no-import-actions').style.display = 'flex';
 
+            // Détecter si c'est un mobile pour afficher le bouton alternatif
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            const mobileBtn = document.getElementById('mobile-upload-btn');
+            if (isMobile) {
+                mobileBtn.style.display = 'flex';
+            } else {
+                mobileBtn.style.display = 'none';
+            }
+
             // Setup drag & drop
             const uploadZone = document.getElementById('upload-zone');
             uploadZone.addEventListener('dragover', (e) => {
@@ -1784,10 +1849,70 @@
             });
         }
 
+        function triggerFileInput() {
+            document.getElementById('image-input').click();
+        }
+
         function closeImageImportModal() {
             document.getElementById('image-import-modal').classList.remove('active');
             currentImageProjectId = null;
             extractedTodos = [];
+        }
+
+        function openJsonImportModal(projectId) {
+            currentImageProjectId = projectId; // Réutiliser la même variable
+            document.getElementById('json-import-modal').classList.add('active');
+            
+            // Réinitialiser le formulaire
+            document.getElementById('json-import-input').value = '';
+            
+            // Setup drag & drop pour JSON
+            const uploadZone = document.getElementById('json-upload-zone');
+            uploadZone.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                uploadZone.classList.add('dragover');
+            });
+            uploadZone.addEventListener('dragleave', () => {
+                uploadZone.classList.remove('dragover');
+            });
+            uploadZone.addEventListener('drop', (e) => {
+                e.preventDefault();
+                uploadZone.classList.remove('dragover');
+                const file = e.dataTransfer.files[0];
+                if (file && file.type === 'application/json') {
+                    document.getElementById('json-import-input').files = e.dataTransfer.files;
+                    handleJsonImportSelect({ target: { files: e.dataTransfer.files } });
+                }
+            });
+        }
+
+        function closeJsonImportModal() {
+            document.getElementById('json-import-modal').classList.remove('active');
+            currentImageProjectId = null;
+        }
+
+        function handleJsonImportSelect(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                try {
+                    const projectId = currentImageProjectId;
+                    if (!projectId) {
+                        alert('Erreur : projet non sélectionné');
+                        return;
+                    }
+                    
+                    // Appeler la fonction d'import JSON existante
+                    importTodos(projectId, { target: { files: [file] } });
+                    closeJsonImportModal();
+                } catch (error) {
+                    alert('Erreur lors de l\'import : fichier invalide ou corrompu');
+                    console.error(error);
+                }
+            };
+            reader.readAsText(file);
         }
 
         function handleImageSelect(event) {
