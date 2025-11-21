@@ -2658,6 +2658,42 @@
             draggedProjectId = null;
         }
 
+        // Exposer les fonctions au scope global pour les appels onclick HTML
+        window.switchTab = switchTab;
+        window.addTodo = addTodo;
+        window.saveTodos = saveTodos;
+        window.loadTodos = loadTodos;
+        window.renderTodos = renderTodos;
+        window.editTodo = editTodo;
+        window.deleteTodo = deleteTodo;
+        window.toggleTodo = toggleTodo;
+        window.expandTodo = expandTodo;
+        window.openEditModal = openEditModal;
+        window.closeEditModal = closeEditModal;
+        window.saveTodoEdit = saveTodoEdit;
+        window.openJsonImportModal = openJsonImportModal;
+        window.closeJsonImportModal = closeJsonImportModal;
+        window.importJsonTodos = importJsonTodos;
+        window.exportTodos = exportTodos;
+        window.openImageImportModal = openImageImportModal;
+        window.closeImageImportModal = closeImageImportModal;
+        window.openListModal = openListModal;
+        window.updateListSelect = updateListSelect;
+        window.selectPriority = selectPriority;
+        window.toggleAccordion = toggleAccordion;
+        window.dragStartTodo = dragStartTodo;
+        window.dragOverTodo = dragOverTodo;
+        window.dragOverList = dragOverList;
+        window.dragOverTodoList = dragOverTodoList;
+        window.leaveTodoDrag = leaveTodoDrag;
+        window.dropTodo = dropTodo;
+        window.dragStartList = dragStartList;
+        window.dragOverListContainer = dragOverListContainer;
+        window.dropList = dropList;
+        window.dropListContainer = dropListContainer;
+        window.endListDrag = endListDrag;
+        window.endTodoDrag = endTodoDrag;
+
         document.addEventListener('DOMContentLoaded', () => {
             ['forkx', 'geekomobile', 'geekagne'].forEach(projectId => {
                 updateListSelect(projectId);
