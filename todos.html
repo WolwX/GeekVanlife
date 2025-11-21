@@ -2526,18 +2526,26 @@
         }
 
         function renderTodos(projectId) {
+            console.log(`🎨 renderTodos appelé pour ${projectId}`);
             const project = projects[projectId];
             const todos = loadTodos(projectId);
+            console.log(`📊 ${projectId}: ${todos.length} tâches trouvées`);
             const listsContainer = document.getElementById(projectId + '-lists');
             const emptyState = document.getElementById(projectId + '-empty');
-
-            if (todos.length === 0) {
-                listsContainer.innerHTML = '';
-                emptyState.style.display = 'block';
+            
+            if (!listsContainer) {
+                console.error(`❌ Container ${projectId}-lists introuvable !`);
                 return;
             }
 
-            emptyState.style.display = 'none';
+            if (todos.length === 0) {
+                console.log(`ℹ️ ${projectId}: Aucune tâche, affichage état vide`);
+                listsContainer.innerHTML = '';
+                if (emptyState) emptyState.style.display = 'block';
+                return;
+            }
+
+            if (emptyState) emptyState.style.display = 'none';
 
             const todosByList = {};
             todos.forEach(todo => {
