@@ -1836,18 +1836,23 @@
                     const dbRef = window.firebaseRef(window.firebaseDB, `todos/${projectId}`);
                     return window.firebaseGet(dbRef).then((snapshot) => {
                         if (snapshot.exists()) {
-                            const remoteData = snapshot.val().data;
-                            if (remoteData && Array.isArray(remoteData)) {
+                            const firebaseData = snapshot.val();
+                            const remoteData = firebaseData && firebaseData.data ? firebaseData.data : [];
+                            if (Array.isArray(remoteData)) {
                                 const storageKey = projects[projectId].storageKey;
                                 localStorage.setItem(storageKey, JSON.stringify(remoteData));
-                                console.log(`✅ Données Firebase chargées pour ${projectId}`);
+                                console.log(`✅ Données Firebase chargées pour ${projectId} (${remoteData.length} tâches)`);
+                            } else {
+                                console.warn(`Format invalide pour ${projectId}:`, remoteData);
                             }
+                        } else {
+                            console.log(`ℹ️ Aucune donnée Firebase pour ${projectId}`);
                         }
                     }).catch(error => {
-                        console.warn(`Erreur lecture Firebase ${projectId}:`, error);
+                        console.error(`❌ Erreur lecture Firebase ${projectId}:`, error);
                     });
                 } catch (error) {
-                    console.warn(`Erreur Firebase ${projectId}:`, error);
+                    console.error(`❌ Erreur Firebase ${projectId}:`, error);
                     return Promise.resolve();
                 }
             }));
@@ -2765,25 +2770,32 @@
         window.watchFirebaseChanges = watchFirebaseChanges;
 
         document.addEventListener('DOMContentLoaded', () => {
-            ['forkx', 'geekomobile', 'geekagne'].forEach(projectId => {
-                updateListSelect(projectId);
-                renderTodos(projectId);
-                document.querySelectorAll(`#${projectId}-tab .priority-btn[data-priority="medium"]`).forEach(b => b.classList.add('selected'));
-            });
-            
-            // Charger les données Firebase au démarrage
+            // D'abord charger les données Firebase
             loadDataFromFirebase().then(() => {
-                // Après avoir chargé les données Firebase, afficher les onglets
+                console.log('✅ Données Firebase chargées dans localStorage');
+                
+                // Ensuite seulement afficher les onglets
                 ['forkx', 'geekomobile', 'geekagne'].forEach(projectId => {
+                    updateListSelect(projectId);
                     renderTodos(projectId);
+                    document.querySelectorAll(`#${projectId}-tab .priority-btn[data-priority="medium"]`).forEach(b => b.classList.add('selected'));
                 });
+                
                 console.log('✅ Synchronisation Firebase au démarrage terminée');
+                
+                // Écouter les changements en temps réel
+                setTimeout(() => {
+                    watchFirebaseChanges();
+                }, 500);
+            }).catch(error => {
+                console.error('Erreur chargement Firebase:', error);
+                // Fallback: afficher les données locales même si Firebase échoue
+                ['forkx', 'geekomobile', 'geekagne'].forEach(projectId => {
+                    updateListSelect(projectId);
+                    renderTodos(projectId);
+                    document.querySelectorAll(`#${projectId}-tab .priority-btn[data-priority="medium"]`).forEach(b => b.classList.add('selected'));
+                });
             });
-            
-            // Écouter les changements en temps réel
-            setTimeout(() => {
-                watchFirebaseChanges();
-            }, 2000);
         });
     </script>
 </body>
