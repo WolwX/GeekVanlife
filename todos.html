@@ -1246,7 +1246,6 @@
         <div class="header">
             <h1>📋 To Do Lists</h1>
             <p class="subtitle">Centre de gestion des tâches pour tous les projets GeekVanlife</p>
-            <div id="firebase-status" style="font-size: 0.8rem; margin-top: 5px; color: #fff;">🔄 Chargement Firebase...</div>
         </div>
 
         <div class="tabs-container">
@@ -1555,14 +1554,16 @@
         </div>
     </div>
 
-    <!-- Firebase SDK (global) -->
+    <!-- Firebase SDK (global) - DÉSACTIVÉ
     <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-database-compat.js"></script>
+    -->
 
     <script>
         // ============================================
-        // FIREBASE CONFIGURATION (using compat SDK)
+        // FIREBASE CONFIGURATION - DÉSACTIVÉ
         // ============================================
+        /*
         const firebaseConfig = {
             apiKey: "AIzaSyD7PUqS5GGpEuQiZhlaiwhBpiJps5K8Jec",
             authDomain: "geekvanlife.firebaseapp.com",
@@ -1605,6 +1606,7 @@
             console.error('Firebase initialization error:', error);
             document.getElementById('firebase-status').innerHTML = '❌ Erreur init Firebase';
         }
+        */
 
         const projects = {
             forkx: { storageKey: 'forkx-todos', displayColor: 'forkx' },
@@ -1790,6 +1792,7 @@
         }
 
         // Écouter les changements Firebase en temps réel
+        /* FIREBASE SYNC - DÉSACTIVÉ
         function watchFirebaseChanges() {
             if (!window.firebaseDB || !window.firebaseOnValue) {
                 console.warn('Firebase watch: Firebase not available');
@@ -1893,11 +1896,13 @@
                 setTimeout(() => { if (statusEl) statusEl.style.display = 'none'; }, 3000);
             });
         }
+        */
 
         function saveTodos(projectId, todos) {
             const storageKey = projects[projectId].storageKey;
             localStorage.setItem(storageKey, JSON.stringify(todos));
             
+            /* FIREBASE SYNC - DÉSACTIVÉ
             // Synchronise avec Firebase
             if (window.firebaseDB) {
                 try {
@@ -1914,6 +1919,7 @@
                     console.warn('Firebase not available, using local storage only:', error);
                 }
             }
+            */
         }
 
         function addTodo(projectId) {
@@ -2807,46 +2813,18 @@
         window.loadDataFromFirebase = loadDataFromFirebase;
 
         document.addEventListener('DOMContentLoaded', () => {
-            console.log('🔵 DOMContentLoaded démarré');
+            console.log('🔵 Page chargée - Affichage des todos depuis localStorage');
             
-            // Afficher d'abord les données locales (localStorage)
+            // Charger et afficher les données de tous les projets
             ['forkx', 'geekomobile', 'geekagne'].forEach(projectId => {
                 updateListSelect(projectId);
                 renderTodos(projectId);
                 document.querySelectorAll(`#${projectId}-tab .priority-btn[data-priority="medium"]`).forEach(b => b.classList.add('selected'));
             });
             
-            // Activer l'onglet ForkX par défaut APRÈS avoir rendu les données
+            // Activer l'onglet ForkX par défaut
             switchTab('forkx');
-            console.log('✅ UI affichée avec données locales + onglet ForkX activé');
-            
-            // Puis charger Firebase en arrière-plan et MAJ si différent
-            console.log('🔵 Démarrage chargement Firebase...');
-            console.log('🔍 Vérification Firebase:', { 
-                firebaseDB: !!window.firebaseDB, 
-                firebaseRef: !!window.firebaseRef,
-                firebaseGet: !!window.firebaseGet,
-                firebaseSet: !!window.firebaseSet,
-                firebaseOnValue: !!window.firebaseOnValue
-            });
-            
-            loadDataFromFirebase().then(() => {
-                console.log('✅ Données Firebase chargées dans localStorage');
-                
-                // Après Firebase, rafraîchir l'affichage
-                ['forkx', 'geekomobile', 'geekagne'].forEach(projectId => {
-                    renderTodos(projectId);
-                });
-                console.log('✅ UI rafraîchie avec données Firebase');
-                
-                // Écouter les changements en temps réel
-                setTimeout(() => {
-                    console.log('🔵 Activation real-time sync...');
-                    watchFirebaseChanges();
-                }, 500);
-            }).catch(error => {
-                console.error('❌ Erreur chargement Firebase:', error);
-            });
+            console.log('✅ Interface chargée - Onglet ForkX activé');
         });
     </script>
 </body>
