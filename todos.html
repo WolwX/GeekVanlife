@@ -1581,15 +1581,29 @@
         let firebaseOnValue = null;
 
         try {
-            firebase.initializeApp(firebaseConfig);
-            firebaseDB = firebase.database();
-            firebaseRef = (path) => firebaseDB.ref(path);
-            firebaseSet = (ref, data) => ref.set(data);
-            firebaseGet = (ref) => ref.once('value');
-            firebaseOnValue = (ref, callback, errorCallback) => ref.on('value', callback, errorCallback);
-            console.log('✅ Firebase initialized successfully');
+            if (typeof firebase === 'undefined') {
+                console.error('❌ Firebase SDK not loaded');
+                document.getElementById('firebase-status').innerHTML = '❌ Firebase SDK non chargé';
+            } else {
+                firebase.initializeApp(firebaseConfig);
+                firebaseDB = firebase.database();
+                firebaseRef = (path) => firebaseDB.ref(path);
+                firebaseSet = (ref, data) => ref.set(data);
+                firebaseGet = (ref) => ref.once('value');
+                firebaseOnValue = (ref, callback, errorCallback) => ref.on('value', callback, errorCallback);
+                
+                // Exposer globalement
+                window.firebaseDB = firebaseDB;
+                window.firebaseRef = firebaseRef;
+                window.firebaseSet = firebaseSet;
+                window.firebaseGet = firebaseGet;
+                window.firebaseOnValue = firebaseOnValue;
+                
+                console.log('✅ Firebase initialized successfully');
+            }
         } catch (error) {
             console.error('Firebase initialization error:', error);
+            document.getElementById('firebase-status').innerHTML = '❌ Erreur init Firebase';
         }
 
         const projects = {
@@ -2795,19 +2809,27 @@
         document.addEventListener('DOMContentLoaded', () => {
             console.log('🔵 DOMContentLoaded démarré');
             
-            // Activer l'onglet ForkX par défaut
-            switchTab('forkx');
-            
             // Afficher d'abord les données locales (localStorage)
             ['forkx', 'geekomobile', 'geekagne'].forEach(projectId => {
                 updateListSelect(projectId);
                 renderTodos(projectId);
                 document.querySelectorAll(`#${projectId}-tab .priority-btn[data-priority="medium"]`).forEach(b => b.classList.add('selected'));
             });
-            console.log('✅ UI affichée avec données locales');
+            
+            // Activer l'onglet ForkX par défaut APRÈS avoir rendu les données
+            switchTab('forkx');
+            console.log('✅ UI affichée avec données locales + onglet ForkX activé');
             
             // Puis charger Firebase en arrière-plan et MAJ si différent
             console.log('🔵 Démarrage chargement Firebase...');
+            console.log('🔍 Vérification Firebase:', { 
+                firebaseDB: !!window.firebaseDB, 
+                firebaseRef: !!window.firebaseRef,
+                firebaseGet: !!window.firebaseGet,
+                firebaseSet: !!window.firebaseSet,
+                firebaseOnValue: !!window.firebaseOnValue
+            });
+            
             loadDataFromFirebase().then(() => {
                 console.log('✅ Données Firebase chargées dans localStorage');
                 
