@@ -1779,8 +1779,9 @@
                             const storageKey = projects[projectId].storageKey;
                             const localData = JSON.parse(localStorage.getItem(storageKey)) || [];
                             
-                            // Synchroniser si les données distantes sont plus récentes ou différentes
+                            // Synchroniser si les données distantes sont différentes
                             if (JSON.stringify(localData) !== JSON.stringify(remoteData)) {
+                                console.log(`📥 Données Firebase reçues pour ${projectId}`);
                                 localStorage.setItem(storageKey, JSON.stringify(remoteData));
                                 // Rafraîchir l'affichage si l'onglet est actif
                                 const activeTab = document.querySelector('.tab-content.active');
@@ -1796,18 +1797,53 @@
             });
         }
 
+        // Charger les données Firebase au démarrage
+        function loadDataFromFirebase() {
+            if (!window.firebaseDB) {
+                console.warn('Firebase not available');
+                return Promise.resolve();
+            }
+
+            return Promise.all(Object.keys(projects).map(projectId => {
+                return new Promise((resolve) => {
+                    try {
+                        const dbRef = window.firebaseRef(window.firebaseDB, `todos/${projectId}`);
+                        window.firebaseOnValue(dbRef, (snapshot) => {
+                            if (snapshot.exists()) {
+                                const remoteData = snapshot.val().data;
+                                const storageKey = projects[projectId].storageKey;
+                                localStorage.setItem(storageKey, JSON.stringify(remoteData));
+                                console.log(`✅ Données Firebase chargées pour ${projectId}`);
+                            }
+                            resolve();
+                        }, (error) => {
+                            console.warn(`Erreur lecture Firebase ${projectId}:`, error);
+                            resolve();
+                        });
+                    } catch (error) {
+                        console.warn(`Erreur Firebase ${projectId}:`, error);
+                        resolve();
+                    }
+                });
+            }));
+        }
+
         function saveTodos(projectId, todos) {
             const storageKey = projects[projectId].storageKey;
             localStorage.setItem(storageKey, JSON.stringify(todos));
             
-            // Synchronise avec Firebase en temps réel
+            // Synchronise avec Firebase
             if (window.firebaseDB) {
                 try {
                     const dbRef = window.firebaseRef(window.firebaseDB, `todos/${projectId}`);
                     window.firebaseSet(dbRef, {
                         data: todos,
                         lastUpdated: new Date().toISOString()
-                    }).catch(error => console.error('Firebase sync error:', error));
+                    }).then(() => {
+                        console.log(`📤 Données sauvegardées dans Firebase pour ${projectId}`);
+                    }).catch(error => {
+                        console.error(`Erreur Firebase sync ${projectId}:`, error);
+                    });
                 } catch (error) {
                     console.warn('Firebase not available, using local storage only:', error);
                 }
@@ -2710,11 +2746,20 @@
                 document.querySelectorAll(`#${projectId}-tab .priority-btn[data-priority="medium"]`).forEach(b => b.classList.add('selected'));
             });
             
-            // Démarrer l'écoute des changements Firebase
+            // Charger les données Firebase au démarrage
+            loadDataFromFirebase().then(() => {
+                // Après avoir chargé les données Firebase, afficher les onglets
+                ['forkx', 'geekomobile', 'geekagne'].forEach(projectId => {
+                    renderTodos(projectId);
+                });
+                console.log('✅ Synchronisation Firebase au démarrage terminée');
+            });
+            
+            // Écouter les changements en temps réel
             setTimeout(() => {
                 watchFirebaseChanges();
                 console.log('🔄 Firebase real-time sync activated');
-            }, 1000);
+            }, 2000);
         });
     </script>
 </body>
