@@ -1582,7 +1582,7 @@
         try {
             firebase.initializeApp(firebaseConfig);
             firebaseDB = firebase.database();
-            firebaseRef = (db, path) => firebaseDB.ref(path);
+            firebaseRef = (path) => firebaseDB.ref(path);
             firebaseSet = (ref, data) => ref.set(data);
             firebaseGet = (ref) => ref.once('value');
             firebaseOnValue = (ref, callback, errorCallback) => ref.on('value', callback, errorCallback);
@@ -1777,7 +1777,7 @@
             
             Object.keys(projects).forEach(projectId => {
                 try {
-                    const dbRef = window.firebaseRef(window.firebaseDB, `todos/${projectId}`);
+                    const dbRef = window.firebaseRef(`todos/${projectId}`);
                     
                     // onValue requires proper callback structure
                     window.firebaseOnValue(
@@ -1830,7 +1830,7 @@
             return Promise.all(Object.keys(projects).map(projectId => {
                 console.log(`📖 Chargement pour ${projectId}...`);
                 try {
-                    const dbRef = window.firebaseRef(window.firebaseDB, `todos/${projectId}`);
+                    const dbRef = window.firebaseRef(`todos/${projectId}`);
                     console.log(`📍 Référence créée pour ${projectId}:`, dbRef);
                     
                     return window.firebaseGet(dbRef).then((snapshot) => {
@@ -1873,7 +1873,7 @@
             // Synchronise avec Firebase
             if (window.firebaseDB) {
                 try {
-                    const dbRef = window.firebaseRef(window.firebaseDB, `todos/${projectId}`);
+                    const dbRef = window.firebaseRef(`todos/${projectId}`);
                     window.firebaseSet(dbRef, {
                         data: todos,
                         lastUpdated: new Date().toISOString()
@@ -2780,6 +2780,9 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             console.log('🔵 DOMContentLoaded démarré');
+            
+            // Activer l'onglet ForkX par défaut
+            switchTab('forkx');
             
             // Afficher d'abord les données locales (localStorage)
             ['forkx', 'geekomobile', 'geekagne'].forEach(projectId => {
