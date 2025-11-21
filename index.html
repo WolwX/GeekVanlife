@@ -1013,10 +1013,13 @@
         }
     </style>
 
-    <script>
+    <script type="module">
         // ============================================
         // FIREBASE CONFIGURATION
         // ============================================
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
+        import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-database.js";
+
         const firebaseConfig = {
             apiKey: "AIzaSyD7PUqS5GGpEuQiZhlaiwhBpiJps5K8Jec",
             authDomain: "geekvanlife.firebaseapp.com",
@@ -1028,13 +1031,20 @@
         };
 
         // Initialize Firebase
+        let firebaseDB = null;
         try {
-            const firebaseApp = firebase.initializeApp(firebaseConfig);
-            const firebaseDB = firebase.database();
+            const firebaseApp = initializeApp(firebaseConfig);
+            firebaseDB = getDatabase(firebaseApp);
             console.log('✅ Firebase initialized successfully');
         } catch (error) {
             console.error('Firebase initialization error:', error);
         }
+
+        // Make functions globally accessible
+        window.firebaseDB = firebaseDB;
+        window.firebaseRef = ref;
+        window.firebaseSet = set;
+        window.firebaseOnValue = onValue;
 
         // Settings Modal Functions
         function openSettingsModal() {
