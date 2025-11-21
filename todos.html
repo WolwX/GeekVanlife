@@ -1828,13 +1828,10 @@
                 return;
             }
 
+            // Si pas de liste sélectionnée, utiliser une liste vide (sans nom)
+            // Au lieu de demander à l'utilisateur de créer une liste
             if (!listName) {
-                const newList = prompt('Créer une nouvelle liste:');
-                if (!newList || !newList.trim()) {
-                    alert('Veuillez sélectionner ou créer une liste');
-                    return;
-                }
-                listName = newList.trim();
+                listName = ''; // Liste par défaut sans nom
             }
 
             // Ajouter le préfixe https:// si absent
