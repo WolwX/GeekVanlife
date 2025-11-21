@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>📋 GeekVanlife To Do Lists</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📋</text></svg>">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📋</text></svg>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
     <style>
@@ -58,7 +60,7 @@
             background: white;
             padding: 30px;
             border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             margin-bottom: 30px;
             text-align: center;
         }
@@ -77,7 +79,7 @@
         .tabs-container {
             background: white;
             border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             margin-bottom: 30px;
             overflow: hidden;
         }
@@ -111,14 +113,32 @@
             color: #667eea;
         }
 
-        .tab-button.forkx { color: #c0392b; }
-        .tab-button.forkx.active { border-bottom-color: #c0392b; color: #c0392b; }
+        .tab-button.forkx {
+            color: #c0392b;
+        }
 
-        .tab-button.geekomobile { color: #667eea; }
-        .tab-button.geekomobile.active { border-bottom-color: #667eea; color: #667eea; }
+        .tab-button.forkx.active {
+            border-bottom-color: #c0392b;
+            color: #c0392b;
+        }
 
-        .tab-button.geekagne { color: #11998e; }
-        .tab-button.geekagne.active { border-bottom-color: #11998e; color: #11998e; }
+        .tab-button.geekomobile {
+            color: #667eea;
+        }
+
+        .tab-button.geekomobile.active {
+            border-bottom-color: #667eea;
+            color: #667eea;
+        }
+
+        .tab-button.geekagne {
+            color: #11998e;
+        }
+
+        .tab-button.geekagne.active {
+            border-bottom-color: #11998e;
+            color: #11998e;
+        }
 
         .tab-content {
             display: none;
@@ -134,7 +154,7 @@
             padding: 0;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
         }
 
         .form-title {
@@ -413,7 +433,7 @@
 
         .priority-btn.selected {
             border-color: #333;
-            box-shadow: 0 0 8px rgba(0,0,0,0.2);
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
         }
 
         .form-actions {
@@ -447,7 +467,7 @@
             overflow-y: auto;
             z-index: 100;
             min-width: 150px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
             display: none;
             top: 100%;
             left: 0;
@@ -483,14 +503,14 @@
             background: white;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
             margin-bottom: 12px;
             transition: all 0.3s ease;
         }
 
         .list-section.dragging {
             opacity: 0.5;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
         }
 
         .list-section.drag-over {
@@ -598,7 +618,7 @@
 
         .todo-item.dragging {
             opacity: 0.5;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         }
 
         .todo-item.drag-over {
@@ -606,9 +626,17 @@
             padding-top: 11px;
         }
 
-        .todo-item.forkx { border-left-color: #c0392b; }
-        .todo-item.geekomobile { border-left-color: #667eea; }
-        .todo-item.geekagne { border-left-color: #11998e; }
+        .todo-item.forkx {
+            border-left-color: #c0392b;
+        }
+
+        .todo-item.geekomobile {
+            border-left-color: #667eea;
+        }
+
+        .todo-item.geekagne {
+            border-left-color: #11998e;
+        }
 
         /* Indentation pour hiérarchie parent/enfant */
         .todo-item.todo-depth-0 {
@@ -641,7 +669,7 @@
         }
 
         .todo-item:hover {
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             background: #fff;
         }
 
@@ -691,9 +719,17 @@
             flex-shrink: 0;
         }
 
-        .priority-low { background: #4caf50; }
-        .priority-medium { background: #ffc107; }
-        .priority-high { background: #f44336; }
+        .priority-low {
+            background: #4caf50;
+        }
+
+        .priority-medium {
+            background: #ffc107;
+        }
+
+        .priority-high {
+            background: #f44336;
+        }
 
         .todo-amount {
             font-weight: 600;
@@ -774,7 +810,7 @@
         }
 
         .action-icon:hover {
-            background: rgba(0,0,0,0.1);
+            background: rgba(0, 0, 0, 0.1);
             transform: scale(1.15);
         }
 
@@ -845,7 +881,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0,0,0,0.5);
+            background: rgba(0, 0, 0, 0.5);
             z-index: 1000;
             align-items: center;
             justify-content: center;
@@ -864,7 +900,7 @@
             width: 100%;
             max-height: 90vh;
             overflow-y: auto;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
         }
 
         .edit-modal-header {
@@ -949,7 +985,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0,0,0,0.5);
+            background: rgba(0, 0, 0, 0.5);
             z-index: 1000;
             align-items: center;
             justify-content: center;
@@ -968,7 +1004,7 @@
             width: 100%;
             max-height: 90vh;
             overflow-y: auto;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
         }
 
         .image-import-header {
@@ -1021,7 +1057,7 @@
             top: -9999px;
             left: -9999px;
         }
-        
+
         /* Rendre l'input accessible sur mobile via un bouton visible */
         @media (max-width: 768px) {
             .image-upload-zone {
@@ -1071,8 +1107,13 @@
         }
 
         @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
         }
 
         .todo-preview-list {
@@ -1159,7 +1200,7 @@
             pointer-events: none;
             transition: opacity 0.2s ease;
             z-index: 10;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
         }
 
         .todo-item:hover .todo-note {
@@ -1236,6 +1277,7 @@
         }
     </style>
 </head>
+
 <body>
     <a href="./index.html" class="back-button" title="Accueil">
         <i class="fas fa-home"></i>
@@ -1260,33 +1302,45 @@
                     <div class="form-title">
                         <span>Ajouter une nouvelle tâche</span>
                         <div class="form-title-actions">
-                            <button class="btn-action-icon" onclick="exportTodos('forkx')" title="Exporter les tâches"><i class="fas fa-upload"></i></button>
-                            <button class="btn-action-icon" onclick="openJsonImportModal('forkx')" title="Importer les tâches"><i class="fas fa-download"></i></button>
-                            <button class="btn-action-icon" onclick="openImageImportModal('forkx')" title="Importer depuis une image"><i class="fas fa-image"></i></button>
+                            <button class="btn-action-icon" onclick="exportTodos('forkx')"
+                                title="Exporter les tâches"><i class="fas fa-upload"></i></button>
+                            <button class="btn-action-icon" onclick="openJsonImportModal('forkx')"
+                                title="Importer les tâches"><i class="fas fa-download"></i></button>
+                            <button class="btn-action-icon" onclick="openImageImportModal('forkx')"
+                                title="Importer depuis une image"><i class="fas fa-image"></i></button>
                         </div>
                     </div>
                     <div class="form-content">
                         <div class="task-list-row">
                             <div class="task-input-wrapper">
-                                <button class="task-input-icon" onclick="addTodo('forkx')" title="Ajouter la tâche"><i class="fas fa-clipboard-check"></i></button>
-                                <input type="text" id="forkx-task-name" placeholder="Nom de la tâche..." onkeypress="if(event.key==='Enter') addTodo('forkx')" style="flex: 1; padding: 10px 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 0.95rem;">
+                                <button class="task-input-icon" onclick="addTodo('forkx')" title="Ajouter la tâche"><i
+                                        class="fas fa-clipboard-check"></i></button>
+                                <input type="text" id="forkx-task-name" placeholder="Nom de la tâche..."
+                                    onkeypress="if(event.key==='Enter') addTodo('forkx')"
+                                    style="flex: 1; padding: 10px 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 0.95rem;">
                             </div>
                             <div class="list-input-group">
-                                <select id="forkx-list-select" style="flex: 1; padding: 10px 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 0.95rem;">
+                                <select id="forkx-list-select"
+                                    style="flex: 1; padding: 10px 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 0.95rem;">
                                     <option value="">-- Sélectionner --</option>
                                 </select>
-                                <button class="list-add-icon" onclick="openListModal('forkx')" title="Ajouter une liste"><i class="fas fa-tasks"></i></button>
+                                <button class="list-add-icon" onclick="openListModal('forkx')"
+                                    title="Ajouter une liste"><i class="fas fa-tasks"></i></button>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group">
                                 <input type="number" id="forkx-amount" placeholder="Montant (€)" step="0.01">
                             </div>
-                            <div class="form-group" style="display: flex; justify-content: center; align-items: center;">
+                            <div class="form-group"
+                                style="display: flex; justify-content: center; align-items: center;">
                                 <div class="priority-selector">
-                                    <button class="priority-btn" data-priority="low" onclick="selectPriority(this, 'forkx')">🟢</button>
-                                    <button class="priority-btn" data-priority="medium" onclick="selectPriority(this, 'forkx')">🟡</button>
-                                    <button class="priority-btn" data-priority="high" onclick="selectPriority(this, 'forkx')">🔴</button>
+                                    <button class="priority-btn" data-priority="low"
+                                        onclick="selectPriority(this, 'forkx')">🟢</button>
+                                    <button class="priority-btn" data-priority="medium"
+                                        onclick="selectPriority(this, 'forkx')">🟡</button>
+                                    <button class="priority-btn" data-priority="high"
+                                        onclick="selectPriority(this, 'forkx')">🔴</button>
                                     <input type="hidden" id="forkx-priority" value="medium">
                                 </div>
                             </div>
@@ -1325,33 +1379,45 @@
                     <div class="form-title">
                         <span>Ajouter une nouvelle tâche</span>
                         <div class="form-title-actions">
-                            <button class="btn-action-icon" onclick="exportTodos('geekomobile')" title="Exporter les tâches"><i class="fas fa-upload"></i></button>
-                            <button class="btn-action-icon" onclick="openJsonImportModal('geekomobile')" title="Importer les tâches"><i class="fas fa-download"></i></button>
-                            <button class="btn-action-icon" onclick="openImageImportModal('geekomobile')" title="Importer depuis une image"><i class="fas fa-image"></i></button>
+                            <button class="btn-action-icon" onclick="exportTodos('geekomobile')"
+                                title="Exporter les tâches"><i class="fas fa-upload"></i></button>
+                            <button class="btn-action-icon" onclick="openJsonImportModal('geekomobile')"
+                                title="Importer les tâches"><i class="fas fa-download"></i></button>
+                            <button class="btn-action-icon" onclick="openImageImportModal('geekomobile')"
+                                title="Importer depuis une image"><i class="fas fa-image"></i></button>
                         </div>
                     </div>
                     <div class="form-content">
                         <div class="task-list-row">
                             <div class="task-input-wrapper">
-                                <button class="task-input-icon" onclick="addTodo('geekomobile')" title="Ajouter la tâche"><i class="fas fa-clipboard-check"></i></button>
-                                <input type="text" id="geekomobile-task-name" placeholder="Nom de la tâche..." onkeypress="if(event.key==='Enter') addTodo('geekomobile')" style="flex: 1; padding: 10px 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 0.95rem;">
+                                <button class="task-input-icon" onclick="addTodo('geekomobile')"
+                                    title="Ajouter la tâche"><i class="fas fa-clipboard-check"></i></button>
+                                <input type="text" id="geekomobile-task-name" placeholder="Nom de la tâche..."
+                                    onkeypress="if(event.key==='Enter') addTodo('geekomobile')"
+                                    style="flex: 1; padding: 10px 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 0.95rem;">
                             </div>
                             <div class="list-input-group">
-                                <select id="geekomobile-list-select" style="flex: 1; padding: 10px 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 0.95rem;">
+                                <select id="geekomobile-list-select"
+                                    style="flex: 1; padding: 10px 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 0.95rem;">
                                     <option value="">-- Sélectionner --</option>
                                 </select>
-                                <button class="list-add-icon" onclick="openListModal('geekomobile')" title="Ajouter une liste"><i class="fas fa-tasks"></i></button>
+                                <button class="list-add-icon" onclick="openListModal('geekomobile')"
+                                    title="Ajouter une liste"><i class="fas fa-tasks"></i></button>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group">
                                 <input type="number" id="geekomobile-amount" placeholder="Montant (€)" step="0.01">
                             </div>
-                            <div class="form-group" style="display: flex; justify-content: center; align-items: center;">
+                            <div class="form-group"
+                                style="display: flex; justify-content: center; align-items: center;">
                                 <div class="priority-selector">
-                                    <button class="priority-btn" data-priority="low" onclick="selectPriority(this, 'geekomobile')">🟢</button>
-                                    <button class="priority-btn" data-priority="medium" onclick="selectPriority(this, 'geekomobile')">🟡</button>
-                                    <button class="priority-btn" data-priority="high" onclick="selectPriority(this, 'geekomobile')">🔴</button>
+                                    <button class="priority-btn" data-priority="low"
+                                        onclick="selectPriority(this, 'geekomobile')">🟢</button>
+                                    <button class="priority-btn" data-priority="medium"
+                                        onclick="selectPriority(this, 'geekomobile')">🟡</button>
+                                    <button class="priority-btn" data-priority="high"
+                                        onclick="selectPriority(this, 'geekomobile')">🔴</button>
                                     <input type="hidden" id="geekomobile-priority" value="medium">
                                 </div>
                             </div>
@@ -1370,7 +1436,8 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Note (optionnel)</label>
-                                        <textarea id="geekomobile-note" placeholder="Détails supplémentaires..."></textarea>
+                                        <textarea id="geekomobile-note"
+                                            placeholder="Détails supplémentaires..."></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -1390,33 +1457,45 @@
                     <div class="form-title">
                         <span>Ajouter une nouvelle tâche</span>
                         <div class="form-title-actions">
-                            <button class="btn-action-icon" onclick="exportTodos('geekagne')" title="Exporter les tâches"><i class="fas fa-upload"></i></button>
-                            <button class="btn-action-icon" onclick="openJsonImportModal('geekagne')" title="Importer les tâches"><i class="fas fa-download"></i></button>
-                            <button class="btn-action-icon" onclick="openImageImportModal('geekagne')" title="Importer depuis une image"><i class="fas fa-image"></i></button>
+                            <button class="btn-action-icon" onclick="exportTodos('geekagne')"
+                                title="Exporter les tâches"><i class="fas fa-upload"></i></button>
+                            <button class="btn-action-icon" onclick="openJsonImportModal('geekagne')"
+                                title="Importer les tâches"><i class="fas fa-download"></i></button>
+                            <button class="btn-action-icon" onclick="openImageImportModal('geekagne')"
+                                title="Importer depuis une image"><i class="fas fa-image"></i></button>
                         </div>
                     </div>
                     <div class="form-content">
                         <div class="task-list-row">
                             <div class="task-input-wrapper">
-                                <button class="task-input-icon" onclick="addTodo('geekagne')" title="Ajouter la tâche"><i class="fas fa-clipboard-check"></i></button>
-                                <input type="text" id="geekagne-task-name" placeholder="Nom de la tâche..." onkeypress="if(event.key==='Enter') addTodo('geekagne')" style="flex: 1; padding: 10px 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 0.95rem;">
+                                <button class="task-input-icon" onclick="addTodo('geekagne')"
+                                    title="Ajouter la tâche"><i class="fas fa-clipboard-check"></i></button>
+                                <input type="text" id="geekagne-task-name" placeholder="Nom de la tâche..."
+                                    onkeypress="if(event.key==='Enter') addTodo('geekagne')"
+                                    style="flex: 1; padding: 10px 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 0.95rem;">
                             </div>
                             <div class="list-input-group">
-                                <select id="geekagne-list-select" style="flex: 1; padding: 10px 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 0.95rem;">
+                                <select id="geekagne-list-select"
+                                    style="flex: 1; padding: 10px 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 0.95rem;">
                                     <option value="">-- Sélectionner --</option>
                                 </select>
-                                <button class="list-add-icon" onclick="openListModal('geekagne')" title="Ajouter une liste"><i class="fas fa-tasks"></i></button>
+                                <button class="list-add-icon" onclick="openListModal('geekagne')"
+                                    title="Ajouter une liste"><i class="fas fa-tasks"></i></button>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group">
                                 <input type="number" id="geekagne-amount" placeholder="Montant (€)" step="0.01">
                             </div>
-                            <div class="form-group" style="display: flex; justify-content: center; align-items: center;">
+                            <div class="form-group"
+                                style="display: flex; justify-content: center; align-items: center;">
                                 <div class="priority-selector">
-                                    <button class="priority-btn" data-priority="low" onclick="selectPriority(this, 'geekagne')">🟢</button>
-                                    <button class="priority-btn" data-priority="medium" onclick="selectPriority(this, 'geekagne')">🟡</button>
-                                    <button class="priority-btn" data-priority="high" onclick="selectPriority(this, 'geekagne')">🔴</button>
+                                    <button class="priority-btn" data-priority="low"
+                                        onclick="selectPriority(this, 'geekagne')">🟢</button>
+                                    <button class="priority-btn" data-priority="medium"
+                                        onclick="selectPriority(this, 'geekagne')">🟡</button>
+                                    <button class="priority-btn" data-priority="high"
+                                        onclick="selectPriority(this, 'geekagne')">🔴</button>
                                     <input type="hidden" id="geekagne-priority" value="medium">
                                 </div>
                             </div>
@@ -1435,7 +1514,8 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Note (optionnel)</label>
-                                        <textarea id="geekagne-note" placeholder="Détails supplémentaires..."></textarea>
+                                        <textarea id="geekagne-note"
+                                            placeholder="Détails supplémentaires..."></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -1456,16 +1536,18 @@
     <div id="image-import-modal" class="image-import-modal">
         <div class="image-import-content">
             <div class="image-import-header">📸 Importer une liste depuis une image</div>
-            
+
             <!-- Label wrapper pour meilleure accessibilité mobile -->
-            <label for="image-input" class="image-upload-zone" id="upload-zone" style="cursor: pointer; display: block;">
+            <label for="image-input" class="image-upload-zone" id="upload-zone"
+                style="cursor: pointer; display: block;">
                 <div class="upload-icon"><i class="fas fa-image"></i></div>
                 <div class="upload-text">Glissez-déposez une image ici</div>
                 <div class="upload-subtext">ou cliquez pour sélectionner une image</div>
                 <!-- Input file caché mais dans le label pour meilleure accessibilité -->
-                <input type="file" id="image-input" accept="image/*" onchange="handleImageSelect(event)" style="display:none;">
+                <input type="file" id="image-input" accept="image/*" onchange="handleImageSelect(event)"
+                    style="display:none;">
             </label>
-            
+
             <div id="processing-container" style="display:none;">
                 <div class="processing-indicator">
                     <div class="spinner"></div>
@@ -1488,7 +1570,8 @@
             </div>
 
             <div id="import-actions-container" style="display:none;" class="import-actions">
-                <button id="btn-import-image" class="btn-import" onclick="importFromImage()">Importer ces tâches</button>
+                <button id="btn-import-image" class="btn-import" onclick="importFromImage()">Importer ces
+                    tâches</button>
                 <button class="btn-close-import" onclick="closeImageImportModal()">Annuler</button>
             </div>
 
@@ -1502,15 +1585,16 @@
     <div id="json-import-modal" class="image-import-modal">
         <div class="image-import-content">
             <div class="image-import-header">📥 Importer un fichier JSON</div>
-            
-            <div class="image-upload-zone" id="json-upload-zone" onclick="document.getElementById('json-import-input').click()">
+
+            <div class="image-upload-zone" id="json-upload-zone"
+                onclick="document.getElementById('json-import-input').click()">
                 <div class="upload-icon"><i class="fas fa-file-import"></i></div>
                 <div class="upload-text">Cliquez pour sélectionner un fichier</div>
                 <div class="upload-subtext">ou glissez-déposez un fichier JSON ici</div>
             </div>
-            
+
             <input type="file" id="json-import-input" accept=".json" onchange="handleJsonImportSelect(event)">
-            
+
             <div id="json-import-actions" class="import-actions">
                 <button class="btn-close-import" onclick="closeJsonImportModal()" style="flex:1;">Fermer</button>
             </div>
@@ -1521,33 +1605,45 @@
     <div id="sync-modal" class="image-import-modal">
         <div class="image-import-content">
             <div class="image-import-header">🔄 Code de Partage Universel</div>
-            
+
             <div style="padding: 20px;">
                 <div style="margin-bottom: 20px; padding: 10px; background: #f0f4ff; border-radius: 8px;">
                     <p style="margin: 0; color: #333; font-size: 0.95rem;">
-                        <strong>✨ Partagez toutes vos données</strong> (todos, paramètres, et tout le contenu de votre application) entre vos appareils sans importer/exporter !
+                        <strong>✨ Partagez toutes vos données</strong> (todos, paramètres, et tout le contenu de votre
+                        application) entre vos appareils sans importer/exporter !
                     </p>
                 </div>
-                
+
                 <div style="background: #f5f5f5; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
-                    <label style="display: block; text-align: left; margin-bottom: 8px; font-weight: 600;">🔐 Votre code de partage :</label>
+                    <label style="display: block; text-align: left; margin-bottom: 8px; font-weight: 600;">🔐 Votre code
+                        de partage :</label>
                     <div style="display: flex; gap: 8px;">
-                        <input type="text" id="sync-code" readonly style="flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 6px; font-family: monospace; background: white;" placeholder="SHARE-00000-00000">
-                        <button onclick="copySyncCode()" style="padding: 10px 15px; background: #667eea; color: white; border: none; border-radius: 6px; cursor: pointer; white-space: nowrap;">📋 Copier</button>
+                        <input type="text" id="sync-code" readonly
+                            style="flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 6px; font-family: monospace; background: white;"
+                            placeholder="SHARE-00000-00000">
+                        <button onclick="copySyncCode()"
+                            style="padding: 10px 15px; background: #667eea; color: white; border: none; border-radius: 6px; cursor: pointer; white-space: nowrap;">📋
+                            Copier</button>
                     </div>
-                    <p style="margin: 8px 0 0 0; font-size: 0.8rem; color: #999;">Valide 7 jours - Partagez ce code avec vos autres appareils</p>
+                    <p style="margin: 8px 0 0 0; font-size: 0.8rem; color: #999;">Valide 7 jours - Partagez ce code avec
+                        vos autres appareils</p>
                 </div>
-                
+
                 <div style="background: #f0f4ff; padding: 15px; border-radius: 8px;">
-                    <label style="display: block; text-align: left; margin-bottom: 8px; font-weight: 600;">🔗 Restaurer à partir d'un code :</label>
+                    <label style="display: block; text-align: left; margin-bottom: 8px; font-weight: 600;">🔗 Restaurer
+                        à partir d'un code :</label>
                     <div style="display: flex; gap: 8px;">
-                        <input type="text" id="sync-code-input" placeholder="0001XXXXX" style="flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 6px; font-family: monospace;">
-                        <button onclick="syncWithCode()" style="padding: 10px 15px; background: #11998e; color: white; border: none; border-radius: 6px; cursor: pointer; white-space: nowrap;">✓ Restaurer</button>
+                        <input type="text" id="sync-code-input" placeholder="0001XXXXX"
+                            style="flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 6px; font-family: monospace;">
+                        <button onclick="syncWithCode()"
+                            style="padding: 10px 15px; background: #11998e; color: white; border: none; border-radius: 6px; cursor: pointer; white-space: nowrap;">✓
+                            Restaurer</button>
                     </div>
-                    <p style="margin: 8px 0 0 0; font-size: 0.8rem; color: #999;">Entrez le code reçu d'un autre appareil</p>
+                    <p style="margin: 8px 0 0 0; font-size: 0.8rem; color: #999;">Entrez le code reçu d'un autre
+                        appareil</p>
                 </div>
             </div>
-            
+
             <div class="import-actions">
                 <button class="btn-close-import" onclick="closeSyncModal()" style="flex:1;">Fermer</button>
             </div>
@@ -1661,10 +1757,10 @@
         function openSyncModal() {
             const modal = document.getElementById('sync-modal');
             modal.classList.add('active');
-            
+
             // Vérifier s'il existe déjà un code valide
             let shareCode = localStorage.getItem('current_share_code');
-            
+
             // Générer un nouveau code seulement s'il n'existe pas ou est expiré
             if (!shareCode || !loadShareCode(shareCode)) {
                 shareCode = generateShareCode();
@@ -1672,7 +1768,7 @@
                 saveShareCode(shareCode, allAppData);
                 localStorage.setItem('current_share_code', shareCode);
             }
-            
+
             document.getElementById('sync-code').value = shareCode;
             document.getElementById('sync-code-input').value = '';
         }
@@ -1725,7 +1821,7 @@
             closeSyncModal();
             location.reload();
             closeSyncModal();
-            
+
             // Rafraîchir tous les projets
             Object.keys(projects).forEach(projectId => {
                 updateListSelect(projectId);
@@ -1751,13 +1847,13 @@
             document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
             document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
             document.getElementById(projectId + '-tab').classList.add('active');
-            
+
             // Activer le bouton correspondant
             const targetButton = document.querySelector(`[onclick*="${projectId}"]`);
             if (targetButton) {
                 targetButton.classList.add('active');
             }
-            
+
             updateListSelect(projectId);
             renderTodos(projectId);
         }
@@ -1774,14 +1870,14 @@
             const todos = loadTodos(projectId);
             const lists = new Set();
             todos.forEach(todo => { if (todo.list) lists.add(todo.list); });
-            
+
             const select = document.getElementById(projectId + '-list-select');
             const currentValue = select.value;
             const listOptions = Array.from(lists).sort();
-            
+
             select.innerHTML = '<option value="">-- Sélectionner une liste --</option>' +
                 listOptions.map(list => `<option value="${escapeHtml(list)}">${escapeHtml(list)}</option>`).join('');
-            
+
             if (listOptions.includes(currentValue)) {
                 select.value = currentValue;
             }
@@ -1901,7 +1997,7 @@
         function saveTodos(projectId, todos) {
             const storageKey = projects[projectId].storageKey;
             localStorage.setItem(storageKey, JSON.stringify(todos));
-            
+
             /* FIREBASE SYNC - DÉSACTIVÉ
             // Synchronise avec Firebase
             if (window.firebaseDB) {
@@ -1987,7 +2083,7 @@
                 modal = document.createElement('div');
                 modal.id = 'edit-modal';
                 modal.className = 'edit-modal';
-                modal.onclick = function(e) {
+                modal.onclick = function (e) {
                     if (e.target === modal) closeEditModal();
                 };
                 document.body.appendChild(modal);
@@ -2050,7 +2146,7 @@
             todo.priority = document.getElementById('edit-priority').value;
             const amount = parseFloat(document.getElementById('edit-amount').value);
             todo.amount = isNaN(amount) ? null : amount;
-            
+
             // Ajouter le préfixe https:// si absent
             let link = document.getElementById('edit-link').value.trim();
             if (link && !link.match(/^https?:\/\//i)) {
@@ -2086,17 +2182,17 @@
             const todos = loadTodos(projectId);
             const descendants = getAllDescendants(todos, todoId);
             const descendantCount = descendants.length;
-            
+
             let message = 'Êtes-vous sûr de vouloir supprimer cette tâche ?';
             if (descendantCount > 0) {
                 message += `\n\nAttention : Cette tâche a ${descendantCount} sous-tâche${descendantCount > 1 ? 's' : ''}. Celles-ci seront aussi supprimées.`;
             }
-            
+
             if (confirm(message)) {
                 // Supprimer la tâche et tous ses descendants
                 const idsToDelete = new Set([todoId]);
                 descendants.forEach(d => idsToDelete.add(d.id));
-                
+
                 const filtered = todos.filter(t => !idsToDelete.has(t.id));
                 saveTodos(projectId, filtered);
                 updateListSelect(projectId);
@@ -2123,7 +2219,7 @@
             currentImageProjectId = projectId;
             extractedTodos = [];
             document.getElementById('image-import-modal').classList.add('active');
-            
+
             // Réinitialiser le formulaire
             document.getElementById('image-input').value = '';
             document.getElementById('image-preview').style.display = 'none';
@@ -2136,7 +2232,7 @@
             // Setup drag & drop sur la zone (pas de click handler car c'est un label)
             const uploadZone = document.getElementById('upload-zone');
             const imageInput = document.getElementById('image-input');
-            
+
             if (uploadZone && imageInput) {
                 // Drag & drop handlers
                 uploadZone.ondragover = (e) => {
@@ -2144,13 +2240,13 @@
                     e.stopPropagation();
                     uploadZone.classList.add('dragover');
                 };
-                
+
                 uploadZone.ondragleave = (e) => {
                     e.preventDefault();
                     e.stopPropagation();
                     uploadZone.classList.remove('dragover');
                 };
-                
+
                 uploadZone.ondrop = (e) => {
                     e.preventDefault();
                     e.stopPropagation();
@@ -2174,10 +2270,10 @@
         function openJsonImportModal(projectId) {
             currentImageProjectId = projectId; // Réutiliser la même variable
             document.getElementById('json-import-modal').classList.add('active');
-            
+
             // Réinitialiser le formulaire
             document.getElementById('json-import-input').value = '';
-            
+
             // Setup drag & drop pour JSON
             const uploadZone = document.getElementById('json-upload-zone');
             uploadZone.addEventListener('dragover', (e) => {
@@ -2215,7 +2311,7 @@
                         alert('Erreur : projet non sélectionné');
                         return;
                     }
-                    
+
                     // Appeler la fonction d'import JSON existante
                     importTodos(projectId, { target: { files: [file] } });
                     closeJsonImportModal();
@@ -2234,12 +2330,12 @@
             const reader = new FileReader();
             reader.onload = async (e) => {
                 const imageSrc = e.target.result;
-                
+
                 // Afficher l'aperçu
                 document.getElementById('preview-img').src = imageSrc;
                 document.getElementById('image-preview').style.display = 'block';
                 document.getElementById('no-import-actions').style.display = 'none';
-                
+
                 // Afficher le spinner
                 document.getElementById('processing-container').style.display = 'block';
                 document.getElementById('ocr-container').style.display = 'none';
@@ -2249,14 +2345,14 @@
                 // OCR avec Tesseract
                 try {
                     const { data: { text } } = await Tesseract.recognize(imageSrc, 'fra+eng');
-                    
+
                     // Afficher le texte détecté
                     document.getElementById('ocr-result').textContent = text;
                     document.getElementById('ocr-container').style.display = 'block';
-                    
+
                     // Extraire les tâches
                     extractedTodos = parseTodoListFromText(text);
-                    
+
                     // Afficher l'aperçu des tâches
                     if (extractedTodos.length > 0) {
                         displayTodoPreview();
@@ -2277,7 +2373,7 @@
         function parseTodoListFromText(text) {
             const todos = [];
             const lines = text.split('\\n').filter(line => line.trim());
-            
+
             // Patterns pour détecter les tâches complétées
             const completedPatterns = [
                 /^\\s*✓|^\\s*✔|^\\s*☑|strikethrough/i,
@@ -2290,7 +2386,7 @@
 
                 // Détecter si la tâche est complétée
                 const completed = /^\\s*✓|^\\s*✔|^\\s*☑|^\\s*\\[x\\]|^\\s*\\(x\\)/.test(line);
-                
+
                 // Nettoyer la ligne
                 let taskName = trimmed
                     .replace(/^[✓✔☑\\[x\\]\\(x\\)•~-]+\\s*/, '') // Supprimer les marqueurs
@@ -2342,7 +2438,7 @@
                     ${todo.completed ? ' <span style="opacity: 0.5;">(complétée)</span>' : ''}
                 </div>
             `).join('');
-            
+
             document.getElementById('todo-preview-list').innerHTML = previewHtml;
             document.getElementById('todo-preview-container').style.display = 'block';
         }
@@ -2372,7 +2468,7 @@
             const todos = loadTodos(projectId);
             const now = new Date();
             const dateStr = now.toISOString().split('T')[0];
-            
+
             const exportData = {
                 project: projectId,
                 exportDate: now.toISOString(),
@@ -2397,10 +2493,10 @@
             if (!file) return;
 
             const reader = new FileReader();
-            reader.onload = function(e) {
+            reader.onload = function (e) {
                 try {
                     const importedData = JSON.parse(e.target.result);
-                    
+
                     // Validation basique
                     if (!importedData.todos || !Array.isArray(importedData.todos)) {
                         alert('Fichier invalide : structure incorrecte');
@@ -2423,7 +2519,7 @@
                     const mergedTodos = [...existingTodos];
                     let importedCount = 0;
                     let skippedCount = 0;
-                    
+
                     // Ajouter les tâches importées avec validation et valeurs par défaut
                     importedData.todos.forEach(importedTodo => {
                         const exists = mergedTodos.some(t => t.id === importedTodo.id);
@@ -2457,13 +2553,13 @@
                     saveTodos(projectId, mergedTodos);
                     updateListSelect(projectId);
                     renderTodos(projectId);
-                    
+
                     let message = `Import réussi ! ${importedCount} tâche(s) importée(s).`;
                     if (skippedCount > 0) {
                         message += `\n${skippedCount} tâche(s) existante(s) ignorée(s).`;
                     }
                     alert(message);
-                    
+
                     // Réinitialiser l'input file
                     event.target.value = '';
                 } catch (error) {
@@ -2508,14 +2604,14 @@
                 // Si on veut décoche une tâche, toujours possible
                 return true;
             }
-            
+
             // Si on veut cocher une tâche parent, vérifier que tous les enfants sont cochés
             const children = getTodoChildren(todos, todoId);
             if (children.length === 0) {
                 // Pas d'enfants, toujours possible
                 return true;
             }
-            
+
             // Vérifier que tous les enfants sont cochés
             const allChildrenCompleted = children.every(child => child.completed);
             if (!allChildrenCompleted) {
@@ -2532,7 +2628,7 @@
             console.log(`📊 ${projectId}: ${todos.length} tâches trouvées`);
             const listsContainer = document.getElementById(projectId + '-lists');
             const emptyState = document.getElementById(projectId + '-empty');
-            
+
             if (!listsContainer) {
                 console.error(`❌ Container ${projectId}-lists introuvable !`);
                 return;
@@ -2557,7 +2653,7 @@
             const renderTodoHierarchy = (todo, allTodos, depth = 0) => {
                 const children = getTodoChildren(allTodos, todo.id);
                 const hasChildren = children.length > 0;
-                
+
                 return `
                     <div class="todo-item ${project.displayColor} ${todo.completed ? 'completed' : ''} todo-depth-${depth}"
                          draggable="true"
@@ -2597,7 +2693,7 @@
                 const estimate = calculateListEstimate(listTodos);
                 // Afficher seulement les tâches racines (sans parent)
                 const rootTodos = listTodos.filter(todo => !todo.parentId);
-                
+
                 return `
                 <div class="list-section" draggable="true" data-list-name="${escapeHtml(listName)}" ondragstart="startListDrag(event, '${projectId}', '${escapeHtml(listName)}')"
                      ondragover="overListDrag(event)" ondrop="dropList(event, '${projectId}')" ondragleave="leaveListDrag(event)" ondragend="endListDrag(event)">
@@ -2626,7 +2722,7 @@
         function toggleTodoExpand(event, projectId, todoId) {
             // Ne pas expand si on clique sur une action
             if (event.target.closest('.todo-actions')) return;
-            
+
             const todoElement = event.currentTarget;
             if (getHasDetails(loadTodos(projectId).find(t => t.id === todoId))) {
                 todoElement.classList.toggle('expanded');
@@ -2655,12 +2751,12 @@
         function dropList(event, projectId) {
             event.preventDefault();
             event.currentTarget.classList.remove('drag-over');
-            
+
             if (!draggedListName) return;
 
             const todos = loadTodos(projectId);
             const targetListName = event.currentTarget.dataset.listName;
-            
+
             if (draggedListName === targetListName) return;
 
             // Réorganiser les listes (ici on pourrait implémenter une logique d'ordre)
@@ -2735,7 +2831,7 @@
             // Si on drop sur une autre tâche dans la même liste, demander confirmation pour créer relation parent/enfant
             if (draggedTodoList === targetListName && draggedTodoId !== targetTodoId) {
                 const confirmation = confirm(`Faire de "${escapeHtml(targetTodo.name)}" la tâche parente de "${escapeHtml(draggedTodo.name)}" ?`);
-                
+
                 if (confirmation) {
                     // Créer la relation parent/enfant
                     draggedTodo.parentId = targetTodoId;
@@ -2761,7 +2857,7 @@
                 saveTodos(projectId, todos);
                 renderTodos(projectId);
             }
-            
+
             draggedTodoId = null;
             draggedTodoList = null;
             draggedProjectId = null;
@@ -2822,18 +2918,20 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             console.log('🔵 Page chargée - Affichage des todos depuis localStorage');
-            
+
             // Charger et afficher les données de tous les projets
             ['forkx', 'geekomobile', 'geekagne'].forEach(projectId => {
                 updateListSelect(projectId);
                 renderTodos(projectId);
                 document.querySelectorAll(`#${projectId}-tab .priority-btn[data-priority="medium"]`).forEach(b => b.classList.add('selected'));
             });
-            
+
             // Activer l'onglet ForkX par défaut
             switchTab('forkx');
             console.log('✅ Interface chargée - Onglet ForkX activé');
         });
     </script>
+    <script src="forkx-autoload-fix.js"></script>
 </body>
+
 </html>
