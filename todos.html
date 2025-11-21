@@ -1561,7 +1561,7 @@
         // FIREBASE CONFIGURATION
         // ============================================
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
-        import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-database.js";
+        import { getDatabase, ref, set, get, onValue } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-database.js";
 
         const firebaseConfig = {
             apiKey: "AIzaSyD7PUqS5GGpEuQiZhlaiwhBpiJps5K8Jec",
@@ -1575,9 +1575,18 @@
 
         // Initialize Firebase
         let firebaseDB = null;
+        let firebaseRef = null;
+        let firebaseSet = null;
+        let firebaseGet = null;
+        let firebaseOnValue = null;
+
         try {
             const firebaseApp = initializeApp(firebaseConfig);
             firebaseDB = getDatabase(firebaseApp);
+            firebaseRef = ref;
+            firebaseSet = set;
+            firebaseGet = get;
+            firebaseOnValue = onValue;
             console.log('✅ Firebase initialized successfully');
         } catch (error) {
             console.error('Firebase initialization error:', error);
@@ -1585,9 +1594,10 @@
 
         // Make functions globally accessible
         window.firebaseDB = firebaseDB;
-        window.firebaseRef = ref;
-        window.firebaseSet = set;
-        window.firebaseOnValue = onValue;
+        window.firebaseRef = firebaseRef;
+        window.firebaseSet = firebaseSet;
+        window.firebaseGet = firebaseGet;
+        window.firebaseOnValue = firebaseOnValue;
 
         const projects = {
             forkx: { storageKey: 'forkx-todos', displayColor: 'forkx' },
@@ -1768,63 +1778,78 @@
 
         // Écouter les changements Firebase en temps réel
         function watchFirebaseChanges() {
-            if (!window.firebaseDB) return;
+            if (!window.firebaseDB || !window.firebaseOnValue) {
+                console.warn('Firebase watch: Firebase not available');
+                return;
+            }
             
             Object.keys(projects).forEach(projectId => {
                 try {
                     const dbRef = window.firebaseRef(window.firebaseDB, `todos/${projectId}`);
-                    window.firebaseOnValue(dbRef, (snapshot) => {
-                        if (snapshot.exists()) {
-                            const remoteData = snapshot.val().data;
-                            const storageKey = projects[projectId].storageKey;
-                            const localData = JSON.parse(localStorage.getItem(storageKey)) || [];
-                            
-                            // Synchroniser si les données distantes sont différentes
-                            if (JSON.stringify(localData) !== JSON.stringify(remoteData)) {
-                                console.log(`📥 Données Firebase reçues pour ${projectId}`);
-                                localStorage.setItem(storageKey, JSON.stringify(remoteData));
-                                // Rafraîchir l'affichage si l'onglet est actif
-                                const activeTab = document.querySelector('.tab-content.active');
-                                if (activeTab && activeTab.id === `${projectId}-tab`) {
-                                    renderTodos(projectId);
+                    
+                    // onValue requires proper callback structure
+                    window.firebaseOnValue(
+                        dbRef,
+                        (snapshot) => {
+                            try {
+                                if (snapshot.exists()) {
+                                    const firebaseData = snapshot.val();
+                                    const remoteData = firebaseData && firebaseData.data ? firebaseData.data : [];
+                                    const storageKey = projects[projectId].storageKey;
+                                    const localData = JSON.parse(localStorage.getItem(storageKey)) || [];
+                                    
+                                    // Synchroniser si les données distantes sont différentes
+                                    if (JSON.stringify(localData) !== JSON.stringify(remoteData)) {
+                                        console.log(`📥 Données Firebase reçues pour ${projectId}`);
+                                        localStorage.setItem(storageKey, JSON.stringify(remoteData));
+                                        // Rafraîchir l'affichage si l'onglet est actif
+                                        const activeTab = document.querySelector('.tab-content.active');
+                                        if (activeTab && activeTab.id === `${projectId}-tab`) {
+                                            renderTodos(projectId);
+                                        }
+                                    }
                                 }
+                            } catch (error) {
+                                console.error(`Error processing Firebase update for ${projectId}:`, error);
                             }
+                        },
+                        (error) => {
+                            console.warn(`Firebase watch error for ${projectId}:`, error);
                         }
-                    });
+                    );
                 } catch (error) {
-                    console.warn(`Firebase watch error for ${projectId}:`, error);
+                    console.warn(`Firebase watch setup error for ${projectId}:`, error);
                 }
             });
+            console.log('🔄 Firebase real-time sync activated');
         }
 
         // Charger les données Firebase au démarrage
         function loadDataFromFirebase() {
-            if (!window.firebaseDB) {
+            if (!window.firebaseDB || !window.firebaseGet) {
                 console.warn('Firebase not available');
                 return Promise.resolve();
             }
 
             return Promise.all(Object.keys(projects).map(projectId => {
-                return new Promise((resolve) => {
-                    try {
-                        const dbRef = window.firebaseRef(window.firebaseDB, `todos/${projectId}`);
-                        window.firebaseOnValue(dbRef, (snapshot) => {
-                            if (snapshot.exists()) {
-                                const remoteData = snapshot.val().data;
+                try {
+                    const dbRef = window.firebaseRef(window.firebaseDB, `todos/${projectId}`);
+                    return window.firebaseGet(dbRef).then((snapshot) => {
+                        if (snapshot.exists()) {
+                            const remoteData = snapshot.val().data;
+                            if (remoteData && Array.isArray(remoteData)) {
                                 const storageKey = projects[projectId].storageKey;
                                 localStorage.setItem(storageKey, JSON.stringify(remoteData));
                                 console.log(`✅ Données Firebase chargées pour ${projectId}`);
                             }
-                            resolve();
-                        }, (error) => {
-                            console.warn(`Erreur lecture Firebase ${projectId}:`, error);
-                            resolve();
-                        });
-                    } catch (error) {
-                        console.warn(`Erreur Firebase ${projectId}:`, error);
-                        resolve();
-                    }
-                });
+                        }
+                    }).catch(error => {
+                        console.warn(`Erreur lecture Firebase ${projectId}:`, error);
+                    });
+                } catch (error) {
+                    console.warn(`Erreur Firebase ${projectId}:`, error);
+                    return Promise.resolve();
+                }
             }));
         }
 
@@ -2758,7 +2783,6 @@
             // Écouter les changements en temps réel
             setTimeout(() => {
                 watchFirebaseChanges();
-                console.log('🔄 Firebase real-time sync activated');
             }, 2000);
         });
     </script>
