@@ -1826,24 +1826,38 @@
 
         // Charger les données Firebase au démarrage
         function loadDataFromFirebase() {
+            console.log('🔵 Début loadDataFromFirebase');
+            
             if (!window.firebaseDB || !window.firebaseGet) {
-                console.warn('Firebase not available');
+                console.error('❌ Firebase not available - firebaseDB:', window.firebaseDB, 'firebaseGet:', window.firebaseGet);
                 return Promise.resolve();
             }
 
+            console.log('✅ Firebase disponible, lecture des projets:', Object.keys(projects));
+            
             return Promise.all(Object.keys(projects).map(projectId => {
+                console.log(`📖 Chargement pour ${projectId}...`);
                 try {
                     const dbRef = window.firebaseRef(window.firebaseDB, `todos/${projectId}`);
+                    console.log(`📍 Référence créée pour ${projectId}:`, dbRef);
+                    
                     return window.firebaseGet(dbRef).then((snapshot) => {
+                        console.log(`📦 Snapshot reçu pour ${projectId}:`, snapshot.exists(), snapshot.val());
+                        
                         if (snapshot.exists()) {
                             const firebaseData = snapshot.val();
+                            console.log(`📄 Données Firebase brutes ${projectId}:`, firebaseData);
+                            
                             const remoteData = firebaseData && firebaseData.data ? firebaseData.data : [];
+                            console.log(`✔️ Données extraites ${projectId}:`, remoteData);
+                            
                             if (Array.isArray(remoteData)) {
                                 const storageKey = projects[projectId].storageKey;
                                 localStorage.setItem(storageKey, JSON.stringify(remoteData));
                                 console.log(`✅ Données Firebase chargées pour ${projectId} (${remoteData.length} tâches)`);
+                                console.log(`💾 localStorage[${storageKey}]:`, localStorage.getItem(storageKey));
                             } else {
-                                console.warn(`Format invalide pour ${projectId}:`, remoteData);
+                                console.warn(`❌ Format invalide pour ${projectId}:`, remoteData);
                             }
                         } else {
                             console.log(`ℹ️ Aucune donnée Firebase pour ${projectId}`);
@@ -1855,7 +1869,9 @@
                     console.error(`❌ Erreur Firebase ${projectId}:`, error);
                     return Promise.resolve();
                 }
-            }));
+            })).then(() => {
+                console.log('🟢 loadDataFromFirebase TERMINÉ');
+            });
         }
 
         function saveTodos(projectId, todos) {
