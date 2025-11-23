@@ -1009,3 +1009,13 @@ document.addEventListener('DOMContentLoaded', () => {
     switchTab('forkx');
     console.log('✅ Interface chargée - Onglet ForkX activé');
 });
+
+// 🔥 Listen for Firebase data loaded event and re-render
+window.addEventListener('firebaseDataLoaded', () => {
+    console.log('🔥 Firebase data loaded - Refreshing display');
+    ['forkx', 'geekomobile', 'geekagne'].forEach(projectId => {
+        updateListSelect(projectId);
+        renderTodos(projectId);
+        document.querySelectorAll(`#${projectId}-tab .priority-btn[data-priority="medium"]`).forEach(b => b.classList.add('selected'));
+    });
+});
