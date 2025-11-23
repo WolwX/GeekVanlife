@@ -653,8 +653,9 @@ function importTodos(projectId, event) {
 }
 
 function calculateListEstimate(listTodos) {
+    const spent = listTodos.filter(todo => todo.completed).reduce((sum, todo) => sum + (todo.amount || 0), 0);
     const total = listTodos.reduce((sum, todo) => sum + (todo.amount || 0), 0);
-    return total;
+    return { spent, total };
 }
 
 function getTodoChildren(todos, parentId) {
@@ -791,7 +792,10 @@ function renderTodos(projectId) {
                     </div>
                     <div class="list-stats">
                         <span class="list-count">${listTodos.length} tâche${listTodos.length > 1 ? 's' : ''}</span>
-                        <span class="list-estimate">Dépensé ${estimate > 0 ? estimate.toFixed(2) : '0'} <i class="fas fa-euro-sign"></i></span>
+                        <span class="list-estimate">
+                            <div style="font-size: 0.7rem; opacity: 0.7; text-transform: uppercase; letter-spacing: 0.5px;">Budget</div>
+                            <div><span style="font-weight: 700;">${estimate.spent.toFixed(2)}</span> / ${estimate.total.toFixed(2)} <i class="fas fa-euro-sign"></i></div>
+                        </span>
                     </div>
                 </div>
                 <div class="list-items">
