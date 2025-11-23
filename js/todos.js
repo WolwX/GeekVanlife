@@ -191,9 +191,9 @@ function loadTodos(projectId) {
     // Second pass: clean parentId references
     let cleaned = false;
     validTodos.forEach(todo => {
-        // Ensure parentId is null if invalid or self-referencing
-        if (!todo.parentId || todo.parentId === todo.id || !validIds.has(todo.parentId)) {
-            if (todo.parentId !== null) {
+        // Ensure parentId is null if invalid, undefined, or self-referencing
+        if (!todo.parentId || todo.parentId === undefined || todo.parentId === todo.id || !validIds.has(todo.parentId)) {
+            if (todo.parentId !== null && todo.parentId !== undefined) {
                 console.warn(`Cleaning invalid parentId for todo ${todo.id}: ${todo.parentId}`);
                 cleaned = true;
             }
@@ -203,11 +203,11 @@ function loadTodos(projectId) {
     
     // Third pass: detect circular references
     validTodos.forEach(todo => {
-        if (todo.parentId !== null) {
+        if (todo.parentId !== null && todo.parentId !== undefined) {
             const visited = new Set();
             let currentId = todo.parentId;
             
-            while (currentId !== null && !visited.has(currentId)) {
+            while (currentId !== null && currentId !== undefined && !visited.has(currentId)) {
                 visited.add(currentId);
                 const parent = validTodos.find(t => t.id === currentId);
                 if (!parent) break;
