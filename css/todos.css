@@ -885,10 +885,12 @@
             transition: max-height 0.3s ease;
             margin-top: 8px;
             padding: 0;
+            width: 100%;
         }
 
         .todo-item.expanded .todo-details {
-            max-height: 300px;
+            max-height: 500px;
+            padding: 12px 0;
         }
 
         .detail-row {

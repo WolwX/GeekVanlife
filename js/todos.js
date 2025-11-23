@@ -763,7 +763,7 @@ function renderTodos(projectId) {
                     </div>
                 </div>
                 ${hasDetails ? `
-                <div class="todo-details" style="display: none;">
+                <div class="todo-details">
                     ${todo.note ? `<div class="detail-row">${escapeHtml(todo.note)}</div>` : ''}
                     ${todo.amount ? `<div class="detail-row">Montant : ${todo.amount.toFixed(2)}€${hasChildren ? ` (+${childrenAmount.toFixed(2)}€ enfants = ${totalAmount.toFixed(2)}€ total)` : ''}</div>` : ''}
                     ${todo.link ? `<div class="detail-row"><a href="${escapeHtml(todo.link)}" target="_blank" style="color: #667eea; text-decoration: none;">🔗 ${escapeHtml(todo.link)}</a></div>` : ''}
@@ -815,8 +815,8 @@ function toggleTodoExpand(event, projectId, todoId) {
     const icon = todoItem.querySelector('.todo-expand-icon');
     
     if (details) {
-        const isOpen = details.style.display !== 'none';
-        details.style.display = isOpen ? 'none' : 'block';
+        const isOpen = todoItem.classList.contains('expanded');
+        todoItem.classList.toggle('expanded');
         if (icon) {
             icon.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
         }
