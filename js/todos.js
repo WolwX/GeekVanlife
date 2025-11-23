@@ -757,16 +757,16 @@ function renderTodos(projectId) {
                     </div>
                     <div class="todo-actions">
                         ${todo.link ? `<a href="${escapeHtml(todo.link)}" target="_blank" title="Ouvrir le lien" class="btn-icon" onclick="event.stopPropagation();"><i class="fas fa-link"></i></a>` : ''}
-                        ${todo.note ? `<button onclick="alert('${escapeHtml(todo.note).replace(/'/g, '\\')}'); event.stopPropagation();" title="Voir la note" class="btn-icon"><i class="fas fa-sticky-note"></i></button>` : ''}
+                        ${todo.note ? `<button onclick="event.stopPropagation();" title="Voir la note" class="btn-icon" style="pointer-events: none; opacity: 0.5;"><i class="fas fa-sticky-note"></i></button>` : ''}
                         <button onclick="openEditModal('${projectId}', ${todo.id}); event.stopPropagation();" title="Éditer" class="btn-icon"><i class="fas fa-edit"></i></button>
                         <button onclick="deleteTodo('${projectId}', ${todo.id}); event.stopPropagation();" title="Supprimer" class="btn-icon"><i class="fas fa-trash"></i></button>
                     </div>
                 </div>
                 ${hasDetails ? `
-                <div class="todo-details" style="display: none; padding: 12px 0 0 30px; font-size: 14px; color: #666; border-top: 1px solid #e0e0e0; margin-top: 8px;">
-                    ${todo.amount ? `<div style="margin-bottom: 6px;"><i class="fas fa-euro-sign" style="width: 20px; margin-right: 8px;"></i><strong>Montant:</strong> ${todo.amount.toFixed(2)}€${hasChildren ? ` <span style="color: #999;">(+${childrenAmount.toFixed(2)}€ enfants = ${totalAmount.toFixed(2)}€ total)</span>` : ''}</div>` : ''}
-                    ${todo.link ? `<div style="margin-bottom: 6px;"><i class="fas fa-link" style="width: 20px; margin-right: 8px;"></i><a href="${escapeHtml(todo.link)}" target="_blank" style="color: #2196F3; text-decoration: none;">Ouvrir le lien</a></div>` : ''}
-                    ${todo.note ? `<div style="margin-bottom: 6px;"><i class="fas fa-sticky-note" style="width: 20px; margin-right: 8px;"></i><strong>Note:</strong> ${escapeHtml(todo.note)}</div>` : ''}
+                <div class="todo-details" style="display: none; padding: 10px 0 0 30px; font-size: 13px; line-height: 1.6;">
+                    ${todo.note ? `<div style="color: #666; margin-bottom: 8px;">${escapeHtml(todo.note)}</div>` : ''}
+                    ${todo.amount ? `<div style="color: #888; font-size: 12px; margin-bottom: 4px;">Montant : ${todo.amount.toFixed(2)}€${hasChildren ? ` (+${childrenAmount.toFixed(2)}€ enfants = ${totalAmount.toFixed(2)}€ total)` : ''}</div>` : ''}
+                    ${todo.link ? `<div style="font-size: 12px;"><a href="${escapeHtml(todo.link)}" target="_blank" style="color: #667eea; text-decoration: none;">🔗 ${escapeHtml(todo.link)}</a></div>` : ''}
                 </div>` : ''}
             </div>
             ${hasChildren ? children.map(child => renderTodoHierarchy(child, allTodos, depth + 1)).join('') : ''}
