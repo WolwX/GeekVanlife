@@ -638,7 +638,15 @@ function importTodos(projectId, event) {
             const importedData = JSON.parse(e.target.result);
             if (importedData && Array.isArray(importedData.todos)) {
                 const todos = loadTodos(projectId);
-                importedData.todos.forEach(todo => todos.push(todo));
+                const maxId = todos.length > 0 ? Math.max(...todos.map(t => t.id || 0)) : 0;
+                
+                // Add IDs to imported todos
+                importedData.todos.forEach((todo, index) => {
+                    todo.id = maxId + index + 1;
+                    if (!todo.parentId) todo.parentId = null;
+                    todos.push(todo);
+                });
+                
                 saveTodos(projectId, todos);
                 updateListSelect(projectId);
                 renderTodos(projectId);
