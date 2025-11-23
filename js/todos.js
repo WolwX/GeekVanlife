@@ -174,7 +174,63 @@ function updateListSelect(projectId) {
 }
 
 function loadTodos(projectId) {
-    return JSON.parse(localStorage.getItem(projects[projectId].storageKey)) || [];
+    const todos = JSON.parse(localStorage.getItem(projects[projectId].storageKey)) || [];
+    
+    // Validate and clean todos to prevent circular references
+    const validTodos = [];
+    const validIds = new Set();
+    
+    // First pass: collect all valid IDs
+    todos.forEach(todo => {
+        if (todo.id && !validIds.has(todo.id)) {
+            validIds.add(todo.id);
+            validTodos.push(todo);
+        }
+    });
+    
+    // Second pass: clean parentId references
+    let cleaned = false;
+    validTodos.forEach(todo => {
+        // Ensure parentId is null if invalid or self-referencing
+        if (!todo.parentId || todo.parentId === todo.id || !validIds.has(todo.parentId)) {
+            if (todo.parentId !== null) {
+                console.warn(`Cleaning invalid parentId for todo ${todo.id}: ${todo.parentId}`);
+                cleaned = true;
+            }
+            todo.parentId = null;
+        }
+    });
+    
+    // Third pass: detect circular references
+    validTodos.forEach(todo => {
+        if (todo.parentId !== null) {
+            const visited = new Set();
+            let currentId = todo.parentId;
+            
+            while (currentId !== null && !visited.has(currentId)) {
+                visited.add(currentId);
+                const parent = validTodos.find(t => t.id === currentId);
+                if (!parent) break;
+                
+                if (parent.parentId === todo.id) {
+                    // Circular reference detected
+                    console.warn(`Circular reference detected: todo ${todo.id} and ${parent.id}`);
+                    todo.parentId = null;
+                    cleaned = true;
+                    break;
+                }
+                currentId = parent.parentId;
+            }
+        }
+    });
+    
+    // Save cleaned data if modifications were made
+    if (cleaned) {
+        console.log(`🧹 Cleaned circular references in ${projectId}`);
+        saveTodos(projectId, validTodos);
+    }
+    
+    return validTodos;
 }
 
 function saveTodos(projectId, todos) {
