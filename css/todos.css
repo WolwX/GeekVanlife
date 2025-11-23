@@ -1141,6 +1141,10 @@
         /* Rendre l'input accessible sur mobile via un bouton visible */
         /* Mobile responsive layout */
         @media (max-width: 768px) {
+            .tab-content {
+                padding: 0;
+            }
+
             .todo-row {
                 flex-direction: column;
                 align-items: flex-start;

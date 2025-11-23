@@ -729,8 +729,16 @@ function renderTodos(projectId) {
     const renderTodoHierarchy = (todo, allTodos, depth = 0) => {
         const children = getTodoChildren(allTodos, todo.id);
         const hasChildren = children.length > 0;
-        const childrenAmount = hasChildren ? calculateChildrenAmount(allTodos, todo.id) : 0;
-        const totalAmount = (todo.amount || 0) + childrenAmount;
+        
+        // Calculate children budget (spent / total)
+        let childrenSpent = 0;
+        let childrenTotal = 0;
+        if (hasChildren) {
+            const allDescendants = getAllDescendants(allTodos, todo.id);
+            childrenSpent = allDescendants.filter(t => t.completed).reduce((sum, t) => sum + (t.amount || 0), 0);
+            childrenTotal = allDescendants.reduce((sum, t) => sum + (t.amount || 0), 0);
+        }
+        
         const hasDetails = todo.link || todo.note || todo.amount;
         
         // Définir la couleur de fond selon la priorité (pour les tâches non complétées)
@@ -755,7 +763,11 @@ function renderTodos(projectId) {
                         <input type="checkbox" ${todo.completed ? 'checked' : ''}
                                onchange="toggleTodo('${projectId}', ${todo.id})" onclick="event.stopPropagation();">
                         <span class="todo-name">${escapeHtml(todo.name)}</span>
-                        ${todo.amount ? `<span class="todo-amount">${todo.amount.toFixed(2)} <i class="fas fa-euro-sign"></i>${hasChildren ? ` (+${childrenAmount.toFixed(2)})` : ''}</span>` : ''}
+                        ${todo.amount ? `<span class="todo-amount">${todo.amount.toFixed(2)} <i class="fas fa-euro-sign"></i></span>` : ''}
+                        ${hasChildren && childrenTotal > 0 ? `<span class="todo-amount" style="font-size: 0.8rem;">
+                            <div style="font-size: 0.65rem; opacity: 0.7; text-transform: uppercase;">Enfants</div>
+                            <div><span style="font-weight: 700;">${childrenSpent.toFixed(2)}</span> / ${childrenTotal.toFixed(2)} <i class="fas fa-euro-sign"></i></div>
+                        </span>` : ''}
                     </div>
                     <div class="todo-actions">
                         ${todo.link ? `<a href="${escapeHtml(todo.link)}" target="_blank" title="Ouvrir le lien" class="btn-icon" onclick="event.stopPropagation();"><i class="fas fa-link"></i></a>` : ''}
