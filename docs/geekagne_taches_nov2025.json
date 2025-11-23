@@ -1,0 +1,258 @@
+{
+  "projectId": "geekagne",
+  "importDate": "2025-11-23",
+  "source": "Changelog Weekend 22-23 Nov 2025",
+  "todos": [
+    {
+      "name": "Acheter câble électrique 3G 1,5mm² - 5 mètres",
+      "list": "Placard Technique Eau",
+      "priority": "high",
+      "amount": 20,
+      "completed": false,
+      "note": "Brico Dépôt / Leroy Merlin / Weldom - Passage sous cabanon sanitaire vers placard technique (mesure validée : 5m)",
+      "link": ""
+    },
+    {
+      "name": "Installer câblage électrique placard technique",
+      "list": "Placard Technique Eau",
+      "priority": "high",
+      "amount": 0,
+      "completed": false,
+      "note": "Passage sous cabanon sanitaire vers placard technique - Nécessite câble 5m acheté au préalable",
+      "link": ""
+    },
+    {
+      "name": "Installer système chauffe-eau",
+      "list": "Placard Technique Eau",
+      "priority": "high",
+      "amount": 0,
+      "completed": false,
+      "note": "PRIORITÉ ABSOLUE - Confort hivernal. Dépend du câblage électrique installé.",
+      "link": ""
+    },
+    {
+      "name": "Tester installation complète eau chaude",
+      "list": "Placard Technique Eau",
+      "priority": "high",
+      "amount": 0,
+      "completed": false,
+      "note": "Validation fonctionnement avant utilisation quotidienne",
+      "link": ""
+    },
+    {
+      "name": "Acheter panneaux OSB pour toit cabane chats",
+      "list": "Cabane à Chats V1.0",
+      "priority": "high",
+      "amount": 60,
+      "completed": false,
+      "note": "Toit complet cabane chats Version 1.0 - Protection contre intempéries",
+      "link": ""
+    },
+    {
+      "name": "Installer toit OSB complet cabane chats",
+      "list": "Cabane à Chats V1.0",
+      "priority": "high",
+      "amount": 0,
+      "completed": false,
+      "note": "Version 0.99 → V1.0 - Protection complète contre pluie et froid",
+      "link": ""
+    },
+    {
+      "name": "Poser bords de finition toit cabane chats",
+      "list": "Cabane à Chats V1.0",
+      "priority": "high",
+      "amount": 0,
+      "completed": false,
+      "note": "Étanchéité et esthétique - Finalisation structure",
+      "link": ""
+    },
+    {
+      "name": "Appliquer imperméabilisation/weatherproofing toit",
+      "list": "Cabane à Chats V1.0",
+      "priority": "high",
+      "amount": 20,
+      "completed": false,
+      "note": "Protection durable contre pluie - Produit d'étanchéité pour OSB",
+      "link": ""
+    },
+    {
+      "name": "Acheter plaques polyuréthane 5cm d'épaisseur",
+      "list": "Toilettes Sèches",
+      "priority": "medium",
+      "amount": 50,
+      "completed": false,
+      "note": "Isolation entre mur et MDF 9mm - Espacement 5cm prévu",
+      "link": ""
+    },
+    {
+      "name": "Acheter plaques liège 1cm maximum",
+      "list": "Toilettes Sèches",
+      "priority": "medium",
+      "amount": 25,
+      "completed": false,
+      "note": "Complément isolation avec polyuréthane - Total isolation ~6cm",
+      "link": ""
+    },
+    {
+      "name": "Installer isolation (polyuréthane + liège) toilettes",
+      "list": "Toilettes Sèches",
+      "priority": "medium",
+      "amount": 0,
+      "completed": false,
+      "note": "Espacement 5cm entre mur et MDF 9mm - Polyuréthane 5cm + Liège 1cm",
+      "link": ""
+    },
+    {
+      "name": "Refixer gazon synthétique sur mur végétal toilettes",
+      "list": "Toilettes Sèches",
+      "priority": "medium",
+      "amount": 0,
+      "completed": false,
+      "note": "Mur végétalisé toilettes sèches - Reformer/ajuster le gazon",
+      "link": ""
+    },
+    {
+      "name": "Acheter fausses plantes décoratives",
+      "list": "Toilettes Sèches",
+      "priority": "medium",
+      "amount": 30,
+      "completed": false,
+      "note": "Finalisation aspect végétalisé - Décoration murale",
+      "link": ""
+    },
+    {
+      "name": "Compléter décoration avec fausses plantes",
+      "list": "Toilettes Sèches",
+      "priority": "medium",
+      "amount": 0,
+      "completed": false,
+      "note": "Version 1.0 toilettes sèches complète - Finalisation esthétique",
+      "link": ""
+    },
+    {
+      "name": "Vérifier solidité/épaisseur MDF 9mm cabanon sanitaire",
+      "list": "Cabanon Sanitaire",
+      "priority": "medium",
+      "amount": 0,
+      "completed": false,
+      "note": "Contrôle qualité installation MDF - Vérifier tenue à l'humidité",
+      "link": ""
+    },
+    {
+      "name": "Acheter bois 63×75mm pour structure toit stockage",
+      "list": "Cabanon Stockage",
+      "priority": "medium",
+      "amount": 150,
+      "completed": false,
+      "note": "Finition structure toiture - Préparation pose OSB",
+      "link": ""
+    },
+    {
+      "name": "Installer structure toit (bois 63×75mm) stockage",
+      "list": "Cabanon Stockage",
+      "priority": "medium",
+      "amount": 0,
+      "completed": false,
+      "note": "Charpente toiture cabanon stockage - Support pour OSB",
+      "link": ""
+    },
+    {
+      "name": "Acheter panneaux OSB toiture cabanon stockage",
+      "list": "Cabanon Stockage",
+      "priority": "medium",
+      "amount": 100,
+      "completed": false,
+      "note": "Couverture complète toit - Finalisation cabanon stockage",
+      "link": ""
+    },
+    {
+      "name": "Poser panneaux OSB toiture cabanon stockage",
+      "list": "Cabanon Stockage",
+      "priority": "medium",
+      "amount": 0,
+      "completed": false,
+      "note": "Finalisation cabanon stockage → opérationnel hiver 2025",
+      "link": ""
+    },
+    {
+      "name": "Acheter panneaux solaires pour cabane chats",
+      "list": "Cabane à Chats V2.0",
+      "priority": "low",
+      "amount": 0,
+      "completed": false,
+      "note": "Autonomie énergétique Version 2.0 - Moyen terme hiver 2025-2026",
+      "link": ""
+    },
+    {
+      "name": "Installer système surveillance cabane chats",
+      "list": "Cabane à Chats V2.0",
+      "priority": "low",
+      "amount": 0,
+      "completed": false,
+      "note": "Caméra + monitoring à distance - Version 2.0",
+      "link": ""
+    },
+    {
+      "name": "Acheter distributeur automatique nourriture chats",
+      "list": "Cabane à Chats V2.0",
+      "priority": "low",
+      "amount": 0,
+      "completed": false,
+      "note": "Automatisation alimentation - Version 2.0",
+      "link": ""
+    },
+    {
+      "name": "Acheter chatière manuelle PetSafe",
+      "list": "Cabane à Chats V2.0",
+      "priority": "low",
+      "amount": 0,
+      "completed": false,
+      "note": "Contrôle accès cabane - Version 2.0",
+      "link": ""
+    },
+    {
+      "name": "Vérifier tuyaux irrigation (Avril 2026)",
+      "list": "Irrigation",
+      "priority": "low",
+      "amount": 0,
+      "completed": false,
+      "note": "Préparation saison Canal de Corbère - Printemps 2026",
+      "link": ""
+    },
+    {
+      "name": "Réparer manchon 32mm pommier",
+      "list": "Irrigation",
+      "priority": "low",
+      "amount": 0,
+      "completed": false,
+      "note": "Système irrigation - Réparation avant saison",
+      "link": ""
+    },
+    {
+      "name": "Planifier extension arbres (23-26 nouveaux)",
+      "list": "Plantations",
+      "priority": "low",
+      "amount": 3000,
+      "completed": false,
+      "note": "Budget 2500-3500€ selon variétés - Printemps 2026",
+      "link": ""
+    }
+  ],
+  "summary": {
+    "totalTasks": 26,
+    "highPriority": 8,
+    "mediumPriority": 11,
+    "lowPriority": 7,
+    "totalBudget": 455,
+    "lists": [
+      "Placard Technique Eau",
+      "Cabane à Chats V1.0",
+      "Toilettes Sèches",
+      "Cabanon Sanitaire",
+      "Cabanon Stockage",
+      "Cabane à Chats V2.0",
+      "Irrigation",
+      "Plantations"
+    ]
+  }
+}
