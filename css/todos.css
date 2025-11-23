@@ -1,1226 +1,1323 @@
-﻿</head>
-<body>
-<a href="./index.html" class="back-button" title="Accueil">
-        <i class="fas fa-home"></i>
-        <span class="back-button-text">Accueil</span>
-    </a>
-
-    <div class="container">
-        <div class="header">
-            <h1>📋 To Do Lists</h1>
-            <p class="subtitle">Centre de gestion des tâches pour tous les projets GeekVanlife</p>
-        </div>
-
-        <div class="tabs-container">
-            <div class="tabs-header">
-                <button class="tab-button forkx active" onclick="switchTab('forkx')">🚗🌵 ForkX</button>
-                <button class="tab-button geekomobile" onclick="switchTab('geekomobile')">🚐🚀 Geekomobile</button>
-                <button class="tab-button geekagne" onclick="switchTab('geekagne')">🏡🌲 Geekagne</button>
-            </div>
-
-            <div id="forkx-tab" class="tab-content active">
-                <div class="todo-form-section">
-                    <div class="form-title">
-                        <span>Ajouter une nouvelle tâche</span>
-                        <div class="form-title-actions">
-                            <button class="btn-action-icon" onclick="exportTodos('forkx')"
-                                title="Exporter les tâches"><i class="fas fa-upload"></i></button>
-                            <button class="btn-action-icon" onclick="openJsonImportModal('forkx')"
-                                title="Importer les tâches"><i class="fas fa-download"></i></button>
-                            <button class="btn-action-icon" onclick="openImageImportModal('forkx')"
-                                title="Importer depuis une image"><i class="fas fa-image"></i></button>
-                        </div>
-                    </div>
-                    <div class="form-content">
-                        <div class="task-list-row">
-                            <div class="task-input-wrapper">
-                                <button class="task-input-icon" onclick="addTodo('forkx')" title="Ajouter la tâche"><i
-                                        class="fas fa-clipboard-check"></i></button>
-                                <input type="text" id="forkx-task-name" placeholder="Nom de la tâche..."
-                                    onkeypress="if(event.key==='Enter') addTodo('forkx')"
-                                    style="flex: 1; padding: 10px 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 0.95rem;">
-                            </div>
-                            <div class="list-input-group">
-                                <select id="forkx-list-select"
-                                    style="flex: 1; padding: 10px 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 0.95rem;">
-                                    <option value="">-- Sélectionner --</option>
-                                </select>
-                                <button class="list-add-icon" onclick="openListModal('forkx')"
-                                    title="Ajouter une liste"><i class="fas fa-tasks"></i></button>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <input type="number" id="forkx-amount" placeholder="Montant (€)" step="0.01">
-                            </div>
-                            <div class="form-group"
-                                style="display: flex; justify-content: center; align-items: center;">
-                                <div class="priority-selector">
-                                    <button class="priority-btn" data-priority="low"
-                                        onclick="selectPriority(this, 'forkx')">🟢</button>
-                                    <button class="priority-btn" data-priority="medium"
-                                        onclick="selectPriority(this, 'forkx')">🟡</button>
-                                    <button class="priority-btn" data-priority="high"
-                                        onclick="selectPriority(this, 'forkx')">🔴</button>
-                                    <input type="hidden" id="forkx-priority" value="medium">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="accordion-section">
-                            <div class="accordion-header" onclick="toggleAccordion(this)">
-                                <span class="accordion-toggle">+</span>
-                                <span>Options supplémentaires</span>
-                            </div>
-                            <div class="accordion-content">
-                                <div class="accordion-body">
-                                    <div class="form-group">
-                                        <label>Lien (optionnel)</label>
-                                        <input type="url" id="forkx-link" placeholder="https://...">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Note (optionnel)</label>
-                                        <textarea id="forkx-note" placeholder="Détails supplémentaires..."></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-divider"></div>
-                <div class="lists-container" id="forkx-lists"></div>
-                <div id="forkx-empty" class="empty-state">
-                    <div class="empty-state-icon">✅</div>
-                    <p>Aucune tâche pour le moment !</p>
-                </div>
-            </div>
-
-            <div id="geekomobile-tab" class="tab-content">
-                <div class="todo-form-section">
-                    <div class="form-title">
-                        <span>Ajouter une nouvelle tâche</span>
-                        <div class="form-title-actions">
-                            <button class="btn-action-icon" onclick="exportTodos('geekomobile')"
-                                title="Exporter les tâches"><i class="fas fa-upload"></i></button>
-                            <button class="btn-action-icon" onclick="openJsonImportModal('geekomobile')"
-                                title="Importer les tâches"><i class="fas fa-download"></i></button>
-                            <button class="btn-action-icon" onclick="openImageImportModal('geekomobile')"
-                                title="Importer depuis une image"><i class="fas fa-image"></i></button>
-                        </div>
-                    </div>
-                    <div class="form-content">
-                        <div class="task-list-row">
-                            <div class="task-input-wrapper">
-                                <button class="task-input-icon" onclick="addTodo('geekomobile')"
-                                    title="Ajouter la tâche"><i class="fas fa-clipboard-check"></i></button>
-                                <input type="text" id="geekomobile-task-name" placeholder="Nom de la tâche..."
-                                    onkeypress="if(event.key==='Enter') addTodo('geekomobile')"
-                                    style="flex: 1; padding: 10px 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 0.95rem;">
-                            </div>
-                            <div class="list-input-group">
-                                <select id="geekomobile-list-select"
-                                    style="flex: 1; padding: 10px 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 0.95rem;">
-                                    <option value="">-- Sélectionner --</option>
-                                </select>
-                                <button class="list-add-icon" onclick="openListModal('geekomobile')"
-                                    title="Ajouter une liste"><i class="fas fa-tasks"></i></button>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <input type="number" id="geekomobile-amount" placeholder="Montant (€)" step="0.01">
-                            </div>
-                            <div class="form-group"
-                                style="display: flex; justify-content: center; align-items: center;">
-                                <div class="priority-selector">
-                                    <button class="priority-btn" data-priority="low"
-                                        onclick="selectPriority(this, 'geekomobile')">🟢</button>
-                                    <button class="priority-btn" data-priority="medium"
-                                        onclick="selectPriority(this, 'geekomobile')">🟡</button>
-                                    <button class="priority-btn" data-priority="high"
-                                        onclick="selectPriority(this, 'geekomobile')">🔴</button>
-                                    <input type="hidden" id="geekomobile-priority" value="medium">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="accordion-section">
-                            <div class="accordion-header" onclick="toggleAccordion(this)">
-                                <span class="accordion-toggle">+</span>
-                                <span>Options supplémentaires</span>
-                            </div>
-                            <div class="accordion-content">
-                                <div class="accordion-body">
-                                    <div class="form-group">
-                                        <label>Lien (optionnel)</label>
-                                        <input type="url" id="geekomobile-link" placeholder="https://...">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Note (optionnel)</label>
-                                        <textarea id="geekomobile-note"
-                                            placeholder="Détails supplémentaires..."></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-divider"></div>
-                <div class="lists-container" id="geekomobile-lists"></div>
-                <div id="geekomobile-empty" class="empty-state">
-                    <div class="empty-state-icon">✅</div>
-                    <p>Aucune tâche pour le moment !</p>
-                </div>
-            </div>
-
-            <div id="geekagne-tab" class="tab-content">
-                <div class="todo-form-section">
-                    <div class="form-title">
-                        <span>Ajouter une nouvelle tâche</span>
-                        <div class="form-title-actions">
-                            <button class="btn-action-icon" onclick="exportTodos('geekagne')"
-                                title="Exporter les tâches"><i class="fas fa-upload"></i></button>
-                            <button class="btn-action-icon" onclick="openJsonImportModal('geekagne')"
-                                title="Importer les tâches"><i class="fas fa-download"></i></button>
-                            <button class="btn-action-icon" onclick="openImageImportModal('geekagne')"
-                                title="Importer depuis une image"><i class="fas fa-image"></i></button>
-                        </div>
-                    </div>
-                    <div class="form-content">
-                        <div class="task-list-row">
-                            <div class="task-input-wrapper">
-                                <button class="task-input-icon" onclick="addTodo('geekagne')"
-                                    title="Ajouter la tâche"><i class="fas fa-clipboard-check"></i></button>
-                                <input type="text" id="geekagne-task-name" placeholder="Nom de la tâche..."
-                                    onkeypress="if(event.key==='Enter') addTodo('geekagne')"
-                                    style="flex: 1; padding: 10px 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 0.95rem;">
-                            </div>
-                            <div class="list-input-group">
-                                <select id="geekagne-list-select"
-                                    style="flex: 1; padding: 10px 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 0.95rem;">
-                                    <option value="">-- Sélectionner --</option>
-                                </select>
-                                <button class="list-add-icon" onclick="openListModal('geekagne')"
-                                    title="Ajouter une liste"><i class="fas fa-tasks"></i></button>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <input type="number" id="geekagne-amount" placeholder="Montant (€)" step="0.01">
-                            </div>
-                            <div class="form-group"
-                                style="display: flex; justify-content: center; align-items: center;">
-                                <div class="priority-selector">
-                                    <button class="priority-btn" data-priority="low"
-                                        onclick="selectPriority(this, 'geekagne')">🟢</button>
-                                    <button class="priority-btn" data-priority="medium"
-                                        onclick="selectPriority(this, 'geekagne')">🟡</button>
-                                    <button class="priority-btn" data-priority="high"
-                                        onclick="selectPriority(this, 'geekagne')">🔴</button>
-                                    <input type="hidden" id="geekagne-priority" value="medium">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="accordion-section">
-                            <div class="accordion-header" onclick="toggleAccordion(this)">
-                                <span class="accordion-toggle">+</span>
-                                <span>Options supplémentaires</span>
-                            </div>
-                            <div class="accordion-content">
-                                <div class="accordion-body">
-                                    <div class="form-group">
-                                        <label>Lien (optionnel)</label>
-                                        <input type="url" id="geekagne-link" placeholder="https://...">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Note (optionnel)</label>
-                                        <textarea id="geekagne-note"
-                                            placeholder="Détails supplémentaires..."></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-divider"></div>
-                <div class="lists-container" id="geekagne-lists"></div>
-                <div id="geekagne-empty" class="empty-state">
-                    <div class="empty-state-icon">✅</div>
-                    <p>Aucune tâche pour le moment !</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal d'import d'image -->
-    <div id="image-import-modal" class="image-import-modal">
-        <div class="image-import-content">
-            <div class="image-import-header">📸 Importer une liste depuis une image</div>
-
-            <!-- Label wrapper pour meilleure accessibilité mobile -->
-            <label for="image-input" class="image-upload-zone" id="upload-zone"
-                style="cursor: pointer; display: block;">
-                <div class="upload-icon"><i class="fas fa-image"></i></div>
-                <div class="upload-text">Glissez-déposez une image ici</div>
-                <div class="upload-subtext">ou cliquez pour sélectionner une image</div>
-                <!-- Input file caché mais dans le label pour meilleure accessibilité -->
-                <input type="file" id="image-input" accept="image/*" onchange="handleImageSelect(event)"
-                    style="display:none;">
-            </label>
-
-            <div id="processing-container" style="display:none;">
-                <div class="processing-indicator">
-                    <div class="spinner"></div>
-                    <p>Analyse de l'image en cours...</p>
-                </div>
-            </div>
-
-            <div id="image-preview" class="image-preview" style="display:none;">
-                <img id="preview-img" src="" alt="Aperçu">
-            </div>
-
-            <div id="ocr-container" style="display:none;">
-                <label>Texte détecté :</label>
-                <div class="ocr-result" id="ocr-result"></div>
-            </div>
-
-            <div id="todo-preview-container" style="display:none;">
-                <label>Tâches extraites :</label>
-                <div class="todo-preview-list" id="todo-preview-list"></div>
-            </div>
-
-            <div id="import-actions-container" style="display:none;" class="import-actions">
-                <button id="btn-import-image" class="btn-import" onclick="importFromImage()">Importer ces
-                    tâches</button>
-                <button class="btn-close-import" onclick="closeImageImportModal()">Annuler</button>
-            </div>
-
-            <div id="no-import-actions" class="import-actions">
-                <button class="btn-close-import" onclick="closeImageImportModal()" style="flex:1;">Fermer</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal d'import JSON -->
-    <div id="json-import-modal" class="image-import-modal">
-        <div class="image-import-content">
-            <div class="image-import-header">📥 Importer un fichier JSON</div>
-
-            <div class="image-upload-zone" id="json-upload-zone"
-                onclick="document.getElementById('json-import-input').click()">
-                <div class="upload-icon"><i class="fas fa-file-import"></i></div>
-                <div class="upload-text">Cliquez pour sélectionner un fichier</div>
-                <div class="upload-subtext">ou glissez-déposez un fichier JSON ici</div>
-            </div>
-
-            <input type="file" id="json-import-input" accept=".json" onchange="handleJsonImportSelect(event)">
-
-            <div id="json-import-actions" class="import-actions">
-                <button class="btn-close-import" onclick="closeJsonImportModal()" style="flex:1;">Fermer</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal de synchronisation universelle -->
-    <div id="sync-modal" class="image-import-modal">
-        <div class="image-import-content">
-            <div class="image-import-header">🔄 Code de Partage Universel</div>
-
-            <div style="padding: 20px;">
-                <div style="margin-bottom: 20px; padding: 10px; background: #f0f4ff; border-radius: 8px;">
-                    <p style="margin: 0; color: #333; font-size: 0.95rem;">
-                        <strong>✨ Partagez toutes vos données</strong> (todos, paramètres, et tout le contenu de votre
-                        application) entre vos appareils sans importer/exporter !
-                    </p>
-                </div>
-
-                <div style="background: #f5f5f5; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
-                    <label style="display: block; text-align: left; margin-bottom: 8px; font-weight: 600;">🔐 Votre code
-                        de partage :</label>
-                    <div style="display: flex; gap: 8px;">
-                        <input type="text" id="sync-code" readonly
-                            style="flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 6px; font-family: monospace; background: white;"
-                            placeholder="SHARE-00000-00000">
-                        <button onclick="copySyncCode()"
-                            style="padding: 10px 15px; background: #667eea; color: white; border: none; border-radius: 6px; cursor: pointer; white-space: nowrap;">📋
-                            Copier</button>
-                    </div>
-                    <p style="margin: 8px 0 0 0; font-size: 0.8rem; color: #999;">Valide 7 jours - Partagez ce code avec
-                        vos autres appareils</p>
-                </div>
-
-                <div style="background: #f0f4ff; padding: 15px; border-radius: 8px;">
-                    <label style="display: block; text-align: left; margin-bottom: 8px; font-weight: 600;">🔗 Restaurer
-                        à partir d'un code :</label>
-                    <div style="display: flex; gap: 8px;">
-                        <input type="text" id="sync-code-input" placeholder="0001XXXXX"
-                            style="flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 6px; font-family: monospace;">
-                        <button onclick="syncWithCode()"
-                            style="padding: 10px 15px; background: #11998e; color: white; border: none; border-radius: 6px; cursor: pointer; white-space: nowrap;">✓
-                            Restaurer</button>
-                    </div>
-                    <p style="margin: 8px 0 0 0; font-size: 0.8rem; color: #999;">Entrez le code reçu d'un autre
-                        appareil</p>
-                </div>
-            </div>
-
-            <div class="import-actions">
-                /*
-                const firebaseConfig = {
-                apiKey: "AIzaSyD7PUqS5GGpEuQiZhlaiwhBpiJps5K8Jec",
-                authDomain: "geekvanlife.firebaseapp.com",
-                projectId: "geekvanlife",
-                storageBucket: "geekvanlife.firebasestorage.app",
-                messagingSenderId: "808193116530",
-                appId: "1:808193116530:web:26d0f44d6258e7933c75eb",
-                databaseURL: "https://geekvanlife-default-rtdb.europe-west1.firebasedatabase.app"
-                };
-
-                // Initialize Firebase
-                let firebaseDB = null;
-                let firebaseRef = null;
-                let firebaseSet = null;
-                let firebaseGet = null;
-                let firebaseOnValue = null;
-
-                try {
-                if (typeof firebase === 'undefined') {
-                console.error('❌ Firebase SDK not loaded');
-                document.getElementById('firebase-status').innerHTML = '❌ Firebase SDK non chargé';
-                } else {
-                firebase.initializeApp(firebaseConfig);
-                firebaseDB = firebase.database();
-                firebaseRef = (path) => firebaseDB.ref(path);
-                firebaseSet = (ref, data) => ref.set(data);
-                firebaseGet = (ref) => ref.once('value');
-                firebaseOnValue = (ref, callback, errorCallback) => ref.on('value', callback, errorCallback);
-
-                // Exposer globalement
-                window.firebaseDB = firebaseDB;
-                window.firebaseRef = firebaseRef;
-                window.firebaseSet = firebaseSet;
-                window.firebaseGet = firebaseGet;
-                window.firebaseOnValue = firebaseOnValue;
-
-                console.log('✅ Firebase initialized successfully');
-                }
-                } catch (error) {
-                console.error('Firebase initialization error:', error);
-                document.getElementById('firebase-status').innerHTML = '❌ Erreur init Firebase';
-                }
-                */
-
-                const projects = {
-                forkx: { storageKey: 'forkx-todos', displayColor: 'forkx' },
-                geekomobile: { storageKey: 'geekomobile-todos', displayColor: 'geekomobile' },
-                geekagne: { storageKey: 'geekagne-todos', displayColor: 'geekagne' }
-                };
-
-                /**
-                * Crée un code de partage unique pour TOUTES les données de l'app
-                * Format: SHARE-TIMESTAMP-RANDOM
-                */
-                function generateShareCode() {
-                const timestamp = Math.floor(Date.now() / 1000);
-                const random = Math.floor(Math.random() * 100000).toString().padStart(5, '0');
-                return `${timestamp.toString().slice(-5)}${random}`;
-                }
-
-                function getAllApplicationData() {
-                const data = {};
-                for (let i = 0; i < localStorage.length; i++) { const key=localStorage.key(i); if
-                    (!key.startsWith('sync_')) { data[key]=localStorage.getItem(key); } } return data; } function
-                    saveShareCode(code, appData) { const shareEntry={ data: appData, timestamp: Date.now(), expiry:
-                    Date.now() + (7 * 24 * 60 * 60 * 1000) }; localStorage.setItem(`sync_${code}`,
-                    JSON.stringify(shareEntry)); } function loadShareCode(code) { const
-                    shareEntry=localStorage.getItem(`sync_${code}`); if (!shareEntry) return null; const
-                    entry=JSON.parse(shareEntry); if (Date.now()> entry.expiry) {
-                    localStorage.removeItem(`sync_${code}`);
-                    return null;
-                    }
-                    return entry.data;
-                    }
-
-                    /**
-                    * Ouvre la modal de synchronisation
-                    */
-                    function openSyncModal() {
-                    const modal = document.getElementById('sync-modal');
-                    modal.classList.add('active');
-
-                    // Vérifier s'il existe déjà un code valide
-                    let shareCode = localStorage.getItem('current_share_code');
-
-                    // Générer un nouveau code seulement s'il n'existe pas ou est expiré
-                    if (!shareCode || !loadShareCode(shareCode)) {
-                    shareCode = generateShareCode();
-                    const allAppData = getAllApplicationData();
-                    saveShareCode(shareCode, allAppData);
-                    localStorage.setItem('current_share_code', shareCode);
-                    }
-
-                    document.getElementById('sync-code').value = shareCode;
-                    document.getElementById('sync-code-input').value = '';
-                    }
-
-                    /**
-                    * Ferme la modal de synchronisation
-                    */
-                    function closeSyncModal() {
-                    document.getElementById('sync-modal').classList.remove('active');
-                    }
-
-                    /**
-                    * Copie le code de partage dans le presse-papiers
-                    */
-                    function copySyncCode() {
-                    const code = document.getElementById('sync-code').value;
-                    navigator.clipboard.writeText(code).then(() => {
-                    alert('✓ Code copié ! Vous pouvez maintenant le partager');
-                    }).catch(() => {
-                    alert('Erreur lors de la copie. Code: ' + code);
-                    });
-                    }
-
-                    /**
-                    * Synchronise l'application avec un code de partage
-                    * Restaure TOUTES les données exportées
-                    */
-                    function syncWithCode() {
-                    const code = document.getElementById('sync-code-input').value.trim();
-                    if (!code) {
-                    alert('Veuillez entrer un code');
-                    return;
-                    }
-
-                    const shareData = loadShareCode(code);
-                    if (!shareData) {
-                    alert('❌ Code invalide ou expiré');
-                    return;
-                    }
-
-                    if (!confirm('⚠️ Ceci remplacera toutes vos données actuelles.\n\nContinuer ?')) {
-                    return;
-                    }
-
-                    Object.keys(shareData).forEach(key => {
-                    localStorage.setItem(key, shareData[key]);
-                    });
-
-                    alert('✓ Synchronisation réussie !\n\nRafraîchissez la page pour voir les changements.');
-                    closeSyncModal();
-                    location.reload();
-                    closeSyncModal();
-
-                    // Rafraîchir tous les projets
-                    Object.keys(projects).forEach(projectId => {
-                    updateListSelect(projectId);
-                    renderTodos(projectId);
-                    });
-                    }
-
-                    function toggleAccordion(header) {
-                    const content = header.nextElementSibling;
-                    const toggle = header.querySelector('.accordion-toggle');
-                    content.classList.toggle('open');
-                    toggle.classList.toggle('open');
-                    }
-
-                    function selectPriority(btn, projectId) {
-                    const selector = btn.parentElement;
-                    selector.querySelectorAll('.priority-btn').forEach(b => b.classList.remove('selected'));
-                    btn.classList.add('selected');
-                    document.getElementById(projectId + '-priority').value = btn.dataset.priority;
-                    }
-
-                    function switchTab(projectId) {
-                    document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
-                    document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
-                    document.getElementById(projectId + '-tab').classList.add('active');
-
-                    // Activer le bouton correspondant
-                    const targetButton = document.querySelector(`[onclick*="${projectId}"]`);
-                    if (targetButton) {
-                    targetButton.classList.add('active');
-                    }
-
-                    updateListSelect(projectId);
-                    renderTodos(projectId);
-                    }
-
-                    function openListModal(projectId) {
-                    const listName = prompt('Entrez le nom de la nouvelle liste:');
-                    if (listName && listName.trim()) {
-                    // La liste sera ajoutée automatiquement quand on ajoute une tâche
-                    alert('La liste sera créée quand vous ajouterez la première tâche');
-                    }
-                    }
-
-                    function updateListSelect(projectId) {
-                    const todos = loadTodos(projectId);
-                    const lists = new Set();
-                    todos.forEach(todo => { if (todo.list) lists.add(todo.list); });
-
-                    const select = document.getElementById(projectId + '-list-select');
-                    const currentValue = select.value;
-                    const listOptions = Array.from(lists).sort();
-
-                    select.innerHTML = '<option value="">-- Sélectionner une liste --</option>' +
-                    listOptions.map(list => `<option value="${escapeHtml(list)}">${escapeHtml(list)}</option>
-                    `).join('');
-
-                    if (listOptions.includes(currentValue)) {
-                    select.value = currentValue;
-                    }
-                    }
-
-                    function loadTodos(projectId) {
-                    return JSON.parse(localStorage.getItem(projects[projectId].storageKey)) || [];
-                    }
-
-                    // Écouter les changements Firebase en temps réel
-                    /* FIREBASE SYNC - DÉSACTIVÉ
-                    function watchFirebaseChanges() {
-                    if (!window.firebaseDB || !window.firebaseOnValue) {
-                    console.warn('Firebase watch: Firebase not available');
-                    return;
-                    }
-
-                    Object.keys(projects).forEach(projectId => {
-                    try {
-                    const dbRef = window.firebaseRef(`todos/${projectId}`);
-
-                    // onValue requires proper callback structure
-                    window.firebaseOnValue(
-                    dbRef,
-                    (snapshot) => {
-                    try {
-                    if (snapshot.exists()) {
-                    const firebaseData = snapshot.val();
-                    const remoteData = firebaseData && firebaseData.data ? firebaseData.data : [];
-                    const storageKey = projects[projectId].storageKey;
-                    const localData = JSON.parse(localStorage.getItem(storageKey)) || [];
-
-                    // Synchroniser si les données distantes sont différentes
-                    if (JSON.stringify(localData) !== JSON.stringify(remoteData)) {
-                    console.log(`📥 Données Firebase reçues pour ${projectId}`);
-                    localStorage.setItem(storageKey, JSON.stringify(remoteData));
-                    // Rafraîchir l'affichage si l'onglet est actif
-                    const activeTab = document.querySelector('.tab-content.active');
-                    if (activeTab && activeTab.id === `${projectId}-tab`) {
-                    renderTodos(projectId);
-                    }
-                    }
-                    }
-                    } catch (error) {
-                    console.error(`Error processing Firebase update for ${projectId}:`, error);
-                    }
-                    },
-                    (error) => {
-                    console.warn(`Firebase watch error for ${projectId}:`, error);
-                    }
-                    );
-                    } catch (error) {
-                    console.warn(`Firebase watch setup error for ${projectId}:`, error);
-                    }
-                    });
-                    console.log('🔄 Firebase real-time sync activated');
-                    }
-
-                    // Charger les données Firebase au démarrage
-                    function loadDataFromFirebase() {
-                    console.log('🔵 Début loadDataFromFirebase');
-                    const statusEl = document.getElementById('firebase-status');
-
-                    if (!window.firebaseDB || !window.firebaseGet) {
-                    console.error('❌ Firebase not available - firebaseDB:', window.firebaseDB, 'firebaseGet:',
-                    window.firebaseGet);
-                    if (statusEl) statusEl.innerHTML = '❌ Firebase non disponible';
-                    return Promise.resolve();
-                    }
-
-                    console.log('✅ Firebase disponible, lecture des projets:', Object.keys(projects));
-                    if (statusEl) statusEl.innerHTML = '🔄 Chargement depuis Firebase...';
-
-                    return Promise.all(Object.keys(projects).map(projectId => {
-                    console.log(`📖 Chargement pour ${projectId}...`);
-                    try {
-                    const dbRef = window.firebaseRef(`todos/${projectId}`);
-                    console.log(`📍 Référence créée pour ${projectId}:`, dbRef);
-
-                    return window.firebaseGet(dbRef).then((snapshot) => {
-                    console.log(`📦 Snapshot reçu pour ${projectId}:`, snapshot.exists(), snapshot.val());
-
-                    if (snapshot.exists()) {
-                    const firebaseData = snapshot.val();
-                    console.log(`📄 Données Firebase brutes ${projectId}:`, firebaseData);
-
-                    const remoteData = firebaseData && firebaseData.data ? firebaseData.data : [];
-                    console.log(`✔️ Données extraites ${projectId}:`, remoteData);
-
-                    if (Array.isArray(remoteData)) {
-                    const storageKey = projects[projectId].storageKey;
-                    localStorage.setItem(storageKey, JSON.stringify(remoteData));
-                    console.log(`✅ Données Firebase chargées pour ${projectId} (${remoteData.length} tâches)`);
-                    console.log(`💾 localStorage[${storageKey}]:`, localStorage.getItem(storageKey));
-                    } else {
-                    console.warn(`❌ Format invalide pour ${projectId}:`, remoteData);
-                    }
-                    } else {
-                    console.log(`ℹ️ Aucune donnée Firebase pour ${projectId}`);
-                    }
-                    }).catch(error => {
-                    console.error(`❌ Erreur lecture Firebase ${projectId}:`, error);
-                    if (statusEl) statusEl.innerHTML = `❌ Erreur Firebase: ${error.message}`;
-                    });
-                    } catch (error) {
-                    console.error(`❌ Erreur Firebase ${projectId}:`, error);
-                    if (statusEl) statusEl.innerHTML = `❌ Erreur: ${error.message}`;
-                    return Promise.resolve();
-                    }
-                    })).then(() => {
-                    console.log('🟢 loadDataFromFirebase TERMINÉ');
-                    if (statusEl) statusEl.innerHTML = '✅ Synchronisé avec Firebase';
-                    setTimeout(() => { if (statusEl) statusEl.style.display = 'none'; }, 3000);
-                    });
-                    }
-                    */
-
-                    function saveTodos(projectId, todos) {
-                    const storageKey = projects[projectId].storageKey;
-                    localStorage.setItem(storageKey, JSON.stringify(todos));
-
-                    /* FIREBASE SYNC - DÉSACTIVÉ
-                    // Synchronise avec Firebase
-                    if (window.firebaseDB) {
-                    try {
-                    const dbRef = window.firebaseRef(`todos/${projectId}`);
-                    window.firebaseSet(dbRef, {
-                    data: todos,
-                    lastUpdated: new Date().toISOString()
-                    }).then(() => {
-                    console.log(`📤 Données sauvegardées dans Firebase pour ${projectId}`);
-                    }).catch(error => {
-                    console.error(`Erreur Firebase sync ${projectId}:`, error);
-                    });
-                    } catch (error) {
-                    console.warn('Firebase not available, using local storage only:', error);
-                    }
-                    }
-                    */
-                    }
-
-                    function addTodo(projectId) {
-                    const taskName = document.getElementById(projectId + '-task-name').value.trim();
-                    const listSelect = document.getElementById(projectId + '-list-select');
-                    let listName = listSelect.value.trim();
-                    const priority = document.getElementById(projectId + '-priority').value;
-                    const amount = document.getElementById(projectId + '-amount').value;
-                    let link = document.getElementById(projectId + '-link').value.trim();
-                    const note = document.getElementById(projectId + '-note').value.trim();
-
-                    if (!taskName) {
-                    alert('Veuillez remplir le nom de la tâche');
-                    return;
-                    }
-
-                    // Si pas de liste sélectionnée, utiliser une liste vide (sans nom)
-                    // Au lieu de demander à l'utilisateur de créer une liste
-                    if (!listName) {
-                    listName = ''; // Liste par défaut sans nom
-                    }
-
-                    // Ajouter le préfixe https:// si absent
-                    if (link && !link.match(/^https?:\/\//i)) {
-                    link = 'https://' + link;
-                    }
-
-                    const todos = loadTodos(projectId);
-                    todos.push({
-                    id: Date.now(),
-                    list: listName,
-                    name: taskName,
-                    priority: priority,
-                    amount: amount ? parseFloat(amount) : null,
-                    link: link,
-                    note: note,
-                    completed: false,
-                    parentId: null
-                    });
-
-                    saveTodos(projectId, todos);
-
-                    // Clear form
-                    document.getElementById(projectId + '-task-name').value = '';
-                    listSelect.value = '';
-                    document.getElementById(projectId + '-amount').value = '';
-                    document.getElementById(projectId + '-link').value = '';
-                    document.getElementById(projectId + '-note').value = '';
-                    document.getElementById(projectId + '-priority').value = 'medium';
-                    document.querySelectorAll(`#${projectId}-tab .priority-btn`).forEach(b =>
-                    b.classList.remove('selected'));
-                    document.querySelectorAll(`#${projectId}-tab .priority-btn[data-priority="medium"]`).forEach(b =>
-                    b.classList.add('selected'));
-
-                    updateListSelect(projectId);
-                    renderTodos(projectId);
-                    }
-
-                    function openEditModal(projectId, todoId) {
-                    const todos = loadTodos(projectId);
-                    const todo = todos.find(t => t.id === todoId);
-                    if (!todo) return;
-
-                    // Créer la modal
-                    let modal = document.getElementById('edit-modal');
-                    if (!modal) {
-                    modal = document.createElement('div');
-                    modal.id = 'edit-modal';
-                    modal.className = 'edit-modal';
-                    modal.onclick = function (e) {
-                    if (e.target === modal) closeEditModal();
-                    };
-                    document.body.appendChild(modal);
-                    }
-
-                    modal.innerHTML = `
-                    <div class="edit-modal-content">
-                        <div class="edit-modal-header">Éditer la tâche</div>
-                        <form class="edit-modal-form"
-                            onsubmit="saveEditModal('${projectId}', ${todoId}); return false;">
-                            <div class="form-group">
-                                <label>Nom de la tâche</label>
-                                <input type="text" id="edit-name" value="${escapeHtml(todo.name)}" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Liste</label>
-                                <input type="text" id="edit-list" value="${escapeHtml(todo.list)}" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Priorité</label>
-                                <select id="edit-priority">
-                                    <option value="low" ${todo.priority==='low' ? 'selected' : '' }>Basse (🟢)</option>
-                                    <option value="medium" ${todo.priority==='medium' ? 'selected' : '' }>Moyenne (🟡)
-                                    </option>
-                                    <option value="high" ${todo.priority==='high' ? 'selected' : '' }>Haute (🔴)
-                                    </option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label>Montant (€)</label>
-                                <input type="number" id="edit-amount" value="${todo.amount || ''}" step="0.01">
-                            </div>
-                            <div class="form-group">
-                                <label>Lien</label>
-                                <input type="text" id="edit-link" value="${escapeHtml(todo.link || '')}"
-                                    placeholder="exemple.com">
-                            </div>
-                            <div class="form-group">
-                                <label>Note</label>
-                                <textarea id="edit-note">${escapeHtml(todo.note || '')}</textarea>
-                            </div>
-                            <div class="edit-modal-actions">
-                                <button type="submit" class="btn-save">Enregistrer</button>
-                                <button type="button" class="btn-cancel" onclick="closeEditModal()">Annuler</button>
-                            </div>
-                        </form>
-                    </div>
-                    `;
-                    modal.classList.add('active');
-                    }
-
-                    function closeEditModal() {
-                    const modal = document.getElementById('edit-modal');
-                    if (modal) modal.classList.remove('active');
-                    }
-
-                    function saveEditModal(projectId, todoId) {
-                    const todos = loadTodos(projectId);
-                    const todo = todos.find(t => t.id === todoId);
-                    if (!todo) return;
-
-                    todo.name = document.getElementById('edit-name').value.trim();
-                    todo.list = document.getElementById('edit-list').value.trim();
-                    todo.priority = document.getElementById('edit-priority').value;
-                    const amount = parseFloat(document.getElementById('edit-amount').value);
-                    todo.amount = isNaN(amount) ? null : amount;
-
-                    // Ajouter le préfixe https:// si absent
-                    let link = document.getElementById('edit-link').value.trim();
-                    if (link && !link.match(/^https?:\/\//i)) {
-                    link = 'https://' + link;
-                    }
-                    todo.link = link;
-                    todo.note = document.getElementById('edit-note').value.trim();
-
-                    saveTodos(projectId, todos);
-                    closeEditModal();
-                    updateListSelect(projectId);
-                    renderTodos(projectId);
-                    }
-
-                    function toggleTodo(projectId, todoId) {
-                    const todos = loadTodos(projectId);
-                    const todo = todos.find(t => t.id === todoId);
-                    if (!todo) return;
-
-                    // Si on essaie de cocher, vérifier les enfants
-                    if (!todo.completed) {
-                    if (!canToggleTodo(todos, todoId, false)) {
-                    return;
-                    }
-                    }
-
-                    todo.completed = !todo.completed;
-                    saveTodos(projectId, todos);
-                    renderTodos(projectId);
-                    }
-
-                    function deleteTodo(projectId, todoId) {
-                    const todos = loadTodos(projectId);
-                    const descendants = getAllDescendants(todos, todoId);
-                    const descendantCount = descendants.length;
-
-                    let message = 'Êtes-vous sûr de vouloir supprimer cette tâche ?';
-                    if (descendantCount > 0) {
-                    message += `\n\nAttention : Cette tâche a ${descendantCount} sous-tâche${descendantCount > 1 ? 's' :
-                    ''}. Celles-ci seront aussi supprimées.`;
-                    }
-
-                    if (confirm(message)) {
-                    // Supprimer la tâche et tous ses descendants
-                    const idsToDelete = new Set([todoId]);
-                    descendants.forEach(d => idsToDelete.add(d.id));
-
-                    const filtered = todos.filter(t => !idsToDelete.has(t.id));
-                    saveTodos(projectId, filtered);
-                    updateListSelect(projectId);
-                    renderTodos(projectId);
-                    }
-                    }
-
-                    function getPriorityClass(priority) {
-                    const classes = { 'low': 'priority-low', 'medium': 'priority-medium', 'high': 'priority-high' };
-                    return classes[priority] || 'priority-medium';
-                    }
-
-                    function escapeHtml(text) {
-                    const div = document.createElement('div');
-                    div.textContent = text;
-                    return div.innerHTML;
-                    }
-
-                    // Variables globales pour l'import d'image
-                    let currentImageProjectId = null;
-                    let extractedTodos = [];
-
-                    function openImageImportModal(projectId) {
-                    currentImageProjectId = projectId;
-                    extractedTodos = [];
-                    document.getElementById('image-import-modal').classList.add('active');
-
-                    // Réinitialiser le formulaire
-                    document.getElementById('image-input').value = '';
-                    document.getElementById('image-preview').style.display = 'none';
-                    document.getElementById('ocr-container').style.display = 'none';
-                    document.getElementById('todo-preview-container').style.display = 'none';
-                    document.getElementById('import-actions-container').style.display = 'none';
-                    document.getElementById('processing-container').style.display = 'none';
-                    document.getElementById('no-import-actions').style.display = 'flex';
-
-                    // Setup drag & drop sur la zone (pas de click handler car c'est un label)
-                    const uploadZone = document.getElementById('upload-zone');
-                    const imageInput = document.getElementById('image-input');
-
-                    if (uploadZone && imageInput) {
-                    // Drag & drop handlers
-                    uploadZone.ondragover = (e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    uploadZone.classList.add('dragover');
-                    };
-
-                    uploadZone.ondragleave = (e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    uploadZone.classList.remove('dragover');
-                    };
-
-                    uploadZone.ondrop = (e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    uploadZone.classList.remove('dragover');
-                    const file = e.dataTransfer.files[0];
-                    if (file && file.type.startsWith('image/')) {
-                    imageInput.files = e.dataTransfer.files;
-                    handleImageSelect({ target: { files: e.dataTransfer.files } });
-                    }
-                    };
-                    }
-                    }
-
-
-                    function closeImageImportModal() {
-                    document.getElementById('image-import-modal').classList.remove('active');
-                    currentImageProjectId = null;
-                    extractedTodos = [];
-                    }
-
-                    function openJsonImportModal(projectId) {
-                    currentImageProjectId = projectId; // Réutiliser la même variable
-                    document.getElementById('json-import-modal').classList.add('active');
-
-                    // Réinitialiser le formulaire
-                    document.getElementById('json-import-input').value = '';
-
-                    // Setup drag & drop pour JSON
-                    const uploadZone = document.getElementById('json-upload-zone');
-                    uploadZone.addEventListener('dragover', (e) => {
-                    e.preventDefault();
-                    uploadZone.classList.add('dragover');
-                    });
-                    uploadZone.addEventListener('dragleave', () => {
-                    uploadZone.classList.remove('dragover');
-                    });
-                    uploadZone.addEventListener('drop', (e) => {
-                    e.preventDefault();
-                    uploadZone.classList.remove('dragover');
-                    const file = e.dataTransfer.files[0];
-                    if (file && file.type === 'application/json') {
-                    document.getElementById('json-import-input').files = e.dataTransfer.files;
-                    handleJsonImportSelect({ target: { files: e.dataTransfer.files } });
-                    }
-                    });
-                    }
-
-                    function closeJsonImportModal() {
-                    document.getElementById('json-import-modal').classList.remove('active');
-                    currentImageProjectId = null;
-                    }
-
-                    function handleJsonImportSelect(event) {
-                    const file = event.target.files[0];
-                    if (!file) return;
-
-                    const reader = new FileReader();
-                    reader.onload = (e) => {
-                    try {
-                    const projectId = currentImageProjectId;
-                    if (!projectId) {
-                    alert('Erreur : projet non sélectionné');
-                    return;
-                    }
-
-                    // Appeler la fonction d'import JSON existante
-                    importTodos(projectId, { target: { files: [file] } });
-                    closeJsonImportModal();
-                    } catch (error) {
-                    alert('Erreur lors de l\'import : fichier invalide ou corrompu');
-                    console.error(error);
-                    }
-                    };
-                    reader.readAsText(file);
-                    }
-
-                    function handleImageSelect(event) {
-                    const file = event.target.files[0];
-                    if (!file) return;
-
-                    const reader = new FileReader();
-                    reader.onload = async (e) => {
-                    const imageSrc = e.target.result;
-
-                    // Afficher l'aperçu
-                    document.getElementById('preview-img').src = imageSrc;
-                    document.getElementById('image-preview').style.display = 'block';
-                    document.getElementById('no-import-actions').style.display = 'none';
-
-                    // Afficher le spinner
-                    document.getElementById('processing-container').style.display = 'block';
-                    document.getElementById('ocr-container').style.display = 'none';
-                    document.getElementById('todo-preview-container').style.display = 'none';
-                    document.getElementById('import-actions-container').style.display = 'none';
-
-                    // OCR avec Tesseract
-                    try {
-                    const { data: { text } } = await Tesseract.recognize(imageSrc, 'fra+eng');
-
-                    // Afficher le texte détecté
-                    document.getElementById('ocr-result').textContent = text;
-                    document.getElementById('ocr-container').style.display = 'block';
-
-                    // Extraire les tâches
-                    extractedTodos = parseTodoListFromText(text);
-
-                    // Afficher l'aperçu des tâches
-                    if (extractedTodos.length > 0) {
-                    displayTodoPreview();
-                    document.getElementById('import-actions-container').style.display = 'flex';
-                    } else {
-                    alert('Aucune tâche détectée. Vérifiez que l\'image contient une liste de tâches.');
-                    }
-                    } catch (error) {
-                    console.error('Erreur OCR:', error);
-                    alert('Erreur lors de l\'analyse de l\'image : ' + error.message);
-                    } finally {
-                    document.getElementById('processing-container').style.display = 'none';
-                    }
-                    };
-                    reader.readAsDataURL(file);
-                    }
-
-                    function parseTodoListFromText(text) {
-                    const todos = [];
-                    const lines = text.split('\\n').filter(line => line.trim());
-
-                    // Patterns pour détecter les tâches complétées
-                    const completedPatterns = [
-                    /^\\s*✓|^\\s*✔|^\\s*☑|strikethrough/i,
-                    /^\\s*\\[x\\]|^\\s*\\(x\\)|^\\s*•\\s*(strikethrough)?/i
-                    ];
-
-                    lines.forEach((line, index) => {
-                    const trimmed = line.trim();
-                    if (!trimmed || trimmed.length < 3) return; // Détecter si la tâche est complétée const
-                        completed=/^\\s*✓|^\\s*✔|^\\s*☑|^\\s*\\[x\\]|^\\s*\\(x\\)/.test(line); // Nettoyer la ligne let
-                        taskName=trimmed .replace(/^[✓✔☑\\[x\\]\\(x\\)•~-]+\\s*/, '' ) // Supprimer les marqueurs
-                        .replace(/^\\s*[-•*]\\s*/, '' ) // Supprimer les puces .trim(); // Détecter la priorité (emoji
-                        ou mots-clés) let priority='medium' ; if (/🟢|basse|low/i.test(taskName)) { priority='low' ;
-                        taskName=taskName.replace(/🟢|basse|low/i, '' ).trim(); } else if
-                        (/🔴|haute|high|urgent/i.test(taskName)) { priority='high' ;
-                        taskName=taskName.replace(/🔴|haute|high|urgent/i, '' ).trim(); } // Détecter les montants (€,
-                        $, EUR) const amountMatch=taskName.match(/(\\d+[.,]\\d{0,2})\\s*[€$EUR]/); let amount=null; if
-                        (amountMatch) { amount=parseFloat(amountMatch[1].replace(',', '.' ));
-                        taskName=taskName.replace(amountMatch[0], '' ).trim(); } if (taskName && taskName.length> 2) {
-                        todos.push({
-                        id: Date.now() + Math.random() * 1000000,
-                        list: 'Importée', // Liste par défaut
-                        name: taskName,
-                        priority: priority,
-                        amount: amount,
-                        link: '',
-                        note: '',
-                        completed: completed,
-                        parentId: null
-                        });
-                        }
-                        });
-
-                        return todos;
-                        }
-
-                        function displayTodoPreview() {
-                        const previewHtml = extractedTodos.map((todo, index) => `
-                        <div class="todo-preview-item ${todo.completed ? 'completed' : ''}">
-                            <strong>${escapeHtml(todo.name)}</strong>
-                            ${todo.amount ? `<span> • ${todo.amount}€</span>` : ''}
-                            <span> • ${todo.priority === 'low' ? '🟢' : todo.priority === 'high' ? '🔴' : '🟡'}</span>
-                            ${todo.completed ? ' <span style="opacity: 0.5;">(complétée)</span>' : ''}
-                        </div>
-                        `).join('');
-
-                        document.getElementById('todo-preview-list').innerHTML = previewHtml;
-                        document.getElementById('todo-preview-container').style.display = 'block';
-                        }
-
-                        function importFromImage() {
-                        if (!currentImageProjectId || extractedTodos.length === 0) {
-                        alert('Aucune tâche à importer');
-                        return;
-                        }
-
-                        const todos = loadTodos(currentImageProjectId);
-                        const existingCount = todos.length;
-
-                        extractedTodos.forEach(todo => {
-                        todos.push(todo);
-                        });
-
-                        saveTodos(currentImageProjectId, todos);
-                        updateListSelect(currentImageProjectId);
-                        renderTodos(currentImageProjectId);
-
-                        alert(`${extractedTodos.length} tâche(s) importée(s) avec succès !`);
-                        closeImageImportModal();
-                        }
-
-                        function exportTodos(projectId) {
-                        const todos = loadTodos(projectId);
-                        const now = new Date();
-                        const dateStr = now.toISOString().split('T')[0];
-
-                        const exportData = {
-                        project: projectId,
-                        exportDate: now.toISOString(),
-                        todosCount: todos.length,
-                        todos: todos
-                        };
-
-                        const dataStr = JSON.stringify(exportData, null, 2);
-                        const dataBlob = new Blob([dataStr], { type: 'application/json' });
-                        const url = URL.createObjectURL(dataBlob);
-                        const link = document.createElement('a');
-                        link.href = url;
-                        link.download = `GeekVanlife-${projectId}-${dateStr}.json`;
-                        document.body.appendChild(link);
-                        link.click();
-                        document.body.removeChild(link);
-                        URL.revokeObjectURL(url);
-                        }
-
-                        function importTodos(projectId, event) {
-                        const file = event.target.files[0];
-                        if (!file) return;
-
-                        const reader = new FileReader();
-                        reader.onload = function (e) {
-                        try {
-                        const importedData = JSON.parse(e.target.result);
-
-                        // Validation basique
-                        if (!importedData.todos || !Array.isArray(importedData.todos)) {
-                        alert('Fichier invalide : structure incorrecte');
-                        return;
-                        }
-
-                        // Vérifier que le projet correspond
-                        if (importedData.project !== projectId) {
-                        const confirm_import = confirm(
-                        `Le fichier est pour le projet "${importedData.project}" mais vous êtes sur
-                        "${projectId}".\n\nVoulez-vous continuer l'import ? Les données existantes seront fusionnées.`
-                        );
-                        if (!confirm_import) {
-                        event.target.value = '';
-                        return;
-                        }
-                        }
-
-                        // Fusionner avec les données existantes
-                        const existingTodos = loadTodos(projectId);
-                        const mergedTodos = [...existingTodos];
-                        let importedCount = 0;
-                        let skippedCount = 0;
-
-                        // Ajouter les tâches importées avec validation et valeurs par défaut
-                        importedData.todos.forEach(importedTodo => {
-                        const exists = mergedTodos.some(t => t.id === importedTodo.id);
-                        if (exists) {
-                        skippedCount++;
-                        return;
-                        }
-
-                        // Normaliser les données avec valeurs par défaut
-                        const normalizedTodo = {
-                        id: importedTodo.id || Date.now() + Math.random(),
-                        list: (importedTodo.list || '').trim() || 'Sans liste',
-                        name: (importedTodo.name || '').trim() || '(Sans nom)',
-                        priority: ['low', 'medium', 'high'].includes(importedTodo.priority) ? importedTodo.priority :
-                        'medium',
-                        amount: importedTodo.amount ? parseFloat(importedTodo.amount) : null,
-                        link: (importedTodo.link || '').trim() || '',
-                        note: (importedTodo.note || '').trim() || '',
-                        completed: importedTodo.completed === true ? true : false,
-                        parentId: importedTodo.parentId || null
-                        };
-
+﻿        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 10px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 25px;
+            right: 30px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #4FC3F7;
+            color: white;
+            padding: 12px 20px;
+            border: 2px solid #667eea;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(79, 195, 247, 0.3);
+            z-index: 1000;
+        }
+
+        .back-button:hover {
+            background: #667eea;
+            border-color: #667eea;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .header {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .header .subtitle {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .tabs-container {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+
+        .tabs-header {
+            display: flex;
+            border-bottom: 2px solid #e0e0e0;
+            overflow-x: auto;
+        }
+
+        .tab-button {
+            flex: 1;
+            padding: 15px 20px;
+            background: #f8f9fa;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+            min-width: 150px;
+        }
+
+        .tab-button:hover {
+            background: #e9ecef;
+        }
+
+        .tab-button.active {
+            background: white;
+            border-bottom-color: #667eea;
+            color: #667eea;
+        }
+
+        .tab-button.forkx {
+            color: #c0392b;
+        }
+
+        .tab-button.forkx.active {
+            border-bottom-color: #c0392b;
+            color: #c0392b;
+        }
+
+        .tab-button.geekomobile {
+            color: #667eea;
+        }
+
+        .tab-button.geekomobile.active {
+            border-bottom-color: #667eea;
+            color: #667eea;
+        }
+
+        .tab-button.geekagne {
+            color: #11998e;
+        }
+
+        .tab-button.geekagne.active {
+            border-bottom-color: #11998e;
+            color: #11998e;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 30px;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .todo-form-section {
+            background: #f8f9fa;
+            padding: 0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .form-title {
+            font-weight: 600;
+            padding: 16px;
+            background: #f8f9fa;
+            color: #333;
+            border-bottom: 2px solid #e0e0e0;
+            margin-bottom: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .form-title-actions {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .btn-action-icon {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f0f0f0;
+            color: #333;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border: 2px solid #ddd;
+            padding: 0;
+        }
+
+        .btn-action-icon:hover {
+            background: #e0e0e0;
+            border-color: #bbb;
+        }
+
+        .btn-action-icon:active {
+            transform: scale(0.95);
+        }
+
+        #import-file-input {
+            display: none;
+        }
+
+        .form-content {
+            padding: 20px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .form-row-full {
+            margin-bottom: 12px;
+        }
+
+        .task-list-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 12px;
+            align-items: flex-end;
+            margin-bottom: 12px;
+        }
+
+        .task-input-wrapper {
+            display: flex;
+            gap: 8px;
+            align-items: flex-end;
+        }
+
+        .task-input-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #667eea;
+            color: white;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            flex-shrink: 0;
+            padding: 0;
+        }
+
+        .task-input-icon:hover {
+            background: #5568d3;
+            transform: scale(1.1);
+        }
+
+        .task-input-icon:active {
+            transform: scale(0.95);
+        }
+
+        .task-input-field {
+            flex: 1;
+        }
+
+        .list-input-group {
+            display: flex;
+            gap: 8px;
+            align-items: flex-end;
+        }
+
+        .list-input-group .form-group {
+            flex: 1;
+            margin-bottom: 0;
+        }
+
+        .list-add-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f0f0f0;
+            color: #333;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: 2px solid #ddd;
+            flex-shrink: 0;
+            padding: 0;
+        }
+
+        .list-add-icon:hover {
+            background: #e0e0e0;
+            border-color: #bbb;
+        }
+
+        .form-divider {
+            height: 2px;
+            background: #e0e0e0;
+            margin: 20px 0;
+        }
+
+        .btn-secondary {
+            padding: 10px 16px;
+            background: #f0f0f0;
+            color: #333;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            height: fit-content;
+        }
+
+        .btn-secondary:hover {
+            background: #e0e0e0;
+            border-color: #bbb;
+        }
+
+        .accordion-section {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            margin-top: 12px;
+            overflow: hidden;
+        }
+
+        .accordion-header {
+            padding: 12px 16px;
+            background: #f8f9fa;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            color: #667eea;
+            user-select: none;
+            transition: background 0.2s ease;
+        }
+
+        .accordion-header:hover {
+            background: #e9ecef;
+        }
+
+        .accordion-toggle {
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-toggle.open {
+            transform: rotate(45deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .accordion-content.open {
+            max-height: 500px;
+        }
+
+        .accordion-body {
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .form-group label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #666;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 10px 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 60px;
+        }
+
+        .priority-selector {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .priority-btn {
+            width: 32px;
+            height: 32px;
+            border: 2px solid #ddd;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .priority-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .priority-btn.selected {
+            border-color: #333;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-primary {
+            flex: 1;
+            padding: 12px 24px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+        }
+
+        .autocomplete-list {
+            position: absolute;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            max-height: 200px;
+            overflow-y: auto;
+            z-index: 100;
+            min-width: 150px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            display: none;
+            top: 100%;
+            left: 0;
+            right: 0;
+        }
+
+        .autocomplete-list.show {
+            display: block;
+        }
+
+        .autocomplete-item {
+            padding: 10px 12px;
+            cursor: pointer;
+            transition: background 0.2s ease;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .autocomplete-item:last-child {
+            border-bottom: none;
+        }
+
+        .autocomplete-item:hover {
+            background: #f0f0f0;
+        }
+
+        .lists-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .list-section {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            margin-bottom: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .list-section.dragging {
+            opacity: 0.5;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .list-section.drag-over {
+            border: 2px solid #667eea;
+        }
+
+        .list-header {
+            padding: 16px;
+            background: #f8f9fa;
+            border-bottom: 2px solid #e0e0e0;
+            font-weight: 600;
+            color: #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: grab;
+            user-select: none;
+            transition: all 0.3s ease;
+        }
+
+        .list-header:hover {
+            background: #e9ecef;
+        }
+
+        .list-header:active {
+            cursor: grabbing;
+        }
+
+        .list-header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex: 1;
+        }
+
+        .list-toggle-icon {
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .list-section.collapsed .list-toggle-icon {
+            transform: rotate(-90deg);
+        }
+
+        .list-count {
+            font-size: 0.9rem;
+            color: #999;
+            font-weight: 400;
+        }
+
+        .list-stats {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .list-estimate {
+            font-size: 0.9rem;
+            color: #666;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .list-estimate i {
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+
+        .list-items {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            padding: 12px;
+            max-height: 2000px;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .list-section.collapsed .list-items {
+            max-height: 0;
+            padding: 0 12px;
+        }
+
+        .todo-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid;
+            transition: all 0.3s ease;
+            position: relative;
+            cursor: grab;
+        }
+
+        .todo-item:active {
+            cursor: grabbing;
+        }
+
+        .todo-item.dragging {
+            opacity: 0.5;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .todo-item.drag-over {
+            border-top: 3px solid #667eea;
+            padding-top: 11px;
+        }
+
+        .todo-item.forkx {
+            border-left-color: #c0392b;
+        }
+
+        .todo-item.geekomobile {
+            border-left-color: #667eea;
+        }
+
+        .todo-item.geekagne {
+            border-left-color: #11998e;
+        }
+
+        /* Indentation pour hiérarchie parent/enfant */
+        .todo-item.todo-depth-0 {
+            margin-left: 0;
+        }
+
+        .todo-item.todo-depth-1 {
+            margin-left: 24px;
+            background: #fafbfc;
+            opacity: 0.95;
+        }
+
+        .todo-item.todo-depth-2 {
+            margin-left: 48px;
+            background: #fcfcfd;
+            opacity: 0.90;
+        }
+
+        .todo-item.todo-depth-3 {
+            margin-left: 72px;
+            background: #fefefe;
+            opacity: 0.85;
+        }
+
+        .todo-children-count {
+            font-size: 0.8rem;
+            color: #999;
+            font-weight: 400;
+            margin-left: 4px;
+        }
+
+        .todo-item {
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 14px;
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .todo-item:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            background: #fafafa;
+        }
+
+        .todo-item.completed {
+            background: #f5f5f5;
+            opacity: 0.85;
+        }
+
+        .todo-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex: 1;
+            min-width: 0;
+        }
+
+        .todo-checkbox {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            flex-shrink: 0;
+            accent-color: #667eea;
+        }
+
+        .todo-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .todo-name {
+            font-weight: 500;
+            color: #333;
+            margin-bottom: 4px;
+            word-break: break-word;
+        }
+
+        .todo-item.completed .todo-name {
+            text-decoration: line-through;
+            color: #999;
+        }
+
+        .todo-meta {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            font-size: 0.85rem;
+            color: #666;
+            align-items: center;
+        }
+
+        .priority-badge {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .priority-low {
+            background: #e8f5e9;
+        }
+
+        .priority-medium {
+            background: #fff9e6;
+        }
+
+        .priority-high {
+            background: #ffebee;
+        }
+
+        .todo-amount {
+            font-weight: 600;
+            color: #667eea;
+        }
+
+        .todo-link-icon {
+            font-size: 0.75rem;
+            color: #667eea;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            opacity: 0.7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 16px;
+            height: 16px;
+        }
+
+        .todo-link-icon:hover {
+            opacity: 1;
+            color: #4c51bf;
+        }
+
+        .todo-note-preview {
+            font-size: 0.85rem;
+            color: #999;
+            font-style: italic;
+            margin-top: 6px;
+            max-height: 3em;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            line-height: 1.4;
+        }
+
+        .todo-separator-inline {
+            display: inline-block;
+            width: 1px;
+            height: 16px;
+            background: #ddd;
+            margin: 0 8px;
+            vertical-align: middle;
+        }
+
+        .todo-children-amount {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 0.8rem;
+            color: #667eea;
+            font-weight: 500;
+        }
+
+        .todo-children-amount i {
+            font-size: 0.75rem;
+            opacity: 0.7;
+        }
+
+        .todo-actions {
+            display: flex;
+            gap: 8px;
+            flex-shrink: 0;
+            align-items: center;
+        }
+
+        .btn-icon {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.2s ease;
+            background: transparent;
+            border: none;
+            padding: 0;
+            color: #666;
+            text-decoration: none;
+        }
+
+        .btn-icon:hover {
+            background: rgba(102, 126, 234, 0.1);
+            color: #667eea;
+            transform: scale(1.1);
+        }
+
+        .btn-icon:has(.fa-trash):hover {
+            background: rgba(244, 67, 54, 0.1);
+            color: #f44336;
+        }
+
+        .btn-icon:has(.fa-link):hover {
+            background: rgba(33, 150, 243, 0.1);
+            color: #2196F3;
+        }
+
+        .btn-icon i {
+            pointer-events: none;
+        }
+
+        .action-icon {
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: all 0.2s ease;
+            background: transparent;
+            border: none;
+            padding: 0;
+        }
+
+        .action-icon:hover {
+            background: rgba(0, 0, 0, 0.1);
+            transform: scale(1.15);
+        }
+
+        .action-icon-link {
+            color: #667eea;
+        }
+
+        .action-icon-edit {
+            color: #4caf50;
+        }
+
+        .action-icon-delete {
+            color: #f44336;
+        }
+
+        .todo-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: #f0f7ff;
+            border-top: 1px solid #e0e0e0;
+            margin: 0 -14px -14px -14px;
+            padding: 0 14px 14px 14px;
+        }
+
+        .todo-item.expanded .todo-details {
+            max-height: 300px;
+            padding-top: 12px;
+        }
+
+        .detail-row {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 8px;
+            padding: 8px;
+            background: white;
+            border-radius: 6px;
+            font-size: 0.9rem;
+        }
+
+        .detail-label {
+            font-weight: 600;
+            color: #667eea;
+            min-width: 80px;
+        }
+
+        .detail-value {
+            flex: 1;
+            word-break: break-word;
+            color: #333;
+        }
+
+        .detail-link {
+            color: #667eea;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .detail-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Modal d'édition */
+        .edit-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .edit-modal.active {
+            display: flex;
+        }
+
+        .edit-modal-content {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            max-width: 600px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .edit-modal-header {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .edit-modal-form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .edit-modal-form .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .edit-modal-form label {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        .edit-modal-form input,
+        .edit-modal-form textarea,
+        .edit-modal-form select {
+            padding: 10px 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            font-family: inherit;
+        }
+
+        .edit-modal-form textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+
+        .edit-modal-actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .edit-modal-actions button {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-save {
+            background: #4caf50;
+            color: white;
+        }
+
+        .btn-save:hover {
+            background: #45a049;
+        }
+
+        .btn-cancel {
+            background: #f0f0f0;
+            color: #333;
+            border: 2px solid #ddd;
+        }
+
+        .btn-cancel:hover {
+            background: #e0e0e0;
+        }
+
+        /* Modal d'import d'image */
+        .image-import-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .image-import-modal.active {
+            display: flex;
+        }
+
+        .image-import-content {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            max-width: 800px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .image-import-header {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .image-upload-zone {
+            border: 2px dashed #667eea;
+            border-radius: 8px;
+            padding: 40px;
+            text-align: center;
+            background: #f8f9fa;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        .image-upload-zone:hover {
+            border-color: #5568d3;
+            background: #e9ecef;
+        }
+
+        .image-upload-zone.dragover {
+            border-color: #4caf50;
+            background: #e8f5e9;
+        }
+
+        .upload-icon {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #667eea;
+        }
+
+        .upload-text {
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .upload-subtext {
+            font-size: 0.85rem;
+            color: #999;
+        }
+
+        #image-input {
+            display: none;
+            position: fixed;
+            top: -9999px;
+            left: -9999px;
+        }
+
+        /* Rendre l'input accessible sur mobile via un bouton visible */
+        @media (max-width: 768px) {
+            .image-upload-zone {
+                cursor: pointer;
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                user-select: none;
+            }
+        }
+
+        .image-preview {
+            margin-bottom: 20px;
+        }
+
+        .image-preview img {
+            max-width: 100%;
+            border-radius: 8px;
+            max-height: 300px;
+        }
+
+        .ocr-result {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            max-height: 200px;
+            overflow-y: auto;
+            font-family: monospace;
+            font-size: 0.9rem;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+
+        .processing-indicator {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 10px;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .todo-preview-list {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .todo-preview-item {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+            font-size: 0.9rem;
+        }
+
+        .todo-preview-item:last-child {
+            border-bottom: none;
+        }
+
+        .todo-preview-item.completed {
+            opacity: 0.6;
+            text-decoration: line-through;
+        }
+
+        .import-actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn-import {
+            flex: 1;
+            padding: 12px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-import:hover {
+            background: #5568d3;
+        }
+
+        .btn-import:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .btn-close-import {
+            flex: 1;
+            padding: 12px;
+            background: #f0f0f0;
+            color: #333;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-close-import:hover {
+            background: #e0e0e0;
+        }
+
+        .todo-note {
+            position: absolute;
+            bottom: 100%;
+            left: 0;
+            background: #333;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            white-space: pre-wrap;
+            word-break: break-word;
+            max-width: 300px;
+            margin-bottom: 8px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s ease;
+            z-index: 10;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .todo-item:hover .todo-note {
+            opacity: 1;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 40px 20px;
+            color: #999;
+        }
+
+        .empty-state-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .tabs-header {
+                overflow-x: auto;
+            }
+
+            .tab-button {
+                min-width: 120px;
+                padding: 12px 15px;
+                font-size: 0.9rem;
+            }
+
+            .back-button {
+                top: 15px;
+                right: 15px;
+                padding: 10px;
+                font-size: 0.85rem;
+                gap: 0;
+                border-radius: 50%;
+                width: 45px;
+                height: 45px;
+                justify-content: center;
+                display: none;
+            }
+
+            .back-button-text {
+                display: none;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .task-list-row {
+                grid-template-columns: 1fr;
+            }
+
+            .task-input-wrapper {
+                width: 100%;
+            }
+
+            .todo-item {
+                flex-wrap: wrap;
+            }
+
+            .todo-actions {
+                width: 100%;
+                justify-content: flex-end;
+            }
+        }
