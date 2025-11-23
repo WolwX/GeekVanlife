@@ -548,8 +548,11 @@
 
         .list-count {
             font-size: 0.9rem;
-            color: #999;
-            font-weight: 400;
+            color: #856404;
+            font-weight: 600;
+            background: rgba(255, 193, 7, 0.2);
+            padding: 4px 10px;
+            border-radius: 4px;
         }
 
         .list-stats {
