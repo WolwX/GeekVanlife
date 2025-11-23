@@ -589,6 +589,214 @@ Si oui :
 
 ---
 
+## 📝 MISES À JOUR DES CHANGELOG
+
+> **Documentation historique des changements par projet**
+
+### 📋 CHANGELOG à mettre à jour
+
+**Cocher les CHANGELOG concernés :**
+- [ ] `Geekomobile/Geekomobile_CHANGELOG.md`
+- [ ] `ForkX/ForkX_CHANGELOG.md`
+- [ ] `Geekagne/Geekagne_CHANGELOG.md`
+- [ ] `CHANGELOG.md` (principal - racine)
+- [ ] Créer nouveau changelog spécifique dans `docs/`
+
+---
+
+### 🚐 Geekomobile CHANGELOG
+
+**Fichier :** `Geekomobile/Geekomobile_CHANGELOG.md`
+
+**Entrée à ajouter :**
+
+```markdown
+## [Date] - [JJ Mois AAAA]
+
+### [Catégorie]
+**Type :** [Ajouté/Modifié/Corrigé/Amélioré/Maintenance]
+
+**Description :**
+[Description détaillée des changements]
+
+**Détails :**
+- [Point 1]
+- [Point 2]
+- [Point 3]
+
+**Budget (si applicable) :** [XX€]
+**Impact :** [Description de l'impact]
+```
+
+**Catégories disponibles :**
+- ⚙️ Systèmes (Chauffage, Eau, Électricité, etc.)
+- 🛠️ Maintenance
+- ✨ Amélioration
+- 🐛 Correction
+- 📊 Données/Suivi
+
+---
+
+### 🚙 ForkX CHANGELOG
+
+**Fichier :** `ForkX/ForkX_CHANGELOG.md`
+
+**Entrée à ajouter :**
+
+```markdown
+## [vX.X] - [JJ Mois AAAA]
+
+### [Phase]
+**Version :** [v0.X]
+**Type :** [Ajouté/Modifié/Corrigé/Progression]
+
+**Description :**
+[Description détaillée des changements]
+
+**Travaux réalisés :**
+- [Point 1]
+- [Point 2]
+- [Point 3]
+
+**Budget dépensé :** [XX€]
+**Budget restant :** [XX€]
+**Avancement phase :** [XX%]
+```
+
+**Phases disponibles :**
+- v0.1 - Clean Base
+- v0.2 - Isolation & Habillage
+- v0.3 - Systèmes
+- v0.4 - Aménagement modulaire
+
+---
+
+### 🏗️ GeekCagne CHANGELOG
+
+**Fichier :** `Geekagne/Geekagne_CHANGELOG.md`
+
+**Entrée à ajouter :**
+
+```markdown
+## [Date] - [JJ Mois AAAA]
+
+### [Chantier(s) concerné(s)]
+**Chantier :** [#XX - Nom du chantier]
+**Type :** [Avancement/Terminé/Nouveau/Modification]
+
+**Description :**
+[Description détaillée des travaux]
+
+**Travaux effectués :**
+- [Point 1]
+- [Point 2]
+- [Point 3]
+
+**Avancement :** [XX%] → [XX%]
+**Budget dépensé :** [XX€]
+**Budget restant total :** [XX€]
+
+**Matériaux utilisés :**
+- [Matériau 1] : [Quantité] - [XX€]
+- [Matériau 2] : [Quantité] - [XX€]
+
+**Prochaines étapes :**
+- [ ] [Étape 1]
+- [ ] [Étape 2]
+```
+
+**Catégories de chantiers :**
+- 🏗️ Bâtiments (Cabanons, cabanes)
+- 💧 Eau & Irrigation
+- ⚡ Électricité
+- 🌱 Plantations & Verger
+- 🎯 Infrastructure
+
+---
+
+### 📄 CHANGELOG Principal (Racine)
+
+**Fichier :** `CHANGELOG.md`
+
+**Usage :** Changements globaux affectant plusieurs projets ou le kernel GeekVanlife
+
+**Entrée à ajouter :**
+
+```markdown
+## [Date] - [JJ Mois AAAA]
+
+### [Scope]
+**Projets concernés :** [Geekomobile/ForkX/GeekCagne/Tous]
+**Type :** [Feature/Documentation/Infrastructure/Workflow]
+
+**Description :**
+[Description des changements globaux]
+
+**Changements :**
+- [Point 1]
+- [Point 2]
+
+**Impact :**
+[Description de l'impact sur les projets]
+```
+
+---
+
+### 📁 CHANGELOG Spécifiques (docs/)
+
+**Création de nouveaux changelogs thématiques :** [Oui/Non]
+
+Si oui, créer dans `docs/` :
+
+**Format de nom :** `[PROJET]_CHANGELOG_[THEME]_[DATE].md`
+
+**Exemples :**
+- `GEEKAGNE_CHANGELOG_NOV_22-23_2025.md` (weekend spécifique)
+- `FORKX_CHANGELOG_ISOLATION_DEC_2025.md` (phase spécifique)
+- `GEEKOMOBILE_CHANGELOG_HIVER_2025-2026.md` (période spécifique)
+
+**Contenu :**
+```markdown
+# [TITRE DU CHANGELOG]
+
+**Période :** [Date début] - [Date fin]
+**Projet :** [Nom]
+**Thème :** [Description]
+
+---
+
+## Résumé
+
+[Résumé global des changements]
+
+---
+
+## Détails
+
+### [Section 1]
+[Contenu détaillé]
+
+### [Section 2]
+[Contenu détaillé]
+
+---
+
+## Statistiques
+
+- **Budget dépensé :** [XX€]
+- **Tâches complétées :** [X]
+- **Avancement global :** [+X%]
+
+---
+
+## Prochaines étapes
+
+- [ ] [Étape 1]
+- [ ] [Étape 2]
+```
+
+---
+
 ## 🔗 LIENS ET RÉFÉRENCES
 
 **URLs importantes :**
@@ -667,6 +875,7 @@ Si oui :
 - [ ] **La page index.html est mise à jour (date, encadrés projets)**
 - [ ] **Les mises à jour des dashboards sont complétées (PRIORITAIRE)**
 - [ ] **Les budgets restants/dépensés sont à jour pour chaque projet**
+- [ ] **Les CHANGELOG sont mis à jour avec les nouvelles entrées**
 - [ ] Les tâches todos sont complètes (avec option Firebase ou JSON)
 - [ ] Le contexte technique est clair
 - [ ] Les décisions sont documentées

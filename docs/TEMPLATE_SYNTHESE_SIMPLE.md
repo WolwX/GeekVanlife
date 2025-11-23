@@ -92,6 +92,24 @@
 
 ---
 
+## 📝 CHANGELOG (si applicable)
+
+**Fichiers à mettre à jour :**
+- [ ] Geekomobile/Geekomobile_CHANGELOG.md
+- [ ] ForkX/ForkX_CHANGELOG.md
+- [ ] Geekagne/Geekagne_CHANGELOG.md
+- [ ] CHANGELOG.md (racine)
+
+**Entrée à ajouter :**
+```markdown
+## [Date] - [Titre]
+- [Changement 1]
+- [Changement 2]
+Budget : [XX€]
+```
+
+---
+
 ## 📝 NOTES
 
 [Tout autre élément important]
