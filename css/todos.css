@@ -718,6 +718,27 @@
             color: #999;
         }
 
+        .todo-amount {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            margin-left: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #27ae60;
+            background: #e8f8f5;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        .todo-amount i {
+            font-size: 0.75rem;
+        }
+
+        .todo-item.completed .todo-amount {
+            opacity: 0.5;
+        }
+
         .todo-meta {
             display: flex;
             gap: 8px;

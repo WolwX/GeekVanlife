@@ -754,6 +754,7 @@ function renderTodos(projectId) {
                         <input type="checkbox" ${todo.completed ? 'checked' : ''}
                                onchange="toggleTodo('${projectId}', ${todo.id})" onclick="event.stopPropagation();">
                         <span class="todo-name">${escapeHtml(todo.name)}</span>
+                        ${todo.amount ? `<span class="todo-amount"><i class="fas fa-euro-sign"></i> ${todo.amount.toFixed(2)}€${hasChildren ? ` (+${childrenAmount.toFixed(2)}€)` : ''}</span>` : ''}
                     </div>
                     <div class="todo-actions">
                         ${todo.link ? `<a href="${escapeHtml(todo.link)}" target="_blank" title="Ouvrir le lien" class="btn-icon" onclick="event.stopPropagation();"><i class="fas fa-link"></i></a>` : ''}
@@ -765,7 +766,6 @@ function renderTodos(projectId) {
                 ${hasDetails ? `
                 <div class="todo-details">
                     ${todo.note ? `<div class="detail-row">${escapeHtml(todo.note)}</div>` : ''}
-                    ${todo.amount ? `<div class="detail-row">Montant : ${todo.amount.toFixed(2)}€${hasChildren ? ` (+${childrenAmount.toFixed(2)}€ enfants = ${totalAmount.toFixed(2)}€ total)` : ''}</div>` : ''}
                     ${todo.link ? `<div class="detail-row"><a href="${escapeHtml(todo.link)}" target="_blank" style="color: #667eea; text-decoration: none;">🔗 ${escapeHtml(todo.link)}</a></div>` : ''}
                 </div>` : ''}
             </div>
