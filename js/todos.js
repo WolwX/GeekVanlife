@@ -891,7 +891,7 @@ function editListName(event, projectId, oldListName) {
     const newListName = prompt('Nouveau nom de la liste :', oldListName);
     if (!newListName || newListName === oldListName || !newListName.trim()) return;
     
-    const todos = getTodos(projectId);
+    const todos = loadTodos(projectId);
     const listTodos = todos.filter(t => t.list === oldListName);
     
     if (listTodos.length === 0) return;
@@ -908,7 +908,7 @@ function editListName(event, projectId, oldListName) {
 function deleteList(event, projectId, listName) {
     event.stopPropagation();
     
-    const todos = getTodos(projectId);
+    const todos = loadTodos(projectId);
     const listTodos = todos.filter(t => t.list === listName);
     
     if (listTodos.length === 0) return;
@@ -931,7 +931,7 @@ function deleteList(event, projectId, listName) {
 }
 
 function confirmDeleteList(projectId, listName) {
-    const todos = getTodos(projectId);
+    const todos = loadTodos(projectId);
     const filteredTodos = todos.filter(t => t.list !== listName);
     
     saveTodos(projectId, filteredTodos);
