@@ -714,7 +714,15 @@ function importTodos(projectId, event) {
                 saveTodos(projectId, todos);
                 updateListSelect(projectId);
                 renderTodos(projectId);
+                
+                // Close import modal if exists
+                const modal = document.querySelector('.modal');
+                if (modal) modal.remove();
+                
                 alert(`${importedData.todos.length} t\u00e2che(s) import\u00e9e(s) avec succ\u00e8s !`);
+                
+                // Force tab switch to show imported data
+                switchTab(projectId);
             }
         } catch (error) {
             alert('Erreur lors de l\'import du fichier JSON');
@@ -1162,8 +1170,18 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll(`#${projectId}-tab .priority-btn[data-priority="medium"]`).forEach(b => b.classList.add('selected'));
     });
 
-    switchTab('forkx');
-    console.log('✅ Interface chargée - Onglet ForkX activé');
+    // Détecter le projet depuis l'URL (ex: todos.html?project=geekagne)
+    const urlParams = new URLSearchParams(window.location.search);
+    const projectParam = urlParams.get('project');
+    
+    if (projectParam && ['forkx', 'geekomobile', 'geekagne'].includes(projectParam)) {
+        console.log(`🎯 Navigation depuis dashboard ${projectParam}`);
+        switchTab(projectParam);
+    } else {
+        switchTab('forkx');
+    }
+    
+    console.log('✅ Interface chargée');
 });
 
 // 🔥 Listen for Firebase data loaded event and re-render
