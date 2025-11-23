@@ -640,17 +640,25 @@ function importTodos(projectId, event) {
                 const todos = loadTodos(projectId);
                 const maxId = todos.length > 0 ? Math.max(...todos.map(t => t.id || 0)) : 0;
                 
-                // Add IDs to imported todos
+                // Add IDs and clean parentId for imported todos
                 importedData.todos.forEach((todo, index) => {
                     todo.id = maxId + index + 1;
-                    if (!todo.parentId) todo.parentId = null;
+                    // Ensure parentId is explicitly null if not defined
+                    if (!todo.parentId || todo.parentId === undefined || todo.parentId === '') {
+                        todo.parentId = null;
+                    }
+                    // Prevent self-reference
+                    if (todo.parentId === todo.id) {
+                        console.warn(`Circular reference: todo ${todo.id} has itself as parent`);
+                        todo.parentId = null;
+                    }
                     todos.push(todo);
                 });
                 
                 saveTodos(projectId, todos);
                 updateListSelect(projectId);
                 renderTodos(projectId);
-                alert(`${importedData.todos.length} tâche(s) importée(s) avec succès !`);
+                alert(`${importedData.todos.length} t\u00e2che(s) import\u00e9e(s) avec succ\u00e8s !`);
             }
         } catch (error) {
             alert('Erreur lors de l\'import du fichier JSON');
@@ -679,11 +687,17 @@ function calculateChildrenAmount(todos, parentId) {
     }, 0);
 }
 
-function getAllDescendants(todos, parentId) {
+function getAllDescendants(todos, parentId, visited = new Set()) {
+    if (visited.has(parentId)) {
+        console.warn(`Circular reference detected for parentId: ${parentId}`);
+        return [];
+    }
+    visited.add(parentId);
+    
     const children = getTodoChildren(todos, parentId);
     let descendants = [...children];
     children.forEach(child => {
-        descendants = descendants.concat(getAllDescendants(todos, child.id));
+        descendants = descendants.concat(getAllDescendants(todos, child.id, visited));
     });
     return descendants;
 }
