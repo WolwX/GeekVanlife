@@ -310,6 +310,24 @@
             border-color: #bbb;
         }
 
+        .btn-danger {
+            padding: 10px 16px;
+            background: #f44336;
+            color: white;
+            border: 2px solid #f44336;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            height: fit-content;
+        }
+
+        .btn-danger:hover {
+            background: #d32f2f;
+            border-color: #d32f2f;
+        }
+
         .accordion-section {
             background: white;
             border: 2px solid #e0e0e0;

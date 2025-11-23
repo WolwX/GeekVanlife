@@ -808,6 +808,8 @@ function renderTodos(projectId) {
                             <div style="font-size: 0.7rem; opacity: 0.7; text-transform: uppercase; letter-spacing: 0.5px;">Budget</div>
                             <div><span style="font-weight: 700;">${estimate.spent.toFixed(2)}</span> / ${estimate.total.toFixed(2)} <i class="fas fa-euro-sign"></i></div>
                         </span>
+                        <button onclick="editListName(event, '${projectId}', '${escapeHtml(listName)}')" title="Éditer le nom" class="btn-icon" style="margin-left: 8px;"><i class="fas fa-edit"></i></button>
+                        <button onclick="deleteList(event, '${projectId}', '${escapeHtml(listName)}')" title="Supprimer la liste" class="btn-icon"><i class="fas fa-trash"></i></button>
                     </div>
                 </div>
                 <div class="list-items">
@@ -881,6 +883,63 @@ function toggleListCollapse(event, header) {
         const section = header.closest('.list-section');
         section.classList.toggle('collapsed');
     }
+}
+
+function editListName(event, projectId, oldListName) {
+    event.stopPropagation();
+    
+    const newListName = prompt('Nouveau nom de la liste :', oldListName);
+    if (!newListName || newListName === oldListName || !newListName.trim()) return;
+    
+    const todos = getTodos(projectId);
+    const listTodos = todos.filter(t => t.list === oldListName);
+    
+    if (listTodos.length === 0) return;
+    
+    // Rename all todos in this list
+    listTodos.forEach(todo => {
+        todo.list = newListName.trim();
+    });
+    
+    saveTodos(projectId, todos);
+    renderTodos(projectId);
+}
+
+function deleteList(event, projectId, listName) {
+    event.stopPropagation();
+    
+    const todos = getTodos(projectId);
+    const listTodos = todos.filter(t => t.list === listName);
+    
+    if (listTodos.length === 0) return;
+    
+    // Show confirmation modal
+    const modal = document.createElement('div');
+    modal.className = 'modal';
+    modal.style.display = 'flex';
+    modal.innerHTML = `
+        <div class="modal-content">
+            <h3>⚠️ Supprimer la liste "${escapeHtml(listName)}" ?</h3>
+            <p>Cette action supprimera <strong>${listTodos.length} tâche${listTodos.length > 1 ? 's' : ''}</strong> et ne peut pas être annulée.</p>
+            <div class="modal-actions">
+                <button class="btn-secondary" onclick="this.closest('.modal').remove()">Annuler</button>
+                <button class="btn-danger" onclick="confirmDeleteList('${projectId}', '${escapeHtml(listName)}')">Supprimer</button>
+            </div>
+        </div>
+    `;
+    document.body.appendChild(modal);
+}
+
+function confirmDeleteList(projectId, listName) {
+    const todos = getTodos(projectId);
+    const filteredTodos = todos.filter(t => t.list !== listName);
+    
+    saveTodos(projectId, filteredTodos);
+    renderTodos(projectId);
+    updateListSelect(projectId);
+    
+    // Close modal
+    document.querySelector('.modal').remove();
 }
 
 let draggedTodoId = null;
