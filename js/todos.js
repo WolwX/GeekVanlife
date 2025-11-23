@@ -749,23 +749,25 @@ function renderTodos(projectId) {
                  ondrop="dropTodo(event, '${projectId}', '${escapeHtml(todo.list)}', ${todo.id})"
                  ondragleave="leaveTodoDrag(event)"
                  ondragend="endTodoDrag(event)">
-                <div class="todo-header" onclick="toggleTodoExpand(event, '${projectId}', ${todo.id})" style="cursor: ${hasDetails ? 'pointer' : 'default'};">
-                    <input type="checkbox" ${todo.completed ? 'checked' : ''}
-                           onchange="toggleTodo('${projectId}', ${todo.id})" onclick="event.stopPropagation();">
-                    <span class="todo-name">${escapeHtml(todo.name)}</span>
+                <div class="todo-row">
+                    <div class="todo-header" onclick="toggleTodoExpand(event, '${projectId}', ${todo.id})" style="cursor: ${hasDetails ? 'pointer' : 'default'};">
+                        <input type="checkbox" ${todo.completed ? 'checked' : ''}
+                               onchange="toggleTodo('${projectId}', ${todo.id})" onclick="event.stopPropagation();">
+                        <span class="todo-name">${escapeHtml(todo.name)}</span>
+                    </div>
+                    <div class="todo-actions">
+                        ${todo.link ? `<a href="${escapeHtml(todo.link)}" target="_blank" title="Ouvrir le lien" class="btn-icon" onclick="event.stopPropagation();"><i class="fas fa-link"></i></a>` : ''}
+                        ${todo.note ? `<button onclick="alert('${escapeHtml(todo.note).replace(/'/g, '\\')}'); event.stopPropagation();" title="Voir la note" class="btn-icon"><i class="fas fa-sticky-note"></i></button>` : ''}
+                        <button onclick="openEditModal('${projectId}', ${todo.id}); event.stopPropagation();" title="Éditer" class="btn-icon"><i class="fas fa-edit"></i></button>
+                        <button onclick="deleteTodo('${projectId}', ${todo.id}); event.stopPropagation();" title="Supprimer" class="btn-icon"><i class="fas fa-trash"></i></button>
+                    </div>
                 </div>
                 ${hasDetails ? `
-                <div class="todo-details" style="display: none; padding: 8px 0 0 30px; font-size: 14px; color: #666;">
-                    ${todo.amount ? `<div style="margin-bottom: 4px;"><i class="fas fa-euro-sign" style="width: 20px;"></i> <strong>Montant:</strong> ${todo.amount.toFixed(2)}€${hasChildren ? ` <span style="color: #999;">(+${childrenAmount.toFixed(2)}€ enfants = ${totalAmount.toFixed(2)}€ total)</span>` : ''}</div>` : ''}
-                    ${todo.link ? `<div style="margin-bottom: 4px;"><i class="fas fa-link" style="width: 20px;"></i> <a href="${escapeHtml(todo.link)}" target="_blank" style="color: #2196F3; text-decoration: none;">Ouvrir le lien</a></div>` : ''}
-                    ${todo.note ? `<div style="margin-bottom: 4px;"><i class="fas fa-sticky-note" style="width: 20px;"></i> <strong>Note:</strong> ${escapeHtml(todo.note)}</div>` : ''}
+                <div class="todo-details" style="display: none; padding: 12px 0 0 30px; font-size: 14px; color: #666; border-top: 1px solid #e0e0e0; margin-top: 8px;">
+                    ${todo.amount ? `<div style="margin-bottom: 6px;"><i class="fas fa-euro-sign" style="width: 20px; margin-right: 8px;"></i><strong>Montant:</strong> ${todo.amount.toFixed(2)}€${hasChildren ? ` <span style="color: #999;">(+${childrenAmount.toFixed(2)}€ enfants = ${totalAmount.toFixed(2)}€ total)</span>` : ''}</div>` : ''}
+                    ${todo.link ? `<div style="margin-bottom: 6px;"><i class="fas fa-link" style="width: 20px; margin-right: 8px;"></i><a href="${escapeHtml(todo.link)}" target="_blank" style="color: #2196F3; text-decoration: none;">Ouvrir le lien</a></div>` : ''}
+                    ${todo.note ? `<div style="margin-bottom: 6px;"><i class="fas fa-sticky-note" style="width: 20px; margin-right: 8px;"></i><strong>Note:</strong> ${escapeHtml(todo.note)}</div>` : ''}
                 </div>` : ''}
-                <div class="todo-actions">
-                    ${todo.link ? `<a href="${escapeHtml(todo.link)}" target="_blank" title="Ouvrir le lien" class="btn-icon" onclick="event.stopPropagation();"><i class="fas fa-link"></i></a>` : ''}
-                    ${todo.note ? `<button onclick="alert('${escapeHtml(todo.note).replace(/'/g, '\\')}'); event.stopPropagation();" title="Voir la note" class="btn-icon"><i class="fas fa-sticky-note"></i></button>` : ''}
-                    <button onclick="openEditModal('${projectId}', ${todo.id}); event.stopPropagation();" title="Éditer" class="btn-icon"><i class="fas fa-edit"></i></button>
-                    <button onclick="deleteTodo('${projectId}', ${todo.id}); event.stopPropagation();" title="Supprimer" class="btn-icon"><i class="fas fa-trash"></i></button>
-                </div>
             </div>
             ${hasChildren ? children.map(child => renderTodoHierarchy(child, allTodos, depth + 1)).join('') : ''}
         `;
