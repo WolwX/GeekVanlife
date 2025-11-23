@@ -55,6 +55,20 @@
 
 ---
 
+## 🏠 INDEX.HTML (si applicable)
+
+**Date en-tête :** "Mai 2020 - [Mois Année]" → "Mai 2020 - **[Nouveau mois année]**"
+
+**Encadrés projets (cocher si modifié) :**
+- [ ] Geekomobile : Version/Budget/Statut/Systèmes
+- [ ] ForkX : Version/Budget/Statut/Systèmes
+- [ ] GeekCagne : Version/Budget/Statut/Systèmes
+
+**Détails changements :**
+[Brève description]
+
+---
+
 ## 📊 DASHBOARD (si applicable)
 
 **Projet :** [Geekomobile / ForkX / GeekCagne]

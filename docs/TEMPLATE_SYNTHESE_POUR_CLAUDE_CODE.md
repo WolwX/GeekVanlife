@@ -252,6 +252,74 @@ Exemple :
 
 ---
 
+## 🏠 MISE À JOUR PAGE INDEX.HTML
+
+> **Page d'accueil avec vue d'ensemble des 3 projets**
+> Fichier : `index.html`
+
+### 📅 En-tête / Date de présentation
+
+**Période affichée :**
+- **Actuelle :** "Mai 2020 - [Mois Année]"
+- **Nouveau :** "Mai 2020 - **[Mois Année]**" (mettre date actuelle)
+- **Exemple :** "Mai 2020 - Novembre 2025" → "Mai 2020 - Décembre 2025"
+
+---
+
+### 🚐 Encadré Geekomobile
+
+**Informations à mettre à jour :**
+
+| Champ | Ancienne valeur | Nouvelle valeur | Raison |
+|-------|-----------------|-----------------|--------|
+| **Version** | [vX.X] | [vX.X] | [Si changement] |
+| **Budget** | [XX€] | [XX€] | [Si changement] |
+| **Statut** | [Opérationnel/En cours/etc.] | [Nouveau statut] | [Si changement] |
+| **Systèmes** | [Liste] | [Liste mise à jour] | [Si nouveaux systèmes] |
+
+**Détails des changements :**
+```
+[Expliquer les changements apportés]
+```
+
+---
+
+### 🚙 Encadré ForkX
+
+**Informations à mettre à jour :**
+
+| Champ | Ancienne valeur | Nouvelle valeur | Raison |
+|-------|-----------------|-----------------|--------|
+| **Version** | [vX.X] | [vX.X] | [Si changement] |
+| **Budget** | [XX€] | [XX€] | [Si changement] |
+| **Statut** | [En développement/etc.] | [Nouveau statut] | [Si changement] |
+| **Systèmes** | [Liste] | [Liste mise à jour] | [Si nouveaux systèmes] |
+
+**Détails des changements :**
+```
+[Expliquer les changements apportés]
+```
+
+---
+
+### 🏗️ Encadré GeekCagne
+
+**Informations à mettre à jour :**
+
+| Champ | Ancienne valeur | Nouvelle valeur | Raison |
+|-------|-----------------|-----------------|--------|
+| **Version** | [vX.X] | [vX.X] | [Si changement] |
+| **Budget** | [XX€ restant] | [XX€ restant] | [Si changement] |
+| **Statut** | [XX% avancement] | [XX% avancement] | [Si changement] |
+| **Systèmes** | [Liste] | [Liste mise à jour] | [Si nouveaux systèmes] |
+
+**Détails des changements :**
+```
+[Expliquer les changements apportés]
+```
+
+---
+
 ## 📊 MISES À JOUR DES DASHBOARDS
 
 > **IMPORTANT : Section prioritaire pour synchroniser les dashboards interactifs**
@@ -596,6 +664,7 @@ Si oui :
 - [ ] Les modifications sont décrites précisément
 - [ ] Les nouveaux chantiers sont identifiés
 - [ ] Les budgets sont renseignés
+- [ ] **La page index.html est mise à jour (date, encadrés projets)**
 - [ ] **Les mises à jour des dashboards sont complétées (PRIORITAIRE)**
 - [ ] **Les budgets restants/dépensés sont à jour pour chaque projet**
 - [ ] Les tâches todos sont complètes (avec option Firebase ou JSON)
