@@ -883,25 +883,22 @@
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease;
-            background: #f0f7ff;
-            border-top: 1px solid #e0e0e0;
-            margin: 0 -14px -14px -14px;
-            padding: 0 14px 14px 14px;
+            margin-top: 8px;
+            padding: 0;
         }
 
         .todo-item.expanded .todo-details {
             max-height: 300px;
-            padding-top: 12px;
         }
 
         .detail-row {
             display: flex;
             gap: 8px;
             margin-bottom: 8px;
-            padding: 8px;
-            background: white;
-            border-radius: 6px;
+            padding: 0;
             font-size: 0.9rem;
+            font-style: italic;
+            color: #666;
         }
 
         .detail-label {
@@ -1112,6 +1109,33 @@
         }
 
         /* Rendre l'input accessible sur mobile via un bouton visible */
+        /* Mobile responsive layout */
+        @media (max-width: 768px) {
+            .todo-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+
+            .todo-header {
+                width: 100%;
+            }
+
+            .todo-actions {
+                width: 100%;
+                justify-content: flex-start;
+                padding-left: 32px;
+            }
+
+            .todo-details {
+                padding-left: 0;
+            }
+
+            .detail-row {
+                padding-left: 32px;
+            }
+        }
+
         @media (max-width: 768px) {
             .image-upload-zone {
                 cursor: pointer;
