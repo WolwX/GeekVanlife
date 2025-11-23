@@ -754,7 +754,7 @@ function renderTodos(projectId) {
                         <input type="checkbox" ${todo.completed ? 'checked' : ''}
                                onchange="toggleTodo('${projectId}', ${todo.id})" onclick="event.stopPropagation();">
                         <span class="todo-name">${escapeHtml(todo.name)}</span>
-                        ${todo.amount ? `<span class="todo-amount"><i class="fas fa-euro-sign"></i> ${todo.amount.toFixed(2)}€${hasChildren ? ` (+${childrenAmount.toFixed(2)}€)` : ''}</span>` : ''}
+                        ${todo.amount ? `<span class="todo-amount">${todo.amount.toFixed(2)} <i class="fas fa-euro-sign"></i>${hasChildren ? ` (+${childrenAmount.toFixed(2)})` : ''}</span>` : ''}
                     </div>
                     <div class="todo-actions">
                         ${todo.link ? `<a href="${escapeHtml(todo.link)}" target="_blank" title="Ouvrir le lien" class="btn-icon" onclick="event.stopPropagation();"><i class="fas fa-link"></i></a>` : ''}
@@ -791,7 +791,7 @@ function renderTodos(projectId) {
                     </div>
                     <div class="list-stats">
                         <span class="list-count">${listTodos.length} tâche${listTodos.length > 1 ? 's' : ''}</span>
-                        <span class="list-estimate">Dépensé ${estimate > 0 ? estimate.toFixed(2) + '€' : '0€'}</span>
+                        <span class="list-estimate">Dépensé ${estimate > 0 ? estimate.toFixed(2) : '0'} <i class="fas fa-euro-sign"></i></span>
                     </div>
                 </div>
                 <div class="list-items">
