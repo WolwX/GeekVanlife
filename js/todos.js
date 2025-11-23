@@ -757,7 +757,7 @@ function renderTodos(projectId) {
                     </div>
                     <div class="todo-actions">
                         ${todo.link ? `<a href="${escapeHtml(todo.link)}" target="_blank" title="Ouvrir le lien" class="btn-icon" onclick="event.stopPropagation();"><i class="fas fa-link"></i></a>` : ''}
-                        ${todo.note ? `<button onclick="event.stopPropagation();" title="Voir la note" class="btn-icon" style="pointer-events: none; opacity: 0.5;"><i class="fas fa-sticky-note"></i></button>` : ''}
+                        ${todo.note ? `<button onclick="event.stopPropagation();" title="Voir la note" class="btn-icon" style="pointer-events: none;"><i class="fas fa-sticky-note"></i></button>` : ''}
                         <button onclick="openEditModal('${projectId}', ${todo.id}); event.stopPropagation();" title="Éditer" class="btn-icon"><i class="fas fa-edit"></i></button>
                         <button onclick="deleteTodo('${projectId}', ${todo.id}); event.stopPropagation();" title="Supprimer" class="btn-icon"><i class="fas fa-trash"></i></button>
                     </div>
