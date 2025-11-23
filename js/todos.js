@@ -763,10 +763,10 @@ function renderTodos(projectId) {
                     </div>
                 </div>
                 ${hasDetails ? `
-                <div class="todo-details" style="display: none; padding: 10px 0 0 30px; font-size: 13px; line-height: 1.6;">
-                    ${todo.note ? `<div style="color: #666; margin-bottom: 8px;">${escapeHtml(todo.note)}</div>` : ''}
-                    ${todo.amount ? `<div style="color: #888; font-size: 12px; margin-bottom: 4px;">Montant : ${todo.amount.toFixed(2)}€${hasChildren ? ` (+${childrenAmount.toFixed(2)}€ enfants = ${totalAmount.toFixed(2)}€ total)` : ''}</div>` : ''}
-                    ${todo.link ? `<div style="font-size: 12px;"><a href="${escapeHtml(todo.link)}" target="_blank" style="color: #667eea; text-decoration: none;">🔗 ${escapeHtml(todo.link)}</a></div>` : ''}
+                <div class="todo-details" style="display: none; padding: 8px 0 0 0; font-size: 13px; line-height: 1.6;">
+                    ${todo.note ? `<div style="color: #666; font-style: italic; margin-bottom: 8px; padding-left: 30px;">${escapeHtml(todo.note)}</div>` : ''}
+                    ${todo.amount ? `<div style="color: #888; font-size: 12px; margin-bottom: 4px; padding-left: 30px;">Montant : ${todo.amount.toFixed(2)}€${hasChildren ? ` (+${childrenAmount.toFixed(2)}€ enfants = ${totalAmount.toFixed(2)}€ total)` : ''}</div>` : ''}
+                    ${todo.link ? `<div style="font-size: 12px; padding-left: 30px;"><a href="${escapeHtml(todo.link)}" target="_blank" style="color: #667eea; text-decoration: none;">🔗 ${escapeHtml(todo.link)}</a></div>` : ''}
                 </div>` : ''}
             </div>
             ${hasChildren ? children.map(child => renderTodoHierarchy(child, allTodos, depth + 1)).join('') : ''}
