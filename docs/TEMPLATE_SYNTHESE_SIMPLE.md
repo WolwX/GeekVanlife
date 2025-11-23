@@ -55,6 +55,29 @@
 
 ---
 
+## 📊 DASHBOARD (si applicable)
+
+**Projet :** [Geekomobile / ForkX / GeekCagne]
+
+**Mises à jour :**
+- Budget restant : [XX€] → [XX€]
+- Budget dépensé : [XX€] → [XX€]
+- Version (si ForkX/GeekCagne) : [vX.X] → [vX.X]
+- Avancement chantier : [Nom] [XX%] → [XX%]
+- News à ajouter : [Oui/Non] - [Titre si oui]
+
+---
+
+## ✅ TODOS (si applicable)
+
+**Option préférée :** [Firebase / JSON Export]
+
+**Tâches à ajouter :**
+- [ ] [Tâche 1] - [Projet] - [Priorité] - [XX€]
+- [ ] [Tâche 2] - [Projet] - [Priorité] - [XX€]
+
+---
+
 ## 📝 NOTES
 
 [Tout autre élément important]

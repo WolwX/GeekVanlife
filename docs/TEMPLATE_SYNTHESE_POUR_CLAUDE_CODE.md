@@ -252,6 +252,275 @@ Exemple :
 
 ---
 
+## 📊 MISES À JOUR DES DASHBOARDS
+
+> **IMPORTANT : Section prioritaire pour synchroniser les dashboards interactifs**
+> Les dashboards sont dans : `Geekomobile/dashboard.html`, `ForkX/dashboard.html`, `Geekagne/dashboard.html`
+
+---
+
+### 🚐 DASHBOARD GEEKOMOBILE
+
+**Fichier :** `Geekomobile/dashboard.html`
+
+#### 💰 Budget (PRIORITAIRE)
+- **Budget restant :** [XX€] → [XX€] (nouveau)
+- **Budget dépensé :** [XX€] → [XX€] (nouveau)
+- **Raison changement :** [Explication]
+
+#### 📰 Dernières News
+**Ajouter nouvelle(s) news :** [Oui/Non]
+
+Si oui :
+```javascript
+{
+  "date": "JJ Mois AAAA",
+  "title": "[Titre de la news]",
+  "description": "[Description courte]",
+  "category": "[Maintenance/Amélioration/Système/etc.]"
+}
+```
+
+#### ⚙️ Systèmes Installés
+**Nouvelles lignes à ajouter :** [Oui/Non]
+
+Si oui, pour chaque système :
+```javascript
+{
+  "name": "[Nom du système]",
+  "status": "[Opérationnel/En cours/Planifié]",
+  "details": "[Détails techniques]"
+}
+```
+
+#### 💵 Coûts Mensuels
+**Mise à jour nécessaire :** [Oui/Non]
+
+Si oui :
+- **Chauffage :** [XX€/mois] (ancien : [XX€/mois])
+- **Eau :** [XX€/mois] (ancien : [XX€/mois])
+- **Autre :** [XX€/mois]
+- **Raison :** [Explication]
+
+#### 🗺️ Roadmap
+**Modifications :** [Oui/Non]
+
+Si oui :
+- [ ] Nouveau projet : [Nom] - [Description] - [Budget]
+- [ ] Projet terminé : [Nom]
+- [ ] Mise à jour avancement : [Nom] - [XX%] → [XX%]
+
+---
+
+### 🚙 DASHBOARD FORKX
+
+**Fichier :** `ForkX/dashboard.html`
+
+#### 🏷️ Version & Date
+- **Version actuelle :** [vX.X] → **[vX.X]** (nouveau)
+- **Dernière mise à jour :** [Date] → **[Date]** (nouveau)
+
+#### 💰 Budget (PRIORITAIRE)
+- **Budget restant :** [XX€] → [XX€] (nouveau)
+- **Budget dépensé :** [XX€] → [XX€] (nouveau)
+- **Budget total projet :** [XX€]
+- **Raison changement :** [Explication]
+
+#### 📰 Dernières News
+**Ajouter nouvelle(s) news :** [Oui/Non]
+
+Si oui :
+```javascript
+{
+  "date": "JJ Mois AAAA",
+  "title": "[Titre de la news]",
+  "description": "[Description courte]",
+  "category": "[Isolation/Chauffage/Aménagement/etc.]",
+  "version": "[v0.X]"
+}
+```
+
+#### 🗺️ Roadmap
+**Modifications :** [Oui/Non]
+
+Si oui :
+- [ ] Nouvelle phase : [vX.X] - [Nom] - [Description] - [Budget]
+- [ ] Phase terminée : [vX.X] - [Nom]
+- [ ] Mise à jour avancement : [vX.X] - [XX%] → [XX%]
+
+---
+
+### 🏗️ DASHBOARD GEEKAGNE
+
+**Fichier :** `Geekagne/dashboard.html`
+
+#### 🏷️ Version & Date (IMPORTANT)
+- **Version actuelle :** [vX.X] → **[vX.X]** (nouveau)
+- **Dernière mise à jour :** [Date] → **[Date]** (nouveau)
+
+#### 📏 Caractéristiques
+**Modifications :** [Oui/Non]
+> Note : Normalement aucun changement sauf cas exceptionnel
+
+Si oui :
+- [Caractéristique modifiée] : [Ancienne valeur] → [Nouvelle valeur]
+
+#### 📊 Statistiques (PRIORITAIRE)
+
+**Pourcentages de projets complétés :**
+- **Projets complétés :** [XX%] → [XX%] (nouveau)
+- **En cours :** [XX%] → [XX%] (nouveau)
+- **Planifiés :** [XX%] → [XX%] (nouveau)
+- **Détail changement :**
+  ```
+  Chantiers terminés : [+X] (liste : [noms])
+  Chantiers avancés : [Nom] [XX%]→[XX%]
+  Nouveaux chantiers : [+X] (liste : [noms])
+  ```
+
+**Budget :**
+- **Budget restant :** [XX€] → [XX€] (nouveau)
+- **Budget dépensé :** [XX€] → [XX€] (nouveau)
+- **Budget total crédit :** 25 000€ (fixe)
+- **Raison changement :** [Explication + détail dépenses]
+
+**Durée de propriété :**
+- **Mois de propriété :** [X mois] → [X mois] (nouveau)
+- **Date calcul :** Depuis janvier 2025
+
+#### 📰 Dernières News
+**Ajouter nouvelle(s) news :** [Oui/Non]
+
+Si oui :
+```javascript
+{
+  "date": "JJ Mois AAAA",
+  "title": "[Titre de la news]",
+  "description": "[Description courte]",
+  "category": "[Chantier/Plantation/Infrastructure/etc.]",
+  "chantier": "[Nom du chantier concerné]"
+}
+```
+
+#### 🚀 Dernières Avancées
+**Ajouter nouvelle(s) avancée(s) :** [Oui/Non]
+
+Si oui :
+```javascript
+{
+  "chantier": "[Nom du chantier]",
+  "avancement": "[XX%]",
+  "description": "[Ce qui a été fait]",
+  "date": "[Date]",
+  "budget": "[XX€ si applicable]"
+}
+```
+
+#### 🗺️ Roadmap
+**Modifications :** [Oui/Non]
+
+Si oui :
+- [ ] Nouveau chantier : [#XX] [Nom] - [Description] - [Budget] - [Priorité]
+- [ ] Chantier terminé : [#XX] [Nom]
+- [ ] Mise à jour avancement : [#XX] [Nom] - [XX%] → [XX%]
+- [ ] Changement priorité : [#XX] [Nom] - [Ancienne] → [Nouvelle]
+
+#### 🏗️ Bâtiments en Cours
+**Mise à jour liste :** [Oui/Non]
+
+Si oui :
+```javascript
+{
+  "name": "[Nom du bâtiment/chantier]",
+  "progress": [XX], // Pourcentage
+  "budget_investi": "[XX€]",
+  "budget_restant": "[XX€]",
+  "priorite": "[Haute/Moyenne/Basse]",
+  "eta": "[Date estimée fin]"
+}
+```
+
+---
+
+## ✅ TO-DO LIST & EXPORT
+
+> **Section cruciale pour synchronisation avec l'app todos**
+
+### Option 1 : Mise à jour Firebase (IDÉAL)
+
+**Modifications à appliquer directement dans Firebase :**
+
+```javascript
+// Collection : todos
+// Document : [ID auto ou spécifique]
+{
+  "project": "[geekomobile/geekagne/forkx]",
+  "title": "[Titre de la tâche]",
+  "description": "[Description]",
+  "priority": "[haute/moyenne/basse]",
+  "status": "[todo/in_progress/done]",
+  "budget": [XX], // en euros
+  "liste": "[Nom de la liste]",
+  "tags": ["[tag1]", "[tag2]"],
+  "link": "[URL si applicable]",
+  "created_at": "[Timestamp]",
+  "updated_at": "[Timestamp]"
+}
+```
+
+**Tâches à ajouter :**
+1. [Détails tâche 1]
+2. [Détails tâche 2]
+...
+
+**Tâches à modifier :**
+1. [ID tâche] : [Champ] : [Ancienne valeur] → [Nouvelle valeur]
+...
+
+**Tâches à supprimer :**
+1. [ID tâche] : [Raison]
+...
+
+---
+
+### Option 2 : Export JSON (À DÉFAUT)
+
+**Si modification Firebase impossible, générer fichier JSON :**
+
+**Fichier de sortie :** `imports/todos_import_[DATE].json`
+
+```json
+{
+  "export_date": "AAAA-MM-JJ",
+  "source": "conversation_claude_classique",
+  "project": "[geekomobile/geekagne/forkx/all]",
+  "todos": [
+    {
+      "id": "auto_generated_[X]",
+      "project": "[projet]",
+      "title": "[Titre]",
+      "description": "[Description]",
+      "priority": "[haute/moyenne/basse]",
+      "status": "todo",
+      "budget": [XX],
+      "liste": "[Nom liste]",
+      "tags": ["[tag1]", "[tag2]"],
+      "link": "[URL]",
+      "created_at": "[Timestamp ISO 8601]"
+    }
+  ]
+}
+```
+
+**Instructions pour import manuel :**
+1. Télécharger le fichier JSON généré
+2. Ouvrir l'app todos
+3. Utiliser la fonction "Import JSON"
+4. Sélectionner le fichier
+5. Valider l'import
+
+---
+
 ## 🔗 LIENS ET RÉFÉRENCES
 
 **URLs importantes :**
@@ -327,10 +596,13 @@ Exemple :
 - [ ] Les modifications sont décrites précisément
 - [ ] Les nouveaux chantiers sont identifiés
 - [ ] Les budgets sont renseignés
-- [ ] Les tâches todos sont complètes
+- [ ] **Les mises à jour des dashboards sont complétées (PRIORITAIRE)**
+- [ ] **Les budgets restants/dépensés sont à jour pour chaque projet**
+- [ ] Les tâches todos sont complètes (avec option Firebase ou JSON)
 - [ ] Le contexte technique est clair
 - [ ] Les décisions sont documentées
 - [ ] Les prochaines étapes sont définies
+- [ ] Les versions et dates de mise à jour sont correctes
 
 ---
 
