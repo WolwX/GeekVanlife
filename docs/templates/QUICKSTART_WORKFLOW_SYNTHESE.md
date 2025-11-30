@@ -13,8 +13,8 @@
 ```
 Peux-tu créer un fichier de synthèse pour Claude Code ?
 
-Utilise le template qui se trouve dans docs/TEMPLATE_SYNTHESE_POUR_CLAUDE_CODE.md
-(ou la version simple docs/TEMPLATE_SYNTHESE_SIMPLE.md si c'est une petite modification).
+Utilise le template qui se trouve dans docs/templates/TEMPLATE_SYNTHESE_POUR_CLAUDE_CODE.md
+(ou la version simple docs/templates/TEMPLATE_SYNTHESE_SIMPLE.md si c'est une petite modification).
 
 Remplis toutes les sections avec les informations de notre conversation actuelle.
 ```
@@ -49,7 +49,7 @@ Peux-tu analyser ce fichier et appliquer toutes les modifications sur GitHub ?
 ## 📋 Templates disponibles
 
 ### Conversation complexe
-→ Utilisez : `docs/TEMPLATE_SYNTHESE_POUR_CLAUDE_CODE.md`
+→ Utilisez : `docs/templates/TEMPLATE_SYNTHESE_POUR_CLAUDE_CODE.md`
 
 **Quand :**
 - Plusieurs fichiers à modifier
@@ -60,7 +60,7 @@ Peux-tu analyser ce fichier et appliquer toutes les modifications sur GitHub ?
 ---
 
 ### Conversation simple
-→ Utilisez : `docs/TEMPLATE_SYNTHESE_SIMPLE.md`
+→ Utilisez : `docs/templates/TEMPLATE_SYNTHESE_SIMPLE.md`
 
 **Quand :**
 - 1-2 fichiers à modifier
@@ -72,10 +72,10 @@ Peux-tu analyser ce fichier et appliquer toutes les modifications sur GitHub ?
 ## 🔍 Références utiles
 
 **Avant de discuter, consultez :**
-- `docs/CHANTIERS_EXISTANTS_REFERENCE.md` - Liste tous les chantiers
-- `docs/GEEKAGNE_Contexte_Résumé.md` - Contexte GeekCagne
-- `docs/GEEKOMOBILE_Contexte_Résumé.md` - Contexte Geekomobile
-- `docs/FORK_Contexte_Resume.md` - Contexte ForkX
+- `docs/references/CHANTIERS_EXISTANTS_REFERENCE.md` - Liste tous les chantiers
+- `docs/contextes/GEEKAGNE_Contexte.md` - Contexte GeekCagne
+- `docs/contextes/GEEKOMOBILE_Contexte.md` - Contexte Geekomobile
+- `docs/contextes/FORKX_Contexte.md` - Contexte ForkX
 
 ---
 
@@ -108,4 +108,4 @@ Peux-tu analyser ce fichier et appliquer toutes les modifications sur GitHub ?
 
 ---
 
-**Guide complet :** `docs/WORKFLOW_CLAUDE_CLASSIQUE_VERS_CLAUDE_CODE.md`
+**Guide complet :** `docs/templates/WORKFLOW_CLAUDE_CLASSIQUE_VERS_CLAUDE_CODE.md`

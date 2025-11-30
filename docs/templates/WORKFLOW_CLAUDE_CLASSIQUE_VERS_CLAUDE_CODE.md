@@ -90,7 +90,7 @@ Ce workflow vous permet de :
 ```
 Peux-tu créer un fichier de synthèse en utilisant le template
 "TEMPLATE_SYNTHESE_POUR_CLAUDE_CODE.md" qui se trouve dans le
-dossier docs/ du repo GeekVanlife ?
+dossier docs/templates/ du repo GeekVanlife ?
 
 Remplis toutes les sections pertinentes avec les informations
 de notre conversation.
@@ -157,7 +157,7 @@ de notre conversation.
 ## 📚 Templates disponibles
 
 ### Template complet (conversations complexes)
-**Fichier :** `docs/TEMPLATE_SYNTHESE_POUR_CLAUDE_CODE.md`
+**Fichier :** `docs/templates/TEMPLATE_SYNTHESE_POUR_CLAUDE_CODE.md`
 
 **Utiliser quand :**
 - Discussion longue avec plusieurs décisions
@@ -169,7 +169,7 @@ de notre conversation.
 ---
 
 ### Template simplifié (conversations courtes)
-**Fichier :** `docs/TEMPLATE_SYNTHESE_SIMPLE.md`
+**Fichier :** `docs/templates/TEMPLATE_SYNTHESE_SIMPLE.md`
 
 **Utiliser quand :**
 - Modification rapide d'un fichier
@@ -281,11 +281,11 @@ de notre conversation.
 ## 🎓 Ressources
 
 **Fichiers importants :**
-- `docs/TEMPLATE_SYNTHESE_POUR_CLAUDE_CODE.md` - Template complet
-- `docs/WORKFLOW_CLAUDE_CLASSIQUE_VERS_CLAUDE_CODE.md` - Ce guide
-- `docs/GEEKAGNE_Contexte_Résumé.md` - Contexte projet GeekCagne
-- `docs/GEEKOMOBILE_Contexte_Résumé.md` - Contexte projet Geekomobile
-- `docs/FORK_Contexte_Resume.md` - Contexte projet ForkX
+- `docs/templates/TEMPLATE_SYNTHESE_POUR_CLAUDE_CODE.md` - Template complet
+- `docs/templates/WORKFLOW_CLAUDE_CLASSIQUE_VERS_CLAUDE_CODE.md` - Ce guide
+- `docs/contextes/GEEKAGNE_Contexte.md` - Contexte projet GeekCagne
+- `docs/contextes/GEEKOMOBILE_Contexte.md` - Contexte projet Geekomobile
+- `docs/contextes/FORKX_Contexte.md` - Contexte projet ForkX
 
 **Chantiers existants :**
 - Consultez les README de chaque projet pour la liste complète
