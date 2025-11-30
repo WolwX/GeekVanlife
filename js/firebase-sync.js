@@ -91,10 +91,17 @@
                         
                         if (Array.isArray(remoteData)) {
                             const storageKey = projects[projectId];
-                            const localData = localStorage.getItem(storageKey);
+                            const localDataStr = localStorage.getItem(storageKey);
+                            const localData = localDataStr ? JSON.parse(localDataStr) : [];
                             const remoteDataStr = JSON.stringify(remoteData);
                             
-                            if (localData !== remoteDataStr) {
+                            // Ne pas écraser les données locales avec des données Firebase vides
+                            if (remoteData.length === 0 && localData.length > 0) {
+                                console.log(`⚠️ Skipping Firebase update: remote is empty but local has ${localData.length} tasks`);
+                                return;
+                            }
+                            
+                            if (localDataStr !== remoteDataStr) {
                                 localStorage.setItem(storageKey, remoteDataStr);
                                 console.log(`🔄 Real-time update for ${projectId}`);
                                 

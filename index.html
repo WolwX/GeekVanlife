@@ -75,212 +75,8 @@
         .social-badges {
             display: flex;
             gap: 6px;
-            justify-content: center;
-            flex-wrap: nowrap;
-            flex-basis: 100%;
-        }
-        
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.9em;
-            font-weight: 600;
-            text-decoration: none;
-            transition: transform 0.2s;
-        }
-        
-        .badge:hover {
-            transform: translateY(-2px);
-        }
-        
-        .badge.version {
-            background: #e3f2fd;
-            color: #1976d2;
-        }
-        
-        .badge.status {
-            background: #fff3e0;
-            color: #f57c00;
-        }
-        
-        .badge.social {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 6px 12px;
-            font-size: 0.85em;
-            flex: 0 0 auto;
-            white-space: nowrap;
-        }
-        
-        /* Projects Grid */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 30px;
-            margin-bottom: 30px;
-        }
-        
-        .project-card {
-            background: white;
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            transition: transform 0.3s, box-shadow 0.3s;
-            cursor: pointer;
-            text-decoration: none;
-            color: inherit;
-            display: block;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: -3px;
-            left: -3px;
-            right: -3px;
-            bottom: -3px;
-            border-radius: 15px;
-            padding: 3px;
-            z-index: -1;
-        }
-        
-        .project-card::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: white;
-            border-radius: 15px;
-            z-index: -1;
-        }
-        
-        .project-card:nth-child(1)::before {
-            background: linear-gradient(135deg, #c0392b, #e74c3c);
-        }
-        
-        .project-card:nth-child(2)::before {
-            background: linear-gradient(135deg, #667eea, #4FC3F7);
-        }
-        
-        .project-card:nth-child(3)::before {
-            background: linear-gradient(135deg, #11998e, #38ef7d);
-        }
-        
-        /* Project-specific tag colors */
-        .project-card:nth-child(1) .tag {
-            background: linear-gradient(135deg, #c0392b 0%, #e74c3c 100%);
-        }
-        
-        .project-card:nth-child(2) .tag {
-            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
-        }
-        
-        .project-card:nth-child(3) .tag {
-            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
-        }
-        
-        /* Center tags */
-        .project-tags {
-            justify-content: center;
-        }
-        
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
-        }
-        
-        .project-card,
-        .project-card:visited,
-        .project-card:hover,
-        .project-card:active {
-            color: #333;
-        }
-        
-        .project-header {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-        
-        .project-icon {
-            font-size: 2.5em;
-            line-height: 1;
-        }
-        
-        .project-title {
-            flex: 1;
-        }
-        
-        .project-title h2 {
-            font-size: 1.8em;
-            margin-bottom: 5px;
-            color: #333;
-        }
-        
-        .project-title .model {
-            font-size: 0.9em;
-            color: #666;
-        }
-        
-        .project-stats {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            margin: 20px 0;
-        }
-        
-        .stat-item {
-            background: #f8f9fa;
-            padding: 12px;
-            border-radius: 8px;
-            text-align: center;
-        }
-        
-        .stat-label {
-            font-size: 0.8em;
-            color: #666;
-            margin-bottom: 5px;
-        }
-        
-        .stat-value {
-            font-size: 1.2em;
-            font-weight: 700;
-            color: #667eea;
-        }
-        
-        .budget-split {
-            display: flex !important;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            flex-wrap: wrap;
-            font-size: 0.9em !important;
-        }
-        
-        .budget-part {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 2px;
-        }
-        
-        .budget-sublabel {
-            font-size: 0.7em;
-            color: #999;
-            font-weight: 600;
-        }
-        
-        .budget-amount {
-            font-size: 1.1em;
-            font-weight: 700;
+            </body>
+            </html>
             color: #667eea;
         }
         
@@ -1014,13 +810,10 @@
         }
     </style>
 
-    <script type="module">
+    <!-- Script d'initialisation Firebase déplacé en bas du body pour garantir que firebase est chargé -->
         // ============================================
-        // FIREBASE CONFIGURATION
+        // FIREBASE CONFIGURATION (CDN global usage)
         // ============================================
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
-        import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-database.js";
-
         const firebaseConfig = {
             apiKey: "AIzaSyD7PUqS5GGpEuQiZhlaiwhBpiJps5K8Jec",
             authDomain: "geekvanlife.firebaseapp.com",
@@ -1031,21 +824,18 @@
             databaseURL: "https://geekvanlife-default-rtdb.europe-west1.firebasedatabase.app"
         };
 
-        // Initialize Firebase
         let firebaseDB = null;
         try {
-            const firebaseApp = initializeApp(firebaseConfig);
-            firebaseDB = getDatabase(firebaseApp);
+            firebase.initializeApp(firebaseConfig);
+            firebaseDB = firebase.database();
+            window.firebaseDB = firebaseDB;
+            window.firebaseRef = (path) => firebaseDB.ref(path);
+            window.firebaseSet = (ref, data) => ref.set(data);
+            window.firebaseOnValue = (ref, callback, errorCallback) => ref.on('value', callback, errorCallback);
             console.log('✅ Firebase initialized successfully');
         } catch (error) {
             console.error('Firebase initialization error:', error);
         }
-
-        // Make functions globally accessible
-        window.firebaseDB = firebaseDB;
-        window.firebaseRef = ref;
-        window.firebaseSet = set;
-        window.firebaseOnValue = onValue;
 
         // Settings Modal Functions
         function openSettingsModal() {
@@ -1194,5 +984,8 @@
         `;
         document.head.appendChild(style);
     </script>
+</body>
+<!-- Script d'initialisation Firebase -->
+</html>
 </body>
 </html>
