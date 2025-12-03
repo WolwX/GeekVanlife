@@ -1,9 +1,9 @@
 # 🚙 Phase v0.1 : Clean Base
 
-**Statut :** 🚧 En cours
+**Statut :** ✅ Terminée (100%)
 **Timeline :** Novembre 2025
 **Budget estimé :** 200-500€
-**Budget dépensé :** 0€ (à démarrer)
+**Budget dépensé :** 70€ (karcher + débosselage)
 
 ---
 
@@ -18,14 +18,15 @@ Première phase du projet ForkX : remettre le Fiat Doblo 2020 en état optimal a
 ## 🎯 Objectifs
 
 ### Réparations essentielles
-- [ ] Réparer/remplacer rétroviseurs
-- [ ] Installer nouvelle antenne
-- [ ] Remplacer enjoliveurs manquants
+- [x] **Débosselage galerie avant gauche** (ventouses 5€) ✅
+- [~] Réparer/remplacer rétroviseurs (reporté)
+- [~] Installer nouvelle antenne (reporté)
+- [~] Remplacer enjoliveurs manquants (reporté)
 
 ### Nettoyage
-- [ ] Changer tapis de sol cabine
-- [ ] Nettoyage profond cabine
-- [ ] Nettoyage cargo (dégraissage, désinfection)
+- [x] **Nettoyage cargo karcher** (29 nov 2025) ✅
+- [~] Changer tapis de sol cabine (reporté)
+- [~] Nettoyage profond cabine (reporté)
 
 ### Administratif
 - [ ] Carte grise à jour
@@ -36,10 +37,10 @@ Première phase du projet ForkX : remettre le Fiat Doblo 2020 en état optimal a
 
 ## 📊 Avancement
 
-### Phase actuelle : Préparation (📋 0%)
-- Inventaire des réparations à faire
-- Liste des achats nécessaires
-- Planification des interventions
+### Phase terminée : ✅ 100%
+- ✅ Débosselage galerie (ventouses 5€)
+- ✅ Nettoyage karcher cargo complet
+- ✅ Véhicule prêt pour v0.2 (structure)
 
 ---
 
@@ -69,4 +70,4 @@ Première phase du projet ForkX : remettre le Fiat Doblo 2020 en état optimal a
 
 ---
 
-**Dernière mise à jour :** 23 novembre 2025
+**Dernière mise à jour :** 30 novembre 2025

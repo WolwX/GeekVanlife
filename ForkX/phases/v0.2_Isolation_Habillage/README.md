@@ -1,9 +1,9 @@
 # 🏗️ Phase v0.2 : Isolation & Habillage
 
-**Statut :** 📋 Planifié
-**Timeline :** Décembre 2025
+**Statut :** 🚧 En cours (60%)
+**Timeline :** Nov-Déc 2025
 **Budget estimé :** 500-800€
-**Budget dépensé :** 0€
+**Budget dépensé :** 86€ (tasseaux + colle + karcher)
 
 ---
 
@@ -18,20 +18,24 @@ Deuxième phase du projet ForkX : isolation thermique et acoustique complète + 
 ## 🎯 Objectifs
 
 ### Préparation
-- [ ] Démontage complet meubles cargo existants
-- [ ] Nettoyage final surfaces (après v0.1)
+- [x] **Nettoyage karcher cargo** (29 nov 2025) ✅
+- [~] Démontage meubles cargo (reporté à plus tard)
 
-### Isolation
+### Structure sol (🚧 60%)
+- [x] **Conception 6 tasseaux optimisés** ✅
+- [x] **Achat matériaux** (tasseaux + colle) ✅
+- [x] **Découpe 4 tasseaux** ✅
+- [x] **Repérages positionnement** ✅
+- [x] **Conception 2 gaines sous-plancher** ✅
+- [ ] Frottage dégraissage final
+- [ ] Collage tasseaux + pose gaines
+- [ ] Repose contreplaqué 18mm existant
+
+### Isolation (📋 À venir)
 - [ ] Isolation K-FLEX ST 19mm - toit
 - [ ] Isolation K-FLEX ST 19mm - parois latérales
 - [ ] Isolation K-FLEX ST 19mm - portes arrière
 - [ ] Isolation K-FLEX ST 19mm - paroi de séparation
-
-### Plancher
-- [ ] Structure tasseaux bois
-- [ ] Isolation plancher (si possible)
-- [ ] Contreplaqué marine/bakélisé
-- [ ] Traitement protection bois
 
 ### Habillage
 - [ ] Habillage murs (contreplaqué ou lambris)
@@ -42,10 +46,14 @@ Deuxième phase du projet ForkX : isolation thermique et acoustique complète + 
 
 ## 📊 Avancement
 
-### Phase actuelle : Planification (📋 0%)
-- Mesures précises du cargo
-- Calcul quantités matériaux
-- Planification ordre d'installation
+### Phase actuelle : Structure sol (🚧 60%)
+- ✅ Conception finalisée (6 tasseaux + 2 gaines)
+- ✅ Matériaux achetés (86€)
+- ✅ Préparation surface (karcher)
+- ✅ Découpe et repérages
+- ⏳ Reste : collage + gaines + repose plancher
+
+**Documentation technique :** [STRUCTURE_SOL.md](./STRUCTURE_SOL.md)
 
 ---
 
@@ -77,4 +85,4 @@ Deuxième phase du projet ForkX : isolation thermique et acoustique complète + 
 
 ---
 
-**Dernière mise à jour :** 23 novembre 2025
+**Dernière mise à jour :** 30 novembre 2025

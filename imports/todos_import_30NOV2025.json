@@ -1,0 +1,63 @@
+{
+  "export_date": "2025-11-30",
+  "source": "conversation_claude",
+  "project": "forkx",
+  "todos": [
+    {
+      "title": "Finaliser nettoyage sol (frottage)",
+      "priority": "haute",
+      "budget": 0,
+      "liste": "Phase v0.2",
+      "tags": ["structure", "preparation"]
+    },
+    {
+      "title": "Coller tasseaux + poser gaines",
+      "priority": "haute",
+      "budget": 0,
+      "liste": "Phase v0.2",
+      "tags": ["structure", "electricite"]
+    },
+    {
+      "title": "Reposer contreplaqué sol",
+      "priority": "haute",
+      "budget": 0,
+      "liste": "Phase v0.2",
+      "tags": ["structure"]
+    },
+    {
+      "title": "Acheter contreplaqué 9mm plafond",
+      "priority": "moyenne",
+      "budget": 30,
+      "liste": "Achats",
+      "tags": ["structure", "achat"]
+    },
+    {
+      "title": "Vérifier stock gaines ICTA Ø20mm",
+      "priority": "moyenne",
+      "budget": 5,
+      "liste": "Achats",
+      "tags": ["electricite"]
+    },
+    {
+      "title": "Choisir Power Station 300-500Wh",
+      "priority": "moyenne",
+      "budget": 250,
+      "liste": "Achats",
+      "tags": ["electricite", "recherche"]
+    },
+    {
+      "title": "Quadrillage tasseaux murs",
+      "priority": "moyenne",
+      "budget": 0,
+      "liste": "Phase v0.2",
+      "tags": ["structure", "murs"]
+    },
+    {
+      "title": "Quadrillage tasseaux plafond",
+      "priority": "moyenne",
+      "budget": 30,
+      "liste": "Phase v0.2",
+      "tags": ["structure", "plafond"]
+    }
+  ]
+}
