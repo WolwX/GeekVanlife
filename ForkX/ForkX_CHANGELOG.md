@@ -8,6 +8,97 @@ et ce projet suit un versioning incrémental inspiré du développement logiciel
 
 ---
 
+## [v0.4] - 28 Novembre 2025 - PLANIFICATION 20%
+
+### Conception eau
+**Type :** Planification
+
+**Configuration :**
+- Eau propre : 2 bidons 10L alimentaires (stock 0€)
+- Eau grise : Bidon PTX 20L (stock 0€)
+- Douche : Évacuation extérieure (plus tard)
+
+**Budget matériel :** 0€
+**Budget installation :** ~75€
+**Économie :** ~400-500€ vs système fixe
+
+### Conception électricité
+**Type :** Planification
+
+**Configuration :**
+- Power Station 300-500Wh (200-350€)
+- 4 gaines Ø20mm distribution
+- Éclairage LED + prises USB
+- Consommation : ~165-200 Wh/jour
+
+**Budget :** ~290-510€
+**Économie :** ~200-400€ vs installation classique
+
+**Documentation :** `SYSTEMES_EAU_ELECTRICITE.md` créé
+
+---
+
+## [v0.2] - 28-30 Novembre 2025 - EN COURS 60%
+
+### Achats matériaux
+**Type :** Ajouté
+
+**Matériaux :**
+- 8 tasseaux 40x20mm x 3m : 15,92€
+- Colle polymère : 5,50€
+- Karcher : ~65€
+
+**Budget :** 86,42€
+
+### Conception structure sol
+**Type :** Progression
+
+**Détails :**
+- 6 tasseaux longitudinaux optimisés
+- Espacement différencié (17,5cm centre / 40cm extérieurs)
+- 2 gaines Ø20mm sous-plancher (12V + 220V)
+- Méthode collage (éprouvée Geekomobile)
+- Contreplaqué 18mm conservé (économie ~200€)
+
+**Consommation :** 4 tasseaux sol / 4 restants murs
+
+### Travaux structure sol
+**Type :** Progression
+
+**Réalisé :**
+- Nettoyage karcher cargo
+- Découpe 4 tasseaux
+- Repérages positionnement
+
+**En attente :**
+- Frottage dégraissage
+- Séchage
+- Collage + gaines
+- Repose contreplaqué
+
+**Avancement :** 60%
+
+**Documentation :** `STRUCTURE_SOL.md` créé
+
+---
+
+## [v0.1] - 28 Novembre 2025 - TERMINÉE ✅
+
+### Carrosserie
+**Type :** Amélioré
+
+**Travaux :**
+- Débosselage enfoncement galerie avant gauche
+- Outil : Ventouses Lidl (5€)
+- Résultat : Amélioration visuelle significative
+
+**Budget :** 5€
+**Économie :** ~150-200€ vs carrossier
+
+**Phase :** v0.1 Clean Base complétée à 100%
+
+---
+
 ## [Terminology Standardization] - 19 novembre 2025
 **📚 IMPLÉMENTATION HIÉRARCHIE KERNEL/PROJETS/CHANTIERS**
 
