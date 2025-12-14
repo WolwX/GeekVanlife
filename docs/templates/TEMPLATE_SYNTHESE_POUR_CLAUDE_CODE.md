@@ -75,18 +75,35 @@ conversation actuelle.
 ### Pour ForkX
 
 **Phase/Version concernée :**
-- [ ] v0.1 - Clean Base
-- [ ] v0.2 - Isolation & Habillage
-- [ ] v0.3 - Systèmes
-- [ ] v0.4 - Aménagement modulaire
+- [ ] v0.1 - Clean Base (Nettoyage, réparations essentielles, admin)
+- [ ] v0.2 - Isolation & Habillage (Structure sol, isolation K-FLEX, habillage)
+- [ ] v0.3 - Systèmes (Chauffage, électricité, eau)
+- [ ] v0.4 - Aménagement modulaire (Lit, kitchenette, rangements)
 - [ ] Nouvelle phase : ___________
 
-**Systèmes discutés :**
-- [ ] Isolation
-- [ ] Chauffage
-- [ ] Électricité
-- [ ] Eau
-- [ ] Aménagement intérieur
+**Si v0.3 - Systèmes, précisez :**
+- [ ] Chauffage diesel Mudiro 8KW
+- [ ] Plancher chauffant électrique 1,5m²
+- [ ] Power Station 300-500Wh
+- [ ] Réseau électrique 4 gaines + LED + USB
+- [ ] Système eau bidons amovibles (2x10L propre + 1x20L grise)
+- [ ] Évier + robinetterie
+- [ ] Autre système : ___________
+
+**Si v0.4 - Aménagement modulaire, précisez :**
+- [ ] Banquette/lit convertible forme en L
+- [ ] Kitchenette compacte amovible
+- [ ] Plan de travail rabattable
+- [ ] Rangements muraux/sous banquette
+- [ ] Système modularité cargo ↔ aménagé
+- [ ] Rideaux occultants
+- [ ] Autre aménagement : ___________
+
+**Autres systèmes discutés :**
+- [ ] Isolation (v0.2)
+- [ ] Structure plancher (v0.2)
+- [ ] Réparations véhicule (v0.1)
+- [ ] Tests terrain
 - [ ] Autre : ___________
 
 ---
@@ -664,10 +681,10 @@ Si oui :
 ```
 
 **Phases disponibles :**
-- v0.1 - Clean Base
-- v0.2 - Isolation & Habillage
-- v0.3 - Systèmes
-- v0.4 - Aménagement modulaire
+- **v0.1 - Clean Base** (Nettoyage, réparations, admin)
+- **v0.2 - Isolation & Habillage** (Structure sol 6 tasseaux + 2 gaines, isolation K-FLEX ST 19mm, habillage)
+- **v0.3 - Systèmes** (Chauffage diesel + plancher chauffant, Power Station + réseau 4 gaines, eau bidons)
+- **v0.4 - Aménagement modulaire** (Banquette/lit forme L, kitchenette amovible, rangements, modularité)
 
 ---
 
