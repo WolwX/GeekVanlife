@@ -1,6 +1,6 @@
 # 🍴✖️ FORKX - RÉSUMÉ DU PROJET (KERNEL : GeekVanlife)
 
-**Dernière mise à jour :** 19 novembre 2025  
+**Dernière mise à jour :** 14 décembre 2025  
 **Classification :** Projet du Kernel GeekVanlife
 
 ---
@@ -163,94 +163,63 @@ Aménagement **modulaire et réversible** permettant de passer facilement entre 
 ### Approche Software Development
 Le projet ForkX suit une **méthodologie de développement logiciel avec versioning incrémental** (v0.1 → v1.0). Chaque version = objectif clair, livrable validable, tests réels terrain, puis passage à la version suivante.
 
-### Roadmap complète (Nov 2025 → Nov 2026)
+### Roadmap complète (Nov 2025 → Avril 2026)
 
-**✅ v0.1 - CLEAN BASE (Novembre 2025) - EN COURS**
-- État des lieux complet véhicule ✅
-- Nettoyage intérieur/extérieur ✅ (9/11/2025)
-- Réparations essentielles : rétroviseurs ✅ (9/11), antenne Aileron Requin ✅ (13/11)
-- Documentation vidéo et photographique ✅
-- Reste à faire : enjoliveurs, tapis, révision mécanique, retrait logos
-- **Budget :** ~8 045 €
-- **Date fin prévue :** Fin novembre 2025
+**✅ v0.1 - CLEAN BASE (Novembre 2025) - TERMINÉ 100%**
+- ✅ Débosselage galerie avant gauche (ventouses 5€)
+- ✅ Nettoyage karcher cargo complet (29 nov 2025)
+- Réparations esthétiques reportées (rétroviseurs, antenne, enjoliveurs)
+- Administratif en cours (carte grise, plaques)
+- **Budget dépensé :** 70€
+- **Date fin :** 30 novembre 2025
 
-**🔜 v0.2 - OUVRANTS & STRUCTURE (Décembre 2025)**
-- Installation Lanterneau Fiamma Vent 40 (40×40 cm)
-- Installation aérations complémentaires
-- Tests étanchéité complets
-- Traitement anti-corrosion
-- **Budget :** ~350 €
+**🚧 v0.2 - ISOLATION & HABILLAGE (Novembre-Décembre 2025) - EN COURS 60%**
+- **Structure sol (60%) :**
+  - ✅ Conception 6 tasseaux optimisés + 2 gaines sous-plancher
+  - ✅ Achats matériaux (tasseaux 16€ + colle 6€ + karcher 65€)
+  - ✅ Découpe 4 tasseaux et repérages
+  - ⏳ Reste : collage tasseaux + pose gaines + repose plancher
+- **Isolation (à venir) :**
+  - Isolation K-FLEX ST 19mm (toit, parois, portes)
+  - Habillage murs et toit (contreplaqué ou lambris)
+- **Budget estimé :** 500-800€
+- **Budget dépensé :** 86€
+- **Date fin prévue :** Décembre 2025
 
-**🏗️ v0.3 - ISOLATION & HABILLAGE (Janvier 2026)**
-- Isolation Kaiflex/Armaflex 10mm + 19mm
-- Habillage intérieur propre
-- Conservation plancher existant (économie ~200 €)
-- Conservation paroi séparation (économie ~75 €)
-- **Budget :** ~480 €
+**📋 v0.3 - SYSTÈMES (Janvier-Février 2026) - PLANIFIÉ**
+- **Chauffage :**
+  - Chauffage diesel Mudiro 8KW (~700-1 200€)
+  - Plancher chauffant électrique 1,5m² (~200-400€)
+- **Électricité :**
+  - Power Station 300-500Wh (~200-350€)
+  - Réseau 4 gaines + éclairage LED + prises USB (~85-160€)
+- **Eau :**
+  - Bidons amovibles 2x10L eau propre (0€ stock)
+  - Bidon 20L eau grise (0€ stock)
+  - Évier + robinetterie (~75-150€)
+- **Budget estimé :** 1 500-2 500€
 
-**⚡ v0.4 - RÉSEAUX TECHNIQUES (Février 2026)**
-- Électricité 12V (batterie auxiliaire, éclairage LED, prises)
-- Eau (circuit propre + grises, jerrycans 20L)
-- Gaz (réchaud cartouche vissable)
-- Tests fonctionnels complets
-- **Budget :** ~400-780 €
+**📋 v0.4 - AMÉNAGEMENT MODULAIRE (Mars-Avril 2026) - PLANIFIÉ (20% conception)**
+- **Banquette/Lit :** Convertible forme en L (~300-500€)
+- **Kitchenette :** Compacte amovible (~250-450€)
+- **Rangements :** Optimisés et modulaires (~150-300€)
+- **Modularité :** Système fixation rapide cargo ↔ aménagé (~50-100€)
+- **Budget estimé :** 800-1 500€
+- **Conception avancée :** Systèmes eau & électricité déjà conçus (28 nov 2025)
 
-**🪑 v0.5 - MEUBLES & AMÉNAGEMENT (Mars 2026)**
-- Lit-peigne modulable (2 sections, 2m total)
-- Meuble cuisine complet (évier, réchaud, rangements)
-- Meuble tête de lit + meuble haut
-- Meubles portes arrière (×2)
-- **Budget :** ~650-750 €
-
-**🎨 v0.6 - DÉCORATION & PREMIERS TESTS NATURE (Avril 2026)**
-- Décoration intérieure personnalisée
-- Personnalisation extérieure discrète
-- **🏕️ PREMIERS TESTS TERRAIN RÉELS** (bivouacs weekends Pyrénées/Cerdagne)
-- Retours d'expérience usage nature
-- **Budget :** ~225-300 €
-
-**🔧 v0.7 - AJUSTEMENTS POST-TESTS (Mai 2026)**
-- Corrections problèmes identifiés
-- Ajustements ergonomie et confort
-- Optimisations rangements
-- **Budget :** ~150 €
-
-**💼 v0.8 - VALIDATION USAGE PROFESSIONNEL (Mai-Juin 2026)**
-- Tests semaine complète travail Cerdagne (5-7 jours)
-- Validation autonomie professionnelle
-- Confirmation confort sur durée
-- **Budget :** ~75 €
-
-**🚿 v0.9 - INSTALLATION DOUCHE (Juin-Juillet 2026)**
-- Système douche extérieure fonctionnel
-- Autonomie hygiène complète
-- Confort été optimisé
-- **Budget :** ~230-300 €
-
-**☀️ v0.9.5 - PRÉPARATIONS ÉTÉ/HIVER (Juillet-Octobre 2026)**
-- **Été :** Moustiquaires, ventilation, glacière, auvent
-- **Hiver :** Isolation complémentaire, protection antigel, chauffage diesel (optionnel)
-- **Budget :** ~525-1 150 € (selon option chauffage)
-
-**🎉 v1.0 - FORKX COMPLET & VALIDÉ (Novembre 2026)**
-- **Projet achevé - 1 an après acquisition**
-- Documentation finale complète
-- Retour d'expérience global (REX)
-- Validation 4 saisons et tous usages
-- **Budget total projet :** ~11 280-11 830 €
-
-### Budget global projet
+### Budget global projet (v0.1 → v0.4)
 ```
-Acquisition & Admin        :  7 660 € (68%)
-Structure & Isolation      :  1 160 € (10%)
-Réseaux & Équipements      :  1 000 €  (9%)
-Meubles & Aménagement      :    750 €  (7%)
-Finitions & Optimisations  :    710 €  (6%)
+Acquisition & Admin        :  7 315 € (69%)
+v0.1 Clean Base            :    156 € ( 1%)
+v0.2 Isolation & Habillage :    800 € ( 8%)
+v0.3 Systèmes              :  2 500 € (24%)
+v0.4 Aménagement modulaire :  1 500 € (14%)
 ──────────────────────────────────────
-TOTAL                      : 11 280 €
-(ou 11 830 € avec chauffage diesel optionnel)
+TOTAL ESTIMÉ v0.1-v0.4     : 12 271 €
 
-Économies réalisées        :   -675 €
+Économies déjà réalisées   : ~1 060-1 430€
+(débosselage DIY, bidons stock, Power Station vs système fixe,
+conservation plancher, cadeaux famille)
 ```
 
 ### Principes d'aménagement
@@ -373,27 +342,35 @@ Le ForkX servira de :
 - **18h00-19h00 :** Pause à Nîmes - Visite petite sœur
 - **~20h00 :** Arrivée finale dans le 66
 
-### Phase v0.1 - Clean Base (Nov 2025) EN COURS
-- **02/11** : État des lieux détaillé complet ✅
-- **09/11** : Nettoyage intérieur/extérieur complet ✅
-- **09/11** : Réparation rétroviseurs gauche/droit ✅
-- **13/11** : Installation antenne Aileron Requin ✅ (résultats mitigés)
-- Identification des réparations nécessaires ✅
-- Documents administratifs finalisés ✅
-- **Reste à faire :** Enjoliveurs, tapis personnalisés Kovvar, révision mécanique, retrait logos "DT Energie"
+### Phase v0.1 - Clean Base (Nov 2025) ✅ TERMINÉ 100%
+- **28 nov** : Débosselage galerie avant gauche (ventouses 5€) ✅
+- **29 nov** : Nettoyage karcher cargo complet ✅
+- Réparations esthétiques reportées (rétroviseurs, antenne, enjoliveurs)
+- Documents administratifs en cours
+- **Budget dépensé :** 70€
 
-### Phase v0.2 - Ouvrants & Structure (Déc 2025) À VENIR
-- Installation lanterneau Fiamma Vent 40
-- Installation aérations complémentaires
-- Tests étanchéité et traitement anti-corrosion
+### Phase v0.2 - Isolation & Habillage (Nov-Déc 2025) 🚧 EN COURS 60%
+- **28-30 nov** : Conception structure sol (6 tasseaux + 2 gaines) ✅
+- **28-30 nov** : Achats matériaux (86€) ✅
+- **28-30 nov** : Découpe 4 tasseaux + repérages ✅
+- **Reste :** Collage tasseaux, pose gaines, repose plancher
+- **À venir :** Isolation K-FLEX ST 19mm + habillage
+- **Budget estimé :** 500-800€ (86€ dépensés)
 
-### Phase v0.3+ - Suite du projet (2026)
-- Isolation & habillage (Jan 2026)
-- Réseaux techniques (Fév 2026)
-- Meubles & aménagement (Mar 2026)
-- Tests nature + validation usage pro (Avr-Juin 2026)
-- Douche + optimisations saisonnières (Juin-Oct 2026)
-- **v1.0 Release finale (Nov 2026)** 🎉
+### Phase v0.3 - Systèmes (Jan-Fév 2026) 📋 PLANIFIÉ
+- **28 nov** : Conception systèmes eau & électricité ✅
+- Installation chauffage diesel + plancher chauffant
+- Installation Power Station + réseau électrique 4 gaines
+- Installation système eau bidons amovibles
+- **Budget estimé :** 1 500-2 500€
+
+### Phase v0.4 - Aménagement modulaire (Mar-Avr 2026) 📋 PLANIFIÉ 20%
+- **28 nov** : Conception systèmes eau & électricité (20%) ✅
+- Construction banquette/lit convertible forme en L
+- Construction kitchenette compacte amovible
+- Installation rangements optimisés
+- Système modularité cargo ↔ aménagé
+- **Budget estimé :** 800-1 500€
 
 ---
 
@@ -447,26 +424,31 @@ Le ForkX servira de :
 
 ---
 
-## 🎬 VISION LONG TERME
+## 🎬 VISION COURT/MOYEN TERME
 
-### Objectifs 6 mois (Mai 2026)
-- Phases v0.2 à v0.5 complétées (ouvrants, isolation, réseaux, meubles)
-- Système modulaire opérationnel
-- Premiers tests nature validés (v0.6)
-- Usage quotidien maîtrisé
+### Objectifs court terme (Décembre 2025)
+- Finalisation structure sol v0.2 (collage + gaines + plancher)
+- Début isolation K-FLEX ST 19mm
+- Progression v0.2 : 60% → 100%
 
-### Objectifs 1 an (Novembre 2026)
-- **v1.0 Release finale** : ForkX complet et validé 🎉
-- Configuration optimale trouvée et testée 4 saisons
-- Usage professionnel validé (semaines Cerdagne)
-- Documentation complète pour partage communauté
-- Retours d'expérience documentés
-- Budget respecté (~11 280-11 830 €)
+### Objectifs moyen terme (Avril 2026)
+- **v0.2** : Isolation & habillage terminés (Déc 2025)
+- **v0.3** : Systèmes opérationnels (Jan-Fév 2026)
+  - Chauffage diesel fonctionnel
+  - Power Station + réseau électrique installé
+  - Système eau bidons intégré
+- **v0.4** : Aménagement modulaire complet (Mar-Avr 2026)
+  - Banquette/lit convertible
+  - Kitchenette fonctionnelle
+  - Système modularité cargo ↔ aménagé validé
+- **Budget total :** ~12 271€ (acquisition + 4 phases)
 
-### Évolution possible
+### Évolution future possible
+- Tests terrain réels (nature + usage professionnel)
+- Installation douche extérieure (optionnel)
 - Ajout attelage si besoin remorque
-- Optimisations basées sur usage réel
-- Upgrades équipements si pertinent
+- Optimisations basées sur retours d'expérience
+- Upgrades saisonniers (été/hiver)
 - Partage tutoriels communauté vanlife
 
 ---
