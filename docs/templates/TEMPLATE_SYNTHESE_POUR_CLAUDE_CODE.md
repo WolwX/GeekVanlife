@@ -399,17 +399,48 @@ Si oui :
 
 ### 🚙 DASHBOARD FORKX
 
-**Fichier :** `ForkX/dashboard.html`
+**⚠️ IMPORTANT : Modifier `src/projects-data.json` uniquement !**
 
-#### 🏷️ Version & Date
-- **Version actuelle :** [vX.X] → **[vX.X]** (nouveau)
-- **Dernière mise à jour :** [Date] → **[Date]** (nouveau)
+**Fichiers concernés :**
+- `src/projects-data.json` ← **MODIFIER CE FICHIER** (source de vérité)
+- `ForkX/dashboard.html` ← Ne PAS modifier (charge depuis JSON)
 
-#### 💰 Budget (PRIORITAIRE)
-- **Budget restant :** [XX€] → [XX€] (nouveau)
-- **Budget dépensé :** [XX€] → [XX€] (nouveau)
-- **Budget total projet :** [XX€]
-- **Raison changement :** [Explication]
+#### 📝 Modifications dans `src/projects-data.json`
+
+**Section `ForkX` à modifier :**
+
+```json
+{
+  "projects": {
+    "ForkX": {
+      "version": "[vX.X]",                    ← Modifier ici
+      "lastUpdate": "[JJ mois AAAA]",        ← Modifier ici
+      "progress": {
+        "v01": [XX],                         ← % v0.1 (0-100)
+        "total": [XX]                        ← % global (0-100)
+      },
+      "budget": {
+        "spent": [XXXX]                      ← Budget dépensé
+      },
+      "news": [
+        {
+          "date": "[JJ mois AAAA]",          ← Ajouter nouvelle news ICI
+          "icon": "🏗️",
+          "text": "[Description]"
+        }
+      ]
+    }
+  }
+}
+```
+
+**Valeurs à mettre à jour :**
+- **version :** [ancienne] → [nouvelle] (ex: "v0.1" → "v0.2 (60%)")
+- **lastUpdate :** [ancienne date] → [nouvelle date]
+- **progress.v01 :** [ancien %] → [nouveau %]
+- **progress.total :** [ancien %] → [nouveau %]
+- **budget.spent :** [ancien montant] → [nouveau montant]
+- **news :** Ajouter nouvelle entrée en PREMIER dans le tableau
 
 #### 📰 Dernières News
 **Ajouter nouvelle(s) news :** [Oui/Non]

@@ -10,15 +10,15 @@
         "secondary": "#e74c3c",
         "gradient": "linear-gradient(135deg, #c0392b 0%, #e74c3c 100%)"
       },
-      "version": "v0.1",
-      "lastUpdate": "17 novembre 2025",
+      "version": "v0.2 (60%)",
+      "lastUpdate": "30 novembre 2025",
       "status": "EN COURS",
       "progress": {
-        "v01": 81,
-        "total": 9
+        "v01": 100,
+        "total": 20
       },
       "budget": {
-        "spent": 7418,
+        "spent": 7497,
         "v01Total": 8182,
         "projectTotal": 11427
       },
@@ -38,6 +38,11 @@
         "budgetRemaining": "4 009€"
       },
       "news": [
+        {
+          "date": "28-30 novembre 2025",
+          "icon": "🏗️",
+          "text": "Débosselage galerie (5€). Achats matériaux (91€). Structure sol 60% : 6 tasseaux optimisés + 2 gaines sous-plancher. Nettoyage cargo karcher. Conception systèmes eau (bidons 0€) & électricité (Power Station). v0.1 terminée ✅ v0.2 en cours 60%"
+        },
         {
           "date": "17 novembre 2025",
           "icon": "🏗️",
