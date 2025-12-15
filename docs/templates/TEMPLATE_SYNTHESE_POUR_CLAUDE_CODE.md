@@ -5,6 +5,107 @@
 
 ---
 
+## 📛 RÈGLES DE NAMING ET STRUCTURE
+
+### 🏷️ Format de nom de fichier
+
+**Standard :** `SYNTHESE_[NOMPROJET]_[DATE].md`
+
+**Exemples :**
+- `SYNTHESE_FORKX_14DEC2025.md`
+- `SYNTHESE_GEEKAGNE_22NOV2025.md`
+- `SYNTHESE_GEEKOMOBILE_30NOV2025.md`
+
+### 📦 Fichiers volumineux (si > 8000 lignes ou > 150 Ko)
+
+**Splitter en parties :** `SYNTHESE_[NOMPROJET]_[DATE]_PARTIE_[N].md`
+
+**Exemples :**
+- `SYNTHESE_FORKX_14DEC2025_PARTIE_1.md`
+- `SYNTHESE_FORKX_14DEC2025_PARTIE_2.md`
+- `SYNTHESE_FORKX_14DEC2025_PARTIE_3.md`
+
+**Consignes :**
+- Partie 1 : Métadonnées + Résumé + Décisions
+- Partie 2 : Fichiers à modifier + Dashboards
+- Partie 3 : TODOs + Export JSON + CHANGELOG
+
+### 📅 Principe de granularité
+
+**PRIORISER : Une synthèse = Un jour de conversation**
+
+✅ **Recommandé :**
+- `SYNTHESE_FORKX_14DEC2025.md` (conversation du 14 décembre)
+- `SYNTHESE_FORKX_15DEC2025.md` (conversation du 15 décembre)
+
+⚠️ **Éviter (sauf cas exceptionnel) :**
+- `SYNTHESE_FORKX_14DEC2025_AU_20DEC2025.md` (période trop longue)
+
+**Exceptions autorisées :**
+- Weekends intensifs : `SYNTHESE_GEEKAGNE_22-23NOV2025.md`
+- Séries de conversations courtes liées : `SYNTHESE_FORKX_14-15DEC2025.md`
+
+### 📝 Fichiers de complément
+
+**Format :** `SYNTHESE_[NOMPROJET]_[DATE]_COMPLEMENT_[SUJET].md`
+
+**Exemples :**
+- `SYNTHESE_FORKX_14DEC2025_COMPLEMENT_BUDGET.md`
+- `SYNTHESE_GEEKAGNE_22NOV2025_COMPLEMENT_CORRECTIONS.md`
+
+**Usage :**
+- Ajout d'informations oubliées
+- Corrections après application
+- Précisions techniques
+
+### 📍 Emplacement des fichiers
+
+**Structure des dossiers :**
+```
+docs/syntheses/
+├── forkx/
+│   ├── SYNTHESE_FORKX_14DEC2025.md
+│   ├── SYNTHESE_FORKX_14DEC2025_PARTIE_1.md
+│   └── SYNTHESE_FORKX_14DEC2025_PARTIE_2.md
+├── geekagne/
+│   └── SYNTHESE_GEEKAGNE_22NOV2025.md
+└── geekomobile/
+    └── SYNTHESE_GEEKOMOBILE_30NOV2025.md
+```
+
+### 🔄 Instructions pour Claude Code
+
+**⚠️ IMPORTANT : Renommage automatique**
+
+Quand vous recevez un fichier de synthèse avec un nom non conforme :
+
+✅ **À FAIRE AUTOMATIQUEMENT :**
+1. Vérifier le nom du fichier reçu
+2. Si non conforme, **renommer via git mv** avant de commiter
+3. Appliquer les règles de naming ci-dessus
+
+**Exemples de renommage :**
+```bash
+# Non conforme → Conforme
+synthese_forkx_15nov_14dec_2025_part1.md
+  → SYNTHESE_FORKX_15NOV_14DEC_2025_PARTIE_1.md
+
+FORKX_SYNTHESE_28-30_NOV_2025.md
+  → SYNTHESE_FORKX_28-30NOV2025.md
+
+synthese_ForkX_14DEC2025.md
+  → SYNTHESE_FORKX_14DEC2025.md
+```
+
+**Règles de normalisation :**
+- **Tout en MAJUSCULES** : `SYNTHESE_` pas `synthese_`
+- Projet en MAJUSCULES : `FORKX` pas `forkx` ou `ForkX`
+- Date en MAJUSCULES sans espaces : `14DEC2025` pas `14 dec 2025`
+- Parties : `PARTIE_1` pas `part1` ou `partie1`
+- Traits d'union uniquement pour périodes : `22-23NOV2025`
+
+---
+
 ## 📝 INSTRUCTIONS POUR CLAUDE CLASSIQUE
 
 **Demande à faire en fin de conversation :**
