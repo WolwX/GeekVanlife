@@ -11,14 +11,17 @@
         "gradient": "linear-gradient(135deg, #c0392b 0%, #e74c3c 100%)"
       },
       "version": "v0.2 (60%)",
-      "lastUpdate": "30 novembre 2025",
+      "lastUpdate": "14 décembre 2025",
       "status": "EN COURS",
       "progress": {
         "v01": 100,
-        "total": 20
+        "v02": 60,
+        "v03": 15,
+        "v04": 5,
+        "total": 30
       },
       "budget": {
-        "spent": 7497,
+        "spent": 7509,
         "v01Total": 8182,
         "projectTotal": 11427
       },
@@ -38,6 +41,36 @@
         "budgetRemaining": "4 009€"
       },
       "news": [
+        {
+          "date": "14 décembre 2025",
+          "icon": "⚡",
+          "text": "v0.3 (15%) : Réseau 3 circuits 8 AWG validé - Gaines ICTA 25m achetées (11,90€) - Test câble OK - Power Station 300-500Wh planifiée"
+        },
+        {
+          "date": "10 décembre 2025",
+          "icon": "📹",
+          "text": "v0.3 : 4 caméras pinhole <40mm invisibles planifiées (discrétion absolue vs Geekomobile)"
+        },
+        {
+          "date": "7 décembre 2025",
+          "icon": "🛏️",
+          "text": "v0.4 (5%) : Innovation lit modulaire 2 matelas - Résout passage roue : empilés (couchage) ou vertical (dossier) - Budget 210-850€"
+        },
+        {
+          "date": "23 novembre 2025",
+          "icon": "💡",
+          "text": "v0.2 : Lanterneau Dometic 70×50cm choisi (441€ Andorre) - Économie 120€ vs France - Standardisation universelle"
+        },
+        {
+          "date": "21 novembre 2025",
+          "icon": "🧊",
+          "text": "v0.2 : K-FLEX ST 19mm acheté (90€) - Économie 100€ vs Armaflex - Isolation unique épaisseur validée"
+        },
+        {
+          "date": "16 novembre 2025",
+          "icon": "✅",
+          "text": "v0.1 achevée 100% - Démontage, nettoyage, mesures, LED, pare-soleil, découverte prise 12V - Budget 50€"
+        },
         {
           "date": "28-30 novembre 2025",
           "icon": "🏗️",
