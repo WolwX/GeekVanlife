@@ -5,6 +5,76 @@
 
 ---
 
+## 📛 RÈGLES DE NAMING ET STRUCTURE
+
+### 🏷️ Format de nom de fichier
+
+**Standard :** `synthese_[nomprojet]_[date].md`
+
+**Exemples :**
+- `synthese_forkx_14dec2025.md`
+- `synthese_geekagne_22nov2025.md`
+- `synthese_geekomobile_30nov2025.md`
+
+### 📦 Fichiers volumineux (si > 8000 lignes ou > 150 Ko)
+
+**Splitter en parties :** `synthese_[nomprojet]_[date]_part[N].md`
+
+**Exemples :**
+- `synthese_forkx_14dec2025_part1.md`
+- `synthese_forkx_14dec2025_part2.md`
+- `synthese_forkx_14dec2025_part3.md`
+
+**Consignes :**
+- Partie 1 : Métadonnées + Résumé + Décisions
+- Partie 2 : Fichiers à modifier + Dashboards
+- Partie 3 : TODOs + Export JSON + CHANGELOG
+
+### 📅 Principe de granularité
+
+**PRIORISER : Une synthèse = Un jour de conversation**
+
+✅ **Recommandé :**
+- `synthese_forkx_14dec2025.md` (conversation du 14 décembre)
+- `synthese_forkx_15dec2025.md` (conversation du 15 décembre)
+
+⚠️ **Éviter (sauf cas exceptionnel) :**
+- `synthese_forkx_14dec2025_au_20dec2025.md` (période trop longue)
+
+**Exceptions autorisées :**
+- Weekends intensifs : `synthese_geekagne_22-23nov2025.md`
+- Séries de conversations courtes liées : `synthese_forkx_14-15dec2025.md`
+
+### 📝 Fichiers de complément
+
+**Format :** `synthese_[nomprojet]_[date]_complement_[sujet].md`
+
+**Exemples :**
+- `synthese_forkx_14dec2025_complement_budget.md`
+- `synthese_geekagne_22nov2025_complement_corrections.md`
+
+**Usage :**
+- Ajout d'informations oubliées
+- Corrections après application
+- Précisions techniques
+
+### 📍 Emplacement des fichiers
+
+**Structure des dossiers :**
+```
+docs/syntheses/
+├── forkx/
+│   ├── synthese_forkx_14dec2025.md
+│   ├── synthese_forkx_14dec2025_part1.md
+│   └── synthese_forkx_14dec2025_part2.md
+├── geekagne/
+│   └── synthese_geekagne_22nov2025.md
+└── geekomobile/
+    └── synthese_geekomobile_30nov2025.md
+```
+
+---
+
 ## 📝 INSTRUCTIONS POUR CLAUDE CLASSIQUE
 
 **Demande à faire en fin de conversation :**
