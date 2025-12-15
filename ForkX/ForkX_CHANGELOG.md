@@ -8,6 +8,92 @@ et ce projet suit un versioning incrémental inspiré du développement logiciel
 
 ---
 
+## [v0.1] - 16 Novembre 2025 - PHASE ACHEVÉE
+
+### Phase v0.1 - Clean Base (100%)
+**Version :** v0.1
+**Type :** Achevée
+
+**Travaux réalisés :**
+- Démontage complet étagères cargo et plancher existant
+- Nettoyage approfondi espace cargo
+- Mesures précises : 123cm plancher, 165cm mi-hauteur, 131cm plafond
+- Découverte prise 12V fonctionnelle arrière gauche cargo
+- Installation LED plafond cargo + LED plafonnier cabine
+- Remplacement clip pare-soleil passager
+- Réparation carrosserie ventouses Lidl (5€)
+- Équipement sécurité complet validé
+
+**Budget dépensé :** ~50€
+**Avancement phase :** 100% ✓
+
+---
+
+## [v0.2] - 21 Nov - 14 Déc 2025 - EN COURS
+
+### Phase v0.2 - Ouvrants & Structure (60%)
+**Version :** v0.2
+**Type :** Progression
+
+**Travaux réalisés :**
+- Conception structure plancher 6 tasseaux espacements différenciés
+- Achat K-FLEX ST 19mm (~90€)
+- Achat gaines ICTA 20mm 25m (11,90€)
+- Pose 2 gaines diagonales sous plancher
+- Test validé : câble 8 AWG passe dans gaine 20mm
+- Choix lanterneau Dometic 70×50cm (441€ Andorre)
+- Conception réseau électrique 3 circuits
+
+**Budget dépensé :** ~193€
+**Avancement phase :** 60%
+
+**Prochaines étapes :**
+- Acheter câble 8 AWG (6m, 37€)
+- Poser contreplaqué plancher
+- Acheter lanterneau Andorre
+
+---
+
+## [v0.3] - 07-14 Déc 2025 - RECONNAISSANCE
+
+### Phase v0.3 - Systèmes (15%)
+**Version :** v0.3
+**Type :** Planification
+
+**Systèmes planifiés :**
+
+**Électricité :**
+- Power Station 300-500Wh
+- 3 circuits : diagonal + latéral + plafond
+- Câbles 8 AWG (50-60A sur 2,5m)
+
+**Eau :**
+- Conteneurs amovibles (2×10L + 1×20L)
+- Système Geekomobile éprouvé
+
+**Surveillance :**
+- 4 caméras pinhole <40mm
+- App Android unique
+
+**Avancement :** 15% (reconnaissance)
+
+---
+
+## [v0.4] - 07 Déc 2025 - CONCEPTION
+
+### Phase v0.4 - Aménagement (5%)
+**Version :** v0.4
+**Type :** Innovation
+
+**Lit modulaire 2 matelas :**
+- Mode couchage : empilés 20-30cm
+- Mode assise : 1 vertical = dossier
+- Budget : 210-850€
+
+**Avancement :** 5% (conception)
+
+---
+
 ## [v0.4] - 28 Novembre 2025 - PLANIFICATION 20%
 
 ### Conception eau
