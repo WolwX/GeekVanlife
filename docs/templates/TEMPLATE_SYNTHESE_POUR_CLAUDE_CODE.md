@@ -73,6 +73,37 @@ docs/syntheses/
     └── synthese_geekomobile_30nov2025.md
 ```
 
+### 🔄 Instructions pour Claude Code
+
+**⚠️ IMPORTANT : Renommage automatique**
+
+Quand vous recevez un fichier de synthèse avec un nom non conforme :
+
+✅ **À FAIRE AUTOMATIQUEMENT :**
+1. Vérifier le nom du fichier reçu
+2. Si non conforme, **renommer via git mv** avant de commiter
+3. Appliquer les règles de naming ci-dessus
+
+**Exemples de renommage :**
+```bash
+# Non conforme → Conforme
+SYNTHESE_FORKX_15NOV_14DEC_2025_PARTIE_1.md
+  → synthese_forkx_15nov_14dec_2025_part1.md
+
+FORKX_SYNTHESE_28-30_NOV_2025.md
+  → synthese_forkx_28-30nov2025.md
+
+synthese_ForkX_14DEC2025.md
+  → synthese_forkx_14dec2025.md
+```
+
+**Règles de normalisation :**
+- Tout en minuscules : `synthese_` pas `SYNTHESE_`
+- Projet en minuscules : `forkx` pas `ForkX` ou `FORKX`
+- Date sans espaces : `14dec2025` pas `14 DEC 2025`
+- Parties : `part1` pas `PARTIE_1` ou `partie1`
+- Traits d'union uniquement pour périodes : `22-23nov2025`
+
 ---
 
 ## 📝 INSTRUCTIONS POUR CLAUDE CLASSIQUE
