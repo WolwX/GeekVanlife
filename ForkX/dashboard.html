@@ -1739,7 +1739,7 @@
         // Calculate derived values
         function updateDashboard() {
             // Update header badges
-            document.getElementById('current-version').textContent = `${dashboardData.currentVersion} • ${dashboardData.progressV01}%`;
+            document.getElementById('current-version').textContent = dashboardData.currentVersion;
             document.getElementById('current-status').textContent = dashboardData.currentStatus;
             document.getElementById('last-update').textContent = `Mis à jour le ${dashboardData.lastUpdate}`;
 
