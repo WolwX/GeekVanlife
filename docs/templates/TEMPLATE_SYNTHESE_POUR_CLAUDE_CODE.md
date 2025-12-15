@@ -9,21 +9,21 @@
 
 ### 🏷️ Format de nom de fichier
 
-**Standard :** `synthese_[nomprojet]_[date].md`
+**Standard :** `SYNTHESE_[NOMPROJET]_[DATE].md`
 
 **Exemples :**
-- `synthese_forkx_14dec2025.md`
-- `synthese_geekagne_22nov2025.md`
-- `synthese_geekomobile_30nov2025.md`
+- `SYNTHESE_FORKX_14DEC2025.md`
+- `SYNTHESE_GEEKAGNE_22NOV2025.md`
+- `SYNTHESE_GEEKOMOBILE_30NOV2025.md`
 
 ### 📦 Fichiers volumineux (si > 8000 lignes ou > 150 Ko)
 
-**Splitter en parties :** `synthese_[nomprojet]_[date]_part[N].md`
+**Splitter en parties :** `SYNTHESE_[NOMPROJET]_[DATE]_PARTIE_[N].md`
 
 **Exemples :**
-- `synthese_forkx_14dec2025_part1.md`
-- `synthese_forkx_14dec2025_part2.md`
-- `synthese_forkx_14dec2025_part3.md`
+- `SYNTHESE_FORKX_14DEC2025_PARTIE_1.md`
+- `SYNTHESE_FORKX_14DEC2025_PARTIE_2.md`
+- `SYNTHESE_FORKX_14DEC2025_PARTIE_3.md`
 
 **Consignes :**
 - Partie 1 : Métadonnées + Résumé + Décisions
@@ -35,23 +35,23 @@
 **PRIORISER : Une synthèse = Un jour de conversation**
 
 ✅ **Recommandé :**
-- `synthese_forkx_14dec2025.md` (conversation du 14 décembre)
-- `synthese_forkx_15dec2025.md` (conversation du 15 décembre)
+- `SYNTHESE_FORKX_14DEC2025.md` (conversation du 14 décembre)
+- `SYNTHESE_FORKX_15DEC2025.md` (conversation du 15 décembre)
 
 ⚠️ **Éviter (sauf cas exceptionnel) :**
-- `synthese_forkx_14dec2025_au_20dec2025.md` (période trop longue)
+- `SYNTHESE_FORKX_14DEC2025_AU_20DEC2025.md` (période trop longue)
 
 **Exceptions autorisées :**
-- Weekends intensifs : `synthese_geekagne_22-23nov2025.md`
-- Séries de conversations courtes liées : `synthese_forkx_14-15dec2025.md`
+- Weekends intensifs : `SYNTHESE_GEEKAGNE_22-23NOV2025.md`
+- Séries de conversations courtes liées : `SYNTHESE_FORKX_14-15DEC2025.md`
 
 ### 📝 Fichiers de complément
 
-**Format :** `synthese_[nomprojet]_[date]_complement_[sujet].md`
+**Format :** `SYNTHESE_[NOMPROJET]_[DATE]_COMPLEMENT_[SUJET].md`
 
 **Exemples :**
-- `synthese_forkx_14dec2025_complement_budget.md`
-- `synthese_geekagne_22nov2025_complement_corrections.md`
+- `SYNTHESE_FORKX_14DEC2025_COMPLEMENT_BUDGET.md`
+- `SYNTHESE_GEEKAGNE_22NOV2025_COMPLEMENT_CORRECTIONS.md`
 
 **Usage :**
 - Ajout d'informations oubliées
@@ -64,13 +64,13 @@
 ```
 docs/syntheses/
 ├── forkx/
-│   ├── synthese_forkx_14dec2025.md
-│   ├── synthese_forkx_14dec2025_part1.md
-│   └── synthese_forkx_14dec2025_part2.md
+│   ├── SYNTHESE_FORKX_14DEC2025.md
+│   ├── SYNTHESE_FORKX_14DEC2025_PARTIE_1.md
+│   └── SYNTHESE_FORKX_14DEC2025_PARTIE_2.md
 ├── geekagne/
-│   └── synthese_geekagne_22nov2025.md
+│   └── SYNTHESE_GEEKAGNE_22NOV2025.md
 └── geekomobile/
-    └── synthese_geekomobile_30nov2025.md
+    └── SYNTHESE_GEEKOMOBILE_30NOV2025.md
 ```
 
 ### 🔄 Instructions pour Claude Code
@@ -87,22 +87,22 @@ Quand vous recevez un fichier de synthèse avec un nom non conforme :
 **Exemples de renommage :**
 ```bash
 # Non conforme → Conforme
-SYNTHESE_FORKX_15NOV_14DEC_2025_PARTIE_1.md
-  → synthese_forkx_15nov_14dec_2025_part1.md
+synthese_forkx_15nov_14dec_2025_part1.md
+  → SYNTHESE_FORKX_15NOV_14DEC_2025_PARTIE_1.md
 
 FORKX_SYNTHESE_28-30_NOV_2025.md
-  → synthese_forkx_28-30nov2025.md
+  → SYNTHESE_FORKX_28-30NOV2025.md
 
 synthese_ForkX_14DEC2025.md
-  → synthese_forkx_14dec2025.md
+  → SYNTHESE_FORKX_14DEC2025.md
 ```
 
 **Règles de normalisation :**
-- Tout en minuscules : `synthese_` pas `SYNTHESE_`
-- Projet en minuscules : `forkx` pas `ForkX` ou `FORKX`
-- Date sans espaces : `14dec2025` pas `14 DEC 2025`
-- Parties : `part1` pas `PARTIE_1` ou `partie1`
-- Traits d'union uniquement pour périodes : `22-23nov2025`
+- **Tout en MAJUSCULES** : `SYNTHESE_` pas `synthese_`
+- Projet en MAJUSCULES : `FORKX` pas `forkx` ou `ForkX`
+- Date en MAJUSCULES sans espaces : `14DEC2025` pas `14 dec 2025`
+- Parties : `PARTIE_1` pas `part1` ou `partie1`
+- Traits d'union uniquement pour périodes : `22-23NOV2025`
 
 ---
 
